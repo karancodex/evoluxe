@@ -8,13 +8,13 @@ const testimonials = [
         name: "Aurelia V.",
         location: "Monaco",
         text: "Evoluxe didn't just design my home; they captured the rhythm of my soul in every piece of marble and beam of light.",
-        image: "/assets/hero.png"
+        image: "/assets/bedroom_luxury.png"
     },
     {
         name: "Maximilian R.",
         location: "Zurich",
         text: "The architectural intelligence displayed in the spatial planning transformed our vision into a ritual of pure elegance.",
-        image: "/assets/hero.png"
+        image: "/assets/dining_luxury.png"
     }
 ];
 
@@ -29,11 +29,11 @@ export default function TestimonialSection() {
                         <motion.img
                             key={index}
                             initial={{ opacity: 0, scale: 1.1 }}
-                            animate={{ opacity: 0.5, scale: 1 }}
+                            animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 1.5 }}
                             src={testimonials[index].image}
-                            className="w-full h-full object-cover grayscale brightness-50"
+                            className="w-full h-full object-cover"
                         />
                     </AnimatePresence>
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-60" />

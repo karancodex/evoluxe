@@ -40,13 +40,13 @@ const Navbar = () => {
     return (
         <>
             <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-[100] transition-all duration-700 ease-[0.76, 0, 0.24, 1] ${isScrolled ? 'w-[calc(100%-4rem)] md:w-auto' : 'w-[calc(100%-4rem)] md:w-[90%]'}`}>
-                <div className={`relative px-12 py-3 backdrop-blur-2xl border border-white/10 flex items-center justify-between transition-all duration-700 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] ${isScrolled ? 'rounded-full' : 'rounded-xl'}`}>
+                <div className={`relative px-12 py-3 backdrop-blur-2xl border flex items-center justify-between transition-all duration-700 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] ${isScrolled ? 'rounded-full' : 'rounded-xl'} ${isScrolled ? 'bg-charcoal/90 border-white/10' : 'bg-charcoal/20 border-white/20'}`}>
                     {/* Background decoration */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-charcoal/40 via-white/5 to-charcoal/40" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-white/5 to-black/20 pointer-events-none" />
 
                     {/* Logo */}
                     <Link href="/" className="relative z-10 group">
-                        <span className="text-gold text-[12px] font-serif uppercase tracking-[0.6em] transition-all duration-500 group-hover:tracking-[0.8em]">
+                        <span className="text-gold text-[12px] font-serif uppercase tracking-[0.6em] transition-all duration-500 group-hover:tracking-[0.8em] font-bold">
                             Evoluxe
                         </span>
                     </Link>
@@ -57,7 +57,7 @@ const Navbar = () => {
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="text-[8px] uppercase tracking-[0.4em] text-white/50 hover:text-gold transition-all font-bold"
+                                className="text-[10px] uppercase tracking-[0.4em] text-white/80 hover:text-gold transition-all font-bold"
                             >
                                 {link.name}
                             </Link>
@@ -68,15 +68,15 @@ const Navbar = () => {
                     <div className="flex items-center gap-10 relative z-10">
                         <div className="hidden lg:flex items-center gap-3">
                             <div className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
-                            <span className="text-[8px] uppercase tracking-widest text-white/40">{time} LONDON</span>
+                            <span className="text-[8px] uppercase tracking-widest text-white/60 font-bold">{time} LONDON</span>
                         </div>
 
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                             className="flex items-center gap-4 group"
                         >
-                            <span className="text-[9px] uppercase tracking-[0.3em] text-gold font-bold">Menu</span>
-                            <div className="relative w-6 h-[2px] bg-gold/30 group-hover:bg-gold transition-all overflow-hidden" />
+                            <span className="text-[10px] uppercase tracking-[0.3em] text-gold font-bold">Menu</span>
+                            <div className="relative w-6 h-[2px] bg-gold/50 group-hover:bg-gold transition-all overflow-hidden" />
                         </button>
                     </div>
                 </div>
@@ -107,10 +107,10 @@ const Navbar = () => {
                                             onClick={() => setIsMenuOpen(false)}
                                             className="group relative inline-block"
                                         >
-                                            <span className="text-5xl md:text-8xl font-serif text-white/20 group-hover:text-gold-soft transition-all duration-700 group-hover:italic group-hover:pl-8">
+                                            <span className="text-4xl md:text-6xl font-serif text-white/20 group-hover:text-gold-soft transition-all duration-700 group-hover:italic group-hover:pl-8">
                                                 {link.name}
                                             </span>
-                                            <span className="absolute left-0 top-1/2 -translate-y-1/2 text-gold text-2xl opacity-0 group-hover:opacity-100 transition-all">0{i + 1}</span>
+                                            <span className="absolute left-0 top-1/2 -translate-y-1/2 text-gold text-xl opacity-0 group-hover:opacity-100 transition-all">0{i + 1}</span>
                                         </Link>
                                     </motion.div>
                                 ))}

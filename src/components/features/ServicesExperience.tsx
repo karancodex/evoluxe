@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 
 const services = [
-    { title: "Residential", category: "Spatial Sanctuary", image: "/assets/hero.png" },
-    { title: "Commercial", category: "Executive Elegance", image: "/assets/hero.png" },
-    { title: "Partnerships", category: "Collaborative Craft", image: "/assets/hero.png" },
-    { title: "Bespoke Styling", category: "The Final Note", image: "/assets/hero.png" },
+    { title: "Residential", category: "Spatial Sanctuary", image: "/assets/residential_luxury.png" },
+    { title: "Commercial", category: "Executive Elegance", image: "/assets/commercial_luxury.png" },
+    { title: "Specialty", category: "Architectural Gems", image: "/assets/office_luxury.png" },
+    { title: "Craftsmanship", category: "The Final Note", image: "/assets/bespoke_details.png" },
 ];
 
 export default function ServicesExperience() {
