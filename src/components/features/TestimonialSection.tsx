@@ -22,9 +22,9 @@ export default function TestimonialSection() {
     const [index, setIndex] = useState(0);
 
     return (
-        <section className="bg-black text-white section-padding overflow-hidden">
+        <section className="bg-white text-charcoal section-padding overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div className="relative aspect-[16/9] overflow-hidden border border-white/5">
+                <div className="relative aspect-[16/9] overflow-hidden border border-charcoal/5 shadow-2xl">
                     <AnimatePresence mode="wait">
                         <motion.img
                             key={index}
@@ -33,14 +33,14 @@ export default function TestimonialSection() {
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 1.5 }}
                             src={testimonials[index].image}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover grayscale-[0.2]"
                         />
                     </AnimatePresence>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-white/20 opacity-60" />
                 </div>
 
                 <div>
-                    <span className="text-gold text-[10px] uppercase tracking-[1em] mb-12 block">Testimonials</span>
+                    <span className="text-gold text-[10px] uppercase tracking-[1em] mb-12 block">Client Reflections</span>
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={index}
@@ -49,31 +49,33 @@ export default function TestimonialSection() {
                             exit={{ opacity: 0, x: -20 }}
                             transition={{ duration: 1 }}
                         >
-                            <h3 className="text-white text-3xl md:text-4xl font-serif italic mb-10 leading-relaxed max-w-xl">
+                            <h3 className="text-charcoal text-3xl md:text-5xl font-serif italic mb-10 leading-relaxed max-w-xl">
                                 "{testimonials[index].text}"
                             </h3>
                             <div className="flex items-center gap-6">
                                 <div className="w-8 h-[1px] bg-gold" />
                                 <div className="flex flex-col">
-                                    <span className="text-gold-soft text-[12px] uppercase tracking-widest">{testimonials[index].name}</span>
-                                    <span className="text-white/20 text-[9px] uppercase tracking-widest">{testimonials[index].location}</span>
+                                    <span className="text-gold text-[12px] uppercase tracking-widest font-bold">{testimonials[index].name}</span>
+                                    <span className="text-charcoal/30 text-[9px] uppercase tracking-widest">{testimonials[index].location}</span>
                                 </div>
                             </div>
                         </motion.div>
                     </AnimatePresence>
 
-                    <div className="mt-12 flex gap-8">
+                    <div className="mt-16 flex gap-12">
                         <button
                             onClick={() => setIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))}
-                            className="text-white/20 hover:text-gold transition-colors text-[10px] uppercase tracking-[0.4em]"
+                            className="text-charcoal/40 hover:text-gold transition-colors text-[10px] uppercase tracking-[0.5em] flex items-center gap-4 group"
                         >
-                            Previous
+                            <div className="w-6 h-[1px] bg-charcoal/10 group-hover:bg-gold transition-colors" />
+                            Prev
                         </button>
                         <button
                             onClick={() => setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))}
-                            className="text-white/20 hover:text-gold transition-colors text-[10px] uppercase tracking-[0.4em]"
+                            className="text-charcoal/40 hover:text-gold transition-colors text-[10px] uppercase tracking-[0.5em] flex items-center gap-4 group"
                         >
                             Next
+                            <div className="w-6 h-[1px] bg-charcoal/10 group-hover:bg-gold transition-colors" />
                         </button>
                     </div>
                 </div>

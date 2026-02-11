@@ -12,7 +12,7 @@ import ConsultationSection from "@/components/features/ConsultationSection";
 
 export default function Home() {
     return (
-        <main className="bg-black">
+        <main className="bg-white">
             <Hero />
             <GenesisSection />
             <ServicesExperience />

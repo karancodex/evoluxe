@@ -38,7 +38,7 @@ export default function ExhibitionPress() {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <section className="bg-[#050505] text-white py-40 overflow-hidden min-h-screen flex flex-col justify-center">
+        <section className="bg-[#faf9f6] text-charcoal py-40 overflow-hidden min-h-screen flex flex-col justify-center">
             <div className="container mx-auto px-6 mb-24 flex items-center justify-between">
                 <div>
                     <motion.span
@@ -48,25 +48,25 @@ export default function ExhibitionPress() {
                     >
                         Accolades
                     </motion.span>
-                    <h2 className="text-4xl md:text-6xl font-serif italic text-white/90">The Editorial <span className="text-gold">Archive.</span></h2>
+                    <h2 className="text-4xl md:text-6xl font-serif italic text-charcoal/90">The Editorial <span className="text-gold">Archive.</span></h2>
                 </div>
-                <div className="hidden lg:block w-32 h-px bg-white/10" />
+                <div className="hidden lg:block w-32 h-px bg-charcoal/10" />
             </div>
 
-            <div className="flex flex-col lg:flex-row h-full border-y border-white/5">
+            <div className="flex flex-col lg:flex-row h-full border-y border-charcoal/10">
                 {/* Side Selector */}
-                <div className="w-full lg:w-1/3 border-r border-white/5 flex flex-col group/menu">
+                <div className="w-full lg:w-1/3 border-r border-charcoal/10 flex flex-col group/menu">
                     {press.map((item, i) => (
                         <button
                             key={i}
                             onMouseEnter={() => setActiveIndex(i)}
-                            className={`relative flex flex-col justify-center px-10 py-16 border-b border-white/5 transition-all duration-700 overflow-hidden ${activeIndex === i ? 'bg-white/[0.03]' : 'bg-transparent'}`}
+                            className={`relative flex flex-col justify-center px-10 py-16 border-b border-charcoal/5 transition-all duration-700 overflow-hidden ${activeIndex === i ? 'bg-white shadow-xl' : 'bg-transparent'}`}
                         >
                             <div className="relative z-10">
-                                <span className={`text-[10px] uppercase tracking-[0.5em] mb-4 block transition-all duration-500 ${activeIndex === i ? 'text-gold translate-x-4' : 'text-white/20'}`}>
+                                <span className={`text-[10px] uppercase tracking-[0.5em] mb-4 block transition-all duration-500 ${activeIndex === i ? 'text-gold translate-x-4' : 'text-charcoal/30'}`}>
                                     {item.outlet}
                                 </span>
-                                <h3 className={`text-2xl md:text-3xl font-serif transition-all duration-700 ${activeIndex === i ? 'text-white translate-x-6' : 'text-white/40'}`}>
+                                <h3 className={`text-2xl md:text-3xl font-serif transition-all duration-700 ${activeIndex === i ? 'text-charcoal translate-x-6' : 'text-charcoal/40'}`}>
                                     {item.title}
                                 </h3>
                             </div>
@@ -74,7 +74,7 @@ export default function ExhibitionPress() {
                             {activeIndex === i && (
                                 <motion.div
                                     layoutId="press-indicator"
-                                    className="absolute inset-y-0 left-0 w-1 bg-gold shadow-[0_0_20px_rgba(197,160,89,0.5)]"
+                                    className="absolute inset-y-0 left-0 w-1 bg-gold shadow-[0_0_20px_rgba(197,160,89,0.3)]"
                                 />
                             )}
                         </button>
@@ -82,14 +82,14 @@ export default function ExhibitionPress() {
                 </div>
 
                 {/* Main Dynamic Stage */}
-                <div className="w-full lg:w-2/3 relative h-[500px] lg:h-auto overflow-hidden bg-black">
+                <div className="w-full lg:w-2/3 relative h-[500px] lg:h-auto overflow-hidden bg-white">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeIndex}
-                            initial={{ opacity: 0, scale: 1.2, x: 50 }}
-                            animate={{ opacity: 0.6, scale: 1, x: 0 }}
-                            exit={{ opacity: 0, scale: 1.1, x: -50 }}
-                            transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1] }}
+                            initial={{ opacity: 0, scale: 1.1, x: 50 }}
+                            animate={{ opacity: 1, scale: 1, x: 0 }}
+                            exit={{ opacity: 0, scale: 1.05, x: -50 }}
+                            transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
                             className="absolute inset-0 z-0"
                         >
                             <img
@@ -100,8 +100,8 @@ export default function ExhibitionPress() {
                         </motion.div>
                     </AnimatePresence>
 
-                    {/* Content Overlay */}
-                    <div className="absolute inset-0 z-10 flex items-center justify-center p-12 lg:p-32">
+                    {/* Content Overlay - Radial gradient for center readability and edge clarity */}
+                    <div className="absolute inset-0 z-10 flex items-center justify-center p-12 lg:p-32 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8)_0%,rgba(255,255,255,0.3)_50%,transparent_100%)]">
                         <div className="max-w-xl text-center">
                             <AnimatePresence mode="wait">
                                 <motion.div
@@ -116,12 +116,12 @@ export default function ExhibitionPress() {
                                         <span className="mx-6 text-gold italic font-serif text-2xl">“</span>
                                         <div className="w-12 h-px bg-gold/50" />
                                     </div>
-                                    <h4 className="text-2xl md:text-4xl font-serif leading-relaxed italic text-white/90 mb-12">
+                                    <h4 className="text-2xl md:text-4xl font-serif leading-relaxed italic text-charcoal mb-12">
                                         {press[activeIndex].quote}
                                     </h4>
                                     <div className="flex flex-col items-center">
                                         <span className="text-gold text-[10px] uppercase tracking-[0.8em] font-bold mb-2">Featured Publication</span>
-                                        <span className="text-white/40 text-[9px] uppercase tracking-widest">{press[activeIndex].year} Edition</span>
+                                        <span className="text-charcoal/40 text-[9px] uppercase tracking-widest">{press[activeIndex].year} Edition</span>
                                     </div>
                                 </motion.div>
                             </AnimatePresence>
@@ -129,8 +129,8 @@ export default function ExhibitionPress() {
                     </div>
 
                     {/* Subtle Parallax Decorative Text */}
-                    <div className="absolute bottom-12 right-12 z-20 pointer-events-none opacity-10">
-                        <span className="text-9xl font-serif text-white italic whitespace-nowrap overflow-hidden">
+                    <div className="absolute bottom-12 right-12 z-20 pointer-events-none opacity-[0.03]">
+                        <span className="text-9xl font-serif text-charcoal italic whitespace-nowrap overflow-hidden">
                             EDITORIAL
                         </span>
                     </div>
@@ -138,7 +138,7 @@ export default function ExhibitionPress() {
             </div>
 
             <div className="mt-20 container mx-auto px-6 text-center">
-                <p className="text-white/20 text-[10px] uppercase tracking-[1em] animate-pulse">
+                <p className="text-charcoal/20 text-[10px] uppercase tracking-[1em] animate-pulse">
                     The Global Synthesis of Luxury.
                 </p>
             </div>

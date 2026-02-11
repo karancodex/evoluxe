@@ -13,24 +13,24 @@ export default function ConsultationSection() {
     };
 
     return (
-        <section className="bg-[#050505] text-white section-padding">
+        <section className="bg-white text-charcoal section-padding">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1.2 }}
                 >
-                    <span className="text-gold text-[10px] uppercase tracking-[0.8em] mb-8 block">Contact Atelier</span>
-                    <h2 className="text-white mb-10 leading-[1.1]">
+                    <span className="text-gold text-[10px] uppercase tracking-[1em] mb-8 block font-bold">Connect with the Atelier</span>
+                    <h2 className="text-charcoal mb-10 leading-[1.1] text-6xl md:text-8xl font-serif">
                         Bespoke <br />
-                        <span className="italic text-gold-soft">Manifesto.</span>
+                        <span className="italic text-gold-soft">Inquiry.</span>
                     </h2>
-                    <p className="text-white/40 text-lg leading-relaxed max-w-sm mb-12">
-                        Share your vision and allow us to curate an environment that evolves with your identity.
+                    <p className="text-charcoal/50 text-xl font-light leading-relaxed max-w-sm mb-12 italic font-serif">
+                        "Your vision is our blueprint. Let us curate an environment that breathes with your soul."
                     </p>
-                    <div className="flex items-center gap-6 opacity-30 text-[9px] uppercase tracking-[0.4em]">
+                    <div className="flex items-center gap-6 text-charcoal/40 text-[9px] uppercase tracking-[0.6em] font-bold">
                         <span>Appointment Only</span>
-                        <div className="w-1 h-1 rounded-full bg-gold" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-gold" />
                         <span>Global Dispatch</span>
                     </div>
                 </motion.div>
@@ -39,28 +39,28 @@ export default function ConsultationSection() {
                     initial={{ opacity: 0, scale: 0.98 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1 }}
-                    className="bg-charcoal/30 backdrop-blur-xl p-10 md:p-16 border border-white/5 relative"
+                    className="bg-charcoal/5 backdrop-blur-3xl p-10 md:p-16 border border-charcoal/5 shadow-2xl relative rounded-[2px]"
                 >
                     {formState === "success" ? (
                         <div className="text-center py-10">
-                            <span className="text-gold text-[10px] uppercase tracking-[1em] block mb-6">Confirmed</span>
-                            <h3 className="text-white text-2xl font-serif italic mb-6">Your Journey Begins Shortly.</h3>
-                            <button onClick={() => setFormState("idle")} className="text-gold text-[10px] uppercase tracking-[0.4em] border-b border-gold/30">New Inquiry</button>
+                            <span className="text-gold text-[10px] uppercase tracking-[1em] block mb-6 font-black">Confirmed</span>
+                            <h3 className="text-charcoal text-4xl font-serif italic mb-8">Your Journey Begins Shortly.</h3>
+                            <button onClick={() => setFormState("idle")} className="text-gold text-[10px] uppercase tracking-[0.6em] font-bold border-b border-gold pb-1">New Inquiry</button>
                         </div>
                     ) : (
-                        <form onSubmit={handleSubmit} className="space-y-10">
-                            <div className="flex flex-col gap-4 border-b border-white/10 pb-6 focus-within:border-gold transition-all">
-                                <label className="text-gold text-[8px] uppercase tracking-[0.5em] opacity-60">Identity</label>
-                                <input type="text" placeholder="NAME" className="bg-transparent border-none text-white text-xl font-serif outline-none placeholder:text-white/5" required />
+                        <form onSubmit={handleSubmit} className="space-y-12">
+                            <div className="flex flex-col gap-4 border-b border-charcoal/10 pb-6 focus-within:border-gold transition-all">
+                                <label className="text-gold text-[10px] uppercase tracking-[0.5em] font-bold">Identity</label>
+                                <input type="text" placeholder="NAME" className="bg-transparent border-none text-charcoal text-2xl font-serif outline-none placeholder:text-charcoal/5" required />
                             </div>
-                            <div className="flex flex-col gap-4 border-b border-white/10 pb-6 focus-within:border-gold transition-all">
-                                <label className="text-gold text-[8px] uppercase tracking-[0.5em] opacity-60">Communication</label>
-                                <input type="email" placeholder="EMAIL" className="bg-transparent border-none text-white text-xl font-serif outline-none placeholder:text-white/5" required />
+                            <div className="flex flex-col gap-4 border-b border-charcoal/10 pb-6 focus-within:border-gold transition-all">
+                                <label className="text-gold text-[10px] uppercase tracking-[0.5em] font-bold">Communication</label>
+                                <input type="email" placeholder="EMAIL" className="bg-transparent border-none text-charcoal text-2xl font-serif outline-none placeholder:text-charcoal/5" required />
                             </div>
                             <button
                                 type="submit"
                                 disabled={formState === "submitting"}
-                                className="w-full py-8 bg-gold text-black text-[10px] uppercase tracking-[0.8em] font-bold hover:bg-white transition-all duration-700"
+                                className="w-full py-10 bg-charcoal text-white text-[11px] uppercase tracking-[1em] font-bold hover:bg-gold transition-all duration-700"
                             >
                                 {formState === "submitting" ? "Processing..." : "Dispatch Briefing"}
                             </button>

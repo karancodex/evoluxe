@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const materials = [
     { title: "Calacatta Viola", desc: "Rare Italian marble with signature violet veining.", image: "/assets/portfolio_paris.png" },
@@ -12,138 +12,130 @@ const materials = [
 
 export default function MaterialityCraft() {
     return (
-        <section className="bg-[#fcfcfc] text-charcoal py-40 overflow-hidden">
-            <div className="container mx-auto px-6">
-                <div className="flex flex-col lg:flex-row items-end justify-between mb-32 gap-12">
-                    <div className="max-w-xl">
-                        <span className="text-gold text-[10px] uppercase tracking-[0.8em] font-bold mb-8 block">The Atelier</span>
-                        <h2 className="text-5xl md:text-7xl font-serif leading-none tracking-tighter">
+        <section className="bg-white text-charcoal py-40 overflow-hidden relative">
+            {/* Background Decorative Rings (Image 1 style) */}
+            <div className="absolute top-1/4 left-0 w-96 h-96 opacity-[0.03] pointer-events-none">
+                <div className="absolute inset-0 border-[2px] border-charcoal rounded-full -ml-32" />
+                <div className="absolute inset-0 border-[1px] border-charcoal/20 rounded-full scale-125 -ml-32" />
+            </div>
+
+            <div className="container mx-auto px-6 relative z-10">
+                {/* Header (Inspired by Image 3) */}
+                <div className="flex flex-col lg:flex-row items-baseline justify-between mb-40 gap-12">
+                    <div className="max-w-2xl">
+                        <span className="text-gold text-[10px] uppercase tracking-[1em] font-black mb-8 block">Atelier Excellence</span>
+                        <h2 className="text-6xl md:text-[8vw] font-serif leading-[0.85] tracking-tighter">
                             The Soul of <br />
-                            <span className="italic">Materiality.</span>
+                            <span className="italic text-gold-soft">Materiality.</span>
                         </h2>
                     </div>
-                    <p className="text-[#4a4a4a] text-[10px] uppercase tracking-[0.4em] font-bold max-w-[280px] leading-loose text-right">
-                        We source the earth's rarest elements to craft environments that transcend the visual and touch the tactile.
-                    </p>
+                    <div className="max-w-sm lg:text-right">
+                        <p className="text-charcoal/40 text-sm md:text-base font-medium uppercase tracking-[0.3em] leading-relaxed">
+                            Creating style and elegance through the earth's rarest tactile elements.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {/* Materials Grid (Image 0 & 1 Style) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-40">
                     {materials.map((mat, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: i * 0.1, duration: 1 }}
-                            className="group relative aspect-[3/4] overflow-hidden bg-ivory"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, delay: i * 0.1 }}
+                            className="bg-[#faf9f6]/80 p-6 md:p-8 rounded-[4rem] rounded-tr-[10rem] border border-charcoal/5 flex flex-col xl:flex-row gap-10 items-center group"
                         >
-                            <img
-                                src={mat.image}
-                                alt={mat.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 p-8 flex flex-col justify-end">
-                                <h3 className="text-white text-xl font-serif mb-2">{mat.title}</h3>
-                                <p className="text-gold text-[8px] uppercase tracking-widest leading-relaxed">
-                                    {mat.desc}
+                            <div className="w-full xl:w-1/2 aspect-square rounded-[3.5rem] rounded-tr-[9rem] overflow-hidden shadow-2xl relative">
+                                <img
+                                    src={mat.image}
+                                    alt={mat.title}
+                                    className="w-full h-full object-cover grayscale-[0.2] transition-all duration-1000 group-hover:scale-105 group-hover:grayscale-0"
+                                />
+                                <div className="absolute inset-0 bg-black/10 group-hover:opacity-0 transition-opacity duration-700" />
+                            </div>
+                            <div className="w-full xl:w-1/2 space-y-6">
+                                <div>
+                                    <span className="text-gold text-[8px] uppercase tracking-widest font-bold mb-2 block">Special Edition</span>
+                                    <h3 className="text-4xl font-serif text-charcoal tracking-tight">{mat.title}</h3>
+                                </div>
+                                <p className="text-charcoal/60 text-lg font-light italic font-serif italic py-4 border-l border-gold/20 pl-6">
+                                    "{mat.desc}"
                                 </p>
+                                <button className="bg-white px-10 py-5 rounded-full shadow-lg text-[10px] uppercase tracking-widest font-black text-charcoal hover:bg-gold hover:text-white transition-all duration-500">
+                                    Read more
+                                </button>
                             </div>
                         </motion.div>
                     ))}
                 </div>
-            </div>
 
-            {/* Immersive Fixed Background Stats Section */}
-            <div className="relative mt-40 h-[85vh] flex items-center justify-center overflow-hidden">
-                {/* Fixed Background Layer */}
-                <div
-                    className="absolute inset-0 bg-no-repeat bg-cover bg-center z-0"
-                    style={{
-                        backgroundImage: "url('/assets/materials_premium.png')",
-                        backgroundAttachment: "fixed"
-                    }}
-                />
+                {/* Featured Stat Banner (Inspired by Image 2 & 3) */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    className="relative rounded-[3rem] md:rounded-[5rem] overflow-hidden shadow-2xl bg-charcoal min-h-[600px] md:h-[70vh] flex flex-col md:flex-row"
+                >
+                    {/* Image Side */}
+                    <div className="w-full md:w-[45%] h-64 md:h-full relative overflow-hidden">
+                        <img
+                            src="/assets/materials_premium.png"
+                            alt="Premium Materials"
+                            className="w-full h-full object-cover scale-110"
+                        />
+                        <div className="absolute inset-0 bg-charcoal/30 mix-blend-multiply" />
 
-                {/* Refined Cinematic Overlays for Readability */}
-                <div className="absolute inset-0 bg-black/30 z-[1]" />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-[1]" />
-                <div className="absolute inset-0 backdrop-blur-[0.5px] z-[1]" />
-
-                <div className="container mx-auto px-6 relative z-10 w-full">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-24 md:gap-12">
-                        <StatItem value={40} suffix="+" label="Global Quarries" />
-                        <StatItem value={11} suffix="" label="Master Artisans" />
-                        <StatItem value={7} suffix="k" label="Bespoke Textures" />
+                        {/* Cutout Corner Effect (Image 2 style) */}
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-bl-[5rem] hidden md:block" />
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8, duration: 1 }}
-                        className="mt-24 flex justify-center"
-                    >
-                        <button className="group relative px-20 py-7 overflow-hidden bg-white/5 backdrop-blur-md border border-white/20 transition-all hover:border-gold">
-                            <div className="absolute inset-0 bg-white transition-all duration-700 translate-y-full group-hover:translate-y-0" />
-                            <span className="relative z-10 text-white group-hover:text-black text-[11px] uppercase tracking-[0.6em] font-black italic">
-                                Request Material Lookbook
-                            </span>
-                        </button>
-                    </motion.div>
-                </div>
+                    {/* Content Side with Stats */}
+                    <div className="w-full md:w-[55%] bg-white p-8 md:p-16 lg:p-20 flex flex-col justify-center relative">
+                        {/* Decorative Circles (Image 3 style) */}
+                        <div className="absolute top-10 right-10 flex gap-2">
+                            <div className="w-3 h-3 rounded-full bg-ivory border border-charcoal/10" />
+                            <div className="w-3 h-3 rounded-full bg-gold/50" />
+                            <div className="w-3 h-3 rounded-full bg-charcoal/20" />
+                        </div>
+
+                        <span className="text-gold text-[10px] uppercase tracking-[1em] font-black mb-6 block">Global Reach</span>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-charcoal tracking-tighter mb-8 italic">
+                            Curating The <span className="italic text-gold">Masterpieces.</span>
+                        </h2>
+
+                        <div className="grid grid-cols-3 gap-4 md:gap-8 border-y border-charcoal/5 py-8 md:py-12 mb-8 md:mb-12">
+                            <StatItem value={40} suffix="+" label="Quarries" />
+                            <StatItem value={11} suffix="" label="Artisans" />
+                            <StatItem value={7} suffix="k" label="Textures" />
+                        </div>
+
+                        <div className="flex items-center justify-between">
+                            <div className="flex gap-4">
+                                <div className="w-10 h-10 rounded-full bg-charcoal/5 flex items-center justify-center text-charcoal/40 font-serif italic text-xl">f</div>
+                                <div className="w-10 h-10 rounded-full bg-charcoal/5 flex items-center justify-center text-charcoal/40 font-serif italic text-xl">t</div>
+                            </div>
+                            <button className="bg-charcoal px-10 py-5 md:px-12 md:py-6 rounded-full text-white text-[10px] uppercase tracking-[0.4em] font-black hover:bg-gold transition-all shadow-xl whitespace-nowrap">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );
 }
 
 function StatItem({ value, suffix, label }: { value: number; suffix: string; label: string }) {
-    const [count, setCount] = useState(0);
-
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{
-                opacity: 1,
-                y: 0,
-            }}
-            viewport={{ once: true }}
-            onViewportEnter={() => {
-                let start = 0;
-                const end = value;
-                const duration = 2000;
-                const startTime = performance.now();
-
-                const animate = (currentTime: number) => {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-
-                    // Ease out expo
-                    const easeOutExpo = 1 - Math.pow(2, -10 * progress);
-                    const currentCount = Math.floor(easeOutExpo * end);
-
-                    setCount(currentCount);
-
-                    if (progress < 1) {
-                        requestAnimationFrame(animate);
-                    }
-                };
-
-                requestAnimationFrame(animate);
-            }}
-            className="text-center group"
-        >
-            <div className="relative inline-block mb-6">
-                <span className="text-7xl md:text-9xl font-serif text-white tracking-tighter leading-none">
-                    {count}{suffix}
-                </span>
-                <motion.div
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    transition={{ delay: 0.5, duration: 1.5 }}
-                    className="absolute -bottom-4 left-0 w-full h-px bg-gold/50 origin-left"
-                />
-            </div>
-            <span className="block text-[11px] uppercase tracking-[0.8em] text-white font-bold mt-8 italic">
+        <div className="text-center group">
+            <span className="text-4xl md:text-5xl font-serif text-charcoal leading-none block mb-3">
+                {value}{suffix}
+            </span>
+            <span className="text-[9px] uppercase tracking-widest text-charcoal/40 font-bold italic">
                 {label}
             </span>
-        </motion.div>
+        </div>
     );
 }
