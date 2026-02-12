@@ -2,12 +2,17 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
+    const pathname = usePathname();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [time, setTime] = useState("");
+
+    // Hide global navbar on v2 page
+    if (pathname === "/v2") return null;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -40,9 +45,15 @@ const Navbar = () => {
     return (
         <>
             <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-[100] transition-all duration-700 ease-[0.76, 0, 0.24, 1] ${isScrolled ? 'w-[calc(100%-4rem)] md:w-auto' : 'w-[calc(100%-4rem)] md:w-[90%]'}`}>
-                <div className={`relative px-12 py-3 backdrop-blur-2xl border flex items-center justify-between transition-all duration-700 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] ${isScrolled ? 'rounded-full' : 'rounded-xl'} ${isScrolled ? 'bg-charcoal/90 border-white/10' : 'bg-charcoal/20 border-white/20'}`}>
+                <div
+                    className={`relative px-12 py-3 backdrop-blur-2xl border flex items-center justify-between transition-all duration-700 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] ${isScrolled ? 'rounded-full' : 'rounded-xl'}`}
+                    style={{
+                        backgroundColor: isScrolled ? 'var(--nav-bg-scrolled)' : 'var(--nav-bg-top)',
+                        borderColor: 'var(--nav-border)'
+                    }}
+                >
                     {/* Background decoration */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-white/5 to-black/20 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/5 via-white/5 to-black/5 pointer-events-none" />
 
                     {/* Logo */}
                     <Link href="/" className="relative z-10 group">
@@ -57,7 +68,8 @@ const Navbar = () => {
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="text-[10px] uppercase tracking-[0.4em] text-white/80 hover:text-gold transition-all font-bold"
+                                className="text-[10px] uppercase tracking-[0.4em] hover:text-gold transition-all font-bold"
+                                style={{ color: 'var(--nav-text)' }}
                             >
                                 {link.name}
                             </Link>
@@ -68,7 +80,7 @@ const Navbar = () => {
                     <div className="flex items-center gap-10 relative z-10">
                         <div className="hidden lg:flex items-center gap-3">
                             <div className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
-                            <span className="text-[8px] uppercase tracking-widest text-white/60 font-bold">{time} LONDON</span>
+                            <span className="text-[8px] uppercase tracking-widest font-bold" style={{ color: 'var(--nav-text)', opacity: 0.6 }}>{time} LONDON</span>
                         </div>
 
                         <button
