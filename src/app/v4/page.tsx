@@ -1,0 +1,41 @@
+"use client";
+
+import React from 'react';
+import Navbar from '@/components/v4/Navbar';
+import Hero from '@/components/v4/Hero';
+import ServicesSlider from '@/components/v4/ServicesSlider';
+import StatsSection from '@/components/v4/StatsSection';
+import BrandPromise from '@/components/v4/BrandPromise';
+import DesignSession from '@/components/v4/DesignSession';
+import InspirationGallery from '@/components/v4/InspirationGallery';
+import EvoLuxeIntro from '@/components/v4/EvoLuxeIntro';
+import Testimonials from '@/components/v4/Testimonials';
+import Partners from '@/components/v4/Partners';
+import FAQ from '@/components/v4/FAQ';
+import MeetDesignerBanner from '@/components/v4/MeetDesignerBanner';
+import Footer from '@/components/v4/Footer';
+
+export default function V4HomePage() {
+    return (
+        <main
+            className="min-h-screen font-sans selection:bg-[#c59dd9] selection:text-[#2b0d3e] bg-white text-[#2b0d3e]"
+            style={{
+                '--foreground': '#2b0d3e',
+                '--background': '#ffffff'
+            } as any}
+        >
+            <Navbar />
+            <Hero />
+            <ServicesSlider />
+            <StatsSection />
+            <BrandPromise />
+            <DesignSession />
+            <InspirationGallery />
+            <Testimonials />
+            <Partners />
+            <FAQ />
+            <MeetDesignerBanner />
+            <Footer />
+        </main>
+    );
+}

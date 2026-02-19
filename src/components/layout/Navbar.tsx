@@ -11,8 +11,8 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [time, setTime] = useState("");
 
-    // Hide global navbar on v2 page
-    if (pathname === "/v2") return null;
+    // Hide global navbar on v2, v3, and v4 pages
+    if (pathname === "/v2" || pathname === "/v3" || pathname === "/v4") return null;
 
     useEffect(() => {
         const handleScroll = () => {

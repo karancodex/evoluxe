@@ -3,7 +3,14 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+import { usePathname } from "next/navigation";
+
 const Footer = () => {
+    const pathname = usePathname();
+
+    // Hide global footer on v2, v3, and v4 pages
+    if (pathname === "/v2" || pathname === "/v3" || pathname === "/v4") return null;
+
     return (
         <footer className="relative bg-black text-white pt-40 pb-12 overflow-hidden">
             {/* Massive Background Text (Like high-end fashion/architecture sites) */}
