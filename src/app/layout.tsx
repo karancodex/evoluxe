@@ -6,6 +6,11 @@ import SmoothScroll from "@/components/providers/SmoothScroll";
 export const metadata: Metadata = {
     title: "EVOLUXE — The Evolution of Luxury",
     description: "High-end interior design and architectural studio offering bespoke luxury residential and premium commercial spatial design experiences.",
+    icons: {
+        icon: "/v4/favicon.png",
+        shortcut: "/v4/favicon.png",
+        apple: "/v4/favicon.png",
+    }
 };
 
 import CustomCursor from "@/components/layout/CustomCursor";

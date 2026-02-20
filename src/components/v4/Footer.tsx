@@ -2,26 +2,40 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const Footer = () => {
+    const getLink = (item: string) => {
+        const slug = item
+            .toString()
+            .toLowerCase()
+            .trim()
+            .replace(/\s+/g, '-')
+            .replace(/[^\w\-]+/g, '')
+            .replace(/\-\-+/g, '-')
+            .replace(/^-+/, '')
+            .replace(/-+$/, '');
+        return `/v4/topic/${slug}`;
+    };
+
     const footerLinks = {
         company: [
-            { name: "About Us", href: "#" },
-            { name: "Careers", href: "#" },
-            { name: "Press", href: "#" },
-            { name: "Contact", href: "#" }
+            { name: "About Us", href: getLink("About Us") },
+            { name: "Careers", href: getLink("Careers") },
+            { name: "Press", href: getLink("Press") },
+            { name: "Contact", href: getLink("Contact") }
         ],
         services: [
-            { name: "Interior Design", href: "#" },
-            { name: "Modular Kitchen", href: "#" },
-            { name: "Wardrobes", href: "#" },
-            { name: "Renovation", href: "#" }
+            { name: "Interior Design", href: getLink("Interior Design") },
+            { name: "Modular Kitchen", href: getLink("Modular Kitchen") },
+            { name: "Wardrobes", href: getLink("Wardrobes") },
+            { name: "Renovation", href: getLink("Renovation") }
         ],
         legal: [
-            { name: "Privacy Policy", href: "#" },
-            { name: "Terms of Service", href: "#" },
-            { name: "Cookie Policy", href: "#" }
+            { name: "Privacy Policy", href: getLink("Privacy Policy") },
+            { name: "Terms of Service", href: getLink("Terms of Service") },
+            { name: "Cookie Policy", href: getLink("Cookie Policy") }
         ]
     };
 
@@ -45,40 +59,40 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="bg-[#2b0d3e] text-white pt-24 pb-12 relative overflow-hidden text-center">
+        <footer className="bg-[#fcf8ff] text-[#2b0d3e] pt-24 pb-12 relative overflow-hidden text-center border-t border-[#f2eaf7]">
             {/* Background Watermark */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-[0.03]">
-                <h1 className="text-[20vw] font-bold text-white leading-none tracking-tighter absolute -bottom-20 left-1/2 transform -translate-x-1/2 select-none whitespace-nowrap">
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-[0.02]">
+                <h1 className="text-[20vw] font-bold text-[#7a3f91] leading-none tracking-tighter absolute -bottom-20 left-1/2 transform -translate-x-1/2 select-none whitespace-nowrap">
                     EVOLUXE
                 </h1>
             </div>
 
-            {/* Gradient Glow */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#7a3f91] opacity-20 blur-[120px] rounded-full pointer-events-none" />
+            {/* Subtle Gradient Glow */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#c59dd9] opacity-10 blur-[120px] rounded-full pointer-events-none" />
 
             <div className="max-w-[1600px] mx-auto px-6 relative z-10">
                 {/* Top Section: CTA & Newsletter */}
-                <div className="flex flex-col items-center gap-8 mb-24 border-b border-white/10 pb-16">
+                <div className="flex flex-col items-center gap-8 mb-24 border-b border-[#f2eaf7] pb-16">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-serif font-medium"
+                        className="text-4xl md:text-5xl font-serif font-medium text-[#2b0d3e]"
                     >
                         Let's create your <br />
-                        <span className="text-[#c59dd9] italic">dream space.</span>
+                        <span className="text-[#7a3f91] italic">dream space.</span>
                     </motion.h2>
 
-                    <p className="text-white/60 mb-2 max-w-md mx-auto">
+                    <p className="text-stone-500 mb-2 max-w-md mx-auto">
                         Subscribe to our newsletter for the latest design trends, tips, and exclusive offers.
                     </p>
                     <form className="flex flex-col sm:flex-row gap-4 max-w-lg w-full justify-center">
                         <input
                             type="email"
                             placeholder="Enter your email address"
-                            className="w-full sm:w-80 px-6 py-4 bg-white/5 border border-white/10 rounded-full focus:outline-none focus:border-[#c59dd9] text-white placeholder-white/30 transition-colors backdrop-blur-sm text-center sm:text-left"
+                            className="w-full sm:w-80 px-6 py-4 bg-white border border-stone-200 rounded-full focus:outline-none focus:border-[#7a3f91] text-[#2b0d3e] placeholder-stone-400 transition-colors shadow-sm text-center sm:text-left"
                         />
-                        <button className="px-8 py-4 bg-white text-[#2b0d3e] font-bold rounded-full hover:bg-[#c59dd9] transition-colors whitespace-nowrap shadow-lg">
+                        <button className="px-10 py-4 bg-[#7a3f91] text-white font-bold rounded-full hover:bg-[#2b0d3e] transition-all whitespace-nowrap shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                             Subscribe
                         </button>
                     </form>
@@ -89,13 +103,13 @@ const Footer = () => {
 
                     {/* Column 1: Company */}
                     <div className="flex flex-col items-center">
-                        <h4 className="text-lg font-bold mb-6 text-[#c59dd9]">Company</h4>
+                        <h4 className="text-lg font-bold mb-6 text-[#7a3f91] uppercase tracking-widest text-xs">Company</h4>
                         <ul className="space-y-4">
                             {footerLinks.company.map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-white/60 hover:text-white transition-colors relative group">
+                                    <Link href={link.href} className="text-stone-500 hover:text-[#7a3f91] transition-colors relative group text-sm font-medium">
                                         {link.name}
-                                        <span className="absolute -bottom-1 left-1/2 w-0 h-[1px] bg-white group-hover:w-full transition-all duration-300 transform -translate-x-1/2"></span>
+                                        <span className="absolute -bottom-1 left-1/2 w-0 h-[1.5px] bg-[#7a3f91] group-hover:w-full transition-all duration-300 transform -translate-x-1/2"></span>
                                     </Link>
                                 </li>
                             ))}
@@ -104,8 +118,17 @@ const Footer = () => {
 
                     {/* Column 2: Brand & Socials (Center) */}
                     <div className="flex flex-col items-center order-first md:order-none">
-                        <Link href="/" className="text-4xl font-bold tracking-tight mb-6 block">EVOLUXE.</Link>
-                        <p className="text-white/50 leading-loose max-w-sm mb-8">
+                        <Link href="/v4" className="mb-6 block group">
+                            <div className="relative h-10 w-48 md:h-12 md:w-56">
+                                <Image
+                                    src="/v4/evoluxe-logo.png"
+                                    alt="EVOLUXE Logo"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                        </Link>
+                        <p className="text-stone-500 leading-relaxed max-w-sm mb-8 text-sm">
                             Redefining luxury living spaces with bespoke interiors that blend functionality with timeless aesthetics.
                         </p>
                         <div className="flex gap-4 justify-center">
@@ -113,13 +136,13 @@ const Footer = () => {
                                 <Link
                                     key={social.name}
                                     href="#"
-                                    className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center text-white/70 hover:bg-white hover:text-[#2b0d3e] hover:border-white transition-all duration-300 group"
+                                    className="w-12 h-12 border border-stone-200 rounded-full flex items-center justify-center text-stone-400 hover:bg-[#7a3f91] hover:text-white hover:border-[#7a3f91] transition-all duration-300 group shadow-sm bg-white"
                                     aria-label={social.name}
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        width="20"
-                                        height="20"
+                                        width="18"
+                                        height="18"
                                         fill="currentColor"
                                         viewBox="0 0 24 24"
                                         className="group-hover:scale-110 transition-transform duration-300"
@@ -133,13 +156,13 @@ const Footer = () => {
 
                     {/* Column 3: Services */}
                     <div className="flex flex-col items-center">
-                        <h4 className="text-lg font-bold mb-6 text-[#c59dd9]">Services</h4>
+                        <h4 className="text-lg font-bold mb-6 text-[#7a3f91] uppercase tracking-widest text-xs">Services</h4>
                         <ul className="space-y-4">
                             {footerLinks.services.map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-white/60 hover:text-white transition-colors relative group">
+                                    <Link href={link.href} className="text-stone-500 hover:text-[#7a3f91] transition-colors relative group text-sm font-medium">
                                         {link.name}
-                                        <span className="absolute -bottom-1 left-1/2 w-0 h-[1px] bg-white group-hover:w-full transition-all duration-300 transform -translate-x-1/2"></span>
+                                        <span className="absolute -bottom-1 left-1/2 w-0 h-[1.5px] bg-[#7a3f91] group-hover:w-full transition-all duration-300 transform -translate-x-1/2"></span>
                                     </Link>
                                 </li>
                             ))}
@@ -148,12 +171,12 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Section */}
-                <div className="border-t border-white/10 pt-8 flex flex-col items-center gap-4 text-sm text-white/30">
+                <div className="border-t border-[#f2eaf7] pt-8 flex flex-col items-center gap-4 text-xs text-stone-400 font-medium">
                     <p>© {new Date().getFullYear()} Evoluxe Design Studio. All rights reserved.</p>
                     <div className="flex gap-8">
-                        <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Cookies</Link>
+                        <Link href="#" className="hover:text-[#7a3f91] transition-colors">Privacy Policy</Link>
+                        <Link href="#" className="hover:text-[#7a3f91] transition-colors">Terms of Service</Link>
+                        <Link href="#" className="hover:text-[#7a3f91] transition-colors">Cookies</Link>
                     </div>
                 </div>
             </div>
