@@ -42,6 +42,24 @@ const Navbar = () => {
     };
 
     const getLink = (item: string) => {
+        const magazineItems = topNavLinks.find(link => link.name === 'Magazine')?.columns?.flatMap(col => col.items) || [];
+        const magazineSlug = slugify(item);
+
+        if (magazineItems.includes(item) || item === 'Magazine') {
+            return `/v4/magazine/${magazineSlug}`;
+        }
+
+        const cityItems = topNavLinks.find(link => link.name === 'Cities')?.columns?.flatMap(col => col.items) || [];
+        if (cityItems.includes(item)) {
+            return `/v4/city/${slugify(item)}`;
+        }
+
+        const moreItems = topNavLinks.find(link => link.name === 'More')?.columns?.flatMap(col => col.items) || [];
+        const resourceItems = bottomNavLinks.find(link => link.name === 'Resources')?.columns?.flatMap(col => col.items) || [];
+        if (moreItems.includes(item) || resourceItems.includes(item)) {
+            return `/v4/company/${slugify(item)}`;
+        }
+
         return `/v4/topic/${slugify(item)}`;
     };
 

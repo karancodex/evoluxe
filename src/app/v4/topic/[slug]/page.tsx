@@ -5,13 +5,26 @@ import { useParams, notFound } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/v4/Navbar';
 import Footer from '@/components/v4/Footer';
-import { getPageContent } from '@/data/v4/nav-data';
+import { getPageContent, topNavLinks, slugify } from '@/data/v4/nav-data';
 import Image from 'next/image';
 import MasterCalculator from '@/components/v4/calculators/MasterCalculator';
+import DesignIdeasContent from '@/components/v4/DesignIdeasContent';
 
 const TopicPage = () => {
     const params = useParams();
     const slug = params?.slug as string;
+
+    const designIdeasSlugs = useMemo(() => {
+        const designIdeas = topNavLinks.find(link => link.name === 'Design Ideas');
+        if (!designIdeas || !designIdeas.columns) return [];
+        const items = designIdeas.columns.flatMap(col => col.items.map(item => slugify(item)));
+        const titles = designIdeas.columns.filter(col => col.title).map(col => slugify(col.title));
+        return [...items, ...titles];
+    }, []);
+
+    const isDesignIdea = useMemo(() => {
+        return designIdeasSlugs.includes(slug);
+    }, [slug, designIdeasSlugs]);
 
     const isCalculator = useMemo(() => {
         return [
@@ -40,6 +53,22 @@ const TopicPage = () => {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
     };
+
+    if (isDesignIdea) {
+        return (
+            <main className="min-h-screen bg-white">
+                <Navbar />
+                <div className="pt-32"> {/* Spacing for fixed navbar */}
+                    <DesignIdeasContent
+                        title={content.title}
+                        description={content.description}
+                        slug={slug}
+                    />
+                </div>
+                <Footer />
+            </main>
+        );
+    }
 
     return (
         <main className="min-h-screen bg-white">
