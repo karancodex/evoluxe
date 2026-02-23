@@ -8,8 +8,8 @@ import { usePathname } from "next/navigation";
 const Footer = () => {
     const pathname = usePathname();
 
-    // Hide global footer on v2, v3, and v4 pages
-    if (pathname?.startsWith("/v2") || pathname?.startsWith("/v3") || pathname?.startsWith("/v4")) return null;
+    // Hide global footer on root, v2, v3, and v4 pages
+    if (pathname === "/" || pathname?.startsWith("/v2") || pathname?.startsWith("/v3") || pathname?.startsWith("/v4")) return null;
 
     return (
         <footer className="relative bg-black text-white pt-40 pb-12 overflow-hidden">

@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-const EvoLuxeIntro = () => {
+const EvolxStudioIntro = () => {
     return (
         <section className="py-24 bg-white relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
@@ -32,4 +32,4 @@ const EvoLuxeIntro = () => {
     );
 };
 
-export default EvoLuxeIntro;
+export default EvolxStudioIntro;

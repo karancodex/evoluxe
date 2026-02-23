@@ -16,7 +16,7 @@ const BrandPromise = () => {
             >
                 <Image
                     src="/v4/luxe_banner_bg.png"
-                    alt="EvoLuxe Luxe Interior"
+                    alt="EVOLX Studio Luxe Interior"
                     fill
                     className="object-cover"
                     priority

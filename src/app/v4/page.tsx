@@ -8,7 +8,7 @@ import StatsSection from '@/components/v4/StatsSection';
 import BrandPromise from '@/components/v4/BrandPromise';
 import DesignSession from '@/components/v4/DesignSession';
 import InspirationGallery from '@/components/v4/InspirationGallery';
-import EvoLuxeIntro from '@/components/v4/EvoLuxeIntro';
+import EvolxStudioIntro from '@/components/v4/EvoLuxeIntro';
 import Testimonials from '@/components/v4/Testimonials';
 import Partners from '@/components/v4/Partners';
 import FAQ from '@/components/v4/FAQ';
