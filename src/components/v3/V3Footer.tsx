@@ -6,7 +6,7 @@ const V3Footer = () => {
     return (
         <footer className="bg-amethyst-dark pt-32 pb-16 border-t border-white/5 relative overflow-hidden">
             {/* Background Branding Elements */}
-            <div className="absolute -bottom-20 -right-20 text-[20vw] font-serif text-white/5 italic select-none">Evoluxe</div>
+            <div className="absolute -bottom-20 -right-20 text-[20vw] font-serif text-white/5 italic select-none">EVOLX Studio</div>
 
             <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-24 mb-32">
@@ -18,7 +18,7 @@ const V3Footer = () => {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-2xl font-serif tracking-widest uppercase font-bold text-white">
-                                    Evoluxe
+                                    EVOLX Studio
                                 </span>
                                 <span className="text-[9px] uppercase tracking-[0.6em] text-amethyst-light font-black leading-none">Interiors</span>
                             </div>
@@ -49,7 +49,7 @@ const V3Footer = () => {
 
                     {/* Resources */}
                     <div className="space-y-10">
-                        <span className="text-amethyst-primary text-[11px] uppercase tracking-[0.8em] font-black italic">Inside Evoluxe</span>
+                        <span className="text-amethyst-primary text-[11px] uppercase tracking-[0.8em] font-black italic">Inside EVOLX Studio</span>
                         <div className="flex flex-col gap-6">
                             {["Pricing Ethics", "NRI Solutions", "How it Works", "Quality Audit", "Contact Expert"].map(item => (
                                 <Link key={item} href="#" className="text-amethyst-lightest/30 text-[10px] uppercase tracking-widest hover:text-white transition-all font-black hover:pl-2">
@@ -84,7 +84,7 @@ const V3Footer = () => {
 
                 <div className="flex flex-col md:flex-row justify-between items-center gap-10 pt-16 border-t border-white/5">
                     <span className="text-amethyst-lightest/20 text-[9px] uppercase tracking-[0.5em] font-black italic">
-                        &copy; 2026 Evoluxe Interiors. Technical Integrity. Royal Finish.
+                        &copy; 2026 EVOLX Studio Interiors. Technical Integrity. Royal Finish.
                     </span>
                     <div className="flex gap-12 text-amethyst-lightest/20 text-[9px] uppercase tracking-widest font-black">
                         <span className="hover:text-white cursor-pointer transition-colors">Privacy</span>

@@ -11,7 +11,7 @@ const steps = [
         subtitle: "Personal Design Partner",
         desc: "Begin your journey with a master designer. A bespoke dialogue to translate your aspirations into architectural reality.",
         image: "/v4/design-session-1.png",
-        color: "#7a3f91"
+        color: "#c5a059"
     },
     {
         id: 2,
@@ -20,7 +20,7 @@ const steps = [
         subtitle: "Material Experience",
         desc: "Step into our curated showroom. Touch the textures, feel the finishes, and witness the uncompromising quality of our craft.",
         image: "/v4/design-session-2.png",
-        color: "#2b0d3e"
+        color: "#4d3b1a"
     },
     {
         id: 3,
@@ -29,7 +29,7 @@ const steps = [
         subtitle: "Digital Immersion",
         desc: "Witness your future space in stunning clarity. Our advanced 3D visualization brings every detail to life before a single brick is laid.",
         image: "/v4/design-session-3.png",
-        color: "#c59dd9"
+        color: "#e5d5b0"
     },
     {
         id: 4,
@@ -38,7 +38,7 @@ const steps = [
         subtitle: "Precision Valuation",
         desc: "No guesses, just granular accuracy. Receive a comprehensive quote with 100% transparency on materials and timelines.",
         image: "/v4/design-session-4.png",
-        color: "#7a3f91"
+        color: "#c5a059"
     }
 ];
 
@@ -46,7 +46,7 @@ const DesignSession = () => {
     const [activeStep, setActiveStep] = useState(0);
 
     return (
-        <section className="py-24 bg-[#f2eaf7]/30 overflow-hidden">
+        <section className="py-24 bg-[#faf9f6]/30 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-col lg:flex-row gap-16 items-center">
 
@@ -58,14 +58,14 @@ const DesignSession = () => {
                             viewport={{ once: true }}
                             className="space-y-4"
                         >
-                            <span className="text-[#7a3f91] font-semibold tracking-widest uppercase text-sm">The Process</span>
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#2b0d3e] leading-tight">
+                            <span className="text-[#c5a059] font-semibold tracking-widest uppercase text-sm">The Process</span>
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#4d3b1a] leading-tight">
                                 What is a <br />
                                 <span className="text-transparent bg-clip-text ">
                                     Design Session?
                                 </span>
                             </h2>
-                            <div className="w-20 h-1 bg-[#7a3f91] rounded-full" />
+                            <div className="w-20 h-1 bg-[#c5a059] rounded-full" />
                         </motion.div>
 
                         <div className="space-y-6">
@@ -75,17 +75,17 @@ const DesignSession = () => {
                                     onMouseEnter={() => setActiveStep(index)}
                                     onClick={() => setActiveStep(index)}
                                     className={`relative group cursor-pointer p-6 rounded-2xl transition-all duration-500 border ${activeStep === index
-                                        ? "bg-white border-[#c59dd9] shadow-2xl shadow-purple-200/50 scale-[1.02]"
+                                        ? "bg-white border-[#e5d5b0] shadow-2xl shadow-purple-200/50 scale-[1.02]"
                                         : "bg-transparent border-transparent opacity-60 hover:opacity-100"
                                         }`}
                                 >
                                     <div className="flex items-start gap-6">
-                                        <span className={`text-2xl font-black italic transition-colors duration-300 ${activeStep === index ? "text-[#7a3f91]" : "text-[#2b0d3e]/20"
+                                        <span className={`text-2xl font-black italic transition-colors duration-300 ${activeStep === index ? "text-[#c5a059]" : "text-[#4d3b1a]/20"
                                             }`}>
                                             {step.number}
                                         </span>
                                         <div className="space-y-2">
-                                            <h3 className="text-xl font-bold text-[#2b0d3e] group-hover:text-[#7a3f91] transition-colors duration-300">{step.title}</h3>
+                                            <h3 className="text-xl font-bold text-[#4d3b1a] group-hover:text-[#c5a059] transition-colors duration-300">{step.title}</h3>
                                             <AnimatePresence mode="wait">
                                                 {activeStep === index && (
                                                     <motion.div
@@ -94,7 +94,7 @@ const DesignSession = () => {
                                                         exit={{ opacity: 0, height: 0 }}
                                                         transition={{ duration: 0.3 }}
                                                     >
-                                                        <p className="text-[#2b0d3e]/70 leading-relaxed max-w-md">
+                                                        <p className="text-[#4d3b1a]/70 leading-relaxed max-w-md">
                                                             {step.desc}
                                                         </p>
                                                     </motion.div>
@@ -107,7 +107,7 @@ const DesignSession = () => {
                                     {activeStep === index && (
                                         <motion.div
                                             layoutId="active-pill"
-                                            className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#7a3f91] rounded-r-full shadow-[0_0_10px_#7a3f91]"
+                                            className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#c5a059] rounded-r-full shadow-[0_0_10px_#c5a059]"
                                         />
                                     )}
                                 </motion.div>
@@ -117,7 +117,7 @@ const DesignSession = () => {
 
                     {/* Right side: Visual Stage */}
                     <div className="w-full lg:w-1/2 relative h-[500px] lg:h-[700px]">
-                        <div className="absolute inset-0 bg-[#c59dd9]/10 rounded-[3rem] blur-3xl" />
+                        <div className="absolute inset-0 bg-[#e5d5b0]/10 rounded-[3rem] blur-3xl" />
 
                         <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white group">
                             <AnimatePresence mode="wait">
@@ -134,7 +134,7 @@ const DesignSession = () => {
                                         alt={steps[activeStep].title}
                                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#2b0d3e]/60 via-transparent to-transparent" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#4d3b1a]/60 via-transparent to-transparent" />
 
                                     <motion.div
                                         initial={{ y: 20, opacity: 0 }}
@@ -149,8 +149,8 @@ const DesignSession = () => {
                             </AnimatePresence>
 
                             {/* Floating decorative element */}
-                            <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-[#c59dd9]/30 to-transparent rounded-full blur-2xl animate-pulse" />
-                            <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-gradient-to-tr from-[#7a3f91]/20 to-transparent rounded-full blur-3xl" />
+                            <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-[#e5d5b0]/30 to-transparent rounded-full blur-2xl animate-pulse" />
+                            <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-gradient-to-tr from-[#c5a059]/20 to-transparent rounded-full blur-3xl" />
                         </div>
 
                         {/* Progress Bar */}
@@ -158,7 +158,7 @@ const DesignSession = () => {
                             {steps.map((_, i) => (
                                 <div
                                     key={i}
-                                    className={`h-1.5 rounded-full transition-all duration-500 ${activeStep === i ? "w-12 bg-[#2b0d3e]" : "w-3 bg-[#2b0d3e]/20"
+                                    className={`h-1.5 rounded-full transition-all duration-500 ${activeStep === i ? "w-12 bg-[#4d3b1a]" : "w-3 bg-[#4d3b1a]/20"
                                         }`}
                                 />
                             ))}

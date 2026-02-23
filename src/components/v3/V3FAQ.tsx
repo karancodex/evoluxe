@@ -44,7 +44,7 @@ const FAQItem = ({ question, answer, index }: { question: string, answer: string
 
 const V3FAQ = () => {
     const faqs = [
-        { question: "What counts as 'Transparent Pricing'?", answer: "At Evoluxe, we provide a line-by-line Bill of Quantities (BOQ). We don't use 'package rates' that hide margins. You pay for exactly what goes into your home." },
+        { question: "What counts as 'Transparent Pricing'?", answer: "At EVOLX Studio, we provide a line-by-line Bill of Quantities (BOQ). We don't use 'package rates' that hide margins. You pay for exactly what goes into your home." },
         { question: "How do you guarantee 45-day delivery?", answer: "Because we own our production cycle and factory queue. Parallel execution of site civil work and factory manufacturing ensures we hit our timelines." },
         { question: "Do you offer Vastu-compliant designs?", answer: "Absolutely. Our lead architects are trained in modern Vastu Shastra principles to ensure positive flow and energy in your home." },
         { question: "What materials do you use for wet areas?", answer: "We use BWP (Boiling Water Proof) multi-grade plywood with 710 certification as standard for all kitchens and bathrooms. No compromises." }

@@ -51,7 +51,7 @@ export default function Preloader() {
                             transition={{ delay: 1 }}
                             className="absolute text-gold text-[10px] uppercase tracking-[0.5em] mt-32"
                         >
-                            Evoluxe
+                            EVOLX Studio
                         </motion.div>
                     </div>
 

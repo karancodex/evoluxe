@@ -37,7 +37,7 @@ const V3Navbar = () => {
                     </div>
                     <div className="flex flex-col">
                         <span className={`text-xl font-serif tracking-widest uppercase font-bold ${isScrolled ? "text-amethyst-dark" : "text-white"}`}>
-                            Evoluxe
+                            EVOLX Studio
                         </span>
                         <span className="text-[8px] uppercase tracking-[0.4em] text-amethyst-primary font-bold">Premium Interiors</span>
                     </div>

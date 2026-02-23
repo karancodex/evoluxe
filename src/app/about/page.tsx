@@ -29,7 +29,7 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1 }}
                         className="text-[#4a4a4a] text-lg leading-loose font-light max-w-xl pb-4"
                     >
-                        EVOLUXE was born from a desire to redefine luxury. Not as a status, but as an experience that evolves with the person. Founded in Paris and operating globally, our studio brings together architectural rigour and the finest craftsmanship to create spaces that are as intelligent as they are beautiful.
+                        EVOLX Studio was born from a desire to redefine luxury. Not as a status, but as an experience that evolves with the person. Founded in Paris and operating globally, our studio brings together architectural rigour and the finest craftsmanship to create spaces that are as intelligent as they are beautiful.
                     </motion.p>
                 </div>
 
@@ -41,7 +41,7 @@ export default function AboutPage() {
                 >
                     <img
                         src="/assets/about_hero.png"
-                        alt="Evoluxe Atelier"
+                        alt="EVOLX Studio Atelier"
                         className="w-full h-full object-cover"
                     />
                 </motion.div>
@@ -78,7 +78,7 @@ export default function AboutPage() {
                         <div className="w-full md:w-1/2">
                             <h2 className="text-4xl md:text-5xl font-serif text-gold-soft mb-8 italic leading-tight">"Luxury is the freedom to evolve within your own sanctuary."</h2>
                             <p className="text-white/60 text-lg leading-relaxed mb-12 max-w-2xl font-light">
-                                Our founder, Julian Vane, spent two decades working at the intersection of architecture and emotional psychology. His vision for EVOLUXE was to create a studio that prioritizes the human experience above all else.
+                                Our founder, Julian Vane, spent two decades working at the intersection of architecture and emotional psychology. His vision for EVOLX Studio was to create a studio that prioritizes the human experience above all else.
                             </p>
                             <div className="flex items-center gap-6">
                                 <div className="w-12 h-[1px] bg-gold" />

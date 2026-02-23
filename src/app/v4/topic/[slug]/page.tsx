@@ -132,8 +132,8 @@ const TopicPage = () => {
                                 className="space-y-8"
                             >
                                 <div>
-                                    <span className="text-[#7a3f91] font-bold text-sm tracking-[0.2em] uppercase mb-2 block">Premium Design</span>
-                                    <h2 className="text-3xl md:text-5xl font-serif text-[#2b0d3e] leading-tight">
+                                    <span className="text-[#c5a059] font-bold text-sm tracking-[0.2em] uppercase mb-2 block">Premium Design</span>
+                                    <h2 className="text-3xl md:text-5xl font-serif text-[#4d3b1a] leading-tight">
                                         Elevate your space with <br />
                                         <span className="italic text-stone-400">{content.title}</span>
                                     </h2>
@@ -144,10 +144,10 @@ const TopicPage = () => {
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                    <button className="px-8 py-3.5 bg-[#2b0d3e] text-white font-medium uppercase tracking-wider hover:bg-[#7a3f91] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+                                    <button className="px-8 py-3.5 bg-[#4d3b1a] text-white font-medium uppercase tracking-wider hover:bg-[#c5a059] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
                                         Book Free Consultation
                                     </button>
-                                    <button className="px-8 py-3.5 border border-[#2b0d3e] text-[#2b0d3e] font-medium uppercase tracking-wider hover:bg-[#2b0d3e] hover:text-white transition-all duration-300">
+                                    <button className="px-8 py-3.5 border border-[#4d3b1a] text-[#4d3b1a] font-medium uppercase tracking-wider hover:bg-[#4d3b1a] hover:text-white transition-all duration-300">
                                         View Gallery
                                     </button>
                                 </div>
@@ -173,9 +173,9 @@ const TopicPage = () => {
                     <section className="py-24 bg-[#f9f5fa]">
                         <div className="container mx-auto px-6">
                             <div className="text-center mb-16 space-y-4">
-                                <span className="text-[#7a3f91] text-xs font-bold tracking-[0.2em] uppercase">Inspiration</span>
-                                <h2 className="text-3xl md:text-5xl font-serif text-[#2b0d3e]">Curated Designs</h2>
-                                <div className="w-20 h-0.5 bg-[#c59dd9] mx-auto mt-6"></div>
+                                <span className="text-[#c5a059] text-xs font-bold tracking-[0.2em] uppercase">Inspiration</span>
+                                <h2 className="text-3xl md:text-5xl font-serif text-[#4d3b1a]">Curated Designs</h2>
+                                <div className="w-20 h-0.5 bg-[#e5d5b0] mx-auto mt-6"></div>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -213,7 +213,7 @@ const TopicPage = () => {
             <section className="py-24 px-6 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-16 text-center">
-                        <h2 className="text-3xl md:text-4xl font-serif text-[#2b0d3e]">Why Choose EVOLUXE?</h2>
+                        <h2 className="text-3xl md:text-4xl font-serif text-[#4d3b1a]">Why Choose EVOLX Studio?</h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -224,12 +224,12 @@ const TopicPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="p-10 border border-stone-100 hover:border-[#c59dd9]/30 hover:shadow-[0_10px_40px_-10px_rgba(122,63,145,0.1)] transition-all bg-white text-center group"
+                                className="p-10 border border-stone-100 hover:border-[#e5d5b0]/30 hover:shadow-[0_10px_40px_-10px_rgba(197,160,89,0.1)] transition-all bg-white text-center group"
                             >
-                                <div className="w-16 h-16 bg-[#f2eaf7] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#7a3f91] transition-colors duration-300">
-                                    <span className="text-2xl text-[#7a3f91] group-hover:text-white transition-colors">✦</span>
+                                <div className="w-16 h-16 bg-[#faf9f6] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#c5a059] transition-colors duration-300">
+                                    <span className="text-2xl text-[#c5a059] group-hover:text-white transition-colors">✦</span>
                                 </div>
-                                <h3 className="text-xl font-serif text-[#2b0d3e] mb-4 font-bold">{feature.title}</h3>
+                                <h3 className="text-xl font-serif text-[#4d3b1a] mb-4 font-bold">{feature.title}</h3>
                                 <p className="text-stone-500 leading-relaxed">{feature.desc}</p>
                             </motion.div>
                         ))}
@@ -238,14 +238,14 @@ const TopicPage = () => {
             </section>
 
             {/* CTA Band */}
-            <section className="py-28 bg-[#2b0d3e] relative overflow-hidden text-center px-6">
+            <section className="py-28 bg-[#4d3b1a] relative overflow-hidden text-center px-6">
                 <div className="absolute inset-0 bg-[url('/v4/hero-bg.png')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
                 <div className="relative z-10 max-w-4xl mx-auto">
                     <h2 className="text-3xl md:text-6xl font-serif mb-8 text-white">Ready to transform your home?</h2>
-                    <p className="text-[#c59dd9] mb-12 max-w-2xl mx-auto text-xl font-light">
+                    <p className="text-[#e5d5b0] mb-12 max-w-2xl mx-auto text-xl font-light">
                         Book a consultation with our expert designers and bringing your dream {content.title.toLowerCase()} to life.
                     </p>
-                    <button className="px-12 py-5 bg-white text-[#2b0d3e] font-bold text-sm uppercase tracking-[0.15em] hover:bg-[#c59dd9] transition-colors shadow-2xl hover:scale-105 duration-300">
+                    <button className="px-12 py-5 bg-white text-[#4d3b1a] font-bold text-sm uppercase tracking-[0.15em] hover:bg-[#e5d5b0] transition-colors shadow-2xl hover:scale-105 duration-300">
                         Get Started Now
                     </button>
                 </div>

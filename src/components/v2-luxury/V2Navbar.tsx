@@ -34,7 +34,7 @@ export default function V2Navbar() {
                     <div className={`w-8 h-8 flex items-center justify-center rounded-sm transition-colors duration-500 ${scrolled ? 'bg-[#1a1a1a]' : 'bg-white'} group-hover:bg-gold`}>
                         <span className={`text-[10px] font-black ${scrolled ? 'text-white' : 'text-[#1a1a1a]'}`}>E.</span>
                     </div>
-                    <span className={`text-[12px] uppercase tracking-[0.4em] font-black transition-colors duration-500 ${scrolled ? 'text-[#1a1a1a]' : 'text-white'}`}>Evoluxe</span>
+                    <span className={`text-[12px] uppercase tracking-[0.4em] font-black transition-colors duration-500 ${scrolled ? 'text-[#1a1a1a]' : 'text-white'}`}>EVOLX Studio</span>
                 </Link>
 
                 {/* Navigation Links - Center */}

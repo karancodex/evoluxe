@@ -7,7 +7,7 @@ const testimonials = [
     {
         name: "Aurelia V.",
         location: "Monaco",
-        text: "Evoluxe didn't just design my home; they captured the rhythm of my soul in every piece of marble and beam of light.",
+        text: "EVOLX Studio didn't just design my home; they captured the rhythm of my soul in every piece of marble and beam of light.",
         image: "/assets/bedroom_luxury.png"
     },
     {

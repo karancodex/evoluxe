@@ -28,13 +28,13 @@ const ArticleCard = ({ title, category, image, date = "Oct 24, 2024", variant = 
                 className="object-cover group-hover:scale-110 transition-transform duration-700"
             />
             <div className="absolute top-4 left-4">
-                <span className="px-3 py-1 bg-[#7a3f91] text-white text-[10px] font-bold uppercase tracking-wider rounded-md shadow-lg">
+                <span className="px-3 py-1 bg-[#c5a059] text-white text-[10px] font-bold uppercase tracking-wider rounded-md shadow-lg">
                     {category}
                 </span>
             </div>
         </div>
         <div className="p-5 space-y-3">
-            <h3 className={`font-serif font-bold text-[#2b0d3e] group-hover:text-[#7a3f91] transition-colors leading-snug ${variant === 'large' ? 'text-2xl' : 'text-lg'}`}>
+            <h3 className={`font-serif font-bold text-[#4d3b1a] group-hover:text-[#c5a059] transition-colors leading-snug ${variant === 'large' ? 'text-2xl' : 'text-lg'}`}>
                 {title}
             </h3>
             <div className="flex items-center justify-between text-stone-400 text-[11px] pt-2 border-t border-stone-50">
@@ -68,14 +68,14 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
                     <ChevronRight className="w-3 h-3 mx-2" />
                     <span>Magazine</span>
                     <ChevronRight className="w-3 h-3 mx-2" />
-                    <span className="text-[#7a3f91] font-bold uppercase tracking-wider">{title}</span>
+                    <span className="text-[#c5a059] font-bold uppercase tracking-wider">{title}</span>
                 </nav>
 
                 <div className="mb-12">
-                    <h1 className="text-5xl md:text-7xl font-serif font-bold text-[#2b0d3e] mb-4">
+                    <h1 className="text-5xl md:text-7xl font-serif font-bold text-[#4d3b1a] mb-4">
                         {title}
                     </h1>
-                    <div className="w-24 h-1.5 bg-[#7a3f91] rounded-full mb-6"></div>
+                    <div className="w-24 h-1.5 bg-[#c5a059] rounded-full mb-6"></div>
                     <p className="text-stone-500 text-lg max-w-3xl leading-relaxed italic">
                         {description || `Discover the latest trends and stories in ${title.toLowerCase()}. Expertly curated for your dream home.`}
                     </p>
@@ -87,10 +87,10 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
                     <div className="flex items-center gap-6 overflow-x-auto pb-6 scrollbar-hide">
                         {categories.map((cat) => (
                             <div key={cat.name} className="flex flex-col items-center gap-4 shrink-0 group cursor-pointer">
-                                <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-xl group-hover:border-[#7a3f91] transition-all duration-300 relative">
+                                <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-xl group-hover:border-[#c5a059] transition-all duration-300 relative">
                                     <Image src={cat.img} fill alt={cat.name} className="object-cover group-hover:scale-110 transition-transform duration-500" />
                                 </div>
-                                <span className="text-[13px] font-bold text-[#2b0d3e] group-hover:text-[#7a3f91] transition-colors">{cat.name}</span>
+                                <span className="text-[13px] font-bold text-[#4d3b1a] group-hover:text-[#c5a059] transition-colors">{cat.name}</span>
                             </div>
                         ))}
                     </div>
@@ -103,7 +103,7 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
                     {/* Recent Stories */}
                     <div className="flex-1 space-y-12">
                         <div className="flex items-end justify-between border-b border-stone-100 pb-6">
-                            <h2 className="text-3xl font-serif font-bold text-[#2b0d3e]">Recent Stories</h2>
+                            <h2 className="text-3xl font-serif font-bold text-[#4d3b1a]">Recent Stories</h2>
                             <div className="flex gap-2">
                                 <button className="p-2 border border-stone-200 rounded-full hover:bg-stone-50"><ChevronLeft className="w-5 h-5" /></button>
                                 <button className="p-2 border border-stone-200 rounded-full hover:bg-stone-50"><ChevronRight className="w-5 h-5" /></button>
@@ -123,8 +123,8 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
 
                     {/* Sidebar Form */}
                     <div className="w-full lg:w-[400px] shrink-0">
-                        <div className="bg-[#2b0d3e] rounded-[2.5rem] p-10 text-white sticky top-28 shadow-2xl relative overflow-hidden">
-                            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#7a3f91] opacity-20 blur-3xl rounded-full"></div>
+                        <div className="bg-[#4d3b1a] rounded-[2.5rem] p-10 text-white sticky top-28 shadow-2xl relative overflow-hidden">
+                            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#c5a059] opacity-20 blur-3xl rounded-full"></div>
                             <div className="relative z-10">
                                 <h3 className="text-3xl font-serif font-bold mb-4">Designs for every budget</h3>
                                 <p className="text-stone-300 text-sm mb-10 font-light max-w-[280px]">Fill details and get your personalized design quote from our experts.</p>
@@ -138,7 +138,7 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
                                     </div>
                                     <input type="text" placeholder="Pincode" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:bg-white/10 outline-none placeholder:text-stone-500 text-sm focus:border-white/30 transition-all font-light" />
 
-                                    <button className="w-full py-4 bg-[#7a3f91] hover:bg-white hover:text-[#7a3f91] text-white font-bold rounded-2xl transition-all duration-500 shadow-xl mt-4 transform hover:-translate-y-1">
+                                    <button className="w-full py-4 bg-[#c5a059] hover:bg-white hover:text-[#c5a059] text-white font-bold rounded-2xl transition-all duration-500 shadow-xl mt-4 transform hover:-translate-y-1">
                                         Book Free Consultation
                                     </button>
 
@@ -153,20 +153,20 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
             </section>
 
             {/* Section Featured Example: Kitchen */}
-            <section className="py-24 bg-[#2b0d3e] relative overflow-hidden">
+            <section className="py-24 bg-[#4d3b1a] relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-[40%] h-full">
                     <Image src="/v4/interior-living-3d.jpg" fill alt="Kitchen" className="object-cover opacity-60" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#2b0d3e] via-[#2b0d3e]/40 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#4d3b1a] via-[#4d3b1a]/40 to-transparent"></div>
                 </div>
 
                 <div className="max-w-[1400px] mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-16 items-center">
                     <div className="w-full lg:w-1/2 text-white space-y-8">
-                        <div className="w-16 h-16 bg-[#7a3f91] rounded-2xl flex items-center justify-center text-3xl shadow-2xl rotate-12">🍳</div>
+                        <div className="w-16 h-16 bg-[#c5a059] rounded-2xl flex items-center justify-center text-3xl shadow-2xl rotate-12">🍳</div>
                         <h2 className="text-4xl md:text-5xl font-serif font-bold">Kitchen</h2>
                         <p className="text-stone-300 text-lg font-light leading-relaxed max-w-md">
                             From breakfast nooks to gourmet workstations, explore kitchens that are as efficient as they are beautiful.
                         </p>
-                        <button className="group flex items-center gap-4 text-white font-bold uppercase tracking-widest text-sm hover:text-[#c59dd9] transition-colors">
+                        <button className="group flex items-center gap-4 text-white font-bold uppercase tracking-widest text-sm hover:text-[#e5d5b0] transition-colors">
                             Explore All Kitchen Stories <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                         </button>
                     </div>
@@ -178,8 +178,8 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
                                     <Image src="/v4/interior-living-3d.jpg" fill alt="Kitchen" className="object-cover" />
                                 </div>
                                 <div className="p-6">
-                                    <h4 className="font-serif font-bold text-[#2b0d3e] mb-2 line-clamp-2">5 Modern Kitchen Colors That Designers Swear By</h4>
-                                    <span className="text-[#7a3f91] text-xs font-bold uppercase tracking-wider">Expert Advice</span>
+                                    <h4 className="font-serif font-bold text-[#4d3b1a] mb-2 line-clamp-2">5 Modern Kitchen Colors That Designers Swear By</h4>
+                                    <span className="text-[#c5a059] text-xs font-bold uppercase tracking-wider">Expert Advice</span>
                                 </div>
                             </div>
                         ))}
@@ -192,7 +192,7 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
                 <div className="max-w-[1400px] mx-auto px-6">
                     <div className="flex flex-col lg:flex-row gap-16">
                         <div className="flex-1 space-y-12">
-                            <h2 className="text-4xl font-serif font-bold text-[#2b0d3e]">Real Transformations</h2>
+                            <h2 className="text-4xl font-serif font-bold text-[#4d3b1a]">Real Transformations</h2>
                             <div className="relative h-[600px] rounded-[3rem] overflow-hidden group shadow-2xl border-8 border-white">
                                 <Image src="/v4/interior-living-3d.jpg" fill alt="Before After" className="object-cover" />
                                 <div className="absolute inset-0 flex">
@@ -201,38 +201,38 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
                                     </div>
                                     <div className="w-2 bg-white cursor-ew-resize relative group">
                                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-2xl transition-transform group-hover:scale-125">
-                                            <span className="text-[#7a3f91] font-bold">↔</span>
+                                            <span className="text-[#c5a059] font-bold">↔</span>
                                         </div>
                                     </div>
-                                    <div className="flex-1 flex items-center justify-center relative bg-[#7a3f91]/10">
+                                    <div className="flex-1 flex items-center justify-center relative bg-[#c5a059]/10">
                                         <span className="text-white font-black uppercase tracking-[0.2em] text-4xl opacity-30 transform 90">After</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="w-full lg:w-[450px] space-y-10 flex flex-col justify-center bg-[#f2eaf7]/40 p-12 rounded-[3rem]">
-                            <h3 className="text-4xl font-serif font-bold text-[#2b0d3e]">Ready for your own transformation?</h3>
+                        <div className="w-full lg:w-[450px] space-y-10 flex flex-col justify-center bg-[#faf9f6]/40 p-12 rounded-[3rem]">
+                            <h3 className="text-4xl font-serif font-bold text-[#4d3b1a]">Ready for your own transformation?</h3>
                             <p className="text-stone-600 text-lg font-light leading-relaxed">
-                                Join 50,000+ happy homeowners who turned their design dreams into reality with EVOLUXE.
+                                Join 50,000+ happy homeowners who turned their design dreams into reality with EVOLX Studio.
                             </p>
                             <div className="space-y-4">
                                 <div className="flex items-center gap-4 p-4 bg-white rounded-2xl border border-stone-100 shadow-sm">
-                                    <div className="w-12 h-12 bg-[#7a3f91]/10 rounded-xl flex items-center justify-center text-[#7a3f91]">✦</div>
+                                    <div className="w-12 h-12 bg-[#c5a059]/10 rounded-xl flex items-center justify-center text-[#c5a059]">✦</div>
                                     <div>
-                                        <p className="font-bold text-[#2b0d3e]">10-Year Warranty</p>
+                                        <p className="font-bold text-[#4d3b1a]">10-Year Warranty</p>
                                         <p className="text-stone-400 text-xs">Unmatched quality assurance</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4 p-4 bg-white rounded-2xl border border-stone-100 shadow-sm">
-                                    <div className="w-12 h-12 bg-[#c59dd9]/10 rounded-xl flex items-center justify-center text-[#c59dd9]">✦</div>
+                                    <div className="w-12 h-12 bg-[#e5d5b0]/10 rounded-xl flex items-center justify-center text-[#e5d5b0]">✦</div>
                                     <div>
-                                        <p className="font-bold text-[#2b0d3e]">45-Day Delivery</p>
+                                        <p className="font-bold text-[#4d3b1a]">45-Day Delivery</p>
                                         <p className="text-stone-400 text-xs">Quickest turnaround in the industry</p>
                                     </div>
                                 </div>
                             </div>
-                            <button className="w-full py-5 bg-[#2b0d3e] text-white font-bold rounded-2xl shadow-xl hover:bg-[#7a3f91] transition-all duration-300">
+                            <button className="w-full py-5 bg-[#4d3b1a] text-white font-bold rounded-2xl shadow-xl hover:bg-[#c5a059] transition-all duration-300">
                                 Get Started Now
                             </button>
                         </div>

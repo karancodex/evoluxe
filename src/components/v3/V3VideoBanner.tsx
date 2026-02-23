@@ -10,7 +10,7 @@ const V3VideoBanner = () => {
                     initial={{ opacity: 0, scale: 0.98 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    className="relative aspect-video rounded-[60px] overflow-hidden shadow-[0_50px_100px_rgba(43,13,62,0.2)]"
+                    className="relative aspect-video rounded-[60px] overflow-hidden shadow-[0_50px_100px_rgba(77,59,26,0.2)]"
                 >
                     <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1974&auto=format&fit=crop" alt="Virtual Tour" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-amethyst-dark/80 via-transparent to-transparent flex flex-col items-center justify-center text-center p-12">

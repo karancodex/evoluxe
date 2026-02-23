@@ -17,7 +17,7 @@ const V3ValueProp = () => {
                         <span className="italic text-amethyst-light font-light">Evolved</span> & Secured.
                     </h2>
                     <p className="text-amethyst-lightest/60 text-lg md:text-2xl font-light leading-relaxed max-w-lg italic">
-                        In the Indian market, interior design is often a black box of hidden commissions. At Evoluxe, we return that value to you.
+                        In the Indian market, interior design is often a black box of hidden commissions. At EVOLX Studio, we return that value to you.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-10 border-t border-white/10">

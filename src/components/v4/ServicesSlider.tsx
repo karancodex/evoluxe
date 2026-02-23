@@ -22,8 +22,8 @@ const ServicesSlider = () => {
         <section className="py-24 bg-white relative overflow-hidden">
             {/* Minimalist Background Accents */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-                <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#f2eaf7]/30 rounded-full blur-[120px]" />
-                <div className="absolute bottom-[-10%] left-[-10%] w-[30%] h-[40%] bg-[#c59dd9]/10 rounded-full blur-[100px]" />
+                <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#faf9f6]/30 rounded-full blur-[120px]" />
+                <div className="absolute bottom-[-10%] left-[-10%] w-[30%] h-[40%] bg-[#e5d5b0]/10 rounded-full blur-[100px]" />
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -34,12 +34,12 @@ const ServicesSlider = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                         >
-                            <span className="text-[#c59dd9] font-bold tracking-[0.3em] uppercase text-[10px] mb-3 block">Price Estimator</span>
-                            <h2 className="text-4xl md:text-6xl font-serif text-[#2b0d3e] leading-none mb-4">
+                            <span className="text-[#e5d5b0] font-bold tracking-[0.3em] uppercase text-[10px] mb-3 block">Price Estimator</span>
+                            <h2 className="text-4xl md:text-6xl font-serif text-[#4d3b1a] leading-none mb-4">
                                 Luxury Designs, <br />
-                                <span className="italic text-[#7a3f91]">Transparent Quotes.</span>
+                                <span className="italic text-[#c5a059]">Transparent Quotes.</span>
                             </h2>
-                            <p className="text-[#2b0d3e]/60 text-lg font-light leading-relaxed max-w-lg">
+                            <p className="text-[#4d3b1a]/60 text-lg font-light leading-relaxed max-w-lg">
                                 Select a category to explore bespoke design solutions tailored for your premium lifestyle.
                             </p>
                         </motion.div>
@@ -72,7 +72,7 @@ const ServicesSlider = () => {
                             />
 
                             {/* Sophisticated Gradient Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#2b0d3e] via-[#2b0d3e]/30 to-transparent opacity-60 group-hover:opacity-80 transition-all duration-500" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#4d3b1a] via-[#4d3b1a]/30 to-transparent opacity-60 group-hover:opacity-80 transition-all duration-500" />
 
                             {/* Glassmorphism Price Tag */}
                             <div className="absolute top-5 right-5 z-20">
@@ -106,7 +106,7 @@ const ServicesSlider = () => {
                                                 <p className="text-white/70 text-sm font-light mb-4 line-clamp-1">
                                                     {service.desc}
                                                 </p>
-                                                <div className="flex items-center gap-2 text-[#c59dd9] text-[10px] font-bold tracking-[0.2em] uppercase group-hover:text-white transition-colors">
+                                                <div className="flex items-center gap-2 text-[#e5d5b0] text-[10px] font-bold tracking-[0.2em] uppercase group-hover:text-white transition-colors">
                                                     <span>View Details</span>
                                                     <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -124,11 +124,11 @@ const ServicesSlider = () => {
                     ))}
                 </div>
 
-                <div className="mt-16 flex flex-col md:flex-row items-center justify-between border-t border-[#2b0d3e]/5 pt-10">
-                    <p className="text-[#2b0d3e]/40 text-xs font-medium italic mb-6 md:mb-0">
+                <div className="mt-16 flex flex-col md:flex-row items-center justify-between border-t border-[#4d3b1a]/5 pt-10">
+                    <p className="text-[#4d3b1a]/40 text-xs font-medium italic mb-6 md:mb-0">
                         *Indicative pricing. Connect for a bespoke quotation.
                     </p>
-                    <button className="px-10 py-4 bg-[#2b0d3e] text-white rounded-full font-bold text-sm hover:bg-[#7a3f91] transition-all transform hover:-translate-y-1 shadow-xl flex items-center gap-3">
+                    <button className="px-10 py-4 bg-[#4d3b1a] text-white rounded-full font-bold text-sm hover:bg-[#c5a059] transition-all transform hover:-translate-y-1 shadow-xl flex items-center gap-3">
                         Talk to a Specialist
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />

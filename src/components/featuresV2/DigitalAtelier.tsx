@@ -66,7 +66,7 @@ const DigitalAtelier: React.FC = () => {
             icon: MoonIcon,
             description: "The moment of transformation. High-art environments ready for life.",
             detail: "Vibrant Reveal Hub",
-            image: "/assets/evoluxe_final_reveal_home_vibrant.png",
+            image: "/assets/EVOLX Studio_final_reveal_home_vibrant.png",
             color: "bg-stone-900/40",
             textColor: "text-gold-soft"
         }

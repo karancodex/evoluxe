@@ -68,7 +68,7 @@ const V3Hero = () => {
                     transition={{ duration: 1, delay: 0.3 }}
                     className="flex justify-center lg:justify-end"
                 >
-                    <div className="bg-white/95 backdrop-blur-2xl p-10 md:p-12 rounded-[40px] shadow-[0_50px_100px_rgba(43,13,62,0.15)] border border-amethyst-lightest w-full max-w-md relative overflow-hidden">
+                    <div className="bg-white/95 backdrop-blur-2xl p-10 md:p-12 rounded-[40px] shadow-[0_50px_100px_rgba(77,59,26,0.15)] border border-amethyst-lightest w-full max-w-md relative overflow-hidden">
                         {/* Decorative element */}
                         <div className="absolute top-0 right-0 w-32 h-32 bg-amethyst-lightest rounded-full -translate-x-1/2 -translate-y-1/2 -z-10 blur-3xl opacity-50" />
 

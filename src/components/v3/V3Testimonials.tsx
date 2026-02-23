@@ -35,7 +35,7 @@ const TestimonialCard = ({ quote, author, city, index }: { quote: string, author
 
 const V3Testimonials = () => {
     const testimonials = [
-        { quote: "Evoluxe transformed our 3BHK in Gachibowli with zero stress. The transparency in pricing was the best part.", author: "Rahul Sharma", city: "Hyderabad" },
+        { quote: "EVOLX Studio transformed our 3BHK in Gachibowli with zero stress. The transparency in pricing was the best part.", author: "Rahul Sharma", city: "Hyderabad" },
         { quote: "As an NRI, I was worried about managing the work from Dubai. Their portal kept me updated daily.", author: "Priya Nair", city: "Dubai / Bangalore" },
         { quote: "The modular kitchen finish is divine. It's been 6 months and it still looks and feels brand new.", author: "Amit Verma", city: "Mumbai" }
     ];

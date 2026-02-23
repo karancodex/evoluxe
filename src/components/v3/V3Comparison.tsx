@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const ComparisonRow = ({ label, others, evoluxe, index }: { label: string, others: string, evoluxe: string, index: number }) => (
+const ComparisonRow = ({ label, others, EVOLX Studio, index }: { label: string, others: string, EVOLX Studio: string, index: number }) => (
     <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -19,12 +19,12 @@ const ComparisonRow = ({ label, others, evoluxe, index }: { label: string, other
             <span className="text-amethyst-dark/60 text-sm md:text-base font-light font-black uppercase tracking-widest">{others}</span>
         </div>
         <div className="flex flex-col gap-2 transform group-hover:scale-105 transition-all">
-            <span className="text-[10px] uppercase tracking-[0.2em] font-black text-amethyst-primary">The Evoluxe Way</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] font-black text-amethyst-primary">The EVOLX Studio Way</span>
             <div className="flex items-center gap-4">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-amethyst-primary flex items-center justify-center text-white shadow-lg">
                     <span>✨</span>
                 </div>
-                <span className="text-amethyst-primary font-serif text-2xl font-black italic">{evoluxe}</span>
+                <span className="text-amethyst-primary font-serif text-2xl font-black italic">{EVOLX Studio}</span>
             </div>
         </div>
     </motion.div>
@@ -32,11 +32,11 @@ const ComparisonRow = ({ label, others, evoluxe, index }: { label: string, other
 
 const V3Comparison = () => {
     const data = [
-        { label: "Commission Gap", others: "30% Hidden Markups", evoluxe: "0% Hidden Fees" },
-        { label: "Material Quality", others: "Standard Multi-Grade", evoluxe: "BWP & HDHMR Certified" },
-        { label: "Design Process", others: "Pre-set Template Library", evoluxe: "Artisan Individual Design" },
-        { label: "Delivery Speed", others: "90+ Days Average", evoluxe: "45 Days Guaranteed" },
-        { label: " NRI Services", others: "Standard Local Support", evoluxe: "24/7 Global Priority" },
+        { label: "Commission Gap", others: "30% Hidden Markups", EVOLX Studio: "0% Hidden Fees" },
+        { label: "Material Quality", others: "Standard Multi-Grade", EVOLX Studio: "BWP & HDHMR Certified" },
+        { label: "Design Process", others: "Pre-set Template Library", EVOLX Studio: "Artisan Individual Design" },
+        { label: "Delivery Speed", others: "90+ Days Average", EVOLX Studio: "45 Days Guaranteed" },
+        { label: " NRI Services", others: "Standard Local Support", EVOLX Studio: "24/7 Global Priority" },
     ];
 
     return (
@@ -52,7 +52,7 @@ const V3Comparison = () => {
                     </p>
                 </div>
 
-                <div className="bg-white/50 backdrop-blur-3xl rounded-[60px] shadow-[0_50px_100px_rgba(43,13,62,0.1)] border border-white overflow-hidden p-4 md:p-12 mb-20">
+                <div className="bg-white/50 backdrop-blur-3xl rounded-[60px] shadow-[0_50px_100px_rgba(77,59,26,0.1)] border border-white overflow-hidden p-4 md:p-12 mb-20">
                     <div className="space-y-4">
                         {data.map((item, i) => (
                             <ComparisonRow key={i} {...item} index={i} />

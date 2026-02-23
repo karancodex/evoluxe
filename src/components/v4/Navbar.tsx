@@ -73,10 +73,10 @@ const Navbar = () => {
                 <div className="h-20 flex items-center justify-between border-b border-stone-100/50 relative z-20 bg-white">
                     {/* Left: Logo */}
                     <Link href="/v4" className="flex items-center gap-2 relative group z-50 shrink-0">
-                        <div className="relative h-10 w-48 md:h-12 md:w-56">
+                        <div className="relative h-10 w-48 md:h-20 md:w-60">
                             <Image
-                                src="/v4/evoluxe-logo.png"
-                                alt="EVOLUXE Logo"
+                                src="/v4/evolx-studio-logo.png"
+                                alt="EVOLX Studio Logo"
                                 fill
                                 className="object-contain"
                                 priority
@@ -96,11 +96,11 @@ const Navbar = () => {
                                 >
                                     <Link
                                         href={getLink(link.name)}
-                                        className={`flex items-center gap-1 text-[14px] font-medium tracking-wide transition-all duration-300 ${activeMenu === link.name ? 'text-[#7a3f91]' : 'text-[#483c32] hover:text-[#7a3f91]'}`}
+                                        className={`flex items-center gap-1 text-[14px] font-medium tracking-wide transition-all duration-300 ${activeMenu === link.name ? 'text-[#c5a059]' : 'text-[#483c32] hover:text-[#c5a059]'}`}
                                     >
                                         {link.label}
                                         {link.hasDropdown && (
-                                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeMenu === link.name ? 'rotate-180 text-[#7a3f91]' : 'text-gray-400'}`} />
+                                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeMenu === link.name ? 'rotate-180 text-[#c5a059]' : 'text-gray-400'}`} />
                                         )}
                                     </Link>
 
@@ -117,20 +117,20 @@ const Navbar = () => {
                                                 {/* Invisible Bridge to prevent closing on gap hover */}
                                                 <div className="absolute top-0 left-0 right-0 h-4 bg-transparent" />
 
-                                                <div className="bg-white shadow-[0_10px_40px_-5px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden border-t-[3px] border-[#7a3f91] ring-1 ring-stone-100 min-w-[240px] max-w-[90vw]">
+                                                <div className="bg-white shadow-[0_10px_40px_-5px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden border-t-[3px] border-[#c5a059] ring-1 ring-stone-100 min-w-[240px] max-w-[90vw]">
                                                     {link.columns ? (
                                                         <div className={`flex bg-white ${link.isMega ? 'p-8 gap-12' : 'p-6 flex-col gap-4'}`}>
                                                             {link.columns.map((col, idx) => (
                                                                 <div key={idx} className={`${link.isMega ? 'w-[200px]' : 'w-full'}`}>
                                                                     {col.title && (
-                                                                        <h3 className="font-serif text-[15px] text-[#2b0d3e] border-b border-stone-100 pb-2 mb-3 font-bold tracking-wide">
+                                                                        <h3 className="font-serif text-[15px] text-[#4d3b1a] border-b border-stone-100 pb-2 mb-3 font-bold tracking-wide">
                                                                             {col.title}
                                                                         </h3>
                                                                     )}
                                                                     <ul className="space-y-2.5">
                                                                         {col.items.map((item) => (
                                                                             <li key={item}>
-                                                                                <Link href={getLink(item)} className="block text-[13px] text-stone-500 hover:text-[#7a3f91] hover:font-medium hover:translate-x-1 transition-all duration-200">
+                                                                                <Link href={getLink(item)} className="block text-[13px] text-stone-500 hover:text-[#c5a059] hover:font-medium hover:translate-x-1 transition-all duration-200">
                                                                                     {item}
                                                                                 </Link>
                                                                             </li>
@@ -165,11 +165,11 @@ const Navbar = () => {
                     {/* Right: User Icon */}
                     <div className="hidden md:flex items-center gap-6 shrink-0">
                         <div className="h-6 w-px bg-stone-200"></div>
-                        <button className="text-[#483c32] hover:text-[#7a3f91] transition-colors p-1 hover:bg-stone-50 rounded-full">
+                        <button className="text-[#483c32] hover:text-[#c5a059] transition-colors p-1 hover:bg-stone-50 rounded-full">
                             <User className="w-5 h-5" />
                         </button>
                         {/* Mobile Trigger */}
-                        <button className="xl:hidden ml-4 text-[#2b0d3e]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                        <button className="xl:hidden ml-4 text-[#4d3b1a]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                             {mobileMenuOpen ? <X /> : <Menu />}
                         </button>
                     </div>
@@ -189,7 +189,7 @@ const Navbar = () => {
                                 >
                                     <Link
                                         href={getLink(link.name)}
-                                        className={`flex items-center gap-1 text-[13px] font-semibold tracking-wide uppercase transition-colors ${activeMenu === link.name ? 'text-[#7a3f91]' : 'text-[#483c32] hover:text-[#7a3f91]'}`}
+                                        className={`flex items-center gap-1 text-[13px] font-semibold tracking-wide uppercase transition-colors ${activeMenu === link.name ? 'text-[#c5a059]' : 'text-[#483c32] hover:text-[#c5a059]'}`}
                                     >
                                         {link.label}
                                         {link.hasDropdown && <ChevronDown className={`w-3.5 h-3.5 transition-transform ${activeMenu === link.name ? 'rotate-180' : ''}`} />}
@@ -208,16 +208,16 @@ const Navbar = () => {
                                                 {/* Invisible Bridge */}
                                                 <div className="absolute top-0 left-0 right-0 h-2 bg-transparent" />
 
-                                                <div className="bg-white shadow-[0_10px_30px_-5px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden border-t-[3px] border-[#7a3f91] ring-1 ring-stone-100 min-w-[220px]">
+                                                <div className="bg-white shadow-[0_10px_30px_-5px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden border-t-[3px] border-[#c5a059] ring-1 ring-stone-100 min-w-[220px]">
                                                     {link.columns ? (
                                                         <div className="flex p-6 gap-8 bg-white flex-col">
                                                             {link.columns.map((col, idx) => (
                                                                 <div key={idx} className="w-[180px]">
-                                                                    <h3 className="font-serif text-sm text-[#2b0d3e] border-b border-stone-100 pb-2 mb-2 font-bold">{col.title}</h3>
+                                                                    <h3 className="font-serif text-sm text-[#4d3b1a] border-b border-stone-100 pb-2 mb-2 font-bold">{col.title}</h3>
                                                                     <ul className="space-y-2">
                                                                         {col.items.map((item) => (
                                                                             <li key={item}>
-                                                                                <Link href={getLink(item)} className="block text-[12px] text-stone-500 hover:text-[#7a3f91] hover:translate-x-1 transition-all">
+                                                                                <Link href={getLink(item)} className="block text-[12px] text-stone-500 hover:text-[#c5a059] hover:translate-x-1 transition-all">
                                                                                     {item}
                                                                                 </Link>
                                                                             </li>
@@ -238,7 +238,7 @@ const Navbar = () => {
 
                     {/* Right: Consult Button */}
                     <div>
-                        <button className="px-8 py-2.5 rounded-sm text-[11px] font-black tracking-[0.15em] uppercase transition-all bg-[#7a3f91] text-white hover:bg-[#2b0d3e] shadow-lg hover:shadow-xl hover:-translate-y-0.5 border border-transparent hover:border-[#7a3f91]/30">
+                        <button className="px-8 py-2.5 rounded-sm text-[11px] font-black tracking-[0.15em] uppercase transition-all bg-[#c5a059] text-white hover:bg-[#4d3b1a] shadow-lg hover:shadow-xl hover:-translate-y-0.5 border border-transparent hover:border-[#c5a059]/30">
                             Consult Online Now
                         </button>
                     </div>
@@ -259,7 +259,7 @@ const Navbar = () => {
                             {[...topNavLinks, ...bottomNavLinks].map(link => (
                                 <div key={link.name} className="py-2 border-b border-stone-100">
                                     <button
-                                        className="text-lg font-medium text-[#2b0d3e] flex justify-between w-full items-center"
+                                        className="text-lg font-medium text-[#4d3b1a] flex justify-between w-full items-center"
                                         onClick={() => toggleMobileSubmenu(link.name)}
                                     >
                                         {link.label}

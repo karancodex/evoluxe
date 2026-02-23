@@ -89,7 +89,7 @@ export default function GenesisSection() {
                                 transition={{ delay: 0.4 }}
                                 className="text-charcoal/50 text-[10px] uppercase tracking-[0.4em] font-bold leading-loose"
                             >
-                                EVOLUXE represents the delicate intersection of Evolve + Luxury. We curate spatial high-art that transcends traditional interior design.
+                                EVOLX Studio represents the delicate intersection of Evolve + Luxury. We curate spatial high-art that transcends traditional interior design.
                             </motion.p>
                         </div>
 
@@ -153,7 +153,7 @@ export default function GenesisSection() {
                             <p className="text-white text-sm font-serif leading-relaxed italic">
                                 "The beauty lies in the tension of a single line."
                             </p>
-                            <span className="text-white/20 text-[7px] uppercase tracking-[0.5em]">Atelier Evoluxe</span>
+                            <span className="text-white/20 text-[7px] uppercase tracking-[0.5em]">Atelier EVOLX Studio</span>
                         </motion.div>
 
                         {/* Background Decoration */}

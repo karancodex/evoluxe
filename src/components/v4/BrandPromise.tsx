@@ -41,14 +41,14 @@ const BrandPromise = () => {
                         initial={{ opacity: 0, letterSpacing: "0.2em" }}
                         animate={{ opacity: 1, letterSpacing: "0.5em" }}
                         transition={{ duration: 2, delay: 0.5 }}
-                        className="text-[#f2eaf7] text-xs font-bold uppercase block tracking-[0.5em]"
+                        className="text-[#faf9f6] text-xs font-bold uppercase block tracking-[0.5em]"
                     >
                         Introducing
                     </motion.span>
 
                     <div className="relative pt-4 text-center">
                         <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter mb-0 flex items-baseline justify-center gap-1">
-                            EVOLUXE
+                            EVOLX Studio
                         </h2>
 
                         {/* Elite Script signature style */}
@@ -69,7 +69,7 @@ const BrandPromise = () => {
                         <motion.button
                             whileHover={{ scale: 1.05, backgroundColor: "#c5a059" }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-12 py-4 bg-transparent border border-[#c5a059] text-[#f2eaf7] font-bold rounded-sm tracking-widest uppercase text-xs transition-all hover:text-[#2b0d3e] shadow-[0_0_20px_rgba(197,160,89,0.3)]"
+                            className="px-12 py-4 bg-transparent border border-[#c5a059] text-[#faf9f6] font-bold rounded-sm tracking-widest uppercase text-xs transition-all hover:text-[#4d3b1a] shadow-[0_0_20px_rgba(197,160,89,0.3)]"
                         >
                             Explore the Collection
                         </motion.button>
@@ -80,7 +80,7 @@ const BrandPromise = () => {
                 {/* <div className="absolute bottom-20 flex flex-col items-center gap-4">
                     <div className="w-[1px] h-20 bg-gradient-to-t from-[#c5a059] to-transparent" />
                     <span
-                        className="text-[10px] text-[#f2eaf7]/40 uppercase tracking-[0.3em]"
+                        className="text-[10px] text-[#faf9f6]/40 uppercase tracking-[0.3em]"
                         style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
                     >
                         Scroll Experience

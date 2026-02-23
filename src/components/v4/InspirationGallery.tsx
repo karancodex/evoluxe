@@ -35,7 +35,7 @@ const InspirationGallery = () => {
 
                 {/* Heading */}
                 <div className="text-center mb-8">
-                    <h2 className="text-4xl md:text-6xl font-serif text-[#2b0d3e]">Inspiration for interior designs</h2>
+                    <h2 className="text-4xl md:text-6xl font-serif text-[#4d3b1a]">Inspiration for interior designs</h2>
                 </div>
                 {/* Bottom Floating Navigation (Simulated from image) */}
                 {/* Navigation - Centered below header */}

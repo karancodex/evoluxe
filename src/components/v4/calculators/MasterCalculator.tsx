@@ -141,12 +141,12 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
 
     return (
         <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden border border-stone-100">
-            <div className="bg-[#2b0d3e] p-8 md:p-12 text-white flex flex-col items-center">
+            <div className="bg-[#4d3b1a] p-8 md:p-12 text-white flex flex-col items-center">
                 <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-white/20">
                     {config.icon}
                 </div>
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-2">{config.title}</h2>
-                <p className="text-[#c59dd9] text-center max-w-md opacity-80">Get an instant estimate for your interior project in seconds.</p>
+                <p className="text-[#e5d5b0] text-center max-w-md opacity-80">Get an instant estimate for your interior project in seconds.</p>
             </div>
 
             <div className="p-8 md:p-16 min-h-[400px]">
@@ -164,12 +164,12 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                                 <span className="text-stone-400 text-sm font-bold uppercase tracking-widest">Step 0{step} / 0{config.steps.length}</span>
                                 <div className="flex gap-1">
                                     {config.steps.map((_, i) => (
-                                        <div key={i} className={`h-1.5 w-8 rounded-full transition-all duration-500 ${i + 1 <= step ? 'bg-[#7a3f91]' : 'bg-stone-100'}`} />
+                                        <div key={i} className={`h-1.5 w-8 rounded-full transition-all duration-500 ${i + 1 <= step ? 'bg-[#c5a059]' : 'bg-stone-100'}`} />
                                     ))}
                                 </div>
                             </div>
 
-                            <h3 className="text-2xl md:text-3xl font-serif text-[#2b0d3e] font-bold">
+                            <h3 className="text-2xl md:text-3xl font-serif text-[#4d3b1a] font-bold">
                                 {config.steps[step - 1].label}
                             </h3>
 
@@ -178,14 +178,14 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                                     <button
                                         key={opt.id}
                                         onClick={() => handleSelect(config.steps[step - 1].id, opt.value || opt.multiplier)}
-                                        className="text-left p-6 border-2 border-stone-50 rounded-2xl hover:border-[#7a3f91] hover:bg-[#f2eaf7]/30 transition-all duration-300 group relative overflow-hidden"
+                                        className="text-left p-6 border-2 border-stone-50 rounded-2xl hover:border-[#c5a059] hover:bg-[#faf9f6]/30 transition-all duration-300 group relative overflow-hidden"
                                     >
                                         <div className="flex justify-between items-center relative z-10">
                                             <div>
-                                                <h4 className="text-xl font-bold text-[#2b0d3e] group-hover:text-[#7a3f91] transition-colors">{opt.label}</h4>
+                                                <h4 className="text-xl font-bold text-[#4d3b1a] group-hover:text-[#c5a059] transition-colors">{opt.label}</h4>
                                                 {opt.sub && <p className="text-sm text-stone-500 mt-1">{opt.sub}</p>}
                                             </div>
-                                            <ChevronRight className="w-5 h-5 text-stone-300 group-hover:text-[#7a3f91] group-hover:translate-x-1 transition-all" />
+                                            <ChevronRight className="w-5 h-5 text-stone-300 group-hover:text-[#c5a059] group-hover:translate-x-1 transition-all" />
                                         </div>
                                     </button>
                                 ))}
@@ -199,17 +199,17 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                             variants={fadeIn}
                             className="text-center py-8"
                         >
-                            <div className="inline-block p-4 bg-[#f2eaf7] rounded-full mb-6">
+                            <div className="inline-block p-4 bg-[#faf9f6] rounded-full mb-6">
                                 <span className="text-4xl">🎉</span>
                             </div>
-                            <h3 className="text-2xl font-serif text-[#2b0d3e] mb-2 font-bold">Your Instant Quote is Ready!</h3>
+                            <h3 className="text-2xl font-serif text-[#4d3b1a] mb-2 font-bold">Your Instant Quote is Ready!</h3>
                             <p className="text-stone-500 mb-10">Based on your selections, here is your approximate estimate:</p>
 
-                            <div className="bg-[#2b0d3e] text-white p-10 rounded-3xl inline-block shadow-2xl relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-[#7a3f91] opacity-20 blur-3xl -translate-y-1/2 translate-x-1/2 transition-transform duration-700 group-hover:scale-150" />
+                            <div className="bg-[#4d3b1a] text-white p-10 rounded-3xl inline-block shadow-2xl relative overflow-hidden group">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-[#c5a059] opacity-20 blur-3xl -translate-y-1/2 translate-x-1/2 transition-transform duration-700 group-hover:scale-150" />
                                 <div className="relative z-10">
                                     <span className="text-xl opacity-60 font-medium tracking-widest uppercase block mb-1">Estimated Total</span>
-                                    <div className="text-5xl md:text-6xl font-bold text-[#c59dd9] mb-2">
+                                    <div className="text-5xl md:text-6xl font-bold text-[#e5d5b0] mb-2">
                                         ₹{result?.toLocaleString('en-IN')}
                                     </div>
                                     <div className="h-px bg-white/10 my-4" />
@@ -218,12 +218,12 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4 mt-12 justify-center">
-                                <button className="px-10 py-5 bg-[#7a3f91] text-white font-bold rounded-2xl hover:bg-[#2b0d3e] transition-all shadow-xl hover:-translate-y-1">
+                                <button className="px-10 py-5 bg-[#c5a059] text-white font-bold rounded-2xl hover:bg-[#4d3b1a] transition-all shadow-xl hover:-translate-y-1">
                                     Book Free Consultation
                                 </button>
                                 <button
                                     onClick={reset}
-                                    className="px-10 py-5 border-2 border-stone-100 text-[#2b0d3e] font-bold rounded-2xl hover:bg-stone-50 transition-all flex items-center justify-center gap-2"
+                                    className="px-10 py-5 border-2 border-stone-100 text-[#4d3b1a] font-bold rounded-2xl hover:bg-stone-50 transition-all flex items-center justify-center gap-2"
                                 >
                                     <RotateCcw className="w-5 h-5" /> Calculate Again
                                 </button>

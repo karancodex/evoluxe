@@ -3,16 +3,13 @@
 @theme {
     --color-gold: #c5a059;
     --color-gold-soft: #e5d5b0;
+    --color-gold-deep: #8c6c39;
+    --color-gold-dark: #4d3b1a;
     --color-ivory: #faf9f6;
     --color-emerald: #043927;
     --color-taupe: #483c32;
     --color-charcoal: #121212;
     --color-brand-black: #0a0a0a;
-
-    --color-amethyst-lightest: #f2eaf7;
-    --color-amethyst-light: #c59dd9;
-    --color-amethyst-primary: #7a3f91;
-    --color-amethyst-dark: #2b0d3e;
 
     --font-serif: "Cormorant Garamond", serif;
     --font-sans: "Outfit", sans-serif;

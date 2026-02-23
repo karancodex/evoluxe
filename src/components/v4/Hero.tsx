@@ -42,7 +42,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative w-full h-[90vh] flex items-center bg-[#f2eaf7] overflow-hidden">
+        <section className="relative w-full h-[90vh] flex items-center bg-[#faf9f6] overflow-hidden">
             <AnimatePresence mode="wait">
                 {slides.map((slide, index) => (
                     index === current && (
@@ -66,7 +66,7 @@ const Hero = () => {
                                 priority={index === 0}
                             />
                             {/* Gradient Overlay for Text Readability */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#f2eaf7] via-[#f2eaf7]/90 to-transparent sm:via-[#f2eaf7]/50 text-left" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#faf9f6] via-[#faf9f6]/90 to-transparent sm:via-[#faf9f6]/50 text-left" />
                         </motion.div>
                     )
                 ))}
@@ -82,19 +82,22 @@ const Hero = () => {
                             exit={{ opacity: 0, y: -30 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                            <h1 className="text-5xl md:text-7xl font-bold text-[#2b0d3e] leading-tight mb-6">
+                            <span className="text-[#c5a059] font-bold tracking-[0.4em] uppercase text-xs mb-4 block">
+                                Interior Architecture & Design
+                            </span>
+                            <h1 className="text-5xl md:text-7xl font-bold text-[#4d3b1a] leading-tight mb-6">
                                 {slides[current].title}<br />
-                                <span className="text-[#7a3f91]">{slides[current].subtitle}</span>
+                                <span className="text-[#c5a059]">{slides[current].subtitle}</span>
                             </h1>
-                            <p className="text-lg md:text-xl text-[#2b0d3e]/80 mb-10 leading-relaxed max-w-xl font-medium">
+                            <p className="text-lg md:text-xl text-[#4d3b1a]/80 mb-10 leading-relaxed max-w-xl font-medium">
                                 {slides[current].desc}
                             </p>
 
                             <div className="flex gap-4">
-                                <button className="px-8 py-4 bg-[#7a3f91] text-white font-semibold rounded-full shadow-lg hover:bg-[#2b0d3e] transition-all transform hover:-translate-y-1 hover:shadow-xl">
+                                <button className="px-8 py-4 bg-[#c5a059] text-white font-semibold rounded-full shadow-lg hover:bg-[#4d3b1a] transition-all transform hover:-translate-y-1 hover:shadow-xl">
                                     Start Your Journey
                                 </button>
-                                <button className="px-8 py-4 bg-white/80 backdrop-blur-sm text-[#7a3f91] border-2 border-[#7a3f91] font-semibold rounded-full hover:bg-[#f2eaf7] transition-all">
+                                <button className="px-8 py-4 bg-white/80 backdrop-blur-sm text-[#c5a059] border-2 border-[#c5a059] font-semibold rounded-full hover:bg-[#faf9f6] transition-all">
                                     View Portfolio
                                 </button>
                             </div>
@@ -109,7 +112,7 @@ const Hero = () => {
                     <button
                         key={idx}
                         onClick={() => setCurrent(idx)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === current ? "bg-[#7a3f91] w-8" : "bg-[#2b0d3e]/30 hover:bg-[#7a3f91]/50"
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === current ? "bg-[#c5a059] w-8" : "bg-[#4d3b1a]/30 hover:bg-[#c5a059]/50"
                             }`}
                         aria-label={`Go to slide ${idx + 1}`}
                     />

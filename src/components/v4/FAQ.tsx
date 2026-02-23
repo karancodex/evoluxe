@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const faqs = [
     {
         id: 1,
-        q: "How can I get started with Evoluxe?",
+        q: "How can I get started with EVOLX Studio?",
         a: "Simply book a free consultation through our website. Our designers will reach out to understand your requirements and schedule a site visit or virtual meeting."
     },
     {
@@ -47,13 +47,13 @@ const FAQ = () => {
                     {/* Left Column: Heading */}
                     <div className="lg:col-span-4">
                         <span className="text-[#9d5db5] font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Common Queries</span>
-                        <h2 className="text-4xl md:text-5xl font-serif text-[#2b0d3e] mb-6 leading-tight">
+                        <h2 className="text-4xl md:text-5xl font-serif text-[#4d3b1a] mb-6 leading-tight">
                             Frequently Asked <br /> Questions
                         </h2>
-                        <p className="text-[#2b0d3e]/60 text-lg leading-relaxed mb-8">
-                            Everything you need to know about transforming your home with Evoluxe. Can't find the answer you're looking for?
+                        <p className="text-[#4d3b1a]/60 text-lg leading-relaxed mb-8">
+                            Everything you need to know about transforming your home with EVOLX Studio. Can't find the answer you're looking for?
                         </p>
-                        <button className="text-[#2b0d3e] font-semibold underline decoration-[#2b0d3e]/30 underline-offset-4 hover:decoration-[#2b0d3e] transition-all">
+                        <button className="text-[#4d3b1a] font-semibold underline decoration-[#4d3b1a]/30 underline-offset-4 hover:decoration-[#4d3b1a] transition-all">
                             Contact Support
                         </button>
                     </div>
@@ -66,16 +66,16 @@ const FAQ = () => {
                                 return (
                                     <div
                                         key={item.id}
-                                        className={`border-b border-[#2b0d3e]/10 transition-colors duration-300 ${isOpen ? "pb-6" : "pb-4"}`}
+                                        className={`border-b border-[#4d3b1a]/10 transition-colors duration-300 ${isOpen ? "pb-6" : "pb-4"}`}
                                     >
                                         <button
                                             onClick={() => setOpenIndex(isOpen ? null : index)}
                                             className="w-full flex items-start justify-between py-4 text-left group"
                                         >
-                                            <span className={`font-serif text-xl md:text-2xl transition-colors duration-300 ${isOpen ? "text-[#7a3f91]" : "text-[#2b0d3e] group-hover:text-[#7a3f91]"}`}>
+                                            <span className={`font-serif text-xl md:text-2xl transition-colors duration-300 ${isOpen ? "text-[#c5a059]" : "text-[#4d3b1a] group-hover:text-[#c5a059]"}`}>
                                                 {item.q}
                                             </span>
-                                            <span className="ml-6 mt-1 flex-shrink-0 text-[#2b0d3e]/40 group-hover:text-[#7a3f91] transition-colors">
+                                            <span className="ml-6 mt-1 flex-shrink-0 text-[#4d3b1a]/40 group-hover:text-[#c5a059] transition-colors">
                                                 <motion.div
                                                     animate={{ rotate: isOpen ? 45 : 0 }}
                                                     transition={{ duration: 0.3 }}
@@ -96,7 +96,7 @@ const FAQ = () => {
                                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                                     className="overflow-hidden"
                                                 >
-                                                    <p className="text-[#2b0d3e]/70 text-lg leading-relaxed max-w-3xl pr-8">
+                                                    <p className="text-[#4d3b1a]/70 text-lg leading-relaxed max-w-3xl pr-8">
                                                         {item.a}
                                                     </p>
                                                 </motion.div>

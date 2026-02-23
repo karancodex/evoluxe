@@ -13,20 +13,20 @@ const Modal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) =>
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="bg-white rounded-2xl w-full max-w-lg p-8 relative shadow-2xl border border-[#c59dd9]/20"
+                className="bg-white rounded-2xl w-full max-w-lg p-8 relative shadow-2xl border border-[#e5d5b0]/20"
             >
-                <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-[#2b0d3e] transition-colors text-xl">
+                <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-[#4d3b1a] transition-colors text-xl">
                     ✕
                 </button>
                 <div className="text-center mb-6">
-                    <h3 className="text-2xl font-serif font-bold text-[#2b0d3e] mb-2">Get Your Free Estimate</h3>
-                    <p className="text-[#2b0d3e]/60 text-sm">Start your journey to a dream home today.</p>
+                    <h3 className="text-2xl font-serif font-bold text-[#4d3b1a] mb-2">Get Your Free Estimate</h3>
+                    <p className="text-[#4d3b1a]/60 text-sm">Start your journey to a dream home today.</p>
                 </div>
 
                 <form className="space-y-4">
-                    <input type="text" className="w-full px-4 py-3 rounded-lg bg-[#fbf7fd] border border-[#e5d0f0] focus:border-[#7a3f91] focus:ring-1 focus:ring-[#7a3f91] outline-none transition-all placeholder:text-gray-400" placeholder="Name" />
-                    <input type="tel" className="w-full px-4 py-3 rounded-lg bg-[#fbf7fd] border border-[#e5d0f0] focus:border-[#7a3f91] focus:ring-1 focus:ring-[#7a3f91] outline-none transition-all placeholder:text-gray-400" placeholder="Phone Number" />
-                    <button type="submit" className="w-full py-3.5 bg-[#2b0d3e] text-white font-bold rounded-lg hover:bg-[#7a3f91] transition-all uppercase tracking-wide shadow-lg mt-2">
+                    <input type="text" className="w-full px-4 py-3 rounded-lg bg-[#fbf7fd] border border-[#e5d0f0] focus:border-[#c5a059] focus:ring-1 focus:ring-[#c5a059] outline-none transition-all placeholder:text-gray-400" placeholder="Name" />
+                    <input type="tel" className="w-full px-4 py-3 rounded-lg bg-[#fbf7fd] border border-[#e5d0f0] focus:border-[#c5a059] focus:ring-1 focus:ring-[#c5a059] outline-none transition-all placeholder:text-gray-400" placeholder="Phone Number" />
+                    <button type="submit" className="w-full py-3.5 bg-[#4d3b1a] text-white font-bold rounded-lg hover:bg-[#c5a059] transition-all uppercase tracking-wide shadow-lg mt-2">
                         Get Started
                     </button>
                 </form>
@@ -69,7 +69,7 @@ const MeetDesignerBanner = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                     onClick={() => setIsModalOpen(true)}
-                    className="px-12 py-5 bg-[#2b0d3e] text-white font-bold text-base md:text-lg rounded-full hover:bg-[#7a3f91] transition-all transform hover:-translate-y-1 hover:shadow-2xl uppercase tracking-widest border border-white/20 backdrop-blur-sm"
+                    className="px-12 py-5 bg-[#4d3b1a] text-white font-bold text-base md:text-lg rounded-full hover:bg-[#c5a059] transition-all transform hover:-translate-y-1 hover:shadow-2xl uppercase tracking-widest border border-white/20 backdrop-blur-sm"
                 >
                     Get Started
                 </motion.button>

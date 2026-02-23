@@ -32,7 +32,7 @@ const V3Expertise = () => {
         <section className="py-32 bg-amethyst-lightest">
             <div className="max-w-[1400px] mx-auto px-6 md:px-12">
                 <div className="text-center mb-20 space-y-4">
-                    <span className="text-amethyst-primary text-[11px] uppercase tracking-[1em] font-black italic">The Evoluxe Edge</span>
+                    <span className="text-amethyst-primary text-[11px] uppercase tracking-[1em] font-black italic">The EVOLX Studio Edge</span>
                     <h2 className="text-4xl md:text-7xl font-serif text-amethyst-dark">Why we <span className="italic font-light">stand out?</span></h2>
                 </div>
 

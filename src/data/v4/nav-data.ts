@@ -37,7 +37,7 @@ export const topNavLinks: NavItem[] = [
                 items: [
                     'Dining Room Designs',
                     'Foyer Designs',
-                    'Homes By EVOLUXE',
+                    'Homes By EVOLX Studio',
                     'Home Office Designs',
                     'Guest Bedroom Designs',
                     'Window Designs',
@@ -176,7 +176,7 @@ export const getPageContent = (slug: string) => {
 
     // Specialized content for calculators
     let subtitle = `Explore the best ${title} for your home`;
-    let description = `Discover our exclusive collection of ${title}. At EVOLUXE, we bring you premium designs that blend functionality with aesthetics. Whether you are looking for modern, contemporary, or traditional styles, our curated selection of ${title} serves every taste.`;
+    let description = `Discover our exclusive collection of ${title}. At EVOLX Studio, we bring you premium designs that blend functionality with aesthetics. Whether you are looking for modern, contemporary, or traditional styles, our curated selection of ${title} serves every taste.`;
 
     if (slug.includes('calculator') || slug.includes('estimator')) {
         subtitle = `Get an instant, transparent cost estimate for your interior project.`;

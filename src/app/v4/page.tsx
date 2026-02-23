@@ -18,9 +18,9 @@ import Footer from '@/components/v4/Footer';
 export default function V4HomePage() {
     return (
         <main
-            className="min-h-screen font-sans selection:bg-[#c59dd9] selection:text-[#2b0d3e] bg-white text-[#2b0d3e]"
+            className="min-h-screen font-sans selection:bg-[#e5d5b0] selection:text-[#4d3b1a] bg-white text-[#4d3b1a]"
             style={{
-                '--foreground': '#2b0d3e',
+                '--foreground': '#4d3b1a',
                 '--background': '#ffffff'
             } as any}
         >
