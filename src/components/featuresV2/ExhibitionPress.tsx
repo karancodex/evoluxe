@@ -9,7 +9,7 @@ const press = [
         title: "The Modern Soul of IVORY",
         year: "2025",
         image: "/assets/portfolio_paris.png",
-        quote: "Evoluxe isn't just building rooms; they are curating emotional legacies through spatial precision."
+        quote: "EVOLX Studio isn't just building rooms; they are curating emotional legacies through spatial precision."
     },
     {
         outlet: "Vogue Living",
@@ -27,7 +27,7 @@ const press = [
     },
     {
         outlet: "Elle Decor",
-        title: "The Craft of Evoluxe",
+        title: "The Craft of EVOLX Studio",
         year: "2023",
         image: "/assets/craft_details.png",
         quote: "Hand-charred timbers and rare marbles collide in a symphony of tactile perfection."

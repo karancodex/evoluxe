@@ -4,8 +4,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 export const metadata: Metadata = {
-    title: "EVOLUXE — The Evolution of Luxury",
-    description: "High-end interior design and architectural studio offering bespoke luxury residential and premium commercial spatial design experiences.",
+    title: "EVOLX Studio — Interior Architecture & Design",
+    description: "High-end interior architecture and architectural studio offering bespoke luxury residential and premium commercial spatial design experiences.",
     icons: {
         icon: "/v4/favicon.png",
         shortcut: "/v4/favicon.png",

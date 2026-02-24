@@ -30,23 +30,23 @@ const InspirationGallery = () => {
         : rawImages.filter(img => img.cat === activeCat);
 
     return (
-        <section className="relative py-16 bg-[#fbf7fd] min-h-screen">
+        <section className="relative py-16 bg-white min-h-screen">
             <div className="max-w-[1800px] mx-auto px-4">
 
                 {/* Heading */}
                 <div className="text-center mb-8">
-                    <h2 className="text-4xl md:text-6xl font-serif text-[#2b0d3e]">Inspiration for interior designs</h2>
+                    <h2 className="text-3xl md:text-6xl font-serif text-[#2d2412] leading-tight">Inspiration for <br className="sm:hidden" /> interior designs</h2>
                 </div>
                 {/* Bottom Floating Navigation (Simulated from image) */}
                 {/* Navigation - Centered below header */}
-                <div className="flex justify-center mb-12">
-                    <div className="bg-white/90 backdrop-blur-md shadow-lg rounded-full px-2 py-1.5 flex items-center gap-1 border border-black/5">
+                <div className="flex justify-center mb-12 overflow-x-auto pb-4 scrollbar-hide">
+                    <div className="bg-white/90 backdrop-blur-md shadow-lg rounded-full px-2 py-1.5 flex items-center gap-1 border border-black/5 whitespace-nowrap">
                         {categories.map((cat) => (
                             <button
                                 key={cat}
                                 onClick={() => setActiveCat(cat)}
                                 className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeCat === cat
-                                    ? "bg-black text-white shadow-md"
+                                    ? "bg-[#eb595f] text-white shadow-md"
                                     : "bg-transparent text-neutral-600 hover:bg-neutral-100"
                                     }`}
                             >

@@ -34,7 +34,7 @@ export default function V2Contact() {
                         <div className="space-y-8 flex flex-col items-center">
                             <span className="text-gold text-[8px] uppercase tracking-widest block font-bold">Communication</span>
                             <p className="text-[#1a1a1a] text-2xl font-serif italic text-center underline decoration-gold/20 underline-offset-8">
-                                concierge@evoluxe.art <br />
+                                concierge@EVOLX Studio.art <br />
                                 +41 44 211 40
                             </p>
                         </div>
@@ -62,7 +62,7 @@ export default function V2Contact() {
             {/* Huge Background Branding */}
             <div className="absolute bottom-[-10vw] left-1/2 -translate-x-1/2 pointer-events-none opacity-[0.03] select-none">
                 <h3 className="text-[40vw] font-serif uppercase leading-none tracking-tightest">
-                    EVOLUXE
+                    EVOLX Studio
                 </h3>
             </div>
 

@@ -50,7 +50,7 @@ export default function Hero() {
                                 Atelier of Spatial High-Art
                             </motion.span>
                             <h1 className="text-white text-7xl md:text-9xl italic font-light tracking-tightest mb-4">
-                                EVOLUXE
+                                EVOLX Studio
                             </h1>
                             <div className="w-24 h-[1px] bg-gold/40 mx-auto" />
                         </div>
@@ -120,7 +120,7 @@ export default function Hero() {
                             transition={{ duration: 8 }}
                             className="w-full h-full relative"
                         >
-                            <img src="/assets/evoluxe_final_reveal_home_vibrant.png" className="w-full h-full object-cover" />
+                            <img src="/assets/EVOLX Studio_final_reveal_home_vibrant.png" className="w-full h-full object-cover" />
                             {/* Refined Gradient: Clearer Center, Darker Bottom for Text */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,black_80%)] opacity-30" />

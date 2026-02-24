@@ -42,7 +42,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative w-full h-[90vh] flex items-center bg-[#f2eaf7] overflow-hidden">
+        <section className="relative w-full h-screen md:h-[85vh] lg:h-[90vh] flex items-center bg-[#faf9f6] overflow-hidden">
             <AnimatePresence mode="wait">
                 {slides.map((slide, index) => (
                     index === current && (
@@ -66,14 +66,14 @@ const Hero = () => {
                                 priority={index === 0}
                             />
                             {/* Gradient Overlay for Text Readability */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#f2eaf7] via-[#f2eaf7]/90 to-transparent sm:via-[#f2eaf7]/50 text-left" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#faf9f6] via-[#faf9f6]/90 to-transparent sm:via-[#faf9f6]/50 text-left" />
                         </motion.div>
                     )
                 ))}
             </AnimatePresence>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-32">
-                <div className="max-w-3xl">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20 md:pt-32">
+                <div className="max-w-4xl">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={current}
@@ -82,19 +82,22 @@ const Hero = () => {
                             exit={{ opacity: 0, y: -30 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                            <h1 className="text-5xl md:text-7xl font-bold text-[#2b0d3e] leading-tight mb-6">
+                            <span className="text-[#eb595f] font-bold tracking-[0.5em] uppercase text-[10px] mb-4 block font-accent">
+                                Interior Architecture & Design
+                            </span>
+                            <h1 className="text-[2.6rem] sm:text-5xl md:text-8xl font-serif font-bold text-[#2d2412] leading-[1.05] mb-6 tracking-tight">
                                 {slides[current].title}<br />
-                                <span className="text-[#7a3f91]">{slides[current].subtitle}</span>
+                                <span className="text-[#eb595f] italic font-medium">{slides[current].subtitle}</span>
                             </h1>
-                            <p className="text-lg md:text-xl text-[#2b0d3e]/80 mb-10 leading-relaxed max-w-xl font-medium">
+                            <p className="text-lg md:text-xl text-[#2d2412]/80 mb-10 leading-relaxed max-w-xl font-medium">
                                 {slides[current].desc}
                             </p>
 
-                            <div className="flex gap-4">
-                                <button className="px-8 py-4 bg-[#7a3f91] text-white font-semibold rounded-full shadow-lg hover:bg-[#2b0d3e] transition-all transform hover:-translate-y-1 hover:shadow-xl">
+                            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                                <button className="px-8 py-4 bg-[#eb595f] text-white font-bold rounded-full shadow-lg hover:bg-[#2d2412] transition-all transform hover:-translate-y-1 hover:shadow-xl text-sm sm:text-base">
                                     Start Your Journey
                                 </button>
-                                <button className="px-8 py-4 bg-white/80 backdrop-blur-sm text-[#7a3f91] border-2 border-[#7a3f91] font-semibold rounded-full hover:bg-[#f2eaf7] transition-all">
+                                <button className="px-8 py-4 bg-white/80 backdrop-blur-sm text-[#eb595f] border-2 border-[#eb595f] font-bold rounded-full hover:bg-[#faf9f6] transition-all text-sm sm:text-base">
                                     View Portfolio
                                 </button>
                             </div>
@@ -109,7 +112,7 @@ const Hero = () => {
                     <button
                         key={idx}
                         onClick={() => setCurrent(idx)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === current ? "bg-[#7a3f91] w-8" : "bg-[#2b0d3e]/30 hover:bg-[#7a3f91]/50"
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === current ? "bg-[#eb595f] w-8" : "bg-[#2d2412]/30 hover:bg-[#eb595f]/50"
                             }`}
                         aria-label={`Go to slide ${idx + 1}`}
                     />

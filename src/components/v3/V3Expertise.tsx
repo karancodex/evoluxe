@@ -8,14 +8,14 @@ const ExpertiseItem = ({ icon, title, desc, index }: { icon: string, title: stri
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ delay: index * 0.1 }}
-        className="flex gap-8 p-10 rounded-[40px] bg-white shadow-xl hover:shadow-2xl transition-all border border-amethyst-lightest group"
+        className="flex gap-8 p-10 rounded-[40px] bg-white shadow-xl hover:shadow-2xl transition-all border border-ivory group"
     >
-        <div className="w-20 h-20 rounded-full bg-amethyst-lightest flex-shrink-0 flex items-center justify-center text-4xl group-hover:bg-amethyst-primary transition-all duration-500 group-hover:rotate-[360deg]">
+        <div className="w-20 h-20 rounded-full bg-ivory flex-shrink-0 flex items-center justify-center text-4xl group-hover:bg-gold transition-all duration-500 group-hover:rotate-[360deg]">
             <span className="group-hover:brightness-0 group-hover:invert transition-all">{icon}</span>
         </div>
         <div className="space-y-3">
-            <h4 className="text-xl font-serif text-amethyst-dark group-hover:text-amethyst-primary transition-colors font-bold">{title}</h4>
-            <p className="text-amethyst-dark/50 text-[10px] uppercase tracking-widest leading-relaxed font-black">{desc}</p>
+            <h4 className="text-xl font-serif text-gold-dark group-hover:text-gold transition-colors font-bold">{title}</h4>
+            <p className="text-gold-dark/50 text-[10px] uppercase tracking-widest leading-relaxed font-black">{desc}</p>
         </div>
     </motion.div>
 );
@@ -29,11 +29,11 @@ const V3Expertise = () => {
     ];
 
     return (
-        <section className="py-32 bg-amethyst-lightest">
+        <section className="py-32 bg-ivory">
             <div className="max-w-[1400px] mx-auto px-6 md:px-12">
                 <div className="text-center mb-20 space-y-4">
-                    <span className="text-amethyst-primary text-[11px] uppercase tracking-[1em] font-black italic">The Evoluxe Edge</span>
-                    <h2 className="text-4xl md:text-7xl font-serif text-amethyst-dark">Why we <span className="italic font-light">stand out?</span></h2>
+                    <span className="text-gold text-[11px] uppercase tracking-[1em] font-black italic">The EVOLX Studio Edge</span>
+                    <h2 className="text-4xl md:text-7xl font-serif text-gold-dark">Why we <span className="italic font-light">stand out?</span></h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

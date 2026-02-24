@@ -41,7 +41,7 @@ export default function HomeV3() {
     }, []);
 
     return (
-        <main className="bg-amethyst-lightest text-amethyst-dark selection:bg-amethyst-primary selection:text-white">
+        <main className="bg-ivory text-gold-dark selection:bg-gold selection:text-white">
             <V3Navbar />
             <V3Hero />
             <V3QuickBenefits />

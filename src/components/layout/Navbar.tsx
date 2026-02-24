@@ -11,8 +11,8 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [time, setTime] = useState("");
 
-    // Hide global navbar on v2, v3, and v4 pages
-    if (pathname?.startsWith("/v2") || pathname?.startsWith("/v3") || pathname?.startsWith("/v4")) return null;
+    // Hide global navbar on root, v2, v3, and v4 pages
+    if (pathname === "/" || pathname?.startsWith("/v2") || pathname?.startsWith("/v3") || pathname?.startsWith("/v4")) return null;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -58,7 +58,7 @@ const Navbar = () => {
                     {/* Logo */}
                     <Link href="/" className="relative z-10 group">
                         <span className="text-gold text-[12px] font-serif uppercase tracking-[0.6em] transition-all duration-500 group-hover:tracking-[0.8em] font-bold">
-                            Evoluxe
+                            EVOLX Studio
                         </span>
                     </Link>
 
@@ -141,7 +141,7 @@ const Navbar = () => {
 
                                 <div className="space-y-6">
                                     <span className="text-white/20 text-[9px] uppercase tracking-[1em]">Press & Inquiries</span>
-                                    <p className="text-xl font-serif">concierge@evoluxe.com</p>
+                                    <p className="text-xl font-serif">concierge@EVOLX Studio.com</p>
                                     <div className="flex gap-8">
                                         <span className="text-gold text-[9px] uppercase tracking-[0.4em]">Instagram</span>
                                         <span className="text-gold text-[9px] uppercase tracking-[0.4em]">LinkedIn</span>

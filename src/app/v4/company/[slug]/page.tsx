@@ -50,7 +50,7 @@ const CompanyPage = () => {
             default:
                 return (
                     <div className="py-32 px-6 text-center">
-                        <h1 className="text-4xl font-serif font-bold text-[#2b0d3e] mb-4">{content.title}</h1>
+                        <h1 className="text-4xl font-serif font-bold text-[#4d3b1a] mb-4">{content.title}</h1>
                         <p className="text-stone-500 max-w-2xl mx-auto">{content.description}</p>
                     </div>
                 );

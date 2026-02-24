@@ -8,15 +8,15 @@ import { usePathname } from "next/navigation";
 const Footer = () => {
     const pathname = usePathname();
 
-    // Hide global footer on v2, v3, and v4 pages
-    if (pathname?.startsWith("/v2") || pathname?.startsWith("/v3") || pathname?.startsWith("/v4")) return null;
+    // Hide global footer on root, v2, v3, and v4 pages
+    if (pathname === "/" || pathname?.startsWith("/v2") || pathname?.startsWith("/v3") || pathname?.startsWith("/v4")) return null;
 
     return (
         <footer className="relative bg-black text-white pt-40 pb-12 overflow-hidden">
             {/* Massive Background Text (Like high-end fashion/architecture sites) */}
             <div className="absolute top-20 left-0 w-full overflow-hidden pointer-events-none opacity-[0.03]">
                 <span className="text-[25rem] font-serif uppercase tracking-tighter whitespace-nowrap block leading-none">
-                    EVOLUXE • ATELIER
+                    EVOLX Studio • ATELIER
                 </span>
             </div>
 
@@ -33,7 +33,7 @@ const Footer = () => {
                         <div className="flex flex-col md:flex-row gap-12 mt-20">
                             <div>
                                 <span className="text-gold text-[9px] uppercase tracking-[0.5em] mb-4 block">General Inquiry</span>
-                                <p className="text-xl font-serif border-b border-gold/20 pb-2">concierge@evoluxe.com</p>
+                                <p className="text-xl font-serif border-b border-gold/20 pb-2">concierge@EVOLX Studio.com</p>
                             </div>
                             <div>
                                 <span className="text-gold text-[9px] uppercase tracking-[0.5em] mb-4 block">Private Office</span>
@@ -66,7 +66,7 @@ const Footer = () => {
                 {/* Closing Strip */}
                 <div className="flex flex-col md:flex-row justify-between items-center pt-16 border-t border-white/5 gap-8">
                     <div className="flex items-center gap-6">
-                        <span className="text-[10px] uppercase tracking-[0.5em] text-white/20">Studio Evoluxe © 2026</span>
+                        <span className="text-[10px] uppercase tracking-[0.5em] text-white/20">Studio EVOLX Studio © 2026</span>
                         <div className="w-[1px] h-4 bg-white/10" />
                         <span className="text-[10px] uppercase tracking-[0.5em] text-white/20">Architectural Evolution</span>
                     </div>

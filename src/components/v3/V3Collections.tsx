@@ -11,10 +11,10 @@ const CollectionCard = ({ title, image, index }: { title: string, image: string,
         className="group relative aspect-[4/5] overflow-hidden rounded-[32px] cursor-pointer"
     >
         <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-        <div className="absolute inset-0 bg-gradient-to-t from-amethyst-dark/90 via-amethyst-dark/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gold-dark/90 via-gold-dark/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
         <div className="absolute inset-0 p-8 flex flex-col justify-end">
             <h4 className="text-2xl font-serif text-white group-hover:italic transition-all mb-2">{title}</h4>
-            <span className="text-amethyst-light text-[9px] uppercase tracking-[0.4em] font-black opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">Explore Designs →</span>
+            <span className="text-gold-soft text-[9px] uppercase tracking-[0.4em] font-black opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">Explore Designs →</span>
         </div>
     </motion.div>
 );
@@ -28,17 +28,17 @@ const V3Collections = () => {
     ];
 
     return (
-        <section className="py-32 bg-amethyst-lightest">
+        <section className="py-32 bg-ivory">
             <div className="max-w-[1400px] mx-auto px-6 md:px-12">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
                     <div className="space-y-4">
-                        <span className="text-amethyst-primary text-[11px] uppercase tracking-[0.6em] font-black italic">Collection 2026</span>
-                        <h2 className="text-4xl md:text-7xl font-serif text-amethyst-dark leading-tight">
+                        <span className="text-gold text-[11px] uppercase tracking-[0.6em] font-black italic">Collection 2026</span>
+                        <h2 className="text-4xl md:text-7xl font-serif text-gold-dark leading-tight">
                             Be inspired with <br />
                             our <span className="italic font-light">modular designs</span>.
                         </h2>
                     </div>
-                    <button className="px-10 py-4 border-2 border-amethyst-primary text-amethyst-primary text-[10px] uppercase tracking-widest font-black rounded-xl hover:bg-amethyst-primary hover:text-white transition-all">
+                    <button className="px-10 py-4 border-2 border-gold text-gold text-[10px] uppercase tracking-widest font-black rounded-xl hover:bg-gold hover:text-white transition-all">
                         View All Collections
                     </button>
                 </div>

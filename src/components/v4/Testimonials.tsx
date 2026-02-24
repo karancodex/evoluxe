@@ -9,21 +9,21 @@ const reviews = [
         id: 1,
         name: "Rohit Paul & Shveta",
         city: "Gurugram",
-        text: "Hats off to the entire team at Evoluxe. They finished the project ahead of time and the quality is unmatched.",
+        text: "Hats off to the entire team at EVOLX Studio. They finished the project ahead of time and the quality is unmatched.",
         image: "/v4/design-session-1.png"
     },
     {
         id: 2,
         name: "Swati & Gaurav",
         city: "Bangalore",
-        text: "Our experience with Evoluxe was nice thanks to the project managers who were always available.",
+        text: "Our experience with EVOLX Studio was nice thanks to the project managers who were always available.",
         image: "/v4/brand_promise_trust.png"
     },
     {
         id: 3,
         name: "Puja Bhatia",
         city: "Mumbai",
-        text: "We reached out to Evoluxe and they designed the house that we really wanted. It feels like a dream home.",
+        text: "We reached out to EVOLX Studio and they designed the house that we really wanted. It feels like a dream home.",
         image: "/v4/design-session-3.png"
     },
     {
@@ -39,9 +39,9 @@ const Testimonials = () => {
     return (
         <section className="py-24 bg-white">
             <div className="max-w-[1800px] mx-auto px-6">
-                <div className="text-center mb-20">
-                    <span className="text-[#9d5db5] font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Our Happy Clients</span>
-                    <h2 className="text-5xl md:text-6xl font-serif text-[#2b0d3e]">Loved by Homeowners</h2>
+                <div className="text-center mb-12 md:mb-20">
+                    <span className="text-[#eb595f] font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Our Happy Clients</span>
+                    <h2 className="text-3xl md:text-6xl font-serif text-[#2d2412] leading-tight">Loved by Homeowners</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -52,7 +52,7 @@ const Testimonials = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-white rounded-[2rem] overflow-hidden border border-neutral-200 hover:border-[#2b0d3e] hover:shadow-2xl transition-all duration-300 flex flex-col h-full group"
+                            className="bg-white rounded-[2rem] overflow-hidden border border-neutral-200 hover:border-[#eb595f] hover:shadow-2xl transition-all duration-300 flex flex-col h-full group"
                         >
                             {/* 1. Video Thumbnail Section */}
                             <div className="relative h-64 w-full overflow-hidden bg-gray-100">
@@ -64,8 +64,8 @@ const Testimonials = () => {
                                 />
                                 {/* Play Button - Centered */}
                                 <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/10 group-hover:bg-black/20 transition-colors">
-                                    <div className="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center cursor-pointer shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-[#2b0d3e] ml-0.5">
+                                    <div className="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center cursor-pointer shadow-lg group-hover:scale-110 transition-transform duration-300 text-[#eb595f]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 ml-0.5">
                                             <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clipRule="evenodd" />
                                         </svg>
                                     </div>
@@ -73,12 +73,12 @@ const Testimonials = () => {
                             </div>
 
                             {/* Content Section */}
-                            <div className="p-8 flex-1 flex flex-col">
+                            <div className="p-6 md:p-8 flex-1 flex flex-col">
 
                                 {/* 2. Name & City */}
                                 <div className="mb-6 border-b border-neutral-100 pb-4">
-                                    <h3 className="text-[#2b0d3e] font-serif text-xl font-bold mb-1">{review.name}</h3>
-                                    <p className="text-[#9d5db5] text-xs font-bold tracking-widest uppercase">{review.city}</p>
+                                    <h3 className="text-[#2d2412] font-serif text-xl font-bold mb-1">{review.name}</h3>
+                                    <p className="text-[#eb595f] text-xs font-bold tracking-widest uppercase">{review.city}</p>
                                 </div>
 
                                 {/* 3. Description */}
