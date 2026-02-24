@@ -12,6 +12,7 @@ const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [activeMenu, setActiveMenu] = useState<string | null>(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [mobileNavView, setMobileNavView] = useState<'main' | string>('main');
     const [hoverTimeout, setHoverTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
 
     useEffect(() => {
@@ -73,9 +74,9 @@ const Navbar = () => {
                 <div className="h-20 flex items-center justify-between border-b border-stone-100/50 relative z-20 bg-white">
                     {/* Left: Logo */}
                     <Link href="/v4" className="flex items-center gap-2 relative group z-50 shrink-0">
-                        <div className="relative h-10 w-48 md:h-20 md:w-60">
+                        <div className="relative h-12 w-48 md:h-16 md:w-64">
                             <Image
-                                src="/v4/evolx-studio-logo.png"
+                                src="/v4/evolx-studio.png"
                                 alt="EVOLX Studio Logo"
                                 fill
                                 className="object-contain"
@@ -96,11 +97,11 @@ const Navbar = () => {
                                 >
                                     <Link
                                         href={getLink(link.name)}
-                                        className={`flex items-center gap-1 text-[14px] font-medium tracking-wide transition-all duration-300 ${activeMenu === link.name ? 'text-[#c5a059]' : 'text-[#483c32] hover:text-[#c5a059]'}`}
+                                        className={`flex items-center gap-1 text-[14px] font-medium tracking-wide transition-all duration-300 ${activeMenu === link.name ? 'text-[#eb595f]' : 'text-[#2d2412] hover:text-[#eb595f]'}`}
                                     >
                                         {link.label}
                                         {link.hasDropdown && (
-                                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeMenu === link.name ? 'rotate-180 text-[#c5a059]' : 'text-gray-400'}`} />
+                                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeMenu === link.name ? 'rotate-180 text-[#eb595f] fill-[#eb595f]' : 'text-gray-400'}`} />
                                         )}
                                     </Link>
 
@@ -117,7 +118,7 @@ const Navbar = () => {
                                                 {/* Invisible Bridge to prevent closing on gap hover */}
                                                 <div className="absolute top-0 left-0 right-0 h-4 bg-transparent" />
 
-                                                <div className="bg-white shadow-[0_10px_40px_-5px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden border-t-[3px] border-[#c5a059] ring-1 ring-stone-100 min-w-[240px] max-w-[90vw]">
+                                                <div className="bg-white shadow-[0_10px_40px_-5px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden border-t-[3px] border-[#eb595f] ring-1 ring-stone-100 min-w-[240px] max-w-[90vw]">
                                                     {link.columns ? (
                                                         <div className={`flex bg-white ${link.isMega ? 'p-8 gap-12' : 'p-6 flex-col gap-4'}`}>
                                                             {link.columns.map((col, idx) => (
@@ -130,7 +131,7 @@ const Navbar = () => {
                                                                     <ul className="space-y-2.5">
                                                                         {col.items.map((item) => (
                                                                             <li key={item}>
-                                                                                <Link href={getLink(item)} className="block text-[13px] text-stone-500 hover:text-[#c5a059] hover:font-medium hover:translate-x-1 transition-all duration-200">
+                                                                                <Link href={getLink(item)} className="block text-[13px] text-[#2d2412]/70 hover:text-[#eb595f] hover:font-medium hover:translate-x-1 transition-all duration-200">
                                                                                     {item}
                                                                                 </Link>
                                                                             </li>
@@ -162,15 +163,26 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    {/* Right: User Icon */}
-                    <div className="hidden md:flex items-center gap-6 shrink-0">
-                        <div className="h-6 w-px bg-stone-200"></div>
-                        <button className="text-[#483c32] hover:text-[#c5a059] transition-colors p-1 hover:bg-stone-50 rounded-full">
-                            <User className="w-5 h-5" />
+                    {/* Right: User Icon & Mobile Trigger */}
+                    <div className="flex items-center gap-4 md:gap-6 shrink-0">
+                        <div className="hidden md:block h-6 w-px bg-stone-200"></div>
+                        <button className="hidden md:flex text-[#2d2412] hover:text-[#eb595f] transition-colors p-1 hover:bg-stone-50 rounded-full">
+                            <User className="w-5 h-5 fill-current" />
                         </button>
-                        {/* Mobile Trigger */}
-                        <button className="xl:hidden ml-4 text-[#4d3b1a]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                            {mobileMenuOpen ? <X /> : <Menu />}
+
+                        {/* Mobile Menu Button - Enhanced */}
+                        <button
+                            className="xl:hidden flex items-center gap-2 bg-[#eb595f] text-white px-4 py-2 rounded-full shadow-lg active:scale-95 transition-all"
+                            onClick={() => {
+                                setMobileMenuOpen(true);
+                                setMobileNavView('main');
+                            }}
+                        >
+                            <span className="text-[10px] font-bold uppercase tracking-widest font-sans">Menu</span>
+                            <div className="flex flex-col gap-1">
+                                <div className="h-0.5 w-4 bg-white rounded-full" />
+                                <div className="h-0.5 w-3 bg-white rounded-full ml-1" />
+                            </div>
                         </button>
                     </div>
                 </div>
@@ -189,10 +201,10 @@ const Navbar = () => {
                                 >
                                     <Link
                                         href={getLink(link.name)}
-                                        className={`flex items-center gap-1 text-[13px] font-semibold tracking-wide uppercase transition-colors ${activeMenu === link.name ? 'text-[#c5a059]' : 'text-[#483c32] hover:text-[#c5a059]'}`}
+                                        className={`flex items-center gap-1 text-[13px] font-semibold tracking-wide uppercase transition-colors ${activeMenu === link.name ? 'text-[#eb595f]' : 'text-[#2d2412] hover:text-[#eb595f]'}`}
                                     >
                                         {link.label}
-                                        {link.hasDropdown && <ChevronDown className={`w-3.5 h-3.5 transition-transform ${activeMenu === link.name ? 'rotate-180' : ''}`} />}
+                                        {link.hasDropdown && <ChevronDown className={`w-3.5 h-3.5 transition-transform fill-current ${activeMenu === link.name ? 'rotate-180' : ''}`} />}
                                     </Link>
 
                                     {/* DROPDOWN: Local Anchored Position for Bottom Row */}
@@ -208,7 +220,7 @@ const Navbar = () => {
                                                 {/* Invisible Bridge */}
                                                 <div className="absolute top-0 left-0 right-0 h-2 bg-transparent" />
 
-                                                <div className="bg-white shadow-[0_10px_30px_-5px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden border-t-[3px] border-[#c5a059] ring-1 ring-stone-100 min-w-[220px]">
+                                                <div className="bg-white shadow-[0_10px_30px_-5px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden border-t-[3px] border-[#eb595f] ring-1 ring-stone-100 min-w-[220px]">
                                                     {link.columns ? (
                                                         <div className="flex p-6 gap-8 bg-white flex-col">
                                                             {link.columns.map((col, idx) => (
@@ -217,7 +229,7 @@ const Navbar = () => {
                                                                     <ul className="space-y-2">
                                                                         {col.items.map((item) => (
                                                                             <li key={item}>
-                                                                                <Link href={getLink(item)} className="block text-[12px] text-stone-500 hover:text-[#c5a059] hover:translate-x-1 transition-all">
+                                                                                <Link href={getLink(item)} className="block text-[12px] text-[#4d3b1a]/70 hover:text-[#c5a059] hover:translate-x-1 transition-all">
                                                                                     {item}
                                                                                 </Link>
                                                                             </li>
@@ -238,7 +250,7 @@ const Navbar = () => {
 
                     {/* Right: Consult Button */}
                     <div>
-                        <button className="px-8 py-2.5 rounded-sm text-[11px] font-black tracking-[0.15em] uppercase transition-all bg-[#c5a059] text-white hover:bg-[#4d3b1a] shadow-lg hover:shadow-xl hover:-translate-y-0.5 border border-transparent hover:border-[#c5a059]/30">
+                        <button className="px-8 py-2.5 rounded-sm text-[11px] font-black tracking-[0.15em] uppercase transition-all bg-[#eb595f] text-white hover:bg-[#2d2412] shadow-lg hover:shadow-xl hover:-translate-y-0.5 border border-transparent hover:border-[#eb595f]/30">
                             Consult Online Now
                         </button>
                     </div>
@@ -246,29 +258,151 @@ const Navbar = () => {
 
             </div>
 
-            {/* Mobile Menu Overlay - Simple version for now */}
+            {/* Mobile Menu Sidebar - App Style */}
             <AnimatePresence>
                 {mobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: '100vh' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="xl:hidden bg-white fixed inset-0 z-40 pt-24 px-6 overflow-y-auto"
-                    >
-                        <div className="flex flex-col gap-4">
-                            {[...topNavLinks, ...bottomNavLinks].map(link => (
-                                <div key={link.name} className="py-2 border-b border-stone-100">
+                    <>
+                        {/* Overlay */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="xl:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[110]"
+                        />
+
+                        {/* Sidebar Drawer */}
+                        <motion.div
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                            className="xl:hidden bg-[#faf9f6] fixed top-0 right-0 bottom-0 w-[85%] max-w-[400px] z-[120] shadow-[-10px_0_50px_rgba(0,0,0,0.1)] flex flex-col"
+                        >
+                            {/* Drawer Header */}
+                            <div className="h-20 px-6 flex items-center justify-between border-b border-stone-100 bg-white">
+                                {mobileNavView === 'main' ? (
+                                    <span className="text-sm font-bold uppercase tracking-[0.2em] text-stone-400">Navigation</span>
+                                ) : (
                                     <button
-                                        className="text-lg font-medium text-[#4d3b1a] flex justify-between w-full items-center"
-                                        onClick={() => toggleMobileSubmenu(link.name)}
+                                        onClick={() => setMobileNavView('main')}
+                                        className="flex items-center gap-2 text-stone-800 hover:text-[#eb595f] transition-colors"
                                     >
-                                        {link.label}
-                                        {link.hasDropdown && <ChevronDown className="w-4 h-4" />}
+                                        <ChevronDown className="w-5 h-5 rotate-90 fill-current" />
+                                        <span className="text-sm font-bold uppercase tracking-widest">Back</span>
                                     </button>
+                                )}
+                                <button
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-2 bg-stone-50 rounded-full text-stone-400 hover:text-[#4d3b1a] transition-colors"
+                                >
+                                    <X className="w-5 h-5" />
+                                </button>
+                            </div>
+
+                            <div className="flex-1 overflow-y-auto px-6 py-8">
+                                <AnimatePresence mode="wait">
+                                    {mobileNavView === 'main' ? (
+                                        <motion.div
+                                            key="main-nav"
+                                            initial={{ opacity: 0, x: -20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            exit={{ opacity: 0, x: -20 }}
+                                            className="space-y-4"
+                                        >
+                                            {[...topNavLinks, ...bottomNavLinks].map((link, idx) => (
+                                                <motion.div
+                                                    key={link.name}
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    transition={{ delay: idx * 0.03 }}
+                                                >
+                                                    <div className="group">
+                                                        {link.hasDropdown ? (
+                                                            <button
+                                                                onClick={() => setMobileNavView(link.name)}
+                                                                className="w-full flex items-center justify-between py-4 border-b border-stone-100 group-active:scale-[0.98] transition-transform"
+                                                            >
+                                                                <span className="text-xl md:text-2xl font-serif font-bold text-[#2d2412] group-hover:text-[#eb595f] transition-colors">
+                                                                    {link.label}
+                                                                </span>
+                                                                <div className="w-10 h-10 rounded-full bg-stone-50 flex items-center justify-center text-stone-400 group-hover:bg-[#eb595f]/10 group-hover:text-[#eb595f] transition-all">
+                                                                    <ChevronDown className="w-5 h-5 -rotate-90 fill-current" />
+                                                                </div>
+                                                            </button>
+                                                        ) : (
+                                                            <Link
+                                                                href={getLink(link.name)}
+                                                                onClick={() => setMobileMenuOpen(false)}
+                                                                className="w-full flex items-center justify-between py-4 border-b border-stone-100 group-active:scale-[0.98] transition-transform"
+                                                            >
+                                                                <span className="text-xl md:text-2xl font-serif font-bold text-[#4d3b1a] group-hover:text-[#c5a059] transition-colors">
+                                                                    {link.label}
+                                                                </span>
+                                                            </Link>
+                                                        )}
+                                                    </div>
+                                                </motion.div>
+                                            ))}
+                                        </motion.div>
+                                    ) : (
+                                        <motion.div
+                                            key="sub-nav"
+                                            initial={{ opacity: 0, x: 20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            exit={{ opacity: 0, x: 20 }}
+                                            className="space-y-8"
+                                        >
+                                            <div className="mb-10">
+                                                <h2 className="text-4xl font-serif font-bold text-[#4d3b1a] mb-2">
+                                                    {[...topNavLinks, ...bottomNavLinks].find(l => l.name === mobileNavView)?.label}
+                                                </h2>
+                                                <div className="w-16 h-1 bg-[#eb595f] rounded-full" />
+                                            </div>
+
+                                            <div className="space-y-10">
+                                                {[...topNavLinks, ...bottomNavLinks].find(l => l.name === mobileNavView)?.columns?.map((col, idx) => (
+                                                    <div key={idx} className="space-y-4">
+                                                        {col.title && (
+                                                            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#c5a059]">
+                                                                {col.title}
+                                                            </h3>
+                                                        )}
+                                                        <div className="flex flex-col gap-4">
+                                                            {col.items.map(item => (
+                                                                <Link
+                                                                    key={item}
+                                                                    href={getLink(item)}
+                                                                    onClick={() => setMobileMenuOpen(false)}
+                                                                    className="text-lg text-[#2d2412]/80 hover:text-[#eb595f] transition-colors active:translate-x-2 transition-all"
+                                                                >
+                                                                    {item}
+                                                                </Link>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+
+                            {/* Drawer Footer */}
+                            <div className="p-6 bg-white border-t border-stone-100 flex flex-col gap-4">
+                                <button className="w-full py-4 bg-[#eb595f] text-white font-bold rounded-xl shadow-[0_10px_30px_rgba(235,89,95,0.3)] active:scale-95 transition-all text-sm uppercase tracking-widest whitespace-nowrap">
+                                    Consult a Designer Free
+                                </button>
+                                <div className="flex items-center justify-center gap-8 py-2">
+                                    <span className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Connect:</span>
+                                    <div className="flex gap-4">
+                                        <div className="w-8 h-8 rounded-full bg-stone-50 border border-stone-100 flex items-center justify-center text-stone-400 text-xs">IG</div>
+                                        <div className="w-8 h-8 rounded-full bg-stone-50 border border-stone-100 flex items-center justify-center text-stone-400 text-xs">YT</div>
+                                    </div>
                                 </div>
-                            ))}
-                        </div>
-                    </motion.div>
+                            </div>
+                        </motion.div>
+                    </>
                 )}
             </AnimatePresence>
         </nav>

@@ -22,20 +22,16 @@ const Footer = () => {
     const footerLinks = {
         company: [
             { name: "About Us", href: getLink("About Us") },
-            { name: "Careers", href: getLink("Careers") },
-            { name: "Press", href: getLink("Press") },
-            { name: "Contact", href: getLink("Contact") }
+            { name: "Our Team", href: getLink("Our Team") },
+            { name: "Press & Media", href: getLink("Press & Media") },
+            { name: "Contact Us", href: getLink("Contact Us") },
+            { name: "Privacy Policy", href: getLink("Privacy Policy") }
         ],
-        services: [
-            { name: "Interior Design", href: getLink("Interior Design") },
-            { name: "Modular Kitchen", href: getLink("Modular Kitchen") },
-            { name: "Wardrobes", href: getLink("Wardrobes") },
-            { name: "Renovation", href: getLink("Renovation") }
-        ],
-        legal: [
-            { name: "Privacy Policy", href: getLink("Privacy Policy") },
-            { name: "Terms of Service", href: getLink("Terms of Service") },
-            { name: "Cookie Policy", href: getLink("Cookie Policy") }
+        resources: [
+            { name: "Blog", href: getLink("Blog") },
+            { name: "Customer Stories", href: getLink("Customer Stories") },
+            { name: "Help Center", href: getLink("Help Center") },
+            { name: "Terms & Conditions", href: getLink("Terms & Conditions") }
         ]
     };
 
@@ -59,10 +55,10 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="bg-[#fcf8ff] text-[#4d3b1a] pt-24 pb-12 relative overflow-hidden text-center border-t border-[#faf9f6]">
+        <footer className="bg-[#fcf8ff] text-[#2d2412] pt-24 pb-12 relative overflow-hidden text-center border-t border-[#faf9f6]">
             {/* Background Watermark */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-[0.02]">
-                <h1 className="text-[20vw] font-bold text-[#c5a059] leading-none tracking-tighter absolute -bottom-20 left-1/2 transform -translate-x-1/2 select-none whitespace-nowrap">
+                <h1 className="text-[20vw] font-bold text-[#eb595f] leading-none tracking-tighter absolute -bottom-20 left-1/2 transform -translate-x-1/2 select-none whitespace-nowrap">
                     EVOLX Studio
                 </h1>
             </div>
@@ -77,39 +73,39 @@ const Footer = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-serif font-medium text-[#4d3b1a]"
+                        className="text-3xl md:text-5xl font-serif font-medium text-[#4d3b1a]"
                     >
-                        Let's create your <br />
-                        <span className="text-[#c5a059] italic">dream space.</span>
+                        Let's create your <br className="hidden sm:block" />
+                        <span className="text-[#eb595f] italic">dream space.</span>
                     </motion.h2>
 
-                    <p className="text-stone-500 mb-2 max-w-md mx-auto">
+                    <p className="text-[#4d3b1a]/60 mb-2 max-w-md mx-auto">
                         Subscribe to our newsletter for the latest design trends, tips, and exclusive offers.
                     </p>
                     <form className="flex flex-col sm:flex-row gap-4 max-w-lg w-full justify-center">
                         <input
                             type="email"
                             placeholder="Enter your email address"
-                            className="w-full sm:w-80 px-6 py-4 bg-white border border-stone-200 rounded-full focus:outline-none focus:border-[#c5a059] text-[#4d3b1a] placeholder-stone-400 transition-colors shadow-sm text-center sm:text-left"
+                            className="w-full sm:w-80 px-6 py-4 bg-white border border-stone-200 rounded-full focus:outline-none focus:border-[#eb595f] text-[#2d2412] placeholder-stone-400 transition-colors shadow-sm text-center sm:text-left"
                         />
-                        <button className="px-10 py-4 bg-[#c5a059] text-white font-bold rounded-full hover:bg-[#4d3b1a] transition-all whitespace-nowrap shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                        <button className="px-10 py-4 bg-[#eb595f] text-white font-bold rounded-full hover:bg-[#2d2412] transition-all whitespace-nowrap shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                             Subscribe
                         </button>
                     </form>
                 </div>
 
                 {/* Middle Section: Links */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24 justify-items-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 md:mb-24 justify-items-center">
 
                     {/* Column 1: Company */}
                     <div className="flex flex-col items-center">
-                        <h4 className="text-lg font-bold mb-6 text-[#c5a059] uppercase tracking-widest text-xs">Company</h4>
+                        <h4 className="text-lg font-bold mb-6 text-[#eb595f] uppercase tracking-widest text-xs">Company</h4>
                         <ul className="space-y-4">
                             {footerLinks.company.map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-stone-500 hover:text-[#c5a059] transition-colors relative group text-sm font-medium">
+                                    <Link href={link.href} className="text-[#2d2412]/60 hover:text-[#eb595f] transition-colors relative group text-sm font-medium">
                                         {link.name}
-                                        <span className="absolute -bottom-1 left-1/2 w-0 h-[1.5px] bg-[#c5a059] group-hover:w-full transition-all duration-300 transform -translate-x-1/2"></span>
+                                        <span className="absolute -bottom-1 left-1/2 w-0 h-[1.5px] bg-[#eb595f] group-hover:w-full transition-all duration-300 transform -translate-x-1/2"></span>
                                     </Link>
                                 </li>
                             ))}
@@ -118,20 +114,17 @@ const Footer = () => {
 
                     {/* Column 2: Brand & Socials (Center) */}
                     <div className="flex flex-col items-center order-first md:order-none">
-                        <Link href="/v4" className="mb-2 block group">
-                            <div className="relative h-10 w-48 md:h-12 md:w-56">
+                        <Link href="/v4" className="mb-4 block group">
+                            <div className="relative h-16 w-56 md:h-20 md:w-80">
                                 <Image
-                                    src="/v4/evolx-studio-logo.png"
+                                    src="/v4/evolx-studio.png"
                                     alt="EVOLX Studio Logo"
                                     fill
                                     className="object-contain"
                                 />
                             </div>
                         </Link>
-                        <span className="text-[#c5a059] text-[10px] font-bold tracking-[0.3em] uppercase mb-6 block">
-                            Interior Architecture & Design
-                        </span>
-                        <p className="text-stone-500 leading-relaxed max-w-sm mb-8 text-sm">
+                        <p className="text-[#4d3b1a]/60 leading-relaxed max-w-sm mb-8 text-sm">
                             Redefining luxury living spaces with bespoke interiors that blend functionality with timeless aesthetics.
                         </p>
                         <div className="flex gap-4 justify-center">
@@ -139,7 +132,7 @@ const Footer = () => {
                                 <Link
                                     key={social.name}
                                     href="#"
-                                    className="w-12 h-12 border border-stone-200 rounded-full flex items-center justify-center text-stone-400 hover:bg-[#c5a059] hover:text-white hover:border-[#c5a059] transition-all duration-300 group shadow-sm bg-white"
+                                    className="w-12 h-12 border border-stone-200 rounded-full flex items-center justify-center text-stone-400 hover:bg-[#eb595f] hover:text-white hover:border-[#eb595f] transition-all duration-300 group shadow-sm bg-white"
                                     aria-label={social.name}
                                 >
                                     <svg
@@ -157,15 +150,15 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Column 3: Services */}
+                    {/* Column 3: Resources */}
                     <div className="flex flex-col items-center">
-                        <h4 className="text-lg font-bold mb-6 text-[#c5a059] uppercase tracking-widest text-xs">Services</h4>
+                        <h4 className="text-lg font-bold mb-6 text-[#eb595f] uppercase tracking-widest text-xs">Resources</h4>
                         <ul className="space-y-4">
-                            {footerLinks.services.map((link) => (
+                            {footerLinks.resources.map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-stone-500 hover:text-[#c5a059] transition-colors relative group text-sm font-medium">
+                                    <Link href={link.href} className="text-[#2d2412]/60 hover:text-[#eb595f] transition-colors relative group text-sm font-medium">
                                         {link.name}
-                                        <span className="absolute -bottom-1 left-1/2 w-0 h-[1.5px] bg-[#c5a059] group-hover:w-full transition-all duration-300 transform -translate-x-1/2"></span>
+                                        <span className="absolute -bottom-1 left-1/2 w-0 h-[1.5px] bg-[#eb595f] group-hover:w-full transition-all duration-300 transform -translate-x-1/2"></span>
                                     </Link>
                                 </li>
                             ))}

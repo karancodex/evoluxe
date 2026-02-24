@@ -15,18 +15,18 @@ const Modal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) =>
                 exit={{ opacity: 0, scale: 0.95 }}
                 className="bg-white rounded-2xl w-full max-w-lg p-8 relative shadow-2xl border border-[#e5d5b0]/20"
             >
-                <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-[#4d3b1a] transition-colors text-xl">
+                <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-[#eb595f] transition-colors text-xl">
                     ✕
                 </button>
                 <div className="text-center mb-6">
-                    <h3 className="text-2xl font-serif font-bold text-[#4d3b1a] mb-2">Get Your Free Estimate</h3>
-                    <p className="text-[#4d3b1a]/60 text-sm">Start your journey to a dream home today.</p>
+                    <h3 className="text-2xl font-serif font-bold text-[#2d2412] mb-2">Get Your Free Estimate</h3>
+                    <p className="text-[#2d2412]/60 text-sm">Start your journey to a dream home today.</p>
                 </div>
 
                 <form className="space-y-4">
-                    <input type="text" className="w-full px-4 py-3 rounded-lg bg-[#fbf7fd] border border-[#e5d0f0] focus:border-[#c5a059] focus:ring-1 focus:ring-[#c5a059] outline-none transition-all placeholder:text-gray-400" placeholder="Name" />
-                    <input type="tel" className="w-full px-4 py-3 rounded-lg bg-[#fbf7fd] border border-[#e5d0f0] focus:border-[#c5a059] focus:ring-1 focus:ring-[#c5a059] outline-none transition-all placeholder:text-gray-400" placeholder="Phone Number" />
-                    <button type="submit" className="w-full py-3.5 bg-[#4d3b1a] text-white font-bold rounded-lg hover:bg-[#c5a059] transition-all uppercase tracking-wide shadow-lg mt-2">
+                    <input type="text" className="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-100 focus:border-[#eb595f] focus:ring-1 focus:ring-[#eb595f] outline-none transition-all placeholder:text-gray-400" placeholder="Name" />
+                    <input type="tel" className="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-100 focus:border-[#eb595f] focus:ring-1 focus:ring-[#eb595f] outline-none transition-all placeholder:text-gray-400" placeholder="Phone Number" />
+                    <button type="submit" className="w-full py-3.5 bg-[#eb595f] text-white font-bold rounded-lg hover:bg-[#2d2412] transition-all uppercase tracking-wide shadow-lg mt-2">
                         Get Started
                     </button>
                 </form>
@@ -39,7 +39,7 @@ const MeetDesignerBanner = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[450px] md:h-[600px] flex items-center justify-center overflow-hidden">
             {/* Background Image */}
             <Image
                 src="/v4/interior-living-3d.jpg"
@@ -58,9 +58,9 @@ const MeetDesignerBanner = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="text-4xl md:text-7xl font-serif font-bold text-white mb-10 leading-tight drop-shadow-xl"
+                    className="text-3xl sm:text-4xl md:text-7xl font-serif font-bold text-white mb-10 leading-tight drop-shadow-xl"
                 >
-                    Your dream home is <br className="hidden md:block" /> just a click away
+                    Your dream home is <br className="hidden sm:block" /> just a click away
                 </motion.h2>
 
                 <motion.button
@@ -69,7 +69,7 @@ const MeetDesignerBanner = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                     onClick={() => setIsModalOpen(true)}
-                    className="px-12 py-5 bg-[#4d3b1a] text-white font-bold text-base md:text-lg rounded-full hover:bg-[#c5a059] transition-all transform hover:-translate-y-1 hover:shadow-2xl uppercase tracking-widest border border-white/20 backdrop-blur-sm"
+                    className="px-12 py-5 bg-[#eb595f] text-white font-bold text-base md:text-lg rounded-full hover:bg-[#2d2412] transition-all transform hover:-translate-y-1 hover:shadow-2xl uppercase tracking-widest border border-white/20 backdrop-blur-sm"
                 >
                     Get Started
                 </motion.button>

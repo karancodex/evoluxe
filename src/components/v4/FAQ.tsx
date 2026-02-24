@@ -46,14 +46,14 @@ const FAQ = () => {
 
                     {/* Left Column: Heading */}
                     <div className="lg:col-span-4">
-                        <span className="text-[#9d5db5] font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Common Queries</span>
-                        <h2 className="text-4xl md:text-5xl font-serif text-[#4d3b1a] mb-6 leading-tight">
-                            Frequently Asked <br /> Questions
+                        <span className="text-[#eb595f] font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Common Queries</span>
+                        <h2 className="text-3xl md:text-5xl font-serif text-[#2d2412] mb-6 leading-tight">
+                            Frequently Asked <br className="hidden sm:block" /> Questions
                         </h2>
-                        <p className="text-[#4d3b1a]/60 text-lg leading-relaxed mb-8">
+                        <p className="text-[#2d2412]/60 text-lg leading-relaxed mb-8">
                             Everything you need to know about transforming your home with EVOLX Studio. Can't find the answer you're looking for?
                         </p>
-                        <button className="text-[#4d3b1a] font-semibold underline decoration-[#4d3b1a]/30 underline-offset-4 hover:decoration-[#4d3b1a] transition-all">
+                        <button className="text-[#eb595f] font-semibold underline decoration-[#eb595f]/30 underline-offset-4 hover:decoration-[#eb595f] transition-all">
                             Contact Support
                         </button>
                     </div>
@@ -72,10 +72,10 @@ const FAQ = () => {
                                             onClick={() => setOpenIndex(isOpen ? null : index)}
                                             className="w-full flex items-start justify-between py-4 text-left group"
                                         >
-                                            <span className={`font-serif text-xl md:text-2xl transition-colors duration-300 ${isOpen ? "text-[#c5a059]" : "text-[#4d3b1a] group-hover:text-[#c5a059]"}`}>
+                                            <span className={`font-serif text-lg md:text-2xl transition-colors duration-300 ${isOpen ? "text-[#eb595f]" : "text-[#2d2412] group-hover:text-[#eb595f]"}`}>
                                                 {item.q}
                                             </span>
-                                            <span className="ml-6 mt-1 flex-shrink-0 text-[#4d3b1a]/40 group-hover:text-[#c5a059] transition-colors">
+                                            <span className="ml-6 mt-1 flex-shrink-0 text-[#2d2412]/40 group-hover:text-[#eb595f] transition-colors">
                                                 <motion.div
                                                     animate={{ rotate: isOpen ? 45 : 0 }}
                                                     transition={{ duration: 0.3 }}
@@ -96,7 +96,7 @@ const FAQ = () => {
                                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                                     className="overflow-hidden"
                                                 >
-                                                    <p className="text-[#4d3b1a]/70 text-lg leading-relaxed max-w-3xl pr-8">
+                                                    <p className="text-[#2d2412]/70 text-lg leading-relaxed max-w-3xl pr-8">
                                                         {item.a}
                                                     </p>
                                                 </motion.div>

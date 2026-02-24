@@ -13,16 +13,16 @@ const ContactContent = () => {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-8xl font-serif font-bold text-[#4d3b1a]"
+                        className="text-4xl sm:text-5xl md:text-8xl font-serif font-bold text-[#4d3b1a] leading-tight"
                     >
-                        Let&apos;s Create <br /> <span className="italic text-stone-400">Something Beautiful</span>
+                        Let&apos;s Create <br className="hidden sm:block" /> <span className="italic text-stone-400">Something Beautiful</span>
                     </motion.h1>
                     <p className="text-stone-500 text-lg md:text-xl font-light">Visit our experience centers or talk to our experts today.</p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
                     <div className="space-y-12">
-                        <div className="bg-[#4d3b1a] text-white p-12 rounded-[3.5rem] relative overflow-hidden shadow-2xl">
+                        <div className="bg-[#4d3b1a] text-white p-6 sm:p-12 rounded-[2rem] sm:rounded-[4rem] relative overflow-hidden shadow-2xl">
                             <div className="absolute top-0 right-0 w-40 h-40 bg-[#c5a059] opacity-20 blur-3xl" />
                             <h2 className="text-3xl font-serif font-bold mb-10 relative z-10">Get in Touch</h2>
                             <div className="space-y-8 relative z-10">
@@ -32,7 +32,7 @@ const ContactContent = () => {
                                     </div>
                                     <div>
                                         <p className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-1">Call Us</p>
-                                        <p className="text-xl font-medium">1800-EVOLX Studio-00</p>
+                                        <p className="text-lg md:text-xl font-medium">1800-EVOLX Studio-00</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-6">
@@ -41,7 +41,7 @@ const ContactContent = () => {
                                     </div>
                                     <div>
                                         <p className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-1">Email Us</p>
-                                        <p className="text-xl font-medium">hello@EVOLX Studio.com</p>
+                                        <p className="text-lg md:text-xl font-medium">hello@EVOLX Studio.com</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-6">
@@ -57,8 +57,8 @@ const ContactContent = () => {
                         </div>
                     </div>
 
-                    <div className="bg-stone-50 p-12 rounded-[3.5rem] border border-stone-100">
-                        <h2 className="text-3xl font-serif font-bold text-[#4d3b1a] mb-8">Send a Message</h2>
+                    <div className="bg-stone-50 p-6 sm:p-12 rounded-[2rem] sm:rounded-[3rem] border border-stone-100">
+                        <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#4d3b1a] mb-8">Send a Message</h2>
                         <form className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">

@@ -28,7 +28,7 @@ const DesignCard = ({ title, rating, reviews, image }: DesignCardProps) => (
             />
         </div>
         <div className="p-5 space-y-3">
-            <h3 className="font-serif text-[15px] font-bold text-[#4d3b1a] line-clamp-2 min-h-[40px]">
+            <h3 className="font-serif text-[15px] font-bold text-[#2d2412] line-clamp-2 min-h-[40px]">
                 {title}
             </h3>
             <div className="flex items-center gap-1">
@@ -40,10 +40,10 @@ const DesignCard = ({ title, rating, reviews, image }: DesignCardProps) => (
                 <span className="text-xs text-stone-500 font-medium">{rating} Stars | {reviews}+ Reviews</span>
             </div>
             <div className="flex gap-2 pt-2">
-                <button className="flex-1 px-3 py-2.5 bg-[#c5a059] text-white text-[11px] font-bold uppercase tracking-wider rounded-md hover:bg-[#4d3b1a] transition-colors whitespace-nowrap">
+                <button className="flex-1 px-3 py-2.5 bg-[#eb595f] text-white text-[11px] font-bold uppercase tracking-wider rounded-md hover:bg-[#2d2412] transition-colors whitespace-nowrap">
                     Get Free Quote
                 </button>
-                <button className="flex-1 px-3 py-2.5 border border-stone-200 text-[#483c32] text-[11px] font-bold uppercase tracking-wider rounded-md hover:bg-stone-50 transition-colors whitespace-nowrap">
+                <button className="flex-1 px-3 py-2.5 border border-stone-200 text-[#2d2412] text-[11px] font-bold uppercase tracking-wider rounded-md hover:bg-stone-50 transition-colors whitespace-nowrap">
                     View Details
                 </button>
             </div>
@@ -78,13 +78,13 @@ const DesignIdeasContent = ({ title, description, slug }: DesignIdeasContentProp
     return (
         <div className="bg-[#fcfcfc] min-h-screen pb-20">
             {/* Breadcrumbs */}
-            <div className="max-w-[1400px] mx-auto px-6 py-8">
-                <nav className="flex items-center text-[13px] text-stone-500 font-medium">
-                    <span className="hover:text-[#c5a059] cursor-pointer">Home</span>
-                    <ChevronRight className="w-4 h-4 mx-2" />
-                    <span className="hover:text-[#c5a059] cursor-pointer">Interior Design</span>
-                    <ChevronRight className="w-4 h-4 mx-2" />
-                    <span className="text-[#4d3b1a]">{title}</span>
+            <div className="max-w-[1400px] mx-auto px-6 py-6 md:py-8">
+                <nav className="flex items-center text-[11px] md:text-[13px] text-stone-500 font-medium overflow-x-auto whitespace-nowrap pb-2 scrollbar-hide">
+                    <span className="hover:text-[#eb595f] cursor-pointer">Home</span>
+                    <ChevronRight className="w-3.5 h-3.5 mx-1.5 md:mx-2" />
+                    <span className="hover:text-[#eb595f] cursor-pointer">Interior Design</span>
+                    <ChevronRight className="w-3.5 h-3.5 mx-1.5 md:mx-2" />
+                    <span className="text-[#2d2412]">{title}</span>
                 </nav>
             </div>
 
@@ -95,7 +95,7 @@ const DesignIdeasContent = ({ title, description, slug }: DesignIdeasContentProp
                     <div className="flex-1 min-w-0 space-y-10">
                         {/* Header */}
                         <div className="space-y-4">
-                            <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#4d3b1a]">
+                            <h1 className="text-3xl md:text-5xl font-serif font-bold text-[#2d2412]">
                                 {title} Ideas
                             </h1>
                             <p className="text-stone-600 max-w-3xl leading-relaxed">
@@ -106,12 +106,12 @@ const DesignIdeasContent = ({ title, description, slug }: DesignIdeasContentProp
                         {/* Filters */}
                         <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
                             <div className="p-2 border border-stone-200 rounded-md bg-white">
-                                <Filter className="w-4 h-4 text-[#c5a059]" />
+                                <Filter className="w-4 h-4 text-[#eb595f] fill-[#eb595f]/10" />
                             </div>
                             {filters.map(filter => (
                                 <button
                                     key={filter}
-                                    className={`px-6 py-2 rounded-full text-[13px] font-semibold whitespace-nowrap transition-all ${filter === 'All' ? 'bg-[#c5a059] text-white' : 'bg-white border border-stone-200 text-stone-600 hover:border-[#e5d5b0]'}`}
+                                    className={`px-6 py-2 rounded-full text-[13px] font-semibold whitespace-nowrap transition-all ${filter === 'All' ? 'bg-[#eb595f] text-white' : 'bg-white border border-stone-200 text-stone-600 hover:border-[#eb595f]'}`}
                                 >
                                     {filter}
                                 </button>
@@ -130,7 +130,7 @@ const DesignIdeasContent = ({ title, description, slug }: DesignIdeasContentProp
                     <div className="w-full lg:w-[360px] shrink-0">
                         <div className="sticky top-28 bg-white rounded-2xl p-8 border border-stone-100 shadow-xl shadow-stone-200/40 max-h-[calc(120vh-8rem)] overflow-y-auto scrollbar-hide">
                             <div className="text-center mb-8">
-                                <h2 className="text-2xl font-serif font-bold text-[#4d3b1a] mb-2">Talk to our Designers</h2>
+                                <h2 className="text-2xl font-serif font-bold text-[#2d2412] mb-2">Talk to our Designers</h2>
                                 <p className="text-stone-500 text-sm">Design your dream {title.toLowerCase()} today</p>
                             </div>
 
@@ -138,33 +138,33 @@ const DesignIdeasContent = ({ title, description, slug }: DesignIdeasContentProp
                                 <div className="space-y-1.5">
                                     <label className="text-[11px] font-bold text-stone-400 uppercase tracking-wider px-1">Full Name</label>
                                     <div className="relative">
-                                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-300" />
+                                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-300 fill-current" />
                                         <input
                                             type="text"
                                             placeholder="John Doe"
-                                            className="w-full pl-11 pr-4 py-3.5 bg-stone-50 border border-stone-100 rounded-xl focus:ring-2 focus:ring-[#c5a059]/20 focus:border-[#c5a059] outline-none transition-all text-[14px]"
+                                            className="w-full pl-11 pr-4 py-3.5 bg-stone-50 border border-stone-100 rounded-xl focus:ring-2 focus:ring-[#eb595f]/20 focus:border-[#eb595f] outline-none transition-all text-[14px]"
                                         />
                                     </div>
                                 </div>
                                 <div className="space-y-1.5">
                                     <label className="text-[11px] font-bold text-stone-400 uppercase tracking-wider px-1">Email Address</label>
                                     <div className="relative">
-                                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-300" />
+                                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-300 fill-current" />
                                         <input
                                             type="email"
                                             placeholder="john@example.com"
-                                            className="w-full pl-11 pr-4 py-3.5 bg-stone-50 border border-stone-100 rounded-xl focus:ring-2 focus:ring-[#c5a059]/20 focus:border-[#c5a059] outline-none transition-all text-[14px]"
+                                            className="w-full pl-11 pr-4 py-3.5 bg-stone-50 border border-stone-100 rounded-xl focus:ring-2 focus:ring-[#eb595f]/20 focus:border-[#eb595f] outline-none transition-all text-[14px]"
                                         />
                                     </div>
                                 </div>
                                 <div className="space-y-1.5">
                                     <label className="text-[11px] font-bold text-stone-400 uppercase tracking-wider px-1">Phone Number</label>
                                     <div className="relative">
-                                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-300" />
+                                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-300 fill-current" />
                                         <input
                                             type="tel"
                                             placeholder="+91 00000 00000"
-                                            className="w-full pl-11 pr-4 py-3.5 bg-stone-50 border border-stone-100 rounded-xl focus:ring-2 focus:ring-[#c5a059]/20 focus:border-[#c5a059] outline-none transition-all text-[14px]"
+                                            className="w-full pl-11 pr-4 py-3.5 bg-stone-50 border border-stone-100 rounded-xl focus:ring-2 focus:ring-[#eb595f]/20 focus:border-[#eb595f] outline-none transition-all text-[14px]"
                                         />
                                     </div>
                                 </div>
@@ -173,11 +173,11 @@ const DesignIdeasContent = ({ title, description, slug }: DesignIdeasContentProp
                                     <input
                                         type="text"
                                         placeholder="560001"
-                                        className="w-full px-4 py-3.5 bg-stone-50 border border-stone-100 rounded-xl focus:ring-2 focus:ring-[#c5a059]/20 focus:border-[#c5a059] outline-none transition-all text-[14px]"
+                                        className="w-full px-4 py-3.5 bg-stone-50 border border-stone-100 rounded-xl focus:ring-2 focus:ring-[#eb595f]/20 focus:border-[#eb595f] outline-none transition-all text-[14px]"
                                     />
                                 </div>
 
-                                <button className="w-full py-4 bg-[#c5a059] text-white font-bold rounded-xl shadow-lg shadow-[#c5a059]/20 hover:bg-[#4d3b1a] transition-all duration-300 transform hover:-translate-y-0.5 mt-4">
+                                <button className="w-full py-4 bg-[#eb595f] text-white font-bold rounded-xl shadow-lg shadow-[#eb595f]/20 hover:bg-[#2d2412] transition-all duration-300 transform hover:-translate-y-0.5 mt-4">
                                     Get Free Consultation
                                 </button>
 
@@ -191,31 +191,31 @@ const DesignIdeasContent = ({ title, description, slug }: DesignIdeasContentProp
             </div>
 
             {/* Bottom Form Section - Visual focus as requested */}
-            <div className="mt-32 max-w-[1500px] mx-auto px-6 h-[500px] md:h-[600px] rounded-[2rem] overflow-hidden relative group">
+            <div className="mt-20 md:mt-32 max-w-[1500px] mx-auto px-0 sm:px-6 h-[450px] md:h-[600px] overflow-hidden relative group md:rounded-[2rem]">
                 <Image
                     src="/v4/interior-living-3d.jpg"
                     alt="Start journey"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-[3s]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#4d3b1a]/90 via-[#4d3b1a]/50 to-transparent flex items-center p-8 md:p-20">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#eb595f]/90 via-[#eb595f]/50 to-transparent flex items-center p-8 md:p-20">
                     <div className="max-w-xl text-white space-y-8">
                         <div>
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4">
-                                Your dream <span className="italic text-[#e5d5b0]">{title.toLowerCase()}</span> is just a click away
+                            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 leading-tight">
+                                Your dream <span className="italic text-[#fcebeb]">{title.toLowerCase()}</span> is <br className="hidden sm:block" /> just a click away
                             </h2>
                             <p className="text-stone-300 text-lg font-light leading-relaxed">
                                 Join 50,000+ happy homeowners who transformed their spaces with EVOLX Studio. Get expert advice and personalized designs today.
                             </p>
                         </div>
 
-                        <div className="bg-white/10 backdrop-blur-md p-1 rounded-full flex max-w-md">
+                        <div className="bg-white/10 backdrop-blur-md p-1 rounded-full flex max-w-sm sm:max-w-md border border-white/20">
                             <input
                                 type="text"
-                                placeholder="Enter your Pincode"
-                                className="bg-transparent border-none focus:ring-0 text-white placeholder:text-stone-400 px-6 flex-1 text-sm"
+                                placeholder="Pincode"
+                                className="bg-transparent border-none focus:ring-0 text-white placeholder:text-stone-300 px-4 sm:px-6 flex-1 text-xs sm:text-sm min-w-0"
                             />
-                            <button className="bg-[#c5a059] hover:bg-white hover:text-[#c5a059] text-white px-8 py-3.5 rounded-full font-bold text-sm transition-all duration-300">
+                            <button className="bg-[#eb595f] hover:bg-white hover:text-[#eb595f] text-white px-4 sm:px-8 py-2.5 sm:py-3.5 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 whitespace-nowrap">
                                 Get Started
                             </button>
                         </div>
@@ -261,9 +261,9 @@ const DesignIdeasContent = ({ title, description, slug }: DesignIdeasContentProp
                     <div className="space-y-6">
                         {[1, 2, 3].map(i => (
                             <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
-                                <h4 className="font-bold text-[#4d3b1a] mb-2 flex justify-between items-center">
+                                <h4 className="font-bold text-[#2d2412] mb-2 flex justify-between items-center">
                                     What is the average cost of {title.toLowerCase()}?
-                                    <ChevronRight className="w-4 h-4 text-[#c5a059]" />
+                                    <ChevronRight className="w-4 h-4 text-[#eb595f]" />
                                 </h4>
                                 <p className="text-stone-500 text-sm leading-relaxed">
                                     The cost varies based on the materials, size, and complexity of the design. Typically, a premium {title.toLowerCase()} starts from a budget-friendly range and can go up depending on your luxury requirements.

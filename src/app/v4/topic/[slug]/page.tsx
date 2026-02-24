@@ -9,6 +9,19 @@ import { getPageContent, topNavLinks, slugify } from '@/data/v4/nav-data';
 import Image from 'next/image';
 import MasterCalculator from '@/components/v4/calculators/MasterCalculator';
 import DesignIdeasContent from '@/components/v4/DesignIdeasContent';
+import ModularJourneyContent from '@/components/v4/ModularJourneyContent';
+import FranchiseContent from '@/components/v4/FranchiseContent';
+import ProjectsContent from '@/components/v4/ProjectsContent';
+import StoreLocatorContent from '@/components/v4/StoreLocatorContent';
+import AboutContent from '@/components/v4/AboutContent';
+import OurTeamContent from '@/components/v4/OurTeamContent';
+import ContactUsContent from '@/components/v4/ContactUsContent';
+import PressMediaContent from '@/components/v4/PressMediaContent';
+import PrivacyPolicyContent from '@/components/v4/PrivacyPolicyContent';
+import BlogContent from '@/components/v4/BlogContent';
+import CustomerStoriesContent from '@/components/v4/CustomerStoriesContent';
+import HelpCenterContent from '@/components/v4/HelpCenterContent';
+import TermsConditionsContent from '@/components/v4/TermsConditionsContent';
 
 const TopicPage = () => {
     const params = useParams();
@@ -58,7 +71,7 @@ const TopicPage = () => {
         return (
             <main className="min-h-screen bg-white">
                 <Navbar />
-                <div className="pt-32"> {/* Spacing for fixed navbar */}
+                <div className="pt-24 md:pt-32"> {/* Spacing for fixed navbar */}
                     <DesignIdeasContent
                         title={content.title}
                         description={content.description}
@@ -75,7 +88,7 @@ const TopicPage = () => {
             <Navbar />
 
             {/* Hero Section */}
-            <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden bg-stone-900">
+            <section className="relative h-[50vh] md:h-[70vh] flex items-center justify-center overflow-hidden bg-stone-900">
                 <div className="absolute inset-0 z-0">
                     <Image
                         src={content.heroImage}
@@ -92,7 +105,7 @@ const TopicPage = () => {
                         initial="hidden"
                         animate="visible"
                         variants={fadeIn}
-                        className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 drop-shadow-lg"
+                        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 drop-shadow-lg leading-tight"
                     >
                         {content.title}
                     </motion.h1>
@@ -109,7 +122,33 @@ const TopicPage = () => {
             </section>
 
             {/* Main Content Area */}
-            {isCalculator ? (
+            {slug === 'the-modular-journey' ? (
+                <ModularJourneyContent />
+            ) : slug === 'own-a-franchise' ? (
+                <FranchiseContent />
+            ) : slug === 'projects' ? (
+                <ProjectsContent />
+            ) : slug === 'store-locator' ? (
+                <StoreLocatorContent />
+            ) : slug === 'about-us' ? (
+                <AboutContent />
+            ) : slug === 'our-team' ? (
+                <OurTeamContent />
+            ) : slug === 'contact-us' ? (
+                <ContactUsContent />
+            ) : slug === 'press-media' ? (
+                <PressMediaContent />
+            ) : slug === 'privacy-policy' ? (
+                <PrivacyPolicyContent />
+            ) : slug === 'blog' ? (
+                <BlogContent />
+            ) : slug === 'customer-stories' ? (
+                <CustomerStoriesContent />
+            ) : slug === 'help-center' ? (
+                <HelpCenterContent />
+            ) : slug === 'terms-conditions' ? (
+                <TermsConditionsContent />
+            ) : isCalculator ? (
                 <section className="py-24 px-6 md:px-12 bg-stone-50">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -132,9 +171,9 @@ const TopicPage = () => {
                                 className="space-y-8"
                             >
                                 <div>
-                                    <span className="text-[#c5a059] font-bold text-sm tracking-[0.2em] uppercase mb-2 block">Premium Design</span>
-                                    <h2 className="text-3xl md:text-5xl font-serif text-[#4d3b1a] leading-tight">
-                                        Elevate your space with <br />
+                                    <span className="text-[#eb595f] font-bold text-sm tracking-[0.2em] uppercase mb-2 block">Premium Design</span>
+                                    <h2 className="text-2xl md:text-5xl font-serif text-[#2d2412] leading-tight">
+                                        Elevate your space with <br className="hidden sm:block" />
                                         <span className="italic text-stone-400">{content.title}</span>
                                     </h2>
                                 </div>
@@ -144,10 +183,10 @@ const TopicPage = () => {
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                    <button className="px-8 py-3.5 bg-[#4d3b1a] text-white font-medium uppercase tracking-wider hover:bg-[#c5a059] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+                                    <button className="px-8 py-3.5 bg-[#eb595f] text-white font-medium uppercase tracking-wider hover:bg-[#2d2412] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
                                         Book Free Consultation
                                     </button>
-                                    <button className="px-8 py-3.5 border border-[#4d3b1a] text-[#4d3b1a] font-medium uppercase tracking-wider hover:bg-[#4d3b1a] hover:text-white transition-all duration-300">
+                                    <button className="px-8 py-3.5 border border-[#eb595f] text-[#eb595f] font-medium uppercase tracking-wider hover:bg-[#eb595f] hover:text-white transition-all duration-300">
                                         View Gallery
                                     </button>
                                 </div>
@@ -157,7 +196,7 @@ const TopicPage = () => {
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                className="relative h-[400px] md:h-[600px] rounded-sm overflow-hidden shadow-2xl"
+                                className="relative h-[300px] md:h-[600px] rounded-sm overflow-hidden shadow-2xl"
                             >
                                 <Image
                                     src={content.galleryImages[0] || content.heroImage}
@@ -173,9 +212,9 @@ const TopicPage = () => {
                     <section className="py-24 bg-[#f9f5fa]">
                         <div className="container mx-auto px-6">
                             <div className="text-center mb-16 space-y-4">
-                                <span className="text-[#c5a059] text-xs font-bold tracking-[0.2em] uppercase">Inspiration</span>
-                                <h2 className="text-3xl md:text-5xl font-serif text-[#4d3b1a]">Curated Designs</h2>
-                                <div className="w-20 h-0.5 bg-[#e5d5b0] mx-auto mt-6"></div>
+                                <span className="text-[#eb595f] text-xs font-bold tracking-[0.2em] uppercase">Inspiration</span>
+                                <h2 className="text-2xl md:text-5xl font-serif text-[#2d2412]">Curated Designs</h2>
+                                <div className="w-20 h-0.5 bg-[#eb595f] mx-auto mt-6"></div>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -238,14 +277,14 @@ const TopicPage = () => {
             </section>
 
             {/* CTA Band */}
-            <section className="py-28 bg-[#4d3b1a] relative overflow-hidden text-center px-6">
+            <section className="py-28 bg-[#eb595f] relative overflow-hidden text-center px-6">
                 <div className="absolute inset-0 bg-[url('/v4/hero-bg.png')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
                 <div className="relative z-10 max-w-4xl mx-auto">
-                    <h2 className="text-3xl md:text-6xl font-serif mb-8 text-white">Ready to transform your home?</h2>
-                    <p className="text-[#e5d5b0] mb-12 max-w-2xl mx-auto text-xl font-light">
+                    <h2 className="text-3xl md:text-6xl font-serif mb-8 text-white leading-tight">Ready to transform your home?</h2>
+                    <p className="text-white mb-12 max-w-2xl mx-auto text-lg md:text-xl font-light">
                         Book a consultation with our expert designers and bringing your dream {content.title.toLowerCase()} to life.
                     </p>
-                    <button className="px-12 py-5 bg-white text-[#4d3b1a] font-bold text-sm uppercase tracking-[0.15em] hover:bg-[#e5d5b0] transition-colors shadow-2xl hover:scale-105 duration-300">
+                    <button className="px-12 py-5 bg-white text-[#eb595f] font-bold text-sm uppercase tracking-[0.15em] hover:bg-[#2d2412] hover:text-white transition-colors shadow-2xl hover:scale-105 duration-300">
                         Get Started Now
                     </button>
                 </div>

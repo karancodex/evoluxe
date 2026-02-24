@@ -35,7 +35,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
     return (
         <div className="bg-white min-h-screen">
             {/* 1. Hero Section */}
-            <section className="relative h-[600px] md:h-[700px] flex items-center overflow-hidden">
+            <section className="relative h-screen md:h-[700px] flex items-center overflow-hidden">
                 <Image
                     src="/v4/interior-living-3d.jpg"
                     alt={`Best Interior Designers in ${cityName}`}
@@ -57,7 +57,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="text-4xl md:text-6xl font-serif font-bold leading-tight"
+                            className="text-3xl sm:text-4xl md:text-6xl font-serif font-bold leading-tight"
                         >
                             Interior Designers in <span className="text-[#e5d5b0]">{cityName}</span>
                         </motion.h1>
@@ -79,7 +79,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
                     >
                         <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#c5a059] opacity-20 blur-3xl rounded-full"></div>
                         <div className="relative z-10">
-                            <h3 className="text-3xl font-serif font-bold mb-4">Designs for every budget</h3>
+                            <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4">Designs for every budget</h3>
                             <p className="text-stone-300 text-sm mb-10 font-light leading-relaxed">Fill details and get your personalized design quote from our experts in {cityName}.</p>
 
                             <form className="space-y-5">
@@ -124,7 +124,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
             <section className="py-24 bg-stone-50 overflow-hidden">
                 <div className="max-w-[1400px] mx-auto px-6">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
-                        <div className="w-full lg:w-1/2 relative h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl group">
+                        <div className="w-full lg:w-1/2 relative h-[300px] md:h-[500px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-2xl group">
                             <Image src="/v4/interior-living-3d.jpg" fill alt="Experience Center" className="object-cover group-hover:scale-105 transition-transform duration-700" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                             <div className="absolute bottom-8 left-8 text-white">
@@ -137,7 +137,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
                         </div>
                         <div className="w-full lg:w-1/2 space-y-8">
                             <div>
-                                <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#4d3b1a] mb-6 leading-tight">
+                                <h2 className="text-2xl md:text-5xl font-serif font-bold text-[#4d3b1a] mb-6 leading-tight">
                                     Step into our Design Experience Center in {cityName}
                                 </h2>
                                 <p className="text-stone-600 text-lg font-light leading-relaxed">
@@ -166,7 +166,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
             <section className="py-24 bg-white">
                 <div className="max-w-[1400px] mx-auto px-6">
                     <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                        <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#4d3b1a]">Personalized Home Interiors</h2>
+                        <h2 className="text-2xl md:text-5xl font-serif font-bold text-[#4d3b1a]">Personalized Home Interiors</h2>
                         <p className="text-stone-500 font-light">From modular kitchens to complete home renovations, we bring your vision to life in {cityName}.</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -201,7 +201,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
                 <div className="max-w-[1400px] mx-auto px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         <div className="space-y-8">
-                            <h2 className="text-3xl md:text-5xl font-serif font-bold leading-tight">
+                            <h2 className="text-2xl md:text-5xl font-serif font-bold leading-tight">
                                 Why EVOLX Studio is {cityName}&apos;s Preferred Choice?
                             </h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -235,7 +235,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="relative h-[600px] rounded-[3rem] overflow-hidden shadow-2xl">
+                        <div className="relative h-[400px] md:h-[600px] rounded-[1.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl">
                             <Image src="/v4/interior-living-3d.jpg" fill alt="Trust" className="object-cover" />
                             <div className="absolute inset-0 bg-[#c5a059]/20 mix-blend-multiply" />
                             <div className="absolute bottom-10 left-10 right-10 bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-3xl">
@@ -257,7 +257,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
             <section className="py-24 bg-stone-50">
                 <div className="max-w-4xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#4d3b1a] mb-4">Got Questions?</h2>
+                        <h2 className="text-2xl md:text-5xl font-serif font-bold text-[#4d3b1a] mb-4">Got Questions?</h2>
                         <p className="text-stone-500 font-light">Everything you need to know about working with us in {cityName}.</p>
                     </div>
                     <div className="space-y-4">
@@ -293,12 +293,12 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
             </section>
 
             {/* 6. CTA Banner */}
-            <section className="py-24 px-6">
-                <div className="max-w-[1400px] mx-auto relative h-[500px] rounded-[3rem] overflow-hidden group">
+            <section className="py-24 px-6 flex justify-center">
+                <div className="max-w-[1400px] w-full relative h-[400px] md:h-[500px] rounded-[1.5rem] md:rounded-[3rem] overflow-hidden group">
                     <Image src="/v4/interior-living-3d.jpg" fill alt="Final CTA" className="object-cover group-hover:scale-105 transition-transform duration-1000" />
                     <div className="absolute inset-0 bg-gradient-to-r from-[#4d3b1a]/90 via-[#4d3b1a]/40 to-transparent flex items-center p-10 md:p-20">
                         <div className="max-w-2xl text-white space-y-8">
-                            <h2 className="text-4xl md:text-6xl font-serif font-bold leading-tight">
+                            <h2 className="text-2xl sm:text-4xl md:text-6xl font-serif font-bold leading-tight">
                                 Transform your home in <span className="text-[#e5d5b0]">{cityName}</span> today.
                             </h2>
                             <p className="text-stone-300 text-lg md:text-xl font-light leading-relaxed">

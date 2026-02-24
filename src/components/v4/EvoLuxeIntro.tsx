@@ -10,21 +10,21 @@ const EvolxStudioIntro = () => {
                 <div className="relative h-[400px] w-full bg-[#faf9f6] rounded-3xl overflow-hidden flex items-center justify-center">
                     {/* Placeholder for Evo & Luxe Characters */}
                     <div className="text-center">
-                        <span className="text-6xl mb-4 block">🤖 & ✨</span>
-                        <p className="text-[#c5a059] font-bold text-xl">Meet Evo & Luxe</p>
+                        <span className="text-6xl mb-4 block">📏 & 💎</span>
+                        <p className="text-[#eb595f] font-bold text-xl uppercase tracking-widest font-serif">Precision & Elegance</p>
                     </div>
                 </div>
 
                 <div>
-                    <span className="text-[#e5d5b0] font-bold tracking-widest uppercase mb-2 block">Our Mascots</span>
-                    <h2 className="text-4xl font-bold text-[#4d3b1a] mb-6">Introducing <br /> <span className="text-[#c5a059]">Evo & Luxe</span></h2>
-                    <p className="text-[#4d3b1a]/70 text-lg leading-relaxed mb-8">
+                    <span className="text-[#eb595f] font-bold tracking-[0.3em] uppercase mb-2 block text-xs">Our Philosophy</span>
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#2d2412] mb-6">Designing for <br /> <span className="text-[#eb595f]">Generations</span></h2>
+                    <p className="text-[#2d2412]/70 text-lg leading-relaxed mb-8">
                         Evo brings the engineering precision, while Luxe adds the touch of elegance.
                         Together, they represent our balance of form and function.
                         They're here to guide you through a seamless design journey free of stress.
                     </p>
-                    <div className="p-6 bg-[#fbf7fd] rounded-2xl border border-[#faf9f6]">
-                        <p className="italic text-[#c5a059]">"We make the complex simple, and the simple beautiful."</p>
+                    <div className="p-8 bg-[#fcebeb]/50 rounded-2xl border border-[#fcebeb]">
+                        <p className="italic text-[#eb595f] font-serif text-xl font-medium">"We make the complex simple, and the simple beautiful."</p>
                     </div>
                 </div>
             </div>

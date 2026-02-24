@@ -72,7 +72,7 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
                 </nav>
 
                 <div className="mb-12">
-                    <h1 className="text-5xl md:text-7xl font-serif font-bold text-[#4d3b1a] mb-4">
+                    <h1 className="text-3xl sm:text-5xl md:text-7xl font-serif font-bold text-[#4d3b1a] mb-4">
                         {title}
                     </h1>
                     <div className="w-24 h-1.5 bg-[#c5a059] rounded-full mb-6"></div>
@@ -123,10 +123,10 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
 
                     {/* Sidebar Form */}
                     <div className="w-full lg:w-[400px] shrink-0">
-                        <div className="bg-[#4d3b1a] rounded-[2.5rem] p-10 text-white sticky top-28 shadow-2xl relative overflow-hidden">
+                        <div className="bg-[#4d3b1a] rounded-[2rem] md:rounded-[2.5rem] p-6 sm:p-10 text-white sticky top-28 shadow-2xl relative overflow-hidden">
                             <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#c5a059] opacity-20 blur-3xl rounded-full"></div>
                             <div className="relative z-10">
-                                <h3 className="text-3xl font-serif font-bold mb-4">Designs for every budget</h3>
+                                <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4">Designs for every budget</h3>
                                 <p className="text-stone-300 text-sm mb-10 font-light max-w-[280px]">Fill details and get your personalized design quote from our experts.</p>
 
                                 <form className="space-y-5">
@@ -161,8 +161,8 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
 
                 <div className="max-w-[1400px] mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-16 items-center">
                     <div className="w-full lg:w-1/2 text-white space-y-8">
-                        <div className="w-16 h-16 bg-[#c5a059] rounded-2xl flex items-center justify-center text-3xl shadow-2xl rotate-12">🍳</div>
-                        <h2 className="text-4xl md:text-5xl font-serif font-bold">Kitchen</h2>
+                        <div className="w-12 h-12 md:w-16 md:h-16 bg-[#c5a059] rounded-2xl flex items-center justify-center text-2xl md:text-3xl shadow-2xl rotate-12">🍳</div>
+                        <h2 className="text-3xl md:text-5xl font-serif font-bold">Kitchen</h2>
                         <p className="text-stone-300 text-lg font-light leading-relaxed max-w-md">
                             From breakfast nooks to gourmet workstations, explore kitchens that are as efficient as they are beautiful.
                         </p>
@@ -193,11 +193,11 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
                     <div className="flex flex-col lg:flex-row gap-16">
                         <div className="flex-1 space-y-12">
                             <h2 className="text-4xl font-serif font-bold text-[#4d3b1a]">Real Transformations</h2>
-                            <div className="relative h-[600px] rounded-[3rem] overflow-hidden group shadow-2xl border-8 border-white">
+                            <div className="relative h-[350px] md:h-[600px] rounded-[2rem] md:rounded-[3rem] overflow-hidden group shadow-2xl border-4 md:border-8 border-white">
                                 <Image src="/v4/interior-living-3d.jpg" fill alt="Before After" className="object-cover" />
                                 <div className="absolute inset-0 flex">
                                     <div className="w-1/2 bg-black/20 flex items-center justify-center relative">
-                                        <span className="text-white font-black uppercase tracking-[0.2em] text-4xl opacity-30 transform -rotate-90">Before</span>
+                                        <span className="text-white font-black uppercase tracking-[0.2em] text-2xl md:text-4xl opacity-30 transform -rotate-90">Before</span>
                                     </div>
                                     <div className="w-2 bg-white cursor-ew-resize relative group">
                                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-2xl transition-transform group-hover:scale-125">
@@ -205,14 +205,14 @@ const MagazineContent = ({ title, description, slug }: { title: string, descript
                                         </div>
                                     </div>
                                     <div className="flex-1 flex items-center justify-center relative bg-[#c5a059]/10">
-                                        <span className="text-white font-black uppercase tracking-[0.2em] text-4xl opacity-30 transform 90">After</span>
+                                        <span className="text-white font-black uppercase tracking-[0.2em] text-2xl md:text-4xl opacity-30 transform 90">After</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="w-full lg:w-[450px] space-y-10 flex flex-col justify-center bg-[#faf9f6]/40 p-12 rounded-[3rem]">
-                            <h3 className="text-4xl font-serif font-bold text-[#4d3b1a]">Ready for your own transformation?</h3>
+                        <div className="w-full lg:w-[450px] space-y-10 flex flex-col justify-center bg-[#faf9f6]/40 p-6 sm:p-12 rounded-[2rem] sm:rounded-[3rem]">
+                            <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#4d3b1a]">Ready for your own transformation?</h3>
                             <p className="text-stone-600 text-lg font-light leading-relaxed">
                                 Join 50,000+ happy homeowners who turned their design dreams into reality with EVOLX Studio.
                             </p>

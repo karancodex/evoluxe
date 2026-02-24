@@ -120,7 +120,7 @@ export const topNavLinks: NavItem[] = [
             },
             {
                 title: 'Resources',
-                items: ['Blog', 'Customer Stories', 'Refer a Friend', 'Help Center', 'Terms & Conditions']
+                items: ['Blog', 'Customer Stories', 'Help Center', 'Terms & Conditions']
             }
         ]
     },
@@ -181,6 +181,71 @@ export const getPageContent = (slug: string) => {
     if (slug.includes('calculator') || slug.includes('estimator')) {
         subtitle = `Get an instant, transparent cost estimate for your interior project.`;
         description = `Plan your budget with confidence using our advanced pricing tools. Our ${title} takes into account your specific requirements, layout, and material preferences to provide a realistic cost breakdown for your dream home.`;
+    }
+
+    if (slug === 'the-modular-journey') {
+        subtitle = "From Concept to Creation: A seamless 45-day path to your dream home.";
+        description = "Our modular journey is designed for those who value precision, quality, and time. Experience a stress-free transformation with our end-to-end expertise.";
+    }
+
+    if (slug === 'own-a-franchise') {
+        subtitle = "Empower the next era of luxury home design in your city.";
+        description = "Join India's most innovative interior design brand. With our proven business model and end-to-end support, building a profitable design business has never been easier.";
+    }
+
+    if (slug === 'projects') {
+        subtitle = "A Gallery of Timeless Design & Architectural Excellence.";
+        description = "Explore our portfolio of curated luxury homes. From urban penthouses to heritage villas, witness how we translate aspirations into architectural reality across India.";
+    }
+
+    if (slug === 'store-locator') {
+        subtitle = "Experience Luxury in Person at Our Bespoke Studios.";
+        description = "Find an EVOLX Studio near you. Step into our state-of-the-art experience centers to touch textures, feel finishes, and start your design journey with our experts.";
+    }
+
+    if (slug === 'about-us') {
+        subtitle = "A Legacy of Innovation and Design Excellence.";
+        description = "Discover the story of EVOLX Studio. From our humble beginnings to becoming a leader in luxury modular interiors, learn about our values and our mission.";
+    }
+
+    if (slug === 'our-team') {
+        subtitle = "Meet the Visionaries and Artisans Behind the Name.";
+        description = "Our collective of specialized architects, designers, and engineers work in harmony to bring your dream spaces to life with surgical precision.";
+    }
+
+    if (slug === 'contact-us') {
+        subtitle = "Start Your Design Evolution Today.";
+        description = "Ready to transform your home? Reach out to our design concierge team for a personalized consultation or visit one of our flagship experience centers.";
+    }
+
+    if (slug === 'press-media') {
+        subtitle = "The Latest Headlines from the Frontlines of Design.";
+        description = "Stay updated with our corporate announcements, media features, and technological breakthroughs as we redefine the interior design landscape.";
+    }
+
+    if (slug === 'privacy-policy') {
+        subtitle = "Your Data Integrity is Our Design Priority.";
+        description = "We are committed to the highest standards of data protection. Read our comprehensive policy on how we handle and protect your personal information.";
+    }
+
+    if (slug === 'blog') {
+        subtitle = "Insights, Trends, and Design Intelligence.";
+        description = "The EVOLX Journal is your source for curated interior advice, latest architecture trends, and expert tips on high-end modular living.";
+    }
+
+    if (slug === 'customer-stories') {
+        subtitle = "Real Homes. Real People. Remarkable Transformations.";
+        description = "Witness the journey of homeowners who chose EVOLX Studio. Explore detailed case studies of how we turned bare shells into bespoke sanctuaries.";
+    }
+
+    if (slug === 'help-center') {
+        subtitle = "We're Here to Support Your Design Journey.";
+        description = "Find answers to frequently asked questions, track your project status, or raise a support ticket for post-installation services.";
+    }
+
+    if (slug === 'terms-conditions') {
+        subtitle = "A Foundation of Mutual Trust and Transparency.";
+        description = "Understand our project delivery timelines, payment milestones, and warranty commitments that ensure a smooth and professional experience.";
     }
 
     return {
