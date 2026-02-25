@@ -85,11 +85,11 @@ const Hero = () => {
                             <span className="text-[#eb595f] font-bold tracking-[0.5em] uppercase text-[10px] mb-4 block font-accent">
                                 Interior Architecture & Design
                             </span>
-                            <h1 className="text-[2.6rem] sm:text-5xl md:text-8xl font-serif font-bold text-[#2d2412] leading-[1.05] mb-6 tracking-tight">
+                            <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-[#2d2412] leading-[1.05] mb-6 tracking-tight">
                                 {slides[current].title}<br />
                                 <span className="text-[#eb595f] italic font-medium">{slides[current].subtitle}</span>
                             </h1>
-                            <p className="text-lg md:text-xl text-[#2d2412]/80 mb-10 leading-relaxed max-w-xl font-medium">
+                            <p className="text-base sm:text-lg md:text-xl text-[#2d2412]/80 mb-10 leading-relaxed max-w-xl font-medium">
                                 {slides[current].desc}
                             </p>
 

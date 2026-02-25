@@ -89,7 +89,7 @@ const StatsSection = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="text-center mb-20">
+                <div className="text-center mb-12 sm:mb-20 px-4">
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -100,14 +100,14 @@ const StatsSection = () => {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-3xl md:text-5xl font-serif font-bold text-[#2d2412] mb-6 tracking-tight"
+                        className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#2d2412] mb-6 tracking-tight leading-tight"
                     >
                         Built on Trust, Crafted with <span className="text-[#eb595f] italic font-medium">Precision</span>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-[#2d2412]/70 max-w-xl mx-auto text-lg leading-relaxed"
+                        className="text-[#2d2412]/70 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed"
                     >
                         We combine artistic vision with engineering excellence to deliver
                         homes that aren't just beautiful, but built for generations.
@@ -169,9 +169,9 @@ const StatsSection = () => {
                     <div className="absolute -bottom-20 -left-20 w-64 h-64 border-8 border-white/5 rounded-full" />
 
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-                        <div className="text-left space-y-2 max-w-sm">
+                        <div className="text-center md:text-left space-y-2 max-w-sm">
                             <h4 className="text-white text-2xl font-serif font-bold tracking-tight">Ready to start your project?</h4>
-                            <p className="text-white/60 font-light">Join over 1,00,000+ happy families and build your dream sanctuary today.</p>
+                            <p className="text-white/60 font-light text-sm sm:text-base">Join over 1,00,000+ happy families and build your dream sanctuary today.</p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <button className="px-8 py-4 bg-white text-[#eb595f] font-bold rounded-full hover:bg-[#2d2412] hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-lg text-sm">
