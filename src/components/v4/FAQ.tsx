@@ -42,16 +42,22 @@ const FAQ = () => {
     return (
         <section className="py-24 bg-[#fbf7fd]">
             <div className="max-w-[1400px] mx-auto px-6">
+                <div className="max-w-4xl mx-auto px-4">
+                    <div className="text-center mb-12 md:mb-16">
+                        <span className="text-[#eb595f] font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3 block">Clarifying Every Detail</span>
+                        <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif text-[#2d2412] leading-tight mb-4">Frequently Asked Questions</h2>
+                        <p className="text-[#2d2412]/60 text-base sm:text-lg max-w-xl mx-auto font-light">
+                            Discover the transparency and process behind our luxury interior design services.
+                        </p>
+                    </div>
+                </div>
+
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
 
-                    {/* Left Column: Heading */}
-                    <div className="lg:col-span-4">
-                        <span className="text-[#eb595f] font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Common Queries</span>
-                        <h2 className="text-3xl md:text-5xl font-serif text-[#2d2412] mb-6 leading-tight">
-                            Frequently Asked <br className="hidden sm:block" /> Questions
-                        </h2>
+                    {/* Left Column: Contact Support */}
+                    <div className="lg:col-span-4 text-center lg:text-left">
                         <p className="text-[#2d2412]/60 text-lg leading-relaxed mb-8">
-                            Everything you need to know about transforming your home with EVOLX Studio. Can't find the answer you're looking for?
+                            Can't find the answer you're looking for?
                         </p>
                         <button className="text-[#eb595f] font-semibold underline decoration-[#eb595f]/30 underline-offset-4 hover:decoration-[#eb595f] transition-all">
                             Contact Support

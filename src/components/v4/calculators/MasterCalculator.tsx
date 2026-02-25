@@ -167,31 +167,31 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                         />
                     </div>
                     {config.steps.map((s, i) => (
-                        <div key={s.id} className="relative z-10 flex flex-col items-center gap-4">
+                        <div key={s.id} className="relative z-10 flex flex-col items-center gap-2 sm:gap-4">
                             <motion.div
-                                className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-500 border-4 ${step >= i + 1
-                                        ? "bg-[#eb595f] border-white text-white shadow-xl scale-110"
-                                        : "bg-white border-stone-100 text-stone-300"
+                                className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-xs transition-all duration-500 border-[3px] sm:border-4 ${step >= i + 1
+                                    ? "bg-[#eb595f] border-white text-white shadow-xl scale-110"
+                                    : "bg-white border-stone-100 text-stone-300"
                                     }`}
                             >
                                 {i + 1}
                             </motion.div>
-                            <span className={`text-[10px] uppercase tracking-[0.2em] font-black ${step >= i + 1 ? "text-[#eb595f]" : "text-stone-300"
+                            <span className={`text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] font-black ${step >= i + 1 ? "text-[#eb595f]" : "text-stone-300"
                                 }`}>
                                 {s.id}
                             </span>
                         </div>
                     ))}
-                    <div className="relative z-10 flex flex-col items-center gap-4">
+                    <div className="relative z-10 flex flex-col items-center gap-2 sm:gap-4">
                         <motion.div
-                            className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-500 border-4 ${step > config.steps.length
-                                    ? "bg-[#eb595f] border-white text-white shadow-xl scale-110"
-                                    : "bg-white border-stone-100 text-stone-300"
+                            className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-xs transition-all duration-500 border-[3px] sm:border-4 ${step > config.steps.length
+                                ? "bg-[#eb595f] border-white text-white shadow-xl scale-110"
+                                : "bg-white border-stone-100 text-stone-300"
                                 }`}
                         >
-                            <CheckCircle className="w-5 h-5" />
+                            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                         </motion.div>
-                        <span className={`text-[10px] uppercase tracking-[0.2em] font-black ${step > config.steps.length ? "text-[#eb595f]" : "text-stone-300"
+                        <span className={`text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] font-black ${step > config.steps.length ? "text-[#eb595f]" : "text-stone-300"
                             }`}>Result</span>
                     </div>
                 </div>
@@ -202,7 +202,7 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                 <div className="absolute top-0 right-0 w-80 h-80 bg-[#eb595f]/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-[100px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#c5a059]/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-[100px] pointer-events-none" />
 
-                <div className="bg-[#2d2412] p-12 md:p-20 text-white relative overflow-hidden">
+                <div className="bg-[#2d2412] p-8 sm:p-12 md:p-20 text-white relative overflow-hidden">
                     <div className="absolute inset-0 bg-[url('/v4/luxe_banner_bg.png')] opacity-10 bg-cover mix-blend-overlay" />
                     <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#eb595f]/20 to-transparent" />
 
@@ -210,12 +210,12 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                         <motion.div
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            className="w-24 h-24 bg-white/5 backdrop-blur-2xl rounded-[2rem] flex items-center justify-center mb-10 border border-white/10 shadow-3xl group-hover/calc:rotate-12 transition-transform duration-700"
+                            className="w-16 h-16 sm:w-24 sm:h-24 bg-white/5 backdrop-blur-2xl rounded-[1.5rem] sm:rounded-[2rem] flex items-center justify-center mb-6 sm:mb-10 border border-white/10 shadow-3xl group-hover/calc:rotate-12 transition-transform duration-700"
                         >
                             {config.icon}
                         </motion.div>
-                        <h2 className="text-4xl md:text-7xl font-serif font-bold mb-6 tracking-tight leading-none">{config.title}</h2>
-                        <p className="text-white/50 max-w-lg text-lg md:text-xl font-light leading-relaxed">
+                        <h2 className="text-3xl sm:text-4xl md:text-7xl font-serif font-bold mb-4 sm:mb-6 tracking-tight leading-tight">{config.title}</h2>
+                        <p className="text-white/50 max-w-lg text-base sm:text-lg md:text-xl font-light leading-relaxed px-4">
                             Personalized pricing intelligence powered by <span className="text-white font-medium">EVOLX Design Engine.</span>
                         </p>
                     </div>
@@ -232,9 +232,9 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                                 variants={fadeIn}
                                 className="space-y-16"
                             >
-                                <div className="text-center space-y-4">
+                                <div className="text-center space-y-4 px-4">
                                     <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">Phase 0{step}</span>
-                                    <h3 className="text-4xl md:text-5xl font-serif text-[#2d2412] font-bold tracking-tight">
+                                    <h3 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#2d2412] font-bold tracking-tight">
                                         {config.steps[step - 1].label}
                                     </h3>
                                     <div className="w-24 h-1 bg-[#eb595f]/20 mx-auto rounded-full overflow-hidden">
@@ -295,38 +295,38 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                                 >
                                     <Sparkles className="w-5 h-5 animate-pulse" /> Precision Quote Ready
                                 </motion.div>
-                                <h3 className="text-5xl md:text-7xl font-serif text-[#2d2412] mb-16 font-bold tracking-tight px-4 leading-none italic decoration-[#eb595f] underline underline-offset-8">Your Custom Estimate</h3>
+                                <h3 className="text-3xl sm:text-5xl md:text-7xl font-serif text-[#2d2412] mb-12 sm:mb-16 font-bold tracking-tight px-4 leading-tight italic decoration-[#eb595f] underline underline-offset-8">Your Custom Estimate</h3>
 
-                                <div className="bg-[#2d2412] text-white p-16 md:p-24 rounded-[4rem] inline-block shadow-4xl relative overflow-hidden group w-full max-w-3xl border-8 border-white shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)]">
+                                <div className="bg-[#2d2412] text-white p-10 sm:p-16 md:p-24 rounded-[2.5rem] sm:rounded-[4rem] inline-block shadow-4xl relative overflow-hidden group w-full max-w-3xl border-4 sm:border-8 border-white shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] mx-auto">
                                     <div className="absolute top-0 right-0 w-96 h-96 bg-[#eb595f]/20 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
                                     <div className="relative z-10">
-                                        <span className="text-[12px] text-[#eb595f] font-black tracking-[0.5em] uppercase block mb-8">Estimated Investment</span>
-                                        <div className="text-6xl sm:text-8xl md:text-9xl font-black text-white mb-8 tabular-nums tracking-tighter drop-shadow-2xl">
+                                        <span className="text-[10px] sm:text-[12px] text-[#eb595f] font-black tracking-[0.3em] sm:tracking-[0.5em] uppercase block mb-6 sm:mb-8">Estimated Investment</span>
+                                        <div className="text-4xl sm:text-8xl md:text-9xl font-black text-white mb-6 sm:mb-8 tabular-nums tracking-tighter drop-shadow-2xl">
                                             ₹{result?.toLocaleString('en-IN')}
                                         </div>
-                                        <div className="w-32 h-1.5 bg-[#eb595f] mx-auto mb-12 rounded-full" />
-                                        <div className="grid grid-cols-2 gap-12 text-left max-w-sm mx-auto">
-                                            <div className="space-y-2">
-                                                <p className="text-[10px] uppercase tracking-widest text-[#eb595f] font-black">Design & GST</p>
-                                                <p className="text-lg font-light opacity-60 italic">Included</p>
+                                        <div className="w-24 sm:w-32 h-1.5 bg-[#eb595f] mx-auto mb-10 sm:mb-12 rounded-full" />
+                                        <div className="grid grid-cols-2 gap-8 sm:gap-12 text-left max-w-sm mx-auto">
+                                            <div className="space-y-1 sm:space-y-2">
+                                                <p className="text-[8px] sm:text-[10px] uppercase tracking-widest text-[#eb595f] font-black">Design & GST</p>
+                                                <p className="text-sm sm:text-lg font-light opacity-60 italic">Included</p>
                                             </div>
-                                            <div className="space-y-2">
-                                                <p className="text-[10px] uppercase tracking-widest text-[#eb595f] font-black">Installation</p>
-                                                <p className="text-lg font-light opacity-60 italic">Bespoke</p>
+                                            <div className="space-y-1 sm:space-y-2">
+                                                <p className="text-[8px] sm:text-[10px] uppercase tracking-widest text-[#eb595f] font-black">Installation</p>
+                                                <p className="text-sm sm:text-lg font-light opacity-60 italic">Bespoke</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col sm:flex-row gap-8 mt-20 justify-center">
-                                    <button className="px-16 py-7 bg-[#eb595f] text-white font-black rounded-3xl hover:bg-[#2d2412] transition-all shadow-[0_30px_60px_-15px_rgba(235,89,95,0.5)] hover:-translate-y-2 uppercase tracking-[0.2em] text-xs">
+                                <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-12 sm:mt-20 justify-center px-4">
+                                    <button className="px-8 sm:px-16 py-5 sm:py-7 bg-[#eb595f] text-white font-black rounded-2xl sm:rounded-3xl hover:bg-[#2d2412] transition-all shadow-[0_30px_60px_-15px_rgba(235,89,95,0.5)] hover:-translate-y-2 uppercase tracking-[0.2em] text-[10px] sm:text-xs">
                                         Download Detailed PDF
                                     </button>
                                     <button
                                         onClick={reset}
-                                        className="px-16 py-7 border-4 border-stone-50 text-[#2d2412] font-black rounded-3xl hover:bg-stone-50 transition-all flex items-center justify-center gap-4 uppercase tracking-[0.2em] text-xs"
+                                        className="px-8 sm:px-16 py-5 sm:py-7 border-2 sm:border-4 border-stone-50 text-[#2d2412] font-black rounded-2xl sm:rounded-3xl hover:bg-stone-50 transition-all flex items-center justify-center gap-4 uppercase tracking-[0.2em] text-[10px] sm:text-xs"
                                     >
-                                        <RotateCcw className="w-5 h-5" /> Recalculate
+                                        <RotateCcw className="w-4 h-4 sm:w-5 h-5" /> Recalculate
                                     </button>
                                 </div>
                             </motion.div>

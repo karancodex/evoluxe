@@ -48,15 +48,15 @@ const ServicesSlider = () => {
                 </div>
 
                 {/* Staggered Modern Mosaic Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:auto-rows-[280px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:auto-rows-[280px]">
                     {servicesList.map((service, index) => (
                         <Link
                             key={index}
                             href={`/v4/topic/${service.slug}`}
                             className={`
                                 relative rounded-3xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-2xl transition-all duration-500 min-h-[320px] md:min-h-0
-                                ${service.size === 'large' ? 'md:col-span-2 md:row-span-2' : ''}
-                                ${service.size === 'medium' ? 'md:col-span-2 md:row-span-1' : 'md:col-span-1 md:row-span-1'}
+                                ${service.size === 'large' ? 'sm:col-span-2 sm:row-span-2' : ''}
+                                ${service.size === 'medium' ? 'sm:col-span-2 sm:row-span-1' : 'sm:col-span-1 sm:row-span-1'}
                             `}
                         >
                             <motion.div

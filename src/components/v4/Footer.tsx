@@ -95,7 +95,7 @@ const Footer = () => {
                 </div>
 
                 {/* Middle Section: Links */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 md:mb-24 justify-items-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 mb-16 md:mb-24 justify-items-center">
 
                     {/* Column 1: Company */}
                     <div className="flex flex-col items-center">
@@ -113,7 +113,7 @@ const Footer = () => {
                     </div>
 
                     {/* Column 2: Brand & Socials (Center) */}
-                    <div className="flex flex-col items-center order-first md:order-none">
+                    <div className="flex flex-col items-center order-first sm:order-none sm:col-span-2 md:col-span-1 border-b sm:border-b-0 border-[#faf9f6] pb-12 sm:pb-0">
                         <Link href="/v4" className="mb-4 block group">
                             <div className="relative h-16 w-56 md:h-20 md:w-80">
                                 <Image

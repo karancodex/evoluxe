@@ -20,9 +20,9 @@ const logos = [...rawLogos, ...rawLogos, ...rawLogos, ...rawLogos];
 const Partners = () => {
     return (
         <section className="py-20 bg-white border-t border-[#faf9f6] overflow-hidden">
-            <div className="max-w-[1800px] mx-auto text-center mb-8 md:mb-12 px-6">
-                <span className="text-[#eb595f] font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Excellence in Every Detail</span>
-                <h2 className="text-2xl md:text-5xl font-serif text-[#2d2412] leading-tight">Collaborating with Industry Leaders</h2>
+            <div className="max-w-[1800px] mx-auto text-center mb-10 md:mb-16 px-4">
+                <span className="text-[#eb595f] font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-3 block">Excellence in Every Detail</span>
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif text-[#2d2412] leading-tight max-w-2xl mx-auto">Collaborating with Industry Leaders</h2>
             </div>
 
             {/* Marquee Container */}

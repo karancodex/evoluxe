@@ -58,9 +58,9 @@ const MeetDesignerBanner = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="text-3xl sm:text-4xl md:text-7xl font-serif font-bold text-white mb-10 leading-tight drop-shadow-xl"
+                    className="text-4xl sm:text-6xl md:text-8xl font-serif font-light text-white mb-8 md:mb-12 leading-[1.1] drop-shadow-2xl px-2"
                 >
-                    Your dream home is <br className="hidden sm:block" /> just a click away
+                    Your <span className="italic font-medium text-[#c5a059]">dream home</span> is <br className="hidden sm:block" /> just a click away
                 </motion.h2>
 
                 <motion.button
@@ -69,7 +69,7 @@ const MeetDesignerBanner = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                     onClick={() => setIsModalOpen(true)}
-                    className="px-12 py-5 bg-[#eb595f] text-white font-bold text-base md:text-lg rounded-full hover:bg-[#2d2412] transition-all transform hover:-translate-y-1 hover:shadow-2xl uppercase tracking-widest border border-white/20 backdrop-blur-sm"
+                    className="px-8 sm:px-12 py-4 sm:py-5 bg-[#eb595f] text-white font-bold text-sm sm:text-base md:text-lg rounded-full hover:bg-[#2d2412] transition-all transform hover:-translate-y-1 hover:shadow-2xl uppercase tracking-widest border border-white/20 backdrop-blur-sm"
                 >
                     Get Started
                 </motion.button>

@@ -31,7 +31,7 @@ const BrandPromise = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
-                className="relative z-10 w-full max-w-lg md:max-w-xl h-full bg-white/10 backdrop-blur-xl flex flex-col items-center justify-center px-6 sm:px-12 text-center border-x border-white/20"
+                className="relative z-10 w-full max-w-[90%] sm:max-w-lg md:max-w-xl h-full bg-white/10 backdrop-blur-xl flex flex-col items-center justify-center px-4 sm:px-12 text-center border-x border-white/20"
             >
                 {/* Coral Line Accent Top */}
                 <div className="absolute top-20 w-16 h-[1px] bg-[#eb595f]" />

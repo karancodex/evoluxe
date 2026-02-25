@@ -56,16 +56,16 @@ const DesignSession = () => {
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="space-y-4"
+                            className="space-y-4 text-center lg:text-left"
                         >
-                            <span className="text-[#eb595f] font-semibold tracking-widest uppercase text-sm">The Process</span>
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#2d2412] leading-tight">
+                            <span className="text-[#eb595f] font-semibold tracking-widest uppercase text-xs sm:text-sm">The Process</span>
+                            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#2d2412] leading-tight">
                                 What is a <br />
                                 <span className="text-[#eb595f]">
                                     Design Session?
                                 </span>
                             </h2>
-                            <div className="w-20 h-1 bg-[#eb595f] rounded-full" />
+                            <div className="w-20 h-1 bg-[#eb595f] rounded-full mx-auto lg:mx-0" />
                         </motion.div>
 
                         <div className="space-y-6">
