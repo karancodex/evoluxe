@@ -1,21 +1,21 @@
 "use client";
 
 import React from 'react';
-import Navbar from '@/components/v4/Navbar';
-import Hero from '@/components/v4/Hero';
-import ServicesSlider from '@/components/v4/ServicesSlider';
-import StatsSection from '@/components/v4/StatsSection';
-import BrandPromise from '@/components/v4/BrandPromise';
-import DesignSession from '@/components/v4/DesignSession';
-import InspirationGallery from '@/components/v4/InspirationGallery';
-import EvolxStudioIntro from '@/components/v4/EvoLuxeIntro';
-import Testimonials from '@/components/v4/Testimonials';
-import Partners from '@/components/v4/Partners';
-import FAQ from '@/components/v4/FAQ';
-import MeetDesignerBanner from '@/components/v4/MeetDesignerBanner';
-import Footer from '@/components/v4/Footer';
+import Hero from '@/components/Hero';
+import ServicesSlider from '@/components/ServicesSlider';
+import StatsSection from '@/components/StatsSection';
+import WhatWeOffer from '@/components/WhatWeOffer';
+import EstimateSection from '@/components/EstimateSection';
+import BrandPromise from '@/components/BrandPromise';
+import DesignSession from '@/components/DesignSession';
+import InspirationGallery from '@/components/InspirationGallery';
+import EvolxStudioIntro from '@/components/EvoLuxeIntro';
+import Testimonials from '@/components/Testimonials';
+import Partners from '@/components/Partners';
+import FAQ from '@/components/FAQ';
+import MeetDesignerBanner from '@/components/MeetDesignerBanner';
 
-export default function Home() {
+export default function V4HomePage() {
     return (
         <main
             className="min-h-screen font-sans selection:bg-[#e5d5b0] selection:text-[#4d3b1a] bg-white text-[#4d3b1a]"
@@ -24,10 +24,11 @@ export default function Home() {
                 '--background': '#ffffff'
             } as any}
         >
-            <Navbar />
             <Hero />
             <ServicesSlider />
             <StatsSection />
+            <WhatWeOffer />
+            <EstimateSection />
             <BrandPromise />
             <DesignSession />
             <InspirationGallery />
@@ -35,8 +36,6 @@ export default function Home() {
             <Partners />
             <FAQ />
             <MeetDesignerBanner />
-            <Footer />
         </main>
     );
 }
-
