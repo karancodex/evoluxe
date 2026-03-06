@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 export const metadata: Metadata = {
     title: "EVOLX Studio — Interior Architecture & Design",
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     }
 };
 
-import CustomCursor from "@/components/layout/CustomCursor";
-import Preloader from "@/components/layout/Preloader";
+import CustomCursor from "@/components/CustomCursor";
+import Preloader from "@/components/Preloader";
 
 export default function RootLayout({
     children,
