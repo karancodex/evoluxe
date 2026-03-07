@@ -53,7 +53,7 @@ const stats = [
 
 const StatsSection = () => {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="py-12 md:py-16 bg-white relative overflow-hidden">
             {/* Artistic Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
                 <div className="absolute top-20 left-10 w-64 h-64 bg-[#fcebeb] rounded-full blur-[100px]" />
@@ -61,26 +61,34 @@ const StatsSection = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="text-center mb-12 sm:mb-20 px-4">
-                    <motion.span
+                <div className="text-center mb-12 md:mb-16 px-4">
+                    <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-[#eb595f] font-bold tracking-[0.4em] uppercase text-[10px] mb-4 block font-accent"
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#eb595f]/5 rounded-full mb-6 border border-[#eb595f]/10"
                     >
-                        Built on Trust, Crafted with Precision
-                    </motion.span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#eb595f] animate-pulse" />
+                        <span className="text-[#eb595f] font-bold tracking-[0.4em] uppercase text-[10px]">Built on Trust</span>
+                    </motion.div>
+
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#2d2412] mb-6 tracking-tight leading-tight"
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412] mb-6 tracking-tight leading-[1.1]"
                     >
                         Experience Center we will have <br className="hidden md:block" />
                         <span className="text-[#eb595f] italic font-medium">soon first in Pune</span>.
                     </motion.h2>
+
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-[#2d2412]/70 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed"
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="text-[#2d2412]/60 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed"
                     >
                         With 450 happy homes delivered across two decades, we combine artistic vision with engineering excellence to build for generations.
                     </motion.p>

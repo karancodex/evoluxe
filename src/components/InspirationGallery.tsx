@@ -30,12 +30,31 @@ const InspirationGallery = () => {
         : rawImages.filter(img => img.cat === activeCat);
 
     return (
-        <section className="relative py-16 bg-white min-h-screen">
+        <section className="relative py-16 md:py-12 bg-white min-h-screen">
             <div className="max-w-[1800px] mx-auto px-4">
 
-                {/* Heading */}
-                <div className="text-center mb-8 px-4">
-                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif text-[#2d2412] leading-tight">Inspiration for <br className="sm:hidden" /> interior designs</h2>
+                {/* Standardized Header Style */}
+                <div className="text-center mb-20 md:mb-28 px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#eb595f]/5 rounded-full mb-6 border border-[#eb595f]/10"
+                    >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#eb595f] animate-pulse" />
+                        <span className="text-[#eb595f] font-bold tracking-[0.4em] uppercase text-[10px]">Aesthetic Portfolio</span>
+                    </motion.div>
+
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412] mb-6 tracking-tight leading-[1.1]"
+                    >
+                        Inspiration for <br className="hidden md:block" />
+                        <span className="text-[#eb595f] italic font-medium opacity-90">Interior Designs.</span>
+                    </motion.h2>
                 </div>
                 {/* Bottom Floating Navigation (Simulated from image) */}
                 {/* Navigation - Centered below header */}

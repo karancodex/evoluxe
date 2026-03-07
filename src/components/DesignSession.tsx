@@ -46,28 +46,45 @@ const DesignSession = () => {
     const [activeStep, setActiveStep] = useState(0);
 
     return (
-        <section className="py-24 bg-[#faf9f6]/30 overflow-hidden">
+        <section className="py-12 md:py-16 bg-[#faf9f6]/30 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="flex flex-col lg:flex-row gap-16 items-center">
+                {/* Standardized Header Style */}
+                <div className="text-center mb-12 md:mb-16 px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#eb595f]/5 rounded-full mb-6 border border-[#eb595f]/10"
+                    >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#eb595f] animate-pulse" />
+                        <span className="text-[#eb595f] font-bold tracking-[0.4em] uppercase text-[10px]">The Process</span>
+                    </motion.div>
 
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412] mb-6 tracking-tight leading-[1.1]"
+                    >
+                        What is a <br />
+                        <span className="text-[#eb595f] italic font-medium opacity-90">Design Session?</span>
+                    </motion.h2>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="text-[#2d2412]/60 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed"
+                    >
+                        Experience our proprietary design methodology that turns your vision into a structural masterpiece.
+                    </motion.p>
+                </div>
+
+                <div className="flex flex-col lg:flex-row gap-16 items-center">
                     {/* Left side: Content & Controls */}
                     <div className="w-full lg:w-1/2 space-y-12">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="space-y-4 text-center lg:text-left"
-                        >
-                            <span className="text-[#eb595f] font-semibold tracking-widest uppercase text-xs sm:text-sm">The Process</span>
-                            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#2d2412] leading-tight">
-                                What is a <br />
-                                <span className="text-[#eb595f]">
-                                    Design Session?
-                                </span>
-                            </h2>
-                            <div className="w-20 h-1 bg-[#eb595f] rounded-full mx-auto lg:mx-0" />
-                        </motion.div>
-
                         <div className="space-y-6">
                             {steps.map((step, index) => (
                                 <motion.div
