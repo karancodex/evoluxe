@@ -24,6 +24,7 @@ import FAQ from '@/components/FAQ';
 import BrandPromise from '@/components/BrandPromise';
 import Link from 'next/link';
 import ServiceTemplate from '@/components/services/ServiceTemplate';
+import HowItWorksContent from '@/components/HowItWorksContent';
 
 // --- Main Page Component ---
 
@@ -94,6 +95,7 @@ const TopicPage = () => {
         'customer-stories': <CustomerStoriesContent />,
         'help-center': <HelpCenterContent />,
         'terms-conditions': <TermsConditionsContent />,
+        'how-it-works': <HowItWorksContent />,
     };
 
     if (specialComponents[slug]) {

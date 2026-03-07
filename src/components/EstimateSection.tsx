@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { ChevronRight, Calculator, Sparkles, ArrowRight } from 'lucide-react';
 
 const estimates = [
@@ -10,21 +11,24 @@ const estimates = [
         category: "Complete Transformation",
         description: "Comprehensive costing for your complete home interior transformation.",
         image: "/v4/estimates/full-home.png",
-        tag: "Premium Choice"
+        tag: "Premium Choice",
+        href: "/calculators/full-home-price-estimator"
     },
     {
         title: "Modular Kitchen",
         category: "Culinary Excellence",
         description: "Detailed estimates for modular and custom kitchen designs.",
         image: "/v4/estimates/kitchen.png",
-        tag: "Most Popular"
+        tag: "Most Popular",
+        href: "/calculators/kitchen-price-calculator"
     },
     {
         title: "Luxury Wardrobes",
         category: "Smart Storage",
         description: "Transparent price breakdowns for smart storage solutions.",
         image: "/v4/estimates/wardrobe.png",
-        tag: "New Arrival"
+        tag: "New Arrival",
+        href: "/calculators/wardrobe-price-calculator"
     }
 ];
 
@@ -73,72 +77,73 @@ const EstimateSection = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                     {estimates.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: index * 0.1,
-                                duration: 0.8,
-                                ease: [0.21, 0.45, 0.32, 0.9]
-                            }}
-                            className="group relative h-[550px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(45,36,18,0.12)] cursor-pointer"
-                        >
-                            {/* Background Image with Slow Zoom */}
-                            <div className="absolute inset-0 transition-transform duration-[4s] ease-out group-hover:scale-110">
-                                <img
-                                    src={item.image}
-                                    className="w-full h-full object-cover"
-                                    alt={item.title}
-                                />
-                                {/* Sophisticated Overlays */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#2d2412] via-[#2d2412]/40 to-transparent group-hover:via-[#2d2412]/60 transition-colors duration-500" />
-                                <div className="absolute inset-0 bg-[#eb595f]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                            </div>
-
-                            {/* Content Overlays */}
-                            <div className="absolute inset-x-0 bottom-0 p-8 sm:p-10 z-20 flex flex-col justify-end h-full">
-                                {/* Tag - Glassmorphism style */}
-                                <div className="mb-auto">
-                                    <span className="inline-block py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold tracking-widest uppercase mb-4 opacity-0 group-hover:opacity-100 -translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                                        {item.tag}
-                                    </span>
+                        <Link key={index} href={item.href}>
+                            <motion.div
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{
+                                    delay: index * 0.1,
+                                    duration: 0.8,
+                                    ease: [0.21, 0.45, 0.32, 0.9]
+                                }}
+                                className="group relative h-[550px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(45,36,18,0.12)] cursor-pointer"
+                            >
+                                {/* Background Image with Slow Zoom */}
+                                <div className="absolute inset-0 transition-transform duration-[4s] ease-out group-hover:scale-110">
+                                    <img
+                                        src={item.image}
+                                        className="w-full h-full object-cover"
+                                        alt={item.title}
+                                    />
+                                    {/* Sophisticated Overlays */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#2d2412] via-[#2d2412]/40 to-transparent group-hover:via-[#2d2412]/60 transition-colors duration-500" />
+                                    <div className="absolute inset-0 bg-[#eb595f]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                                 </div>
 
-                                {/* Main Text */}
-                                <div className="space-y-4 transform transition-transform duration-500 group-hover:-translate-y-4">
-                                    <div className="space-y-1">
-                                        <p className="text-[#eb595f] text-[10px] font-bold tracking-[0.3em] uppercase opacity-80">
-                                            {item.category}
-                                        </p>
-                                        <h3 className="text-3xl md:text-4xl font-serif font-bold text-white tracking-tight">
-                                            {item.title}
-                                        </h3>
+                                {/* Content Overlays */}
+                                <div className="absolute inset-x-0 bottom-0 p-8 sm:p-10 z-20 flex flex-col justify-end h-full">
+                                    {/* Tag - Glassmorphism style */}
+                                    <div className="mb-auto">
+                                        <span className="inline-block py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold tracking-widest uppercase mb-4 opacity-0 group-hover:opacity-100 -translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                                            {item.tag}
+                                        </span>
                                     </div>
 
-                                    <p className="text-white/70 text-base leading-relaxed max-w-xs font-light transition-opacity duration-500 group-hover:opacity-100 opacity-60">
-                                        {item.description}
-                                    </p>
+                                    {/* Main Text */}
+                                    <div className="space-y-4 transform transition-transform duration-500 group-hover:-translate-y-4">
+                                        <div className="space-y-1">
+                                            <p className="text-[#eb595f] text-[10px] font-bold tracking-[0.3em] uppercase opacity-80">
+                                                {item.category}
+                                            </p>
+                                            <h3 className="text-3xl md:text-4xl font-serif font-bold text-white tracking-tight">
+                                                {item.title}
+                                            </h3>
+                                        </div>
 
-                                    {/* Link Style Button */}
-                                    <div className="pt-6">
-                                        <div className="flex items-center gap-3 text-white group/btn">
-                                            <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover/btn:bg-[#eb595f] group-hover/btn:border-[#eb595f] transition-all duration-300">
-                                                <Calculator className="w-5 h-5 transition-transform group-hover:rotate-12" />
+                                        <p className="text-white/70 text-base leading-relaxed max-w-xs font-light transition-opacity duration-500 group-hover:opacity-100 opacity-60">
+                                            {item.description}
+                                        </p>
+
+                                        {/* Link Style Button */}
+                                        <div className="pt-6">
+                                            <div className="flex items-center gap-3 text-white group/btn">
+                                                <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover/btn:bg-[#eb595f] group-hover/btn:border-[#eb595f] transition-all duration-300">
+                                                    <Calculator className="w-5 h-5 transition-transform group-hover:rotate-12" />
+                                                </div>
+                                                <span className="text-xs font-bold tracking-[0.2em] uppercase border-b border-transparent group-hover/btn:border-white transition-all pb-1">
+                                                    Calculate Pricing
+                                                </span>
+                                                <ArrowRight className="w-4 h-4 translate-x-0 group-hover:translate-x-2 transition-transform duration-300" />
                                             </div>
-                                            <span className="text-xs font-bold tracking-[0.2em] uppercase border-b border-transparent group-hover/btn:border-white transition-all pb-1">
-                                                Calculate Pricing
-                                            </span>
-                                            <ArrowRight className="w-4 h-4 translate-x-0 group-hover:translate-x-2 transition-transform duration-300" />
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            {/* Decorative Edge Glow */}
-                            <div className="absolute inset-0 border-[1px] border-white/10 rounded-[2.5rem] pointer-events-none group-hover:border-white/20 transition-colors" />
-                        </motion.div>
+                                {/* Decorative Edge Glow */}
+                                <div className="absolute inset-0 border-[1px] border-white/10 rounded-[2.5rem] pointer-events-none group-hover:border-white/20 transition-colors" />
+                            </motion.div>
+                        </Link>
                     ))}
                 </div>
 
