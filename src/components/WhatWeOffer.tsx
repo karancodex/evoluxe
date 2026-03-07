@@ -57,10 +57,10 @@ const offerings = [
 
 const WhatWeOffer = () => {
     return (
-        <section className="py-24 md:py-32 bg-[#faf9f6]/30 overflow-hidden">
+        <section className="py-12 md:py-16 bg-[#faf9f6]/30 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Standardized Header Style */}
-                <div className="text-center mb-20 md:mb-28 px-4">
+                <div className="text-center mb-12 md:mb-16 px-4">
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}

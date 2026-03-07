@@ -30,7 +30,7 @@ const estimates = [
 
 const EstimateSection = () => {
     return (
-        <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+        <section className="py-12 md:py-16 bg-white relative overflow-hidden">
             {/* Soft decorative background circles */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-40">
                 <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#eb595f]/5 rounded-full blur-[120px]" />
@@ -39,7 +39,7 @@ const EstimateSection = () => {
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Standardized Premium Header */}
-                <div className="text-center mb-24 max-w-4xl mx-auto">
+                <div className="text-center mb-12 md:mb-16 max-w-4xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ const EstimateSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-7xl font-serif font-bold text-[#2d2412] leading-[1.1] mb-8"
+                        className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412] leading-[1.1] mb-8"
                     >
                         Plan your dream home <br className="hidden md:block" />
                         with <span className="text-[#eb595f] italic font-medium">Transparent Estimates</span>.

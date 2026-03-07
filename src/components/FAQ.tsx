@@ -53,16 +53,40 @@ const FAQ = ({ items, title = "Frequently Asked Questions", subtitle = "Discover
     const displayFaqs = items || defaultFaqs;
 
     return (
-        <section className="py-24 bg-[#fbf7fd]">
-            <div className="max-w-[1400px] mx-auto px-6">
-                <div className="max-w-4xl mx-auto px-4">
-                    <div className="text-center mb-12 md:mb-16">
-                        <span className="text-[#eb595f] font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3 block">Clarifying Every Detail</span>
-                        <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif text-[#2d2412] leading-tight mb-4">{title}</h2>
-                        <p className="text-[#2d2412]/60 text-base sm:text-lg max-w-xl mx-auto font-light">
-                            {subtitle}
-                        </p>
-                    </div>
+        <section className="py-12 md:py-16 bg-[#faf9f6]/30">
+            <div className="max-w-7xl mx-auto px-6">
+                {/* Standardized Header Style */}
+                <div className="text-center mb-12 md:mb-16 px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#eb595f]/5 rounded-full mb-6 border border-[#eb595f]/10"
+                    >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#eb595f] animate-pulse" />
+                        <span className="text-[#eb595f] font-bold tracking-[0.4em] uppercase text-[10px]">Clarifying Every Detail</span>
+                    </motion.div>
+
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412] mb-6 tracking-tight leading-[1.1]"
+                    >
+                        Frequently Asked <br className="hidden md:block" />
+                        <span className="text-[#eb595f] italic font-medium opacity-90">Questions.</span>
+                    </motion.h2>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="text-[#2d2412]/60 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed"
+                    >
+                        {subtitle}
+                    </motion.p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">

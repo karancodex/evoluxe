@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const EvolxStudioIntro = () => {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="py-12 md:py-16 bg-white relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div className="relative h-[300px] sm:h-[400px] w-full bg-[#faf9f6] rounded-3xl overflow-hidden flex items-center justify-center order-2 md:order-1">
                     {/* Placeholder for Evo & Luxe Characters */}

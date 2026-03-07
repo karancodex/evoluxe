@@ -37,11 +37,39 @@ const reviews = [
 
 const Testimonials = () => {
     return (
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-10 bg-white">
             <div className="max-w-[1800px] mx-auto px-6">
-                <div className="text-center mb-12 md:mb-20">
-                    <span className="text-[#eb595f] font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Our Happy Clients</span>
-                    <h2 className="text-3xl md:text-6xl font-serif text-[#2d2412] leading-tight">Loved by Homeowners</h2>
+                {/* Standardized Header Style */}
+                <div className="text-center mb-20 md:mb-28 px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#eb595f]/5 rounded-full mb-6 border border-[#eb595f]/10"
+                    >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#eb595f] animate-pulse" />
+                        <span className="text-[#eb595f] font-bold tracking-[0.4em] uppercase text-[10px]">Client Voices</span>
+                    </motion.div>
+
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412] mb-6 tracking-tight leading-[1.1]"
+                    >
+                        Loved by <span className="text-[#eb595f] italic font-medium opacity-90">Homeowners.</span>
+                    </motion.h2>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="text-[#2d2412]/60 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed"
+                    >
+                        Real stories from the families who have trusted us to build their dream sanctuaries.
+                    </motion.p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
