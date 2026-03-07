@@ -61,6 +61,16 @@ const Navbar = () => {
             return `/company/${slugify(item)}`;
         }
 
+        const offeringItems = bottomNavLinks.find(link => link.name === 'Offerings')?.columns?.flatMap(col => col.items) || [];
+        if (offeringItems.includes(item)) {
+            return `/Offerings/${slugify(item)}`;
+        }
+
+        const calculatorItems = bottomNavLinks.find(link => link.name === 'Price Calculators')?.columns?.flatMap(col => col.items) || [];
+        if (calculatorItems.includes(item)) {
+            return `/calculators/${slugify(item)}`;
+        }
+
         return `/services/${slugify(item)}`;
     };
 

@@ -13,9 +13,6 @@ export const metadata: Metadata = {
     }
 };
 
-import CustomCursor from "@/components/CustomCursor";
-import Preloader from "@/components/Preloader";
-
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -24,8 +21,6 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body suppressHydrationWarning>
-                <Preloader />
-                <CustomCursor />
                 <SmoothScroll>
                     <Navbar />
                     <main>{children}</main>

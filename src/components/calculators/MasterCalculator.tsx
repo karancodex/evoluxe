@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     ChefHat,
@@ -8,15 +8,21 @@ import {
     Home,
     ChevronRight,
     RotateCcw,
-    Info,
     CheckCircle,
     Sparkles,
+    ArrowRight,
+    Layout,
+    PencilRuler,
     Settings,
-    Layers,
-    Users,
-    ArrowRight
+    ShieldCheck,
+    Mail,
+    Phone,
+    User,
+    ClipboardList,
+    Send
 } from 'lucide-react';
 import Image from 'next/image';
+import emailjs from '@emailjs/browser';
 
 interface CalculatorProps {
     type: 'kitchen' | 'wardrobe' | 'full-home';
@@ -25,101 +31,128 @@ interface CalculatorProps {
 const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
     const [step, setStep] = useState(1);
     const [selections, setSelections] = useState<Record<string, any>>({});
-    const [result, setResult] = useState<number | null>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const formRef = useRef<HTMLFormElement>(null);
 
     const config = useMemo(() => {
         switch (type) {
-            case 'full-home':
-                return {
-                    title: 'Full Home Price Estimator',
-                    icon: <Home className="w-8 h-8" />,
-                    steps: [
-                        {
-                            id: 'bhk',
-                            label: 'Select your home type',
-                            options: [
-                                { id: '1bhk', label: '1 BHK', value: 350000, img: '/v4/luxury_living_1.png' },
-                                { id: '2bhk', label: '2 BHK', value: 650000, img: '/v4/luxury_living_2.png' },
-                                { id: '3bhk', label: '3 BHK', value: 950000, img: '/v4/design-session-1.png' },
-                                { id: '4bhk', label: '4 BHK', value: 1250000, img: '/v4/design-session-2.png' },
-                                { id: 'villa', label: 'Villa', value: 2500000, img: '/v4/interior-living-3d.jpg' },
-                            ]
-                        },
-                        {
-                            id: 'package',
-                            label: 'Select a package',
-                            options: [
-                                { id: 'essential', label: 'Essential', sub: 'Standard finishes & functional design', multiplier: 1, img: '/v4/luxe_banner_bg.png' },
-                                { id: 'premium', label: 'Premium', sub: 'Stylish upgrades & branded fittings', multiplier: 1.4, img: '/v4/hero-bg.png' },
-                                { id: 'luxe', label: 'Luxe', sub: 'Exotic finishes & high-end automation', multiplier: 2.2, img: '/v4/luxury_kitchen_2.png' },
-                            ]
-                        }
-                    ],
-                    calculate: (sel: any) => {
-                        const base = sel.bhk || 0;
-                        const multi = sel.package || 1;
-                        return Math.round(base * multi);
-                    }
-                };
             case 'kitchen':
                 return {
                     title: 'Kitchen Price Calculator',
-                    icon: <ChefHat className="w-8 h-8" />,
+                    accent: '#eb595f',
+                    illustration: '/v4/kitchen_calc_illustration.png',
+                    icon: <ChefHat className="w-10 h-10" />,
                     steps: [
                         {
                             id: 'layout',
                             label: 'Select Kitchen Layout',
                             options: [
-                                { id: 'straight', label: 'Straight', value: 80000, img: '/v4/luxury_kitchen_2.png' },
-                                { id: 'lshape', label: 'L-Shape', value: 150000, img: '/v4/luxury_kitchen_2.png' },
-                                { id: 'ushape', label: 'U-Shape', value: 220000, img: '/v4/luxury_kitchen_2.png' },
-                                { id: 'parallel', label: 'Parallel', value: 180000, img: '/v4/luxury_kitchen_2.png' },
+                                { id: 'straight', label: 'Straight', value: 80000, img: '/v4/luxury_kitchen_2.png', desc: 'Single wall efficiency' },
+                                { id: 'lshape', label: 'L-Shape', value: 150000, img: '/v4/luxury_kitchen_1.png', desc: 'Perfect for corners' },
+                                { id: 'ushape', label: 'U-Shape', value: 220000, img: '/v4/luxury_kitchen_3.png', desc: 'Maximum workspace' },
+                                { id: 'parallel', label: 'Parallel', value: 180000, img: '/v4/hero-bg.png', desc: 'Professional workflow' },
                             ]
                         },
                         {
                             id: 'finish',
-                            label: 'Select Finish',
+                            label: 'External Finish',
                             options: [
                                 { id: 'laminate', label: 'Laminate', sub: 'Durable & economical', multiplier: 1, img: '/v4/luxe_banner_bg.png' },
-                                { id: 'acrylic', label: 'Acrylic', sub: 'Glossy & premium look', multiplier: 1.5, img: '/v4/hero-bg.png' },
-                                { id: 'pu', label: 'PU Paint', sub: 'Seamless & luxurious', multiplier: 2.1, img: '/v4/luxury_kitchen_2.png' },
+                                { id: 'acrylic', label: 'Acrylic', sub: 'Glossy & premium look', multiplier: 1.4, img: '/v4/luxury_kitchen_2.png' },
+                                { id: 'pu', label: 'PU Paint', sub: 'Seamless & luxurious', multiplier: 1.9, img: '/v4/luxury_kitchen_1.png' },
+                            ]
+                        },
+                        {
+                            id: 'hardware',
+                            label: 'Hardware & Fittings',
+                            options: [
+                                { id: 'basic', label: 'Standard', sub: 'Functional soft-close', multiplier: 1, img: '/v4/3d_kitchen_iso.png' },
+                                { id: 'premium', label: 'Hettich/Innotech', sub: 'German engineering', multiplier: 1.25, img: '/v4/3d_kitchen_iso.png' },
+                                { id: 'luxe', label: 'Blum Tandembox', sub: 'The gold standard', multiplier: 1.5, img: '/v4/3d_kitchen_iso.png' },
                             ]
                         }
                     ],
                     calculate: (sel: any) => {
-                        const base = sel.layout || 0;
-                        const multi = sel.finish || 1;
-                        return Math.round(base * multi);
+                        const base = sel.layout?.value || 0;
+                        const finishMulti = sel.finish?.multiplier || 1;
+                        const hardwareMulti = sel.hardware?.multiplier || 1;
+                        return Math.round(base * finishMulti * hardwareMulti);
                     }
                 };
             case 'wardrobe':
                 return {
                     title: 'Wardrobe Price Calculator',
-                    icon: <Wardrobe className="w-8 h-8" />,
+                    accent: '#a88a4d',
+                    illustration: '/v4/wardrobe_calc_illustration.png',
+                    icon: <Wardrobe className="w-10 h-10" />,
                     steps: [
                         {
-                            id: 'size',
-                            label: 'Select Width',
+                            id: 'type',
+                            label: 'Door Style',
                             options: [
-                                { id: '4ft', label: '4 Feet (2 Door)', value: 45000, img: '/v4/design-session-3.png' },
-                                { id: '6ft', label: '6 Feet (3 Door)', value: 75000, img: '/v4/design-session-3.png' },
-                                { id: '8ft', label: '8 Feet (4 Door)', value: 105000, img: '/v4/design-session-3.png' },
-                                { id: '10ft', label: '10 Feet+', value: 145000, img: '/v4/design-session-3.png' },
+                                { id: 'swing', label: 'Swing Doors', sub: 'Classic & easy access', value: 50000, img: '/v4/service_wardrobe.png' },
+                                { id: 'sliding', label: 'Sliding Doors', sub: 'Space-saving & modern', value: 75000, img: '/v4/3d_wardrobe_iso.png' },
+                                { id: 'walkin', label: 'Walk-in Closet', sub: 'Maximum luxury', value: 150000, img: '/v4/luxury_bedroom_1.png' },
                             ]
                         },
                         {
-                            id: 'type',
-                            label: 'Select Door Type',
+                            id: 'finish',
+                            label: 'Finish Material',
                             options: [
-                                { id: 'swing', label: 'Swing Doors', sub: 'Classic & easy access', multiplier: 1, img: '/v4/luxe_banner_bg.png' },
-                                { id: 'sliding', label: 'Sliding Doors', sub: 'Space-saving & modern', multiplier: 1.3, img: '/v4/hero-bg.png' },
+                                { id: 'laminate', label: 'Laminate', sub: 'Anti-scratch matte', multiplier: 1, img: '/v4/luxe_banner_bg.png' },
+                                { id: 'lacquered', label: 'Lacquered Glass', sub: 'Reflective & elegant', multiplier: 1.6, img: '/v4/luxury_kitchen_1.png' },
+                                { id: 'veneer', label: 'Natural Veneer', sub: 'Warm wood touch', multiplier: 2.1, img: '/v4/luxury_living_2.png' },
                             ]
                         }
                     ],
                     calculate: (sel: any) => {
-                        const base = sel.size || 0;
-                        const multi = sel.type || 1;
-                        return Math.round(base * multi);
+                        const base = sel.type?.value || 0;
+                        const finishMulti = sel.finish?.multiplier || 1;
+                        return Math.round(base * finishMulti);
+                    }
+                };
+            case 'full-home':
+                return {
+                    title: 'Full Home Price Estimator',
+                    accent: '#eb595f',
+                    illustration: '/v4/home_calc_illustration.png',
+                    icon: <Home className="w-10 h-10" />,
+                    steps: [
+                        {
+                            id: 'bhk',
+                            label: 'Property Type',
+                            options: [
+                                { id: '1bhk', label: '1 BHK', value: 450000, img: '/v4/luxury_living_1.png' },
+                                { id: '2bhk', label: '2 BHK', value: 850000, img: '/v4/luxury_living_2.png' },
+                                { id: '3bhk', label: '3 BHK', value: 1250000, img: '/v4/luxury_living_3.png' },
+                                { id: 'villa', label: 'Villa/Large Flat', value: 2500000, img: '/v4/interior-living-3d.jpg' },
+                            ]
+                        },
+                        {
+                            id: 'package',
+                            label: 'Quality Package',
+                            options: [
+                                { id: 'essential', label: 'Essential', sub: 'Best value for money', multiplier: 1, img: '/v4/luxe_banner_bg.png' },
+                                { id: 'premium', label: 'Premium', sub: 'High-end branded fittings', multiplier: 1.4, img: '/v4/luxury_kitchen_2.png' },
+                                { id: 'luxe', label: 'Luxe', sub: 'Exotic finishes & Automation', multiplier: 2.2, img: '/v4/luxury_living_1.png' },
+                            ]
+                        },
+                        {
+                            id: 'scope',
+                            label: 'Scope of Work',
+                            options: [
+                                { id: 'partial_1', label: 'Living + Kitchen', sub: 'Social and culinary spaces', multiplier: 0.6, img: '/v4/luxury_living_2.png' },
+                                { id: 'partial_2', label: 'Bedrooms + Kitchen', sub: 'Private and culinary spaces', multiplier: 0.8, img: '/v4/luxury_bedroom_1.png' },
+                                { id: 'complete', label: 'Complete Home', sub: 'Every corner transformed', multiplier: 1.1, img: '/v4/interior-living-3d.jpg' },
+                            ]
+                        }
+                    ],
+                    calculate: (sel: any) => {
+                        const base = sel.bhk?.value || 0;
+                        const packageMulti = sel.package?.multiplier || 1;
+                        const scopeMulti = sel.scope?.multiplier || 1;
+                        return Math.round(base * packageMulti * scopeMulti);
                     }
                 };
             default:
@@ -129,266 +162,311 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
 
     if (!config) return null;
 
-    const handleSelect = (stepId: string, value: number) => {
-        const newSelections = { ...selections, [stepId]: value };
+    const handleSelect = (stepId: string, option: any) => {
+        const newSelections = { ...selections, [stepId]: option };
         setSelections(newSelections);
-
-        if (step < config.steps.length) {
-            setStep(step + 1);
-        } else {
-            setResult(config.calculate(newSelections));
-            setStep(step + 1);
-        }
+        setStep(step + 1);
     };
 
     const reset = () => {
         setStep(1);
         setSelections({});
-        setResult(null);
+        setIsSubmitted(false);
     };
 
-    const fadeIn = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: -20 }
+    const finalResult = config.calculate(selections);
+
+    const sendEmail = (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        // Replace these with your actual EmailJS Service ID, Template ID, and Public Key
+        // For now, using placeholders as per typical integration flow
+        const templateParams = {
+            from_name: selections.contact?.name,
+            from_email: selections.contact?.email,
+            from_phone: selections.contact?.phone,
+            calculator_type: config.title,
+            estimate_amount: `₹${finalResult.toLocaleString('en-IN')}`,
+            selections_summary: Object.entries(selections)
+                .filter(([key]) => key !== 'contact')
+                .map(([key, val]: [string, any]) => `${key}: ${val.label}`)
+                .join('\n')
+        };
+
+        // Note: In a real PRD, these keys would come from environment variables
+        // emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_PUBLIC_KEY')
+        //     .then(() => {
+        //         setIsSubmitted(true);
+        //         setIsSubmitting(false);
+        //     })
+        //     .catch(() => {
+        //         alert("Failed to send. Please try again.");
+        //         setIsSubmitting(false);
+        //     });
+
+        // Mock success for demonstration
+        setTimeout(() => {
+            setIsSubmitted(true);
+            setIsSubmitting(false);
+        }, 1500);
     };
+
+    const stepsCount = config.steps.length + 1; // +1 for summary/form
 
     return (
-        <div className="space-y-16">
-            {/* Top Stepper - Timeline Visual */}
-            <div className="max-w-4xl mx-auto px-6">
-                <div className="relative flex items-center justify-between">
-                    <div className="absolute top-5 left-0 w-full h-1 bg-stone-100 -translate-y-1/2 rounded-full overflow-hidden">
-                        <motion.div
-                            className="h-full bg-[#eb595f]"
-                            initial={{ width: "0%" }}
-                            animate={{ width: `${((step - 1) / config.steps.length) * 100}%` }}
-                            transition={{ duration: 0.8 }}
-                        />
-                    </div>
-                    {config.steps.map((s, i) => (
-                        <div key={s.id} className="relative z-10 flex flex-col items-center gap-2 sm:gap-4">
-                            <motion.div
-                                className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-xs transition-all duration-500 border-[3px] sm:border-4 ${step >= i + 1
-                                    ? "bg-[#eb595f] border-white text-white shadow-xl scale-110"
-                                    : "bg-white border-stone-100 text-stone-300"
+        <div className="max-w-7xl mx-auto px-6 py-12">
+            {/* Header */}
+            <div className="text-center mb-16 space-y-4">
+                <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="w-20 h-20 mx-auto rounded-3xl flex items-center justify-center mb-6"
+                    style={{ backgroundColor: `${config.accent}15`, color: config.accent }}
+                >
+                    {config.icon}
+                </motion.div>
+                <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412]">
+                    {config.title.split(' ').slice(0, -1).join(' ')} <span className="italic font-medium" style={{ color: config.accent }}>{config.title.split(' ').pop()}</span>
+                </h1>
+                <p className="text-stone-400 max-w-2xl mx-auto">Get an instant, transparent cost estimate powered by our proprietary design engine.</p>
+            </div>
+
+            {/* Stepper */}
+            <div className="max-w-3xl mx-auto mb-20">
+                <div className="flex justify-between relative">
+                    <div className="absolute top-1/2 left-0 w-full h-0.5 bg-stone-100 -translate-y-1/2 z-0" />
+                    {[...Array(stepsCount)].map((_, i) => (
+                        <div key={i} className="relative z-10">
+                            <div
+                                className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-500 border-4 ${step > i + 1 ? 'bg-stone-900 border-white text-white' :
+                                    step === i + 1 ? 'border-white text-white shadow-lg scale-110' :
+                                        'bg-white border-stone-100 text-stone-300'
                                     }`}
+                                style={{ backgroundColor: step === i + 1 ? config.accent : (step > i + 1 ? '#2d2412' : '#fff') }}
                             >
-                                {i + 1}
-                            </motion.div>
-                            <span className={`text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] font-black ${step >= i + 1 ? "text-[#eb595f]" : "text-stone-300"
-                                }`}>
-                                {s.id}
-                            </span>
+                                {step > i + 1 ? <CheckCircle className="w-5 h-5 text-white" /> : i + 1}
+                            </div>
                         </div>
                     ))}
-                    <div className="relative z-10 flex flex-col items-center gap-2 sm:gap-4">
-                        <motion.div
-                            className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-xs transition-all duration-500 border-[3px] sm:border-4 ${step > config.steps.length
-                                ? "bg-[#eb595f] border-white text-white shadow-xl scale-110"
-                                : "bg-white border-stone-100 text-stone-300"
-                                }`}
-                        >
-                            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-                        </motion.div>
-                        <span className={`text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] font-black ${step > config.steps.length ? "text-[#eb595f]" : "text-stone-300"
-                            }`}>Result</span>
-                    </div>
                 </div>
             </div>
 
-            <div className="max-w-5xl mx-auto bg-white rounded-[4rem] shadow-[0_50px_100px_-30px_rgba(45,36,18,0.12)] overflow-hidden border border-stone-100 relative group/calc">
-                {/* Decorative Elements */}
-                <div className="absolute top-0 right-0 w-80 h-80 bg-[#eb595f]/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-[100px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#c5a059]/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-[100px] pointer-events-none" />
-
-                <div className="bg-[#2d2412] p-8 sm:p-12 md:p-20 text-white relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[url('/v4/luxe_banner_bg.png')] opacity-10 bg-cover mix-blend-overlay" />
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#eb595f]/20 to-transparent" />
-
-                    <div className="relative z-10 flex flex-col items-center text-center">
+            <div className="bg-white rounded-[3rem] shadow-[0_50px_100px_-30px_rgba(45,36,18,0.1)] border border-stone-100 overflow-hidden min-h-[600px] flex flex-col">
+                <AnimatePresence mode="wait">
+                    {step <= config.steps.length ? (
                         <motion.div
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            className="w-16 h-16 sm:w-24 sm:h-24 bg-white/5 backdrop-blur-2xl rounded-[1.5rem] sm:rounded-[2rem] flex items-center justify-center mb-6 sm:mb-10 border border-white/10 shadow-3xl group-hover/calc:rotate-12 transition-transform duration-700"
+                            key={step}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            className="p-10 md:p-20 flex-1"
                         >
-                            {config.icon}
-                        </motion.div>
-                        <h2 className="text-3xl sm:text-4xl md:text-7xl font-serif font-bold mb-4 sm:mb-6 tracking-tight leading-tight">{config.title}</h2>
-                        <p className="text-white/50 max-w-lg text-base sm:text-lg md:text-xl font-light leading-relaxed px-4">
-                            Personalized pricing intelligence powered by <span className="text-white font-medium">EVOLX Design Engine.</span>
-                        </p>
-                    </div>
-                </div>
-
-                <div className="p-10 md:p-24 min-h-[600px] flex flex-col justify-center bg-white relative">
-                    <AnimatePresence mode="wait">
-                        {step <= config.steps.length ? (
-                            <motion.div
-                                key={step}
-                                initial="hidden"
-                                animate="visible"
-                                exit="exit"
-                                variants={fadeIn}
-                                className="space-y-16"
-                            >
-                                <div className="text-center space-y-4 px-4">
-                                    <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">Phase 0{step}</span>
-                                    <h3 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#2d2412] font-bold tracking-tight">
-                                        {config.steps[step - 1].label}
-                                    </h3>
-                                    <div className="w-24 h-1 bg-[#eb595f]/20 mx-auto rounded-full overflow-hidden">
-                                        <motion.div
-                                            className="h-full bg-[#eb595f]"
-                                            initial={{ x: "-100%" }}
-                                            animate={{ x: "0%" }}
-                                            transition={{ duration: 0.8 }}
-                                        />
+                            <div className="flex flex-col md:flex-row gap-16 items-center">
+                                <div className="flex-1 space-y-8">
+                                    <div className="space-y-2">
+                                        <span className="text-[10px] font-bold tracking-[0.4em] uppercase" style={{ color: config.accent }}>Step {step} of {config.steps.length}</span>
+                                        <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#2d2412] leading-tight">
+                                            {config.steps[step - 1].label}
+                                        </h2>
                                     </div>
-                                </div>
 
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                                    {config.steps[step - 1].options.map((opt: any, i: number) => (
-                                        <motion.button
-                                            key={opt.id}
-                                            initial={{ opacity: 0, scale: 0.9 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            transition={{ delay: i * 0.1 }}
-                                            onClick={() => handleSelect(config.steps[step - 1].id, opt.value || opt.multiplier)}
-                                            className="text-left group relative flex flex-col gap-6 focus:outline-none"
-                                        >
-                                            <div className="relative aspect-[4/5] w-full rounded-[2.5rem] overflow-hidden border border-stone-100 bg-stone-50 transition-all duration-700 group-hover:shadow-[0_40px_80px_-20px_rgba(235,89,95,0.25)] group-hover:-translate-y-4 group-hover:border-[#eb595f]/30">
-                                                <Image
-                                                    src={opt.img || '/v4/interior-living-3d.jpg'}
-                                                    alt={opt.label}
-                                                    fill
-                                                    className="object-cover group-hover:scale-110 transition-transform duration-[2s] grayscale group-hover:grayscale-0"
-                                                />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-[#2d2412] via-[#2d2412]/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity flex items-end p-10">
-                                                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                                        <span className="text-white text-[10px] font-black tracking-[0.3em] uppercase flex items-center gap-3">
-                                                            Select <ArrowRight className="w-4 h-4 text-[#eb595f]" />
-                                                        </span>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        {config.steps[step - 1].options.map((opt: any) => (
+                                            <button
+                                                key={opt.id}
+                                                onClick={() => handleSelect(config.steps[step - 1].id, opt)}
+                                                className="group text-left p-6 rounded-3xl border border-stone-100 hover:border-stone-900 transition-all hover:shadow-xl relative overflow-hidden"
+                                            >
+                                                <div className="relative z-10 flex gap-4 items-center">
+                                                    <div className="w-16 h-16 rounded-2xl overflow-hidden shrink-0">
+                                                        <Image src={opt.img} alt={opt.label} width={64} height={64} className="object-cover h-full w-full group-hover:scale-110 transition-transform duration-700" />
+                                                    </div>
+                                                    <div>
+                                                        <h4 className="font-bold text-[#2d2412] text-lg">{opt.label}</h4>
+                                                        {opt.sub && <p className="text-xs text-stone-400 mt-1">{opt.sub}</p>}
+                                                        {opt.desc && <p className="text-xs text-stone-400 mt-1">{opt.desc}</p>}
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div className="px-4">
-                                                <h4 className="text-2xl font-serif font-bold text-[#2d2412] group-hover:text-[#eb595f] transition-colors">{opt.label}</h4>
-                                                {opt.sub && <p className="text-sm text-stone-400 mt-2 font-light leading-relaxed">{opt.sub}</p>}
-                                            </div>
-                                        </motion.button>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        ) : (
-                            <motion.div
-                                key="result"
-                                initial="hidden"
-                                animate="visible"
-                                variants={fadeIn}
-                                className="text-center"
-                            >
-                                <motion.div
-                                    initial={{ y: 20, opacity: 0 }}
-                                    animate={{ y: 0, opacity: 1 }}
-                                    className="inline-flex items-center gap-4 px-8 py-4 bg-[#fcebeb] rounded-full text-[#eb595f] font-black text-xs uppercase tracking-[0.3em] mb-12 shadow-inner"
-                                >
-                                    <Sparkles className="w-5 h-5 animate-pulse" /> Precision Quote Ready
-                                </motion.div>
-                                <h3 className="text-3xl sm:text-5xl md:text-7xl font-serif text-[#2d2412] mb-12 sm:mb-16 font-bold tracking-tight px-4 leading-tight italic decoration-[#eb595f] underline underline-offset-8">Your Custom Estimate</h3>
+                                                <div className="absolute inset-0 bg-stone-900 opacity-0 group-hover:opacity-[0.02] transition-opacity" />
+                                            </button>
+                                        ))}
+                                    </div>
 
-                                <div className="bg-[#2d2412] text-white p-10 sm:p-16 md:p-24 rounded-[2.5rem] sm:rounded-[4rem] inline-block shadow-4xl relative overflow-hidden group w-full max-w-3xl border-4 sm:border-8 border-white shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] mx-auto">
-                                    <div className="absolute top-0 right-0 w-96 h-96 bg-[#eb595f]/20 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
-                                    <div className="relative z-10">
-                                        <span className="text-[10px] sm:text-[12px] text-[#eb595f] font-black tracking-[0.3em] sm:tracking-[0.5em] uppercase block mb-6 sm:mb-8">Estimated Investment</span>
-                                        <div className="text-4xl sm:text-8xl md:text-9xl font-black text-white mb-6 sm:mb-8 tabular-nums tracking-tighter drop-shadow-2xl">
-                                            ₹{result?.toLocaleString('en-IN')}
+                                    {step > 1 && (
+                                        <button
+                                            onClick={() => setStep(step - 1)}
+                                            className="text-stone-400 font-bold text-xs uppercase tracking-widest hover:text-stone-900 transition-colors flex items-center gap-2"
+                                        >
+                                            <RotateCcw className="w-4 h-4" /> Go Back
+                                        </button>
+                                    )}
+                                </div>
+                                <div className="w-full md:w-[40%] aspect-[4/5] rounded-[2.5rem] overflow-hidden relative shadow-2xl hidden md:block group/ill">
+                                    <Image
+                                        src={config.illustration || config.steps[step - 1].options[0].img}
+                                        alt="Visual Context"
+                                        fill
+                                        className="object-contain p-8 group-hover/ill:scale-105 transition-transform duration-[5s]"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#faf9f6]/20 to-transparent" />
+                                    <div className="absolute bottom-8 left-8 right-8 text-[#2d2412]/60">
+                                        <p className="text-[10px] font-bold uppercase tracking-widest mb-2 opacity-60">Architectural View</p>
+                                        <p className="text-lg font-serif italic">"Designed with precision for your lifestyle."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            key="final"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="p-10 md:p-20 flex-1"
+                        >
+                            {!isSubmitted ? (
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                                    {/* Summary Display */}
+                                    <div className="space-y-12">
+                                        <div className="space-y-4">
+                                            <span className="text-[10px] font-bold tracking-[0.4em] uppercase" style={{ color: config.accent }}>Review Your Choices</span>
+                                            <h2 className="text-4xl font-serif font-bold">Project <span className="italic font-medium" style={{ color: config.accent }}>Summary</span></h2>
                                         </div>
-                                        <div className="w-24 sm:w-32 h-1.5 bg-[#eb595f] mx-auto mb-10 sm:mb-12 rounded-full" />
-                                        <div className="grid grid-cols-2 gap-8 sm:gap-12 text-left max-w-sm mx-auto">
-                                            <div className="space-y-1 sm:space-y-2">
-                                                <p className="text-[8px] sm:text-[10px] uppercase tracking-widest text-[#eb595f] font-black">Design & GST</p>
-                                                <p className="text-sm sm:text-lg font-light opacity-60 italic">Included</p>
-                                            </div>
-                                            <div className="space-y-1 sm:space-y-2">
-                                                <p className="text-[8px] sm:text-[10px] uppercase tracking-widest text-[#eb595f] font-black">Installation</p>
-                                                <p className="text-sm sm:text-lg font-light opacity-60 italic">Bespoke</p>
+
+                                        <div className="space-y-6">
+                                            {Object.entries(selections).map(([key, val]: [string, any]) => (
+                                                <div key={key} className="flex justify-between items-center p-4 rounded-2xl bg-stone-50 border border-stone-100/50">
+                                                    <div className="flex items-center gap-4">
+                                                        <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-stone-400 text-xs shadow-sm">
+                                                            {key === 'layout' || key === 'type' || key === 'bhk' ? <Layout className="w-4 h-4" /> :
+                                                                key === 'finish' ? <PencilRuler className="w-4 h-4" /> : <Settings className="w-4 h-4" />}
+                                                        </div>
+                                                        <span className="text-sm font-bold text-[#2d2412]/60 uppercase tracking-widest">{key}</span>
+                                                    </div>
+                                                    <span className="font-bold text-[#2d2412]">{val.label}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+
+                                        <div className="p-10 rounded-[2.5rem] bg-[#2d2412] text-white relative overflow-hidden group">
+                                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
+                                            <div className="relative z-10 text-center">
+                                                <span className="text-[10px] font-bold tracking-[0.5em] uppercase text-white/40 block mb-4">Estimated Investment</span>
+                                                <div className="text-5xl md:text-6xl font-black mb-4 tracking-tighter">₹{finalResult.toLocaleString('en-IN')}*</div>
+                                                <p className="text-[10px] text-white/30 uppercase tracking-widest">*Inclusive of Design, GST & Warranty</p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-12 sm:mt-20 justify-center px-4">
-                                    <button className="px-8 sm:px-16 py-5 sm:py-7 bg-[#eb595f] text-white font-black rounded-2xl sm:rounded-3xl hover:bg-[#2d2412] transition-all shadow-[0_30px_60px_-15px_rgba(235,89,95,0.5)] hover:-translate-y-2 uppercase tracking-[0.2em] text-[10px] sm:text-xs">
-                                        Download Detailed PDF
-                                    </button>
+                                    {/* Capture Form */}
+                                    <div className="bg-stone-50 rounded-[2.5rem] p-10 md:p-12 space-y-10">
+                                        <div className="space-y-2">
+                                            <h3 className="text-2xl font-bold">Get Full Breakdown</h3>
+                                            <p className="text-stone-400 text-sm">Send this estimate to your email and get a free detailed consultation worth ₹4,999.</p>
+                                        </div>
+
+                                        <form onSubmit={sendEmail} className="space-y-6">
+                                            <div className="space-y-4">
+                                                <div className="relative">
+                                                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
+                                                    <input
+                                                        required
+                                                        type="text"
+                                                        placeholder="Full Name"
+                                                        className="w-full pl-12 pr-6 py-4 rounded-xl bg-white border border-stone-100 focus:border-stone-900 outline-none transition-all text-sm font-medium"
+                                                        onChange={(e) => setSelections({ ...selections, contact: { ...selections.contact, name: e.target.value } })}
+                                                    />
+                                                </div>
+                                                <div className="relative">
+                                                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
+                                                    <input
+                                                        required
+                                                        type="email"
+                                                        placeholder="Email Address"
+                                                        className="w-full pl-12 pr-6 py-4 rounded-xl bg-white border border-stone-100 focus:border-stone-900 outline-none transition-all text-sm font-medium"
+                                                        onChange={(e) => setSelections({ ...selections, contact: { ...selections.contact, email: e.target.value } })}
+                                                    />
+                                                </div>
+                                                <div className="relative">
+                                                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
+                                                    <input
+                                                        required
+                                                        type="tel"
+                                                        placeholder="Phone Number"
+                                                        className="w-full pl-12 pr-6 py-4 rounded-xl bg-white border border-stone-100 focus:border-stone-900 outline-none transition-all text-sm font-medium"
+                                                        onChange={(e) => setSelections({ ...selections, contact: { ...selections.contact, phone: e.target.value } })}
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <button
+                                                disabled={isSubmitting}
+                                                type="submit"
+                                                className="w-full py-5 rounded-xl text-white font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-[1.02] shadow-xl disabled:opacity-50"
+                                                style={{ backgroundColor: config.accent }}
+                                            >
+                                                {isSubmitting ? 'Processing...' : (
+                                                    <>Send Detailed Quote <ArrowRight className="w-4 h-4" /></>
+                                                )}
+                                            </button>
+                                        </form>
+
+                                        <div className="flex gap-4 items-center justify-center pt-4 opacity-40">
+                                            <ShieldCheck className="w-4 h-4" />
+                                            <span className="text-[10px] font-bold uppercase tracking-widest">100% Secure & Private</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="text-center py-20 space-y-10">
+                                    <motion.div
+                                        initial={{ scale: 0, rotate: -45 }}
+                                        animate={{ scale: 1, rotate: 0 }}
+                                        className="w-24 h-24 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto"
+                                    >
+                                        <CheckCircle className="w-12 h-12" />
+                                    </motion.div>
+                                    <div className="space-y-4">
+                                        <h2 className="text-4xl font-serif font-bold">Estimate <span className="italic font-medium text-green-500">Sent Successfully</span></h2>
+                                        <p className="text-stone-400 max-w-lg mx-auto">Check your inbox for the detailed breakdown. Our design concierge will reach out to you within 24 hours.</p>
+                                    </div>
                                     <button
                                         onClick={reset}
-                                        className="px-8 sm:px-16 py-5 sm:py-7 border-2 sm:border-4 border-stone-50 text-[#2d2412] font-black rounded-2xl sm:rounded-3xl hover:bg-stone-50 transition-all flex items-center justify-center gap-4 uppercase tracking-[0.2em] text-[10px] sm:text-xs"
+                                        className="px-12 py-5 border-2 border-stone-100 rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-stone-100 transition-all flex items-center justify-center gap-3 mx-auto"
                                     >
-                                        <RotateCcw className="w-4 h-4 sm:w-5 h-5" /> Recalculate
+                                        <RotateCcw className="w-4 h-4" /> New Calculation
                                     </button>
                                 </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                </div>
+                            )}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
 
-            {/* Bottom Process Section - High Impact Visuals */}
-            <section className="max-w-[1600px] mx-auto px-6 py-40 border-t border-stone-100">
-                <div className="flex flex-col items-center text-center mb-32 space-y-6">
-                    <span className="text-[#eb595f] text-sm font-black tracking-[0.6em] uppercase">The Intelligence Behind</span>
-                    <h2 className="text-5xl md:text-9xl font-serif text-[#2d2412] font-bold leading-none tracking-tighter">How We Estimate <br /> <span className="italic text-stone-200">With 99% Accuracy</span></h2>
+            {/* Educational Section */}
+            <div className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
+                <div className="space-y-6">
+                    <div className="w-16 h-16 rounded-2xl bg-stone-50 flex items-center justify-center mx-auto text-stone-900 border border-stone-100 shadow-sm">
+                        <ClipboardList className="w-8 h-8" />
+                    </div>
+                    <h3 className="text-xl font-bold">Transparent Pricing</h3>
+                    <p className="text-stone-400 text-sm leading-relaxed">No hidden costs. Every quote includes design fees, logistics, and taxes.</p>
                 </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-20">
-                    {[
-                        {
-                            title: "Material Market Intelligence",
-                            desc: "Our engine tracks 450+ raw material price points daily across India. From high-gloss laminates to architectural grade plywood, your estimate reflects real-world costs.",
-                            img: "/v4/calc-process-1.png",
-                            icon: <Layers className="w-8 h-8" />
-                        },
-                        {
-                            title: "Human Precision Algorithm",
-                            desc: "Every design choice is calculated against historical project hours. We factor in structural complexity and artisan labor to prevent any post-contract surprises.",
-                            img: "/v4/interior-living-3d.jpg",
-                            icon: <Users className="w-8 h-8" />
-                        },
-                        {
-                            title: "Direct Sourcing Loop",
-                            desc: "By connecting our factory directly to your quote, we eliminate dealer margins and retail overheads, delivering luxury at 15-20% lower investment.",
-                            img: "/v4/luxury_kitchen_2.png",
-                            icon: <Settings className="w-8 h-8" />
-                        }
-                    ].map((item, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: i * 0.2, duration: 1 }}
-                            viewport={{ once: true }}
-                            className="group space-y-12"
-                        >
-                            <div className="relative aspect-[3/4] rounded-[4rem] overflow-hidden shadow-4xl transform group-hover:rotate-1 transition-transform duration-1000">
-                                <Image src={item.img} alt={item.title} fill className="object-cover group-hover:scale-110 transition-transform duration-[3s]" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#2d2412] via-[#2d2412]/20 to-transparent opacity-80" />
-                                <div className="absolute top-12 right-12 w-20 h-20 bg-white/10 backdrop-blur-3xl rounded-3xl flex items-center justify-center text-white border border-white/20 shadow-2xl group-hover:bg-[#eb595f] group-hover:text-white transition-all duration-500">
-                                    {item.icon}
-                                </div>
-                                <div className="absolute bottom-12 left-12 right-12">
-                                    <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4 leading-tight">{item.title}</h3>
-                                    <div className="w-16 h-1 bg-[#eb595f] rounded-full scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700" />
-                                </div>
-                            </div>
-                            <div className="px-6">
-                                <p className="text-stone-400 font-light leading-relaxed text-lg md:text-xl italic opacity-60 group-hover:opacity-100 transition-opacity">"{item.desc}"</p>
-                            </div>
-                        </motion.div>
-                    ))}
+                <div className="space-y-6">
+                    <div className="w-16 h-16 rounded-2xl bg-stone-50 flex items-center justify-center mx-auto text-stone-900 border border-stone-100 shadow-sm">
+                        <ShieldCheck className="w-8 h-8" />
+                    </div>
+                    <h3 className="text-xl font-bold">10 Year Warranty</h3>
+                    <p className="text-stone-400 text-sm leading-relaxed">Our estimates aren't just for products, but for a decade of peace of mind.</p>
                 </div>
-            </section>
+                <div className="space-y-6">
+                    <div className="w-16 h-16 rounded-2xl bg-stone-50 flex items-center justify-center mx-auto text-stone-900 border border-stone-100 shadow-sm">
+                        <Send className="w-8 h-8" />
+                    </div>
+                    <h3 className="text-xl font-bold">Direct from Factory</h3>
+                    <p className="text-stone-400 text-sm leading-relaxed">Eliminate dealer margins and retail overheads, saving you up to 20%.</p>
+                </div>
+            </div>
         </div>
     );
 };

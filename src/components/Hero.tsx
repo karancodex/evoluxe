@@ -92,12 +92,12 @@ const Hero = () => {
                                 {slides[current].title}<br />
                                 <span className="text-[#eb595f] italic font-medium">{slides[current].subtitle}</span>
                             </h1>
-                            <p className="text-base sm:text-lg md:text-xl text-[#2d2412]/80 mb-10 leading-relaxed max-w-xl font-medium">
+                            <p className="text-base sm:text-lg md:text-xl text-[#2d2412]/80 mb-4 leading-relaxed max-w-xl font-medium">
                                 {slides[current].desc}
                             </p>
 
-                            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                                <button className="px-8 py-4 bg-[#eb595f] text-white font-bold rounded-full shadow-lg hover:bg-[#2d2412] transition-all transform hover:-translate-y-1 hover:shadow-xl text-sm sm:text-base">
+                            <div className="">
+                                <button className="px-6 py-2 bg-[#eb595f] text-white font-bold rounded-full shadow-lg hover:bg-[#2d2412] transition-all transform hover:-translate-y-1 hover:shadow-xl text-sm sm:text-base">
                                     Start Your Journey
                                 </button>
                             </div>

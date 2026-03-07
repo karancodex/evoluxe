@@ -39,7 +39,7 @@ const LegalContent = ({ title, lastUpdated = "February 21, 2026" }: { title: str
 
                     <div className="mt-16 p-8 bg-[#faf9f6]/40 rounded-3xl border border-[#e5d5b0]/20">
                         <h4 className="text-[#c5a059] font-bold mb-2 uppercase tracking-widest text-sm">Need Clarification?</h4>
-                        <p className="text-stone-600 text-sm italic">If you have any questions about our {title.toLowerCase()}, please reach out to our compliance team at legal@EVOLX Studio.com.</p>
+                        <p className="text-stone-600 text-sm italic">If you have any questions about our {title.toLowerCase()}, please reach out to our compliance team at legal@evolxstudio.com.</p>
                     </div>
                 </div>
             </div>
