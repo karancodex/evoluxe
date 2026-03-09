@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, User, Menu, X } from 'lucide-react';
-import { topNavLinks, bottomNavLinks, slugify } from '@/data/nav-data';
+import { ChevronDown, Menu, X } from 'lucide-react';
+import { topNavLinks, bottomNavLinks, slugify, getLink } from '@/data/nav-data';
 
 const Navbar = () => {
     // Reverting to individual state hooks to resolve HMR/React Hook order mismatch
@@ -42,46 +42,16 @@ const Navbar = () => {
         // Future implementation for mobile accordion toggle
     };
 
-    const getLink = (item: string) => {
-        const magazineItems = topNavLinks.find(link => link.name === 'Magazine')?.columns?.flatMap(col => col.items) || [];
-        const magazineSlug = slugify(item);
 
-        if (magazineItems.includes(item) || item === 'Magazine') {
-            return `/magazine/${magazineSlug}`;
-        }
-
-        const cityItems = topNavLinks.find(link => link.name === 'Cities')?.columns?.flatMap(col => col.items) || [];
-        if (cityItems.includes(item)) {
-            return `/city/${slugify(item)}`;
-        }
-
-        const moreItems = topNavLinks.find(link => link.name === 'More')?.columns?.flatMap(col => col.items) || [];
-        const resourceItems = bottomNavLinks.find(link => link.name === 'Resources')?.columns?.flatMap(col => col.items) || [];
-        if (moreItems.includes(item) || resourceItems.includes(item)) {
-            return `/company/${slugify(item)}`;
-        }
-
-        const offeringItems = bottomNavLinks.find(link => link.name === 'Offerings')?.columns?.flatMap(col => col.items) || [];
-        if (offeringItems.includes(item)) {
-            return `/Offerings/${slugify(item)}`;
-        }
-
-        const calculatorItems = bottomNavLinks.find(link => link.name === 'Price Calculators')?.columns?.flatMap(col => col.items) || [];
-        if (calculatorItems.includes(item)) {
-            return `/calculators/${slugify(item)}`;
-        }
-
-        return `/services/${slugify(item)}`;
-    };
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 font-sans border-b bg-white ${scrolled ? 'shadow-md border-stone-200' : 'border-stone-100'}`}
+            className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 border-b ${scrolled ? 'shadow-md border-stone-200/50 backdrop-blur-md bg-white/95' : 'border-transparent bg-white'}`}
         >
             <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col relative">
 
                 {/* TOP ROW */}
-                <div className="h-20 flex items-center justify-between border-b border-stone-100/50 relative z-20 bg-white">
+                <div className="h-20 flex items-center justify-between border-b border-stone-100/20 relative z-20 bg-transparent">
                     {/* Left: Logo */}
                     <Link href="/" className="flex items-center gap-2 relative group z-50 shrink-0">
                         <div className="relative h-12 w-48 md:h-16 md:w-64">
@@ -97,7 +67,7 @@ const Navbar = () => {
 
                     {/* Center: Top Nav Links */}
                     <div className="hidden xl:flex items-center justify-center absolute left-0 right-0 h-full pointer-events-none">
-                        <ul className="pointer-events-auto flex items-center space-x-8 h-full bg-white px-6">
+                        <ul className="pointer-events-auto flex items-center space-x-8 h-full bg-transparent px-6">
                             {topNavLinks.map((link) => (
                                 <li
                                     key={link.name}
@@ -107,11 +77,11 @@ const Navbar = () => {
                                 >
                                     <Link
                                         href={getLink(link.name)}
-                                        className={`flex items-center gap-1 text-[14px] font-medium tracking-wide transition-all duration-300 ${activeMenu === link.name ? 'text-[#eb595f]' : 'text-[#2d2412] hover:text-[#eb595f]'}`}
+                                        className={`flex items-center gap-1 text-[15px] font-medium tracking-wide transition-all duration-300 ${activeMenu === link.name ? 'text-[#eb595f]' : 'text-[#2d2412] hover:text-[#eb595f]'}`}
                                     >
                                         {link.label}
                                         {link.hasDropdown && (
-                                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeMenu === link.name ? 'rotate-180 text-[#eb595f] fill-[#eb595f]' : 'text-gray-400'}`} />
+                                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeMenu === link.name ? 'rotate-180 text-[#eb595f]' : 'text-stone-400'}`} />
                                         )}
                                     </Link>
 
@@ -128,20 +98,20 @@ const Navbar = () => {
                                                 {/* Invisible Bridge to prevent closing on gap hover */}
                                                 <div className="absolute top-0 left-0 right-0 h-4 bg-transparent" />
 
-                                                <div className="bg-white shadow-[0_10px_40px_-5px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden border-t-[3px] border-[#eb595f] ring-1 ring-stone-100 min-w-[240px] max-w-[90vw]">
+                                                <div className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-xl overflow-hidden border border-stone-100 min-w-[240px] max-w-[90vw]">
                                                     {link.columns ? (
                                                         <div className={`flex bg-white ${link.isMega ? 'p-8 gap-12' : 'p-6 flex-col gap-4'}`}>
                                                             {link.columns.map((col, idx) => (
                                                                 <div key={idx} className={`${link.isMega ? 'w-[200px]' : 'w-full'}`}>
                                                                     {col.title && (
-                                                                        <h3 className="font-serif text-[15px] text-[#4d3b1a] border-b border-stone-100 pb-2 mb-3 font-bold tracking-wide">
+                                                                        <h3 className="text-[13px] text-stone-400 border-b border-stone-50 pb-2 mb-3 font-bold tracking-widest uppercase">
                                                                             {col.title}
                                                                         </h3>
                                                                     )}
-                                                                    <ul className="space-y-2.5">
+                                                                    <ul className="space-y-3">
                                                                         {col.items.map((item) => (
                                                                             <li key={item}>
-                                                                                <Link href={getLink(item)} className="block text-[13px] text-[#2d2412]/70 hover:text-[#eb595f] hover:font-medium hover:translate-x-1 transition-all duration-200">
+                                                                                <Link href={getLink(item)} className="block text-[14px] text-[#2d2412] hover:text-[#eb595f] hover:translate-x-1 transition-all duration-200">
                                                                                     {item}
                                                                                 </Link>
                                                                             </li>
@@ -151,17 +121,17 @@ const Navbar = () => {
                                                             ))}
                                                             {/* Mega Menu Visual Optional */}
                                                             {link.isMega && (
-                                                                <div className="w-[200px] hidden 2xl:block bg-stone-100 rounded-md overflow-hidden relative self-stretch">
-                                                                    <img src="/v4/interior-living-3d.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90" alt="Promo" />
-                                                                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 p-4">
-                                                                        <span className="text-white text-xs font-bold uppercase tracking-widest">Trending</span>
+                                                                <div className="w-[200px] hidden 2xl:block bg-stone-50 rounded-lg overflow-hidden relative self-stretch">
+                                                                    <img src="/v4/interior-living-3d.jpg" className="absolute inset-0 w-full h-full object-cover opacity-80" alt="Promo" />
+                                                                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 p-4">
+                                                                        <span className="text-white text-[10px] font-bold uppercase tracking-widest">Trending Designs</span>
                                                                     </div>
                                                                 </div>
                                                             )}
                                                         </div>
                                                     ) : (
                                                         <div className="p-6 text-center">
-                                                            <p className="text-xs text-stone-400 font-medium tracking-wider">COMING SOON</p>
+                                                            <p className="text-xs text-stone-400 font-medium tracking-wider text-center">Coming Soon</p>
                                                         </div>
                                                     )}
                                                 </div>
@@ -173,32 +143,24 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    {/* Right: User Icon & Mobile Trigger */}
-                    <div className="flex items-center gap-4 md:gap-6 shrink-0">
-                        <div className="hidden md:block h-6 w-px bg-stone-200"></div>
-                        <button className="hidden md:flex text-[#2d2412] hover:text-[#eb595f] transition-colors p-1 hover:bg-stone-50 rounded-full">
-                            <User className="w-5 h-5 fill-current" />
-                        </button>
-
-                        {/* Mobile Menu Button - Enhanced */}
+                    {/* Right: Trigger */}
+                    <div className="flex items-center gap-4 shrink-0">
                         <button
-                            className="xl:hidden flex items-center gap-2 bg-[#eb595f] text-white px-4 py-2 rounded-full shadow-lg active:scale-95 transition-all"
+                            className="xl:hidden flex items-center gap-2 bg-[#eb595f] text-white px-5 py-2.5 rounded-full shadow-md active:scale-95 transition-all"
                             onClick={() => {
                                 setMobileMenuOpen(true);
                                 setMobileNavView('main');
                             }}
                         >
-                            <span className="text-[10px] font-bold uppercase tracking-widest font-sans">Menu</span>
-                            <div className="flex flex-col gap-1">
-                                <div className="h-0.5 w-4 bg-white rounded-full" />
-                                <div className="h-0.5 w-3 bg-white rounded-full ml-1" />
-                            </div>
+                            <Menu className="w-5 h-5" />
+                            <span className="text-[11px] font-bold uppercase tracking-widest">Menu</span>
                         </button>
                     </div>
                 </div>
 
+
                 {/* BOTTOM ROW */}
-                <div className="h-14 flex items-center justify-between hidden xl:flex relative z-10 bg-white">
+                <div className="h-14 flex items-center justify-between hidden xl:flex relative z-10 bg-transparent">
                     {/* Left & Center: Bottom Nav Links */}
                     <div className="flex-1 flex items-center">
                         <ul className="flex items-center space-x-10 h-full">
@@ -333,11 +295,11 @@ const Navbar = () => {
                                                                 onClick={() => setMobileNavView(link.name)}
                                                                 className="w-full flex items-center justify-between py-4 border-b border-stone-100 group-active:scale-[0.98] transition-transform"
                                                             >
-                                                                <span className="text-xl md:text-2xl font-serif font-bold text-[#2d2412] group-hover:text-[#eb595f] transition-colors">
+                                                                <span className="text-xl md:text-2xl font-bold text-[#2d2412] group-hover:text-[#eb595f] transition-colors">
                                                                     {link.label}
                                                                 </span>
                                                                 <div className="w-10 h-10 rounded-full bg-stone-50 flex items-center justify-center text-stone-400 group-hover:bg-[#eb595f]/10 group-hover:text-[#eb595f] transition-all">
-                                                                    <ChevronDown className="w-5 h-5 -rotate-90 fill-current" />
+                                                                    <ChevronDown className="w-5 h-5 -rotate-90" />
                                                                 </div>
                                                             </button>
                                                         ) : (
@@ -346,7 +308,7 @@ const Navbar = () => {
                                                                 onClick={() => setMobileMenuOpen(false)}
                                                                 className="w-full flex items-center justify-between py-4 border-b border-stone-100 group-active:scale-[0.98] transition-transform"
                                                             >
-                                                                <span className="text-xl md:text-2xl font-serif font-bold text-[#4d3b1a] group-hover:text-[#c5a059] transition-colors">
+                                                                <span className="text-xl md:text-2xl font-bold text-[#2d2412] group-hover:text-[#eb595f] transition-colors">
                                                                     {link.label}
                                                                 </span>
                                                             </Link>
@@ -364,7 +326,7 @@ const Navbar = () => {
                                             className="space-y-8"
                                         >
                                             <div className="mb-10">
-                                                <h2 className="text-4xl font-serif font-bold text-[#4d3b1a] mb-2">
+                                                <h2 className="text-4xl font-bold text-[#2d2412] mb-2">
                                                     {[...topNavLinks, ...bottomNavLinks].find(l => l.name === mobileNavView)?.label}
                                                 </h2>
                                                 <div className="w-16 h-1 bg-[#eb595f] rounded-full" />
@@ -374,7 +336,7 @@ const Navbar = () => {
                                                 {[...topNavLinks, ...bottomNavLinks].find(l => l.name === mobileNavView)?.columns?.map((col, idx) => (
                                                     <div key={idx} className="space-y-4">
                                                         {col.title && (
-                                                            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#c5a059]">
+                                                            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#eb595f]">
                                                                 {col.title}
                                                             </h3>
                                                         )}
@@ -400,14 +362,14 @@ const Navbar = () => {
 
                             {/* Drawer Footer */}
                             <div className="p-6 bg-white border-t border-stone-100 flex flex-col gap-4">
-                                <button className="w-full py-4 bg-[#eb595f] text-white font-bold rounded-xl shadow-[0_10px_30px_rgba(235,89,95,0.3)] active:scale-95 transition-all text-sm uppercase tracking-widest whitespace-nowrap">
+                                <button className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-xl shadow-lg active:scale-95 transition-all text-sm uppercase tracking-widest whitespace-nowrap">
                                     Consult a Designer Free
                                 </button>
                                 <div className="flex items-center justify-center gap-8 py-2">
                                     <span className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Connect:</span>
                                     <div className="flex gap-4">
-                                        <div className="w-8 h-8 rounded-full bg-stone-50 border border-stone-100 flex items-center justify-center text-stone-400 text-xs">IG</div>
-                                        <div className="w-8 h-8 rounded-full bg-stone-50 border border-stone-100 flex items-center justify-center text-stone-400 text-xs">YT</div>
+                                        <div className="w-10 h-10 rounded-full bg-stone-50 border border-stone-100 flex items-center justify-center text-stone-500 text-xs font-bold">IG</div>
+                                        <div className="w-10 h-10 rounded-full bg-stone-50 border border-stone-100 flex items-center justify-center text-stone-500 text-xs font-bold">YT</div>
                                     </div>
                                 </div>
                             </div>

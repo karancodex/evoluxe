@@ -57,17 +57,17 @@ const offerings = [
 
 const WhatWeOffer = () => {
     return (
-        <section className="py-12 md:py-16 bg-[#faf9f6]/30 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6">
+        <section className="py-20 bg-white overflow-hidden transition-colors duration-500">
+            <div className="max-w-7xl mx-auto px-5 md:px-6">
                 {/* Standardized Header Style */}
-                <div className="text-center mb-12 md:mb-16 px-4">
+                <div className="text-center mb-16 px-4">
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#eb595f]/5 rounded-full mb-6 border border-[#eb595f]/10"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-50 rounded-full mb-6 border border-stone-100"
                     >
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#eb595f] animate-pulse" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#eb595f]" />
                         <span className="text-[#eb595f] font-bold tracking-[0.4em] uppercase text-[10px]">What we offer</span>
                     </motion.div>
                     <motion.h2
@@ -75,23 +75,23 @@ const WhatWeOffer = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412] mb-6 tracking-tight leading-[1.1]"
+                        className="text-4xl md:text-6xl font-bold text-[#2d2412] mb-6 tracking-tight leading-[1.1]"
                     >
-                        Luxury Built on <span className="text-[#eb595f] italic font-medium">Trust.</span>
+                        Luxury Built on <span className="text-[#eb595f] italic font-normal">Trust.</span>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-[#2d2412]/60 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed"
+                        className="text-stone-500 max-w-2xl mx-auto text-lg md:text-xl font-normal leading-relaxed px-4"
                     >
                         Experience the perfect blend of architectural excellence and comprehensive service solutions.
                     </motion.p>
                 </div>
 
-                {/* Compact Editorial Cards - Light Theme (Reverted as requested) */}
-                <div className="space-y-8 md:space-y-12">
+                {/* Compact Editorial Cards */}
+                <div className="space-y-12">
                     {offerings.map((offering, index) => (
                         <motion.div
                             key={index}
@@ -99,10 +99,10 @@ const WhatWeOffer = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className={`group relative bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_15px_45px_-10px_rgba(0,0,0,0.05)] flex flex-col ${offering.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-stretch lg:h-[420px]`}
+                            className={`group relative bg-white rounded-[2rem] overflow-hidden border border-stone-100 shadow-[0_15px_50px_rgba(0,0,0,0.05)] flex flex-col-reverse ${offering.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-stretch lg:h-[450px]`}
                         >
-                            {/* Content Side - Precise Spacing & High Readability */}
-                            <div className="w-full lg:w-[52%] p-8 md:p-12 lg:px-16 flex flex-col justify-center">
+                            {/* Content Side */}
+                            <div className="w-full lg:w-[50%] p-8 md:p-12 lg:px-16 flex flex-col justify-center">
                                 <div className="space-y-6">
                                     <div className="space-y-2">
                                         <div className="flex items-center gap-3">
@@ -111,12 +111,12 @@ const WhatWeOffer = () => {
                                                 {offering.subtitle}
                                             </span>
                                         </div>
-                                        <h3 className="text-3xl md:text-5xl font-serif font-bold text-stone-900 leading-tight">
+                                        <h3 className="text-3xl md:text-5xl font-bold text-[#2d2412] leading-tight">
                                             {offering.title}
                                         </h3>
                                     </div>
 
-                                    <p className="text-stone-600 text-[16px] md:text-lg leading-relaxed font-normal max-w-2xl">
+                                    <p className="text-stone-600 text-base md:text-lg leading-relaxed font-normal">
                                         {offering.description}
                                     </p>
 
@@ -124,7 +124,7 @@ const WhatWeOffer = () => {
                                         {offering.items.map((item, i) => (
                                             <span
                                                 key={i}
-                                                className="px-4 py-1.5 rounded-full bg-stone-50 border border-stone-100 text-stone-500 text-[12px] font-medium hover:bg-[#eb595f]/5 hover:border-[#eb595f]/20 hover:text-[#eb595f] transition-all duration-300"
+                                                className="px-4 py-1.5 rounded-full bg-stone-50 border border-stone-100 text-stone-500 text-[11px] md:text-[12px] font-bold hover:bg-[#eb595f] hover:text-white transition-all duration-300"
                                             >
                                                 {item}
                                             </span>
@@ -132,8 +132,8 @@ const WhatWeOffer = () => {
                                     </div>
 
                                     <div className="pt-4">
-                                        <button className="flex items-center gap-2 text-stone-900 group/btn hover:text-[#eb595f] transition-colors">
-                                            <span className="text-xs font-bold tracking-[0.2em] uppercase border-b-2 border-stone-200 group-hover:border-[#eb595f] transition-all pb-1">
+                                        <button className="flex items-center gap-2 text-[#2d2412] group/btn hover:text-[#eb595f] transition-colors">
+                                            <span className="text-[11px] font-bold tracking-[0.2em] uppercase border-b border-stone-100 group-hover:border-[#eb595f] transition-all pb-1">
                                                 Explore Details
                                             </span>
                                             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -142,19 +142,16 @@ const WhatWeOffer = () => {
                                 </div>
                             </div>
 
-                            {/* Image Side - Reduced Width */}
-                            <div className="w-full lg:w-[45%] relative h-[250px] lg:h-auto overflow-hidden">
+                            {/* Image Side */}
+                            <div className="w-full lg:w-[50%] relative h-[300px] lg:h-auto overflow-hidden">
                                 <img
                                     src={offering.image}
                                     alt={offering.title}
                                     className="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110"
                                 />
-                                {/* Soft Shadow for depth */}
-                                <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-700" />
-
-                                {/* Refined Number Badge */}
-                                <div className={`absolute top-6 ${offering.reverse ? 'left-6' : 'right-6'} w-10 h-10 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center shadow-md border border-white/20`}>
-                                    <span className="text-stone-900 font-serif font-bold italic text-sm">0{index + 1}</span>
+                                {/* Clean Badge */}
+                                <div className={`absolute top-8 ${offering.reverse ? 'left-8' : 'right-8'} w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-lg`}>
+                                    <span className="text-[#2d2412] font-bold text-sm">0{index + 1}</span>
                                 </div>
                             </div>
                         </motion.div>

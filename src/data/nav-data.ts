@@ -94,7 +94,7 @@ export const topNavLinks: NavItem[] = [
             },
             {
                 title: 'Mumbai',
-                items: ['Mumbai (Coming Soon)']
+                items: ['Mumbai']
             }
         ]
     },
@@ -148,6 +148,97 @@ export const slugify = (text: string) => {
         .replace(/\-\-+/g, '-')   // Replace multiple - with single -
         .replace(/^-+/, '')       // Trim - from start of text
         .replace(/-+$/, '');      // Trim - from end of text
+};
+
+export const getLink = (item: string) => {
+    const slug = slugify(item);
+
+    // 1. Check Top Nav Links
+    for (const link of topNavLinks) {
+        if (link.name === item) {
+            if (link.name === 'Design Ideas') return `/design-ideas`;
+            if (link.name === 'Services') return `/services`;
+            if (link.name === 'Cities') return `/city`;
+            if (link.name === 'Projects') return `/projects`;
+            return `/${slugify(link.name)}`;
+        }
+
+        if (link.columns) {
+            for (const col of link.columns) {
+                if (col.items.includes(item)) {
+                    if (link.name === 'Design Ideas') return `/design-ideas/${slug}`;
+                    if (link.name === 'Cities') return `/city/${slug}`;
+                    if (link.name === 'More') return `/company/${slug}`;
+                    return `/services/${slug}`;
+                }
+            }
+        }
+    }
+
+    // 2. Check Bottom Nav Links
+    for (const link of bottomNavLinks) {
+        if (link.name === item) {
+            if (link.name === 'Offerings') return `/Offerings`;
+            if (link.name === 'Price Calculators') return `/calculators`;
+            return `/${slugify(link.name)}`;
+        }
+
+        if (link.columns) {
+            for (const col of link.columns) {
+                if (col.items.includes(item)) {
+                    if (link.name === 'Offerings') return `/Offerings/${slug}`;
+                    if (link.name === 'Price Calculators') return `/calculators/${slug}`;
+                    return `/services/${slug}`;
+                }
+            }
+        }
+    }
+
+    // Default
+    return `/services/${slug}`;
+};
+
+export const cityData: Record<string, any> = {
+    'pune': {
+        heroImage: '/v4/city/pune_hero.png',
+        experienceCenterImage: '/v4/luxury_living_1.png',
+        tagline: "Pune's Most Innovative Interior Design Studio",
+        description: "From the traditional wadas to ultra-modern high-rises in Hinjewadi and Baner, we bring a unique blend of heritage and contemporary design to Pune homes.",
+        locations: [
+            { name: 'Kothrud Experience Center', address: 'Plot No. 12, Paud Road, Kothrud, Pune 411038' },
+            { name: 'Wakad Design Studio', address: 'Near Phoenix Mall, Wakad, Pune 411057' }
+        ],
+        stats: [
+            { label: 'Homes Delivered', value: '1,200+' },
+            { label: 'Design Experts', value: '45+' },
+            { label: 'Service Areas', value: '25+' }
+        ],
+        services: [
+            { title: 'Modular Kitchens', desc: 'Ergonomic designs for the modern Puneri kitchen.', img: '/v4/luxury_kitchen_1.png' },
+            { title: 'Bespoke Wardrobes', desc: 'Space-saving solutions for compact urban living.', img: '/v4/service_wardrobe.png' },
+            { title: 'Full Home Interiors', desc: 'End-to-end transformation of your shell flat.', img: '/v4/full-home-design.png' }
+        ]
+    },
+    'mumbai': {
+        heroImage: '/v4/city/mumbai_hero.png',
+        experienceCenterImage: '/v4/luxury_living_2.png',
+        tagline: "Luxury Interiors for the Mumbai High-Life",
+        description: "Defining luxury in the city of dreams. We specialize in maximizing space in Mumbai apartments while delivering a global aesthetic that matches the city's ambition.",
+        locations: [
+            { name: 'Lower Parel Flagship', address: 'The Mill, Senapati Bapat Marg, Lower Parel, Mumbai 400013' },
+            { name: 'Juhu Design Studio', address: 'Juhu Tara Road, Opp Hotel Sea Princess, Juhu, Mumbai 400049' }
+        ],
+        stats: [
+            { label: 'Luxury Penthouses', value: '450+' },
+            { label: 'Design Experience', value: '20+ Yrs' },
+            { label: 'Happy Families', value: '800+' }
+        ],
+        services: [
+            { title: 'Compact Luxury', desc: 'Smart spatial planning for premium Mumbai apartments.', img: '/v4/luxury_living_3.png' },
+            { title: 'Modular Excellence', desc: 'Italian-finish kitchens and wardrobe systems.', img: '/v4/luxury_kitchen_2.png' },
+            { title: 'Sea-Facing Penthouses', desc: 'Specialized designs for high-rise coastal homes.', img: '/v4/luxury_office_3.png' }
+        ]
+    }
 };
 
 export const getPageContent = (slug: string) => {
@@ -394,7 +485,256 @@ export const getPageContent = (slug: string) => {
                 { q: "What wall paneling options exist?", a: "We offer charcoal, PVC louvers, and natural stone veneers." }
             ]
         },
+        'modular-kitchen-designs': {
+            layoutType: 'isometric',
+            accentColor: '#eb595f',
+            subtitle: "Masterful Kitchen Designs for Modern Living.",
+            description: "Discover our award-winning modular kitchen designs that combine ergonomic efficiency with high-end luxury. Tailored for the modern Indian home.",
+            heroImage: '/v4/luxury_kitchen_1.png',
+            galleryImages: ['/v4/luxury_kitchen_2.png', '/v4/luxury_kitchen_3.png', '/v4/3d_kitchen_iso.png'],
+        },
+        'wardrobe-designs': {
+            layoutType: 'editorial',
+            accentColor: '#2d2412',
+            subtitle: "Bespoke Wardrobes for Organized Luxury.",
+            description: "Explore our collection of modular wardrobes, ranging from walk-in closets to sleek sliding systems, designed to maximize storage and style.",
+            heroImage: '/v4/service_wardrobe.png',
+            galleryImages: ['/v4/3d_wardrobe_iso.png', '/v4/luxury_bedroom_1.png'],
+        },
+        'bathroom-designs': {
+            layoutType: 'artistic',
+            accentColor: '#06b6d4',
+            subtitle: "Spa-like Retreats in the Comfort of Your Home.",
+            description: "Transform your bathrooms into personal spas with our luxury designs featuring premium fixtures, elegant tiles, and smart spatial planning.",
+            heroImage: '/v4/luxury_bathroom_1.png',
+            galleryImages: ['/v4/luxury_bathroom_2.png', '/v4/luxury_bathroom_3.png'],
+        },
+        'master-bedroom-designs': {
+            layoutType: 'editorial',
+            accentColor: '#a88a4d',
+            subtitle: "Sanctuaries of Rest and Refinement.",
+            description: "Our master bedroom designs focus on comfort and luxury, creating a perfect balance of aesthetics and tranquility for your private haven.",
+            heroImage: '/v4/luxury_bedroom_1.png',
+            galleryImages: ['/v4/luxury_living_1.png', '/v4/interior-living-3d.jpg'],
+        },
+        'living-room-designs': {
+            layoutType: 'artistic',
+            accentColor: '#78350f',
+            subtitle: "The Heart of the Home: Grand Living Spaces.",
+            description: "Create a lasting impression with living room designs that reflect your personality and style, featuring bespoke furniture and premium finishes.",
+            heroImage: '/v4/luxury_living_1.png',
+            galleryImages: ['/v4/luxury_living_2.png', '/v4/luxury_living_3.png'],
+        },
+        'pooja-room-designs': {
+            layoutType: 'editorial',
+            accentColor: '#d97706',
+            subtitle: "Divine Spaces for Spiritual Serenity.",
+            description: "Bespoke Pooja room designs that blend tradition with modern aesthetics, featuring marble work, intricate carvings, and soft lighting.",
+            heroImage: '/v4/gen/pooja_room.png',
+            galleryImages: ['/v4/gen/foyer.png'],
+        },
+        'tv-unit-designs': {
+            layoutType: 'isometric',
+            accentColor: '#3b82f6',
+            subtitle: "Modern Entertainment Hubs for Your Living Space.",
+            description: "Transform your wall into a statement piece with our contemporary TV unit designs featuring marble panels and integrated lighting.",
+            heroImage: '/v4/gen/tv_unit.png',
+            galleryImages: ['/v4/gen/false_ceiling.png'],
+        },
+        'kids-bedroom-designs': {
+            layoutType: 'artistic',
+            accentColor: '#ec4899',
+            subtitle: "Whimsical and Smart Designs for the Little Ones.",
+            description: "Inspirational kids' bedroom designs that spark creativity while providing practical storage and study solutions.",
+            heroImage: '/v4/gen/kids_bedroom.png',
+            galleryImages: ['/v4/gen/study_room.png'],
+        },
+        'balcony-designs': {
+            layoutType: 'editorial',
+            accentColor: '#10b981',
+            subtitle: "Private Oases in the Urban Jungle.",
+            description: "Maximizing small outdoor spaces with lush vertical gardens, cozy seating, and ambient lighting for the perfect escape.",
+            heroImage: '/v4/gen/balcony.png',
+            galleryImages: ['/v4/gen/window_designs.png'],
+        },
+        'false-ceiling-designs': {
+            layoutType: 'artistic',
+            accentColor: '#8b5cf6',
+            subtitle: "Architectural Artistry Above Your Head.",
+            description: "Elevate your interiors with multi-level false ceiling designs that integrate sophisticated lighting and acoustic treatments.",
+            heroImage: '/v4/gen/false_ceiling.png',
+            galleryImages: ['/v4/luxury_living_1.png'],
+        },
+        'dining-room-designs': {
+            layoutType: 'editorial',
+            accentColor: '#b91c1c',
+            subtitle: "Elegant Spaces for Unforgettable Gatherings.",
+            description: "Design grand dining areas that elevate every meal, featuring statement tables, luxury chairs, and artisanal lighting.",
+            heroImage: '/v4/gen/dining_room.png',
+            galleryImages: ['/v4/gen/kitchen_sink.png'],
+        },
+        'foyer-designs': {
+            layoutType: 'artistic',
+            accentColor: '#92400e',
+            subtitle: "A Grand Welcome to Your Dream Home.",
+            description: "The first impression matters. Our foyer designs combine elegance and warmth to welcome guests with style.",
+            heroImage: '/v4/gen/foyer.png',
+            galleryImages: ['/v4/gen/door_design.png'],
+        },
+        'home-office-designs': {
+            layoutType: 'editorial',
+            accentColor: '#1e40af',
+            subtitle: "Productive Sanctuaries for Modern Worklife.",
+            description: "Bespoke home office designs that blend ergonomics with high-end luxury, ensuring a focused and professional workspace.",
+            heroImage: '/v4/gen/home_office.png',
+            galleryImages: ['/v4/gen/study_room.png', '/v4/luxury_office_1.png'],
+        },
+        'guest-bedroom-designs': {
+            layoutType: 'editorial',
+            accentColor: '#4b5563',
+            subtitle: "Hospitality Reimagined: Refinement for Your Guests.",
+            description: "Offer your guests the luxury of a premium hotel with our guest bedroom designs that focus on comfort and understated elegance.",
+            heroImage: '/v4/gen/guest_bedroom.png',
+            galleryImages: ['/v4/luxury_bedroom_1.png'],
+        },
+        'window-designs': {
+            layoutType: 'artistic',
+            accentColor: '#2563eb',
+            subtitle: "Framing the World with Architectural Elegance.",
+            description: "Luxury window designs that maximize natural light and views while adding to the architectural beauty of your home.",
+            heroImage: '/v4/gen/window_designs.png',
+            galleryImages: ['/v4/gen/balcony.png'],
+        },
+        'flooring-designs': {
+            layoutType: 'editorial',
+            accentColor: '#7c2d12',
+            subtitle: "Foundations of Luxury: Exotic Surface Solutions.",
+            description: "From Italian marble to premium hardwood, discover flooring designs that set the tone for your entire home.",
+            heroImage: '/v4/luxury_office_2.png',
+            galleryImages: ['/v4/gen/tiles.png'],
+        },
+        'tile-designs': {
+            layoutType: 'artistic',
+            accentColor: '#4f46e5',
+            subtitle: "Intricate Patterns and Hand-picked Textures.",
+            description: "Explore our collection of designer tiles, from large-format slabs to intricate mosaics for statement walls and floors.",
+            heroImage: '/v4/gen/tiles.png',
+            galleryImages: ['/v4/luxury_bathroom_2.png'],
+        },
+        'study-room-designs': {
+            layoutType: 'editorial',
+            accentColor: '#065f46',
+            subtitle: "Quiet Spaces for Deep Focus and Learning.",
+            description: "Dedicated study room designs that prioritize organization, lighting, and comfort for a superior learning experience.",
+            heroImage: '/v4/gen/study_room.png',
+            galleryImages: ['/v4/gen/home_office.png'],
+        },
+        'kitchen-sinks': {
+            layoutType: 'isometric',
+            accentColor: '#374151',
+            subtitle: "Functional Art: Premium Kitchen Fixtures.",
+            description: "High-end kitchen sinks and faucets that combine precision engineering with stunning aesthetics for the modern kitchen.",
+            heroImage: '/v4/gen/kitchen_sink.png',
+            galleryImages: ['/v4/luxury_kitchen_2.png'],
+        },
+        'space-saving-designs': {
+            layoutType: 'editorial',
+            accentColor: '#dc2626',
+            subtitle: "Clever Engineering for Modern Urban Living.",
+            description: "Maximize your square footage with our innovative space-saving designs, including Murphy beds and smart wall units.",
+            heroImage: '/v4/gen/space_saving.png',
+            galleryImages: ['/v4/3d_wardrobe_iso.png'],
+        },
+        'door-designs': {
+            layoutType: 'artistic',
+            accentColor: '#451a03',
+            subtitle: "Grand Entrances: Statement Doors for Your Home.",
+            description: "Massive solid wood pivot doors and high-security designer entrances that make a bold statement from the very start.",
+            heroImage: '/v4/gen/door_design.png',
+            galleryImages: ['/v4/gen/foyer.png'],
+        },
+        'crockery-units': {
+            layoutType: 'editorial',
+            accentColor: '#92400e',
+            subtitle: "Showcase Your Finest with Elegant Cabinetry.",
+            description: "Luxury crockery units and display cabinets designed to showcase your collection while adding class to your dining area.",
+            heroImage: '/v4/service_crockery.png',
+            galleryImages: ['/v4/gen/dining_room.png'],
+        },
+        'wall-decor-designs': {
+            layoutType: 'artistic',
+            accentColor: '#ec4899',
+            subtitle: "Bespoke Wall Treatments and Artistic Paneling.",
+            description: "Transform your walls into canvases with our curated decor designs, from stone veneers to luxury charcoal paneling.",
+            heroImage: '/v4/luxury_living_3.png',
+            galleryImages: ['/v4/painting.png'],
+        },
+        'wall-paint-designs': {
+            layoutType: 'editorial',
+            accentColor: '#db2777',
+            subtitle: "Lustrous Finishes and Chromatic Perfection.",
+            description: "Experience the finish of high-gloss lacquer and Italian stucco with our premium wall paint solutions.",
+            heroImage: '/v4/painting.png',
+            galleryImages: ['/v4/luxury_living_1.png'],
+        },
+        'home-wallpaper-designs': {
+            layoutType: 'artistic',
+            accentColor: '#4338ca',
+            subtitle: "Textured Elegance and Patterned Sophistication.",
+            description: "Luxury wallpapers from global brands that add depth and character to every room in your house.",
+            heroImage: '/v4/luxury_living_1.png',
+            galleryImages: ['/v4/luxury_living_2.png'],
+        },
+        'homes-by-evolx-studio': {
+            layoutType: 'editorial',
+            accentColor: '#000000',
+            subtitle: "A Portfolio of Architectural Masterpieces.",
+            description: "Explore complete home transformations by EVOLX Studio, where we bring vision to life across India.",
+            heroImage: '/v4/full-home-design.png',
+            galleryImages: ['/v4/luxury_living_1.png', '/v4/luxury_kitchen_1.png'],
+        },
+        'staircase-designs': {
+            layoutType: 'artistic',
+            accentColor: '#4b5563',
+            subtitle: "Architectural Ascensions: Sculptural Staircases.",
+            description: "Floating stairs, glass railings, and marble steps—our staircase designs are the literal backbone of luxury architecture.",
+            heroImage: '/v4/luxury_office_3.png',
+            galleryImages: ['/v4/gen/door_design.png'],
+        },
+        'home-bar-designs': {
+            layoutType: 'editorial',
+            accentColor: '#111827',
+            subtitle: "Sophisticated Spaces for Social Refinement.",
+            description: "Create an atmosphere of exclusive lounge living with our luxury home bar designs, featuring illuminated displays and premium stone counters.",
+            heroImage: '/v4/luxury_living_2.png',
+            galleryImages: ['/v4/luxury_office_3.png'],
+        },
+        'room-designs': {
+            layoutType: 'editorial',
+            accentColor: '#78350f',
+            subtitle: "Architectural Excellence for Every Room.",
+            description: "From kitchens to bedrooms, explore our comprehensive collection of room designs that redefine luxury living.",
+            heroImage: '/v4/interior-living-3d.jpg',
+            galleryImages: ['/v4/luxury_kitchen_1.png', '/v4/luxury_bedroom_1.png'],
+        },
+        'decor-more': {
+            layoutType: 'artistic',
+            accentColor: '#a88a4d',
+            subtitle: "The Finishing Touches of a Luxury Home.",
+            description: "Discover the elements that turn a house into a home. Our decor solutions focus on detail, texture, and sophisticated style.",
+            heroImage: '/v4/luxury_living_3.png',
+            galleryImages: ['/v4/painting.png', '/v4/gen/tiles.png'],
+        },
+        'specialty-elements': {
+            layoutType: 'isometric',
+            accentColor: '#64748b',
+            subtitle: "Unique Architectural Elements and Specialty Spaces.",
+            description: "Explore our niche design solutions, from grand staircases to clever space-saving engineering.",
+            heroImage: '/v4/luxury_office_3.png',
+            galleryImages: ['/v4/gen/door_design.png', '/v4/gen/space_saving.png'],
+        },
     };
+
 
     if (serviceData[slug]) {
         return {

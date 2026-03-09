@@ -108,17 +108,17 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
                             <span className="text-[#eb595f] font-bold tracking-[0.5em] uppercase text-[10px] mb-4 block" style={{ color: accentColor }}>
                                 Interior Architecture & Design
                             </span>
-                            <h1 className="text-[2.6rem] sm:text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-[#2d2412] leading-[1.05] mb-6 tracking-tight">
+                            <h1 className="text-[2.4rem] xs:text-[2.8rem] sm:text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-[#2d2412] leading-[1.05] mb-6 tracking-tight">
                                 {title}<br />
                                 <span className="italic font-medium" style={{ color: accentColor }}>{heroSubtitle}</span>
                             </h1>
-                            <p className="text-base sm:text-lg md:text-xl text-[#2d2412]/80 mb-8 leading-relaxed max-w-xl font-medium">
+                            <p className="text-sm sm:text-lg md:text-xl text-[#2d2412]/80 mb-8 leading-relaxed max-w-xl font-medium">
                                 {introDesc}
                             </p>
 
-                            <div className="flex gap-4">
+                            <div className="flex flex-col sm:flex-row gap-4">
                                 <button
-                                    className="px-8 py-3 bg-[#eb595f] text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-sm sm:text-base"
+                                    className="w-full sm:w-auto px-8 py-4 bg-[#eb595f] text-white font-bold rounded-2xl shadow-[0_10px_30px_rgba(235,89,95,0.3)] hover:shadow-xl transition-all transform active:scale-95 text-sm uppercase tracking-widest"
                                     style={{ backgroundColor: accentColor }}
                                 >
                                     GET FREE QUOTE
@@ -131,28 +131,28 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
             </section>
 
             {/* 2. Intro Section */}
-            <section className="py-32 px-6 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <section className="py-20 md:py-32 px-5 md:px-6 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="space-y-8 text-left"
+                        className="space-y-6 md:space-y-8 text-left order-2 lg:order-1"
                     >
                         <div className="space-y-4">
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-2 border border-stone-100" style={{ backgroundColor: `${accentColor}10` }}>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-2 border border-stone-100" style={{ backgroundColor: `${accentColor}10` }}>
                                 <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: accentColor }} />
-                                <span className="font-bold tracking-[0.4em] uppercase text-[10px]" style={{ color: accentColor }}>Expertise in Space</span>
+                                <span className="font-bold tracking-[0.3em] uppercase text-[9px]" style={{ color: accentColor }}>Expertise in Space</span>
                             </div>
-                            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-[#2d2412] leading-[1.1] tracking-tight">
+                            <h2 className="text-3xl md:text-6xl lg:text-7xl font-serif font-bold text-[#2d2412] leading-[1.1] tracking-tight">
                                 {introTitle.split(' ').slice(0, -1).join(' ')} <br />
                                 <span className="italic font-medium" style={{ color: accentColor }}>{introTitle.split(' ').pop()}</span>
                             </h2>
                         </div>
-                        <p className="text-[#2d2412]/70 leading-relaxed text-lg md:text-xl font-normal max-w-xl">
+                        <p className="text-[#2d2412]/70 leading-relaxed text-base md:text-xl font-normal max-w-xl">
                             {introDesc}
                         </p>
-                        <button className="flex items-center gap-2 text-[#2d2412] group py-4">
+                        <button className="flex items-center gap-2 text-[#2d2412] group py-2">
                             <span className="text-xs font-bold tracking-[0.2em] uppercase border-b-2 border-stone-200 group-hover:text-[#eb595f] transition-all pb-1" style={{ borderBottomColor: `${accentColor}40` }}>
                                 Know More
                             </span>
@@ -163,7 +163,7 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl"
+                        className="relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl order-1 lg:order-2"
                     >
                         <Image src="/v4/luxury_living_2.png" alt="Evolution" fill className="object-cover" />
                     </motion.div>
@@ -171,15 +171,15 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
             </section>
 
             {/* 3. Offer Cards - What we offer */}
-            <section className="py-24 bg-[#faf9f6] px-6">
+            <section className="py-20 md:py-24 bg-[#faf9f6] px-5 md:px-6">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-24 space-y-4">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em]" style={{ color: accentColor }}>What we offer</span>
-                        <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412]">
+                    <div className="text-center mb-16 md:mb-24 space-y-4">
+                        <span className="text-[9px] font-bold uppercase tracking-[0.3em]" style={{ color: accentColor }}>What we offer</span>
+                        <h2 className="text-3xl md:text-6xl font-serif font-bold text-[#2d2412]">
                             Our Curated <span className="italic font-medium" style={{ color: accentColor }}>Solutions</span>
                         </h2>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
                         {offerCards.map((card, idx) => (
                             <motion.div
                                 key={idx}
@@ -187,9 +187,9 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: idx * 0.1 }}
                                 viewport={{ once: true }}
-                                className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-stone-100"
+                                className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-stone-100 flex flex-col"
                             >
-                                <div className="relative h-80 overflow-hidden">
+                                <div className="relative h-64 md:h-80 overflow-hidden shrink-0">
                                     <Image
                                         src={card.image}
                                         alt={card.title}
@@ -198,15 +198,17 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
                                     />
                                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
                                 </div>
-                                <div className="p-10">
-                                    <h3 className="text-2xl font-bold mb-4">{card.title}</h3>
-                                    <p className="text-gray-500 mb-8 leading-relaxed line-clamp-2">{card.desc}</p>
-                                    <button className="font-bold flex items-center gap-3 group/btn" style={{ color: accentColor }}>
-                                        View Details
-                                        <div className="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center group-hover/btn:bg-[#eb595f] group-hover/btn:border-[#eb595f] group-hover/btn:text-white transition-all">
-                                            <ArrowRight className="w-4 h-4" />
-                                        </div>
-                                    </button>
+                                <div className="p-8 md:p-10 flex flex-col flex-1">
+                                    <h3 className="text-xl md:text-2xl font-bold mb-3">{card.title}</h3>
+                                    <p className="text-gray-500 mb-6 leading-relaxed line-clamp-2 text-sm md:text-base">{card.desc}</p>
+                                    <div className="mt-auto">
+                                        <button className="font-bold flex items-center gap-3 group/btn text-sm md:text-base" style={{ color: accentColor }}>
+                                            View Details
+                                            <div className="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center group-hover/btn:bg-[#eb595f] group-hover/btn:border-[#eb595f] group-hover/btn:text-white transition-all">
+                                                <ArrowRight className="w-4 h-4" />
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
                             </motion.div>
                         ))}
@@ -301,33 +303,33 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
             </section>
 
             {/* 6. Snapshot Timeline - Matching the image style */}
-            <section className="py-32 px-6 max-w-6xl mx-auto">
-                <div className="text-center mb-24 space-y-4">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.3em]" style={{ color: accentColor }}>Timeline</span>
-                    <h2 className="text-4xl md:text-6xl font-serif font-bold text-center">
+            <section className="py-20 md:py-32 px-5 md:px-6 max-w-6xl mx-auto">
+                <div className="text-center mb-16 md:mb-24 space-y-4">
+                    <span className="text-[9px] font-bold uppercase tracking-[0.3em]" style={{ color: accentColor }}>Timeline</span>
+                    <h2 className="text-3xl md:text-6xl font-serif font-bold text-center">
                         Journey in a <span className="italic font-medium" style={{ color: accentColor }}>Snapshot</span>
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
                     {journeyHighlights.map((phase, idx) => (
-                        <div key={idx} className="bg-white border border-stone-100 rounded-[2rem] p-10 shadow-sm hover:shadow-xl transition-all h-full">
-                            <div className="flex justify-between items-start mb-10">
+                        <div key={idx} className="bg-white border border-stone-100 rounded-[2.5rem] p-8 md:p-10 shadow-sm hover:shadow-xl transition-all h-full">
+                            <div className="flex flex-col sm:flex-row justify-between items-start mb-8 gap-4">
                                 <div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{phase.phase}</h3>
-                                    <div className="h-1 w-20 rounded-full" style={{ backgroundColor: accentColor }}></div>
+                                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">{phase.phase}</h3>
+                                    <div className="h-1 w-16 rounded-full" style={{ backgroundColor: accentColor }}></div>
                                 </div>
-                                <span className="bg-[#fff1f1] text-[#eb595f] px-6 py-2 rounded-full text-sm font-bold border border-[#fde2e2]">
+                                <span className="bg-[#fff1f1] text-[#eb595f] px-5 py-1.5 rounded-full text-xs font-bold border border-[#fde2e2] shrink-0">
                                     {phase.days}
                                 </span>
                             </div>
-                            <ul className="space-y-6">
+                            <ul className="space-y-4 md:space-y-6">
                                 {phase.items.map((item, iIdx) => (
                                     <li key={iIdx} className="flex gap-4 items-start group">
-                                        <div className="mt-1 w-5 h-5 rounded-full border-2 border-stone-200 flex items-center justify-center shrink-0 group-hover:border-[#eb595f] transition-all">
-                                            <div className="w-2 h-2 rounded-full bg-[#eb595f] opacity-0 group-hover:opacity-100 transition-all"></div>
+                                        <div className="mt-1 w-4 h-4 rounded-full border-2 border-stone-200 flex items-center justify-center shrink-0 group-hover:border-[#eb595f] transition-all">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-[#eb595f] opacity-0 group-hover:opacity-100 transition-all"></div>
                                         </div>
-                                        <span className="text-gray-600 font-medium group-hover:text-gray-900 transition-all">{item}</span>
+                                        <span className="text-gray-600 text-sm md:text-base font-medium group-hover:text-gray-900 transition-all">{item}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -337,22 +339,22 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
             </section>
 
             {/* 7. Experience Video Stories */}
-            <section className="py-24 bg-stone-50 px-6">
+            <section className="py-20 md:py-24 bg-stone-50 px-5 md:px-6">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-24 space-y-4">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em]" style={{ color: accentColor }}>Success Stories</span>
-                        <h2 className="text-4xl md:text-6xl font-serif font-bold">
+                    <div className="text-center mb-16 md:mb-24 space-y-4">
+                        <span className="text-[9px] font-bold uppercase tracking-[0.3em]" style={{ color: accentColor }}>Success Stories</span>
+                        <h2 className="text-3xl md:text-6xl font-serif font-bold">
                             Our Happy <span className="italic font-medium" style={{ color: accentColor }}>Homeowners</span>
                         </h2>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="flex overflow-x-auto no-scrollbar gap-5 pb-5 md:grid md:grid-cols-3 md:gap-8">
                         {videoStories.map((story, idx) => (
                             <motion.div
                                 key={idx}
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
-                                className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden group cursor-pointer shadow-2xl"
+                                className="relative aspect-[4/5] w-[280px] md:w-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden group cursor-pointer shadow-xl shrink-0"
                             >
                                 <Image
                                     src={story.image}
@@ -362,13 +364,13 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-20 h-20 rounded-full bg-[#eb595f] shadow-lg flex items-center justify-center text-white transform group-hover:scale-110 transition-all pulse">
-                                        <Play className="ml-1 w-8 h-8 fill-current" />
+                                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#eb595f] shadow-lg flex items-center justify-center text-white transform group-hover:scale-110 transition-all">
+                                        <Play className="ml-1 w-6 h-6 md:w-8 md:h-8 fill-current" />
                                     </div>
                                 </div>
-                                <div className="absolute bottom-10 left-10 right-10 text-white">
-                                    <h4 className="text-2xl font-bold mb-2">{story.clientName}</h4>
-                                    <p className="text-sm border-l-2 border-[#eb595f] pl-3 opacity-80 uppercase tracking-widest">{story.location}</p>
+                                <div className="absolute bottom-8 left-8 right-8 text-white">
+                                    <h4 className="text-xl md:text-2xl font-bold mb-1">{story.clientName}</h4>
+                                    <p className="text-[10px] border-l-2 border-[#eb595f] pl-3 opacity-80 uppercase tracking-widest">{story.location}</p>
                                 </div>
                             </motion.div>
                         ))}

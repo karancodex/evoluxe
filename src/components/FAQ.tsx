@@ -53,10 +53,10 @@ const FAQ = ({ items, title = "Frequently Asked Questions", subtitle = "Discover
     const displayFaqs = items || defaultFaqs;
 
     return (
-        <section className="py-12 md:py-16 bg-[#faf9f6]/30">
+        <section className="py-16 md:py-24 bg-white">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Standardized Header Style */}
-                <div className="text-center mb-12 md:mb-16 px-4">
+                <div className="text-center mb-16 md:mb-24 px-4">
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -72,10 +72,10 @@ const FAQ = ({ items, title = "Frequently Asked Questions", subtitle = "Discover
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412] mb-6 tracking-tight leading-[1.1]"
+                        className="text-4xl md:text-6xl font-bold text-[#2d2412] mb-6 tracking-tight leading-[1.1]"
                     >
                         Frequently Asked <br className="hidden md:block" />
-                        <span className="text-[#eb595f] italic font-medium opacity-90">Questions.</span>
+                        <span className="text-[#eb595f] italic font-normal">Questions.</span>
                     </motion.h2>
 
                     <motion.p
@@ -83,7 +83,7 @@ const FAQ = ({ items, title = "Frequently Asked Questions", subtitle = "Discover
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-[#2d2412]/60 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed"
+                        className="text-stone-500 max-w-2xl mx-auto text-lg md:text-xl font-normal leading-relaxed"
                     >
                         {subtitle}
                     </motion.p>
@@ -93,10 +93,10 @@ const FAQ = ({ items, title = "Frequently Asked Questions", subtitle = "Discover
 
                     {/* Left Column: Contact Support */}
                     <div className="lg:col-span-4 text-center lg:text-left">
-                        <p className="text-[#2d2412]/60 text-lg leading-relaxed mb-8">
+                        <p className="text-stone-500 text-lg leading-relaxed mb-8">
                             Can't find the answer you're looking for?
                         </p>
-                        <button className="text-[#eb595f] font-semibold underline decoration-[#eb595f]/30 underline-offset-4 hover:decoration-[#eb595f] transition-all">
+                        <button className="text-[#eb595f] font-bold underline decoration-[#eb595f]/30 underline-offset-4 hover:decoration-[#eb595f] transition-all">
                             Contact Support
                         </button>
                     </div>
@@ -109,16 +109,16 @@ const FAQ = ({ items, title = "Frequently Asked Questions", subtitle = "Discover
                                 return (
                                     <div
                                         key={index}
-                                        className={`border-b border-[#4d3b1a]/10 transition-colors duration-300 ${isOpen ? "pb-6" : "pb-4"}`}
+                                        className={`border-b border-stone-100 transition-colors duration-300 ${isOpen ? "pb-6" : "pb-4"}`}
                                     >
                                         <button
                                             onClick={() => setOpenIndex(isOpen ? null : index)}
-                                            className="w-full flex items-start justify-between py-4 text-left group"
+                                            className="w-full flex items-start justify-between py-6 text-left group"
                                         >
-                                            <span className={`font-serif text-lg md:text-2xl transition-colors duration-300 ${isOpen ? "text-[#eb595f]" : "text-[#2d2412] group-hover:text-[#eb595f]"}`}>
+                                            <span className={`text-lg md:text-2xl font-bold transition-colors duration-300 ${isOpen ? "text-[#eb595f]" : "text-[#2d2412] group-hover:text-[#eb595f]"}`}>
                                                 {item.q}
                                             </span>
-                                            <span className="ml-6 mt-1 flex-shrink-0 text-[#2d2412]/40 group-hover:text-[#eb595f] transition-colors">
+                                            <span className="ml-6 mt-1 flex-shrink-0 text-stone-300 group-hover:text-[#eb595f] transition-colors">
                                                 <motion.div
                                                     animate={{ rotate: isOpen ? 45 : 0 }}
                                                     transition={{ duration: 0.3 }}
@@ -139,7 +139,7 @@ const FAQ = ({ items, title = "Frequently Asked Questions", subtitle = "Discover
                                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                                     className="overflow-hidden"
                                                 >
-                                                    <p className="text-[#2d2412]/70 text-lg leading-relaxed max-w-3xl pr-8">
+                                                    <p className="text-stone-500 text-lg leading-relaxed max-w-3xl pr-8 font-normal">
                                                         {item.a}
                                                     </p>
                                                 </motion.div>

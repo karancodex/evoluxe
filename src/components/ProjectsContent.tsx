@@ -89,8 +89,8 @@ const ProjectsContent = () => {
                                 key={cat}
                                 onClick={() => setActiveFilter(cat)}
                                 className={`text-xs md:text-sm font-bold uppercase tracking-[0.2em] transition-all relative py-2 ${activeFilter === cat
-                                        ? "text-[#eb595f]"
-                                        : "text-[#2d2412]/40 hover:text-[#2d2412]"
+                                    ? "text-[#eb595f]"
+                                    : "text-[#2d2412]/40 hover:text-[#2d2412]"
                                     }`}
                             >
                                 {cat}

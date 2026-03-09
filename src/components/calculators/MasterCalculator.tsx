@@ -215,44 +215,44 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
     const stepsCount = config.steps.length + 1; // +1 for summary/form
 
     return (
-        <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="max-w-7xl mx-auto px-5 md:px-6 py-8 md:py-12">
             {/* Header */}
-            <div className="text-center mb-16 space-y-4">
+            <div className="text-center mb-10 md:mb-16 space-y-4">
                 <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    className="w-20 h-20 mx-auto rounded-3xl flex items-center justify-center mb-6"
+                    className="w-14 h-14 md:w-20 md:h-20 mx-auto rounded-2xl md:rounded-3xl flex items-center justify-center mb-4 md:mb-6"
                     style={{ backgroundColor: `${config.accent}15`, color: config.accent }}
                 >
-                    {config.icon}
+                    {React.cloneElement(config.icon as React.ReactElement<any>, { className: "w-6 h-6 md:w-10 md:h-10" })}
                 </motion.div>
-                <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412]">
+                <h1 className="text-3xl md:text-6xl font-serif font-bold text-[#2d2412] leading-tight">
                     {config.title.split(' ').slice(0, -1).join(' ')} <span className="italic font-medium" style={{ color: config.accent }}>{config.title.split(' ').pop()}</span>
                 </h1>
-                <p className="text-stone-400 max-w-2xl mx-auto">Get an instant, transparent cost estimate powered by our proprietary design engine.</p>
+                <p className="text-stone-400 text-sm md:text-base max-w-2xl mx-auto px-4">Get an instant, transparent cost estimate powered by our proprietary design engine.</p>
             </div>
 
             {/* Stepper */}
-            <div className="max-w-3xl mx-auto mb-20">
+            <div className="max-w-3xl mx-auto mb-12 md:mb-20 px-2">
                 <div className="flex justify-between relative">
                     <div className="absolute top-1/2 left-0 w-full h-0.5 bg-stone-100 -translate-y-1/2 z-0" />
                     {[...Array(stepsCount)].map((_, i) => (
                         <div key={i} className="relative z-10">
                             <div
-                                className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-500 border-4 ${step > i + 1 ? 'bg-stone-900 border-white text-white' :
+                                className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-bold text-xs md:text-sm transition-all duration-500 border-2 md:border-4 ${step > i + 1 ? 'bg-stone-900 border-white text-white' :
                                     step === i + 1 ? 'border-white text-white shadow-lg scale-110' :
                                         'bg-white border-stone-100 text-stone-300'
                                     }`}
                                 style={{ backgroundColor: step === i + 1 ? config.accent : (step > i + 1 ? '#2d2412' : '#fff') }}
                             >
-                                {step > i + 1 ? <CheckCircle className="w-5 h-5 text-white" /> : i + 1}
+                                {step > i + 1 ? <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-white" /> : i + 1}
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
 
-            <div className="bg-white rounded-[3rem] shadow-[0_50px_100px_-30px_rgba(45,36,18,0.1)] border border-stone-100 overflow-hidden min-h-[600px] flex flex-col">
+            <div className="bg-white rounded-[2.5rem] md:rounded-[3rem] shadow-[0_30px_60px_-20px_rgba(45,36,18,0.08)] border border-stone-100 overflow-hidden min-h-[500px] md:min-h-[600px] flex flex-col">
                 <AnimatePresence mode="wait">
                     {step <= config.steps.length ? (
                         <motion.div
@@ -260,13 +260,13 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
-                            className="p-10 md:p-20 flex-1"
+                            className="p-6 md:p-20 flex-1 flex flex-col"
                         >
-                            <div className="flex flex-col md:flex-row gap-16 items-center">
-                                <div className="flex-1 space-y-8">
+                            <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center flex-1">
+                                <div className="w-full flex-1 space-y-6 md:space-y-8">
                                     <div className="space-y-2">
-                                        <span className="text-[10px] font-bold tracking-[0.4em] uppercase" style={{ color: config.accent }}>Step {step} of {config.steps.length}</span>
-                                        <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#2d2412] leading-tight">
+                                        <span className="text-[9px] font-bold tracking-[0.3em] uppercase" style={{ color: config.accent }}>Step {step} of {config.steps.length}</span>
+                                        <h2 className="text-2xl md:text-5xl font-serif font-bold text-[#2d2412] leading-tight">
                                             {config.steps[step - 1].label}
                                         </h2>
                                     </div>

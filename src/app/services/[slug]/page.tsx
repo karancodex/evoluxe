@@ -32,15 +32,7 @@ const TopicPage = () => {
     const params = useParams();
     const slug = params?.slug as string;
 
-    const designIdeasSlugs = useMemo(() => {
-        const designIdeas = topNavLinks.find(link => link.name === 'Design Ideas');
-        if (!designIdeas || !designIdeas.columns) return [];
-        const items = designIdeas.columns.flatMap(col => col.items.map(item => slugify(item)));
-        const titles = designIdeas.columns.filter(col => col.title).map(col => slugify(col.title));
-        return [...items, ...titles];
-    }, []);
 
-    const isDesignIdea = useMemo(() => designIdeasSlugs.includes(slug), [slug, designIdeasSlugs]);
 
     const isCalculator = useMemo(() => [
         'kitchen-price-calculator',
@@ -58,15 +50,7 @@ const TopicPage = () => {
 
     if (!content) return notFound();
 
-    if (isDesignIdea) {
-        return (
-            <main className="min-h-screen bg-white">
-                <div className="pt-24 md:pt-32">
-                    <DesignIdeasContent title={content.title} description={content.description} slug={slug} />
-                </div>
-            </main>
-        );
-    }
+
 
     if (isCalculator) {
         return (
