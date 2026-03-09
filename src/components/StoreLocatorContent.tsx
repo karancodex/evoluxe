@@ -135,8 +135,8 @@ const StoreLocatorContent = () => {
                                     key={city}
                                     onClick={() => setActiveCity(city)}
                                     className={`px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${activeCity === city
-                                            ? "bg-[#eb595f] text-white shadow-xl shadow-[#eb595f]/20 scale-105"
-                                            : "text-stone-400 hover:text-[#2d2412] hover:bg-stone-50"
+                                        ? "bg-[#eb595f] text-white shadow-xl shadow-[#eb595f]/20 scale-105"
+                                        : "text-stone-400 hover:text-[#2d2412] hover:bg-stone-50"
                                         }`}
                                 >
                                     {city}

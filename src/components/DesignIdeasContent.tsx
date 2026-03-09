@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Star, ChevronRight, Filter, Info, Phone, Mail, User } from 'lucide-react';
@@ -55,23 +55,38 @@ interface DesignIdeasContentProps {
     title: string;
     description?: string;
     slug: string;
+    galleryImages?: string[];
 }
 
-const DesignIdeasContent = ({ title, description, slug }: DesignIdeasContentProps) => {
+const DesignIdeasContent = ({ title, description, slug, galleryImages }: DesignIdeasContentProps) => {
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', pin: '' });
+    const [activeFilter, setActiveFilter] = useState('All');
 
     // Mock data for designs
-    const mockDesigns = [
-        { title: `Modern ${title} with Minimalist Aesthetics`, rating: 4.8, reviews: 124, image: '/v4/interior-living-3d.jpg' },
-        { title: `Contemporary ${title} with Natural Wood Finishes`, rating: 4.9, reviews: 89, image: '/v4/interior-living-3d.jpg' },
-        { title: `Luxury ${title} Featuring Premium Textures`, rating: 4.7, reviews: 210, image: '/v4/interior-living-3d.jpg' },
-        { title: `Space-Saving ${title} for Urban Homes`, rating: 4.6, reviews: 156, image: '/v4/interior-living-3d.jpg' },
-        { title: `Traditional ${title} with a Modern Twist`, rating: 4.8, reviews: 78, image: '/v4/interior-living-3d.jpg' },
-        { title: `Elegant ${title} with Strategic Lighting`, rating: 4.9, reviews: 112, image: '/v4/interior-living-3d.jpg' },
-        { title: `Compact ${title} Design for Small Apartments`, rating: 4.5, reviews: 94, image: '/v4/interior-living-3d.jpg' },
-        { title: `Grand ${title} for Spacious Residences`, rating: 5.0, reviews: 45, image: '/v4/interior-living-3d.jpg' },
-        { title: `Ergonomic ${title} focused on Comfort`, rating: 4.7, reviews: 134, image: '/v4/interior-living-3d.jpg' },
-    ];
+    const mockDesigns = useMemo(() => {
+        const baseTags = ['Modern', 'Contemporary', 'Luxury', 'Minimalist', 'Space-Saving'];
+        const items = [];
+
+        // Use gallery images if available, otherwise fallback to placeholder
+        const imagesToUse = galleryImages && galleryImages.length > 0 ? galleryImages : ['/v4/interior-living-3d.jpg'];
+
+        for (let i = 0; i < 9; i++) {
+            const imgIndex = i % imagesToUse.length;
+            const tag = baseTags[i % baseTags.length];
+            items.push({
+                title: `${tag} ${title} with ${i % 2 === 0 ? 'Elegant' : 'Modern'} Finishes`,
+                rating: (4.5 + Math.random() * 0.5).toFixed(1),
+                reviews: Math.floor(50 + Math.random() * 200),
+                image: imagesToUse[imgIndex],
+                tag: tag
+            });
+        }
+        return items;
+    }, [title, galleryImages]);
+
+    const filteredDesigns = activeFilter === 'All'
+        ? mockDesigns
+        : mockDesigns.filter(d => d.tag === activeFilter);
 
     const filters = ['All', 'Modern', 'Contemporary', 'Luxury', 'Minimalist', 'Space-Saving', 'L-Shaped', 'U-Shaped'];
 
@@ -111,7 +126,8 @@ const DesignIdeasContent = ({ title, description, slug }: DesignIdeasContentProp
                             {filters.map(filter => (
                                 <button
                                     key={filter}
-                                    className={`px-6 py-2 rounded-full text-[13px] font-semibold whitespace-nowrap transition-all ${filter === 'All' ? 'bg-[#eb595f] text-white' : 'bg-white border border-stone-200 text-stone-600 hover:border-[#eb595f]'}`}
+                                    onClick={() => setActiveFilter(filter)}
+                                    className={`px-6 py-2 rounded-full text-[13px] font-semibold whitespace-nowrap transition-all ${activeFilter === filter ? 'bg-[#eb595f] text-white' : 'bg-white border border-stone-200 text-stone-600 hover:border-[#eb595f]'}`}
                                 >
                                     {filter}
                                 </button>
@@ -120,8 +136,8 @@ const DesignIdeasContent = ({ title, description, slug }: DesignIdeasContentProp
 
                         {/* Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                            {mockDesigns.map((design, idx) => (
-                                <DesignCard key={idx} {...design} />
+                            {filteredDesigns.map((design, idx) => (
+                                <DesignCard key={idx} {...design} rating={parseFloat(design.rating as string)} />
                             ))}
                         </div>
                     </div>

@@ -5,9 +5,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Star,
-    ChevronRight,
     MapPin,
-    Phone,
     ShieldCheck,
     Clock,
     Award,
@@ -16,6 +14,7 @@ import {
     Minus,
     ArrowRight
 } from 'lucide-react';
+import { cityData } from '@/data/nav-data';
 
 interface CityContentProps {
     cityName: string;
@@ -24,171 +23,246 @@ interface CityContentProps {
 
 const CityContent = ({ cityName, slug }: CityContentProps) => {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
+    const data = cityData[slug] || {
+        heroImage: "/v4/interior-living-3d.jpg",
+        experienceCenterImage: "/v4/interior-living-3d.jpg",
+        tagline: `Best Interior Designers in ${cityName}`,
+        description: `Get personalized home interiors that blend functionality with aesthetics, tailored specifically for your lifestyle in ${cityName}.`,
+        locations: [{ name: 'Experience Center', address: `Main Market, ${cityName}` }],
+        stats: [
+            { label: 'Trusted by', value: '10,000+' },
+            { label: 'Families', value: 'Happy' }
+        ],
+        services: [
+            { title: 'Modular Kitchens', desc: 'Precision engineered for the modern home.', img: '/v4/luxury_kitchen_1.png' },
+            { title: 'Wardrobes & Storage', desc: 'Smart storage solutions for every space.', img: '/v4/service_wardrobe.png' },
+            { title: 'Full Home Interiors', desc: 'End-to-end furniture and styling.', img: '/v4/full-home-design.png' }
+        ]
+    };
 
     const faqs = [
         { q: `How much do interior designers in ${cityName} charge?`, a: "The cost depends on various factors like square footage, materials used, and the complexity of the design. Typically, for a 2BHK, the cost can range from ₹3.5L to ₹10L+ depending on whether you choose essential or luxury finishes." },
-        { q: "What services do you provide in my city?", a: "We provide end-to-end interior design services including modular kitchens, wardrobes, living room designs, lighting, false ceiling, painting, and civil work." },
-        { q: "Do you have an experience center nearby?", a: "Yes, we have multiple experience centers where you can touch and feel the materials and explore various design styles in person." },
+        { q: `What services do you provide in ${cityName}?`, a: "We provide end-to-end interior design services including modular kitchens, wardrobes, living room designs, lighting, false ceiling, painting, and civil work." },
+        { q: "Do you have an experience center nearby?", a: `Yes, we have multiple experience centers in ${cityName} where you can touch and feel the materials and explore various design styles in person.` },
         { q: "What is the warranty on your products?", a: "We provide a flat 10-year warranty on all our modular products, ensuring peace of mind for our customers." }
     ];
 
     return (
         <div className="bg-white min-h-screen">
             {/* 1. Hero Section */}
-            <section className="relative h-screen md:h-[700px] flex items-center overflow-hidden">
-                <Image
-                    src="/v4/interior-living-3d.jpg"
-                    alt={`Best Interior Designers in ${cityName}`}
-                    fill
-                    className="object-cover"
-                    priority
-                />
-                <div className="absolute inset-0 bg-black/40" />
-                <div className="max-w-[1400px] mx-auto px-6 relative z-10 w-full flex flex-col md:flex-row items-center justify-between gap-12 pt-20">
-                    <div className="text-white max-w-2xl space-y-6">
+            <section className="relative h-[85vh] md:h-screen flex items-center overflow-hidden bg-white">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1.5 }}
+                    className="absolute inset-0"
+                >
+                    <Image
+                        src={data.heroImage}
+                        alt={`Best Interior Designers in ${cityName}`}
+                        fill
+                        className="object-cover opacity-90"
+                        priority
+                    />
+                </motion.div>
+                <div className="absolute inset-0 bg-white/40" />
+
+                <div className="max-w-[1400px] mx-auto px-6 relative z-10 w-full flex flex-col lg:flex-row items-center justify-between gap-12 pt-20">
+                    <div className="text-[#2d2412] max-w-2xl space-y-8">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-stone-200 text-xs font-bold uppercase tracking-widest shadow-sm"
+                        >
+                            <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                            Trusted by 10,000+ Homes
+                        </motion.div>
+                        <div className="space-y-4">
+                            <motion.h1
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 }}
+                                className="text-4xl sm:text-5xl md:text-7xl font-bold leading-[1.1]"
+                            >
+                                {data.tagline.includes(cityName) ? (
+                                    <>
+                                        {data.tagline.split(cityName)[0]}
+                                        <span className="text-[#eb595f]">{cityName}</span>
+                                        {data.tagline.split(cityName)[1]}
+                                    </>
+                                ) : data.tagline}
+                            </motion.h1>
+                            <motion.p
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                className="text-lg md:text-xl text-stone-600 font-normal leading-relaxed max-w-xl"
+                            >
+                                {data.description}
+                            </motion.p>
+                        </div>
+
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="inline-block px-4 py-1 bg-[#c5a059] rounded-full text-xs font-bold uppercase tracking-widest"
+                            transition={{ delay: 0.3 }}
+                            className="flex flex-wrap gap-4"
                         >
-                            Trusted by 10,000+ Families
+                            <button className="px-8 py-4 bg-[#eb595f] text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:bg-[#2d2412] transform hover:-translate-y-1">
+                                Start Your Design Journey
+                            </button>
+                            <button className="px-8 py-4 border border-stone-300 bg-white/50 backdrop-blur-sm text-[#2d2412] font-bold rounded-full transition-all hover:bg-white shadow-sm">
+                                View Recent Projects
+                            </button>
                         </motion.div>
-                        <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-3xl sm:text-4xl md:text-6xl font-serif font-bold leading-tight"
-                        >
-                            Interior Designers in <span className="text-[#e5d5b0]">{cityName}</span>
-                        </motion.h1>
-                        <motion.p
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className="text-lg md:text-xl text-stone-200 font-light"
-                        >
-                            Get personalized home interiors that blend functionality with aesthetics, tailored specifically for your lifestyle in {cityName}.
-                        </motion.p>
                     </div>
 
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.3 }}
-                        className="bg-[#4d3b1a] rounded-[2.5rem] p-10 text-white w-full max-w-[420px] shadow-2xl relative overflow-hidden border border-white/10"
+                        transition={{ delay: 0.4 }}
+                        className="bg-white rounded-[2rem] p-8 md:p-10 text-[#2d2412] w-full max-w-[440px] shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-stone-100"
                     >
-                        <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#c5a059] opacity-20 blur-3xl rounded-full"></div>
-                        <div className="relative z-10">
-                            <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4">Designs for every budget</h3>
-                            <p className="text-stone-300 text-sm mb-10 font-light leading-relaxed">Fill details and get your personalized design quote from our experts in {cityName}.</p>
+                        <h3 className="text-2xl md:text-3xl font-bold mb-2 text-center">Get Free Estimate</h3>
+                        <p className="text-stone-500 text-sm mb-8 font-normal text-center">Takes less than 1 minute</p>
 
-                            <form className="space-y-5">
+                        <form className="space-y-4">
+                            <input
+                                type="text"
+                                placeholder="Name"
+                                className="w-full px-6 py-4 bg-stone-50 border border-stone-100 rounded-xl focus:bg-white outline-none placeholder:text-stone-400 text-base focus:border-[#eb595f] transition-all"
+                            />
+                            <div className="flex gap-2">
+                                <div className="px-4 py-4 bg-stone-50 border border-stone-100 rounded-xl text-stone-500 text-base flex items-center">+91</div>
                                 <input
-                                    type="text"
-                                    placeholder="Full Name"
-                                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:bg-white/10 outline-none placeholder:text-stone-500 text-sm focus:border-white/30 transition-all font-light"
+                                    type="tel"
+                                    placeholder="Mobile Number"
+                                    className="flex-1 px-6 py-4 bg-stone-50 border border-stone-100 rounded-xl focus:bg-white outline-none placeholder:text-stone-400 text-base focus:border-[#eb595f] transition-all"
                                 />
-                                <input
-                                    type="email"
-                                    placeholder="Email Address"
-                                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:bg-white/10 outline-none placeholder:text-stone-500 text-sm focus:border-white/30 transition-all font-light"
-                                />
-                                <div className="flex gap-2">
-                                    <div className="px-5 py-4 bg-white/5 border border-white/10 rounded-2xl text-stone-400 text-sm">+91</div>
-                                    <input
-                                        type="tel"
-                                        placeholder="Mobile Number"
-                                        className="flex-1 px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:bg-white/10 outline-none placeholder:text-stone-500 text-sm focus:border-white/30 transition-all font-light"
-                                    />
-                                </div>
-                                <input
-                                    type="text"
-                                    placeholder="Pincode"
-                                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:bg-white/10 outline-none placeholder:text-stone-500 text-sm focus:border-white/30 transition-all font-light"
-                                />
+                            </div>
+                            <select className="w-full px-6 py-4 bg-stone-50 border border-stone-100 rounded-xl focus:bg-white outline-none text-stone-500 text-base focus:border-[#eb595f] transition-all appearance-none cursor-pointer">
+                                <option value="" disabled defaultValue="">Project Type</option>
+                                <option value="kitchen">Modular Kitchen</option>
+                                <option value="wardrobe">Modular Wardrobe</option>
+                                <option value="full">Full Home Interior</option>
+                            </select>
 
-                                <button className="w-full py-4 bg-[#c5a059] hover:bg-white hover:text-[#c5a059] text-white font-bold rounded-2xl transition-all duration-500 shadow-xl mt-4 transform hover:-translate-y-1">
-                                    Book Free Consultation
-                                </button>
-
-                                <p className="text-[10px] text-stone-500 text-center leading-relaxed mt-6">
-                                    By clicking this button, you agree to our Terms and Conditions and Privacy Policy.
-                                </p>
-                            </form>
-                        </div>
+                            <button type="submit" className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-xl transition-all duration-300 shadow-md mt-4 hover:bg-[#2d2412]">
+                                Book Free Consultation
+                            </button>
+                        </form>
                     </motion.div>
                 </div>
             </section>
 
-            {/* 2. Experience Center Section */}
-            <section className="py-24 bg-stone-50 overflow-hidden">
+            {/* 2. Stats Section */}
+            <section className="py-20 bg-white border-y border-stone-100">
                 <div className="max-w-[1400px] mx-auto px-6">
-                    <div className="flex flex-col lg:flex-row items-center gap-16">
-                        <div className="w-full lg:w-1/2 relative h-[300px] md:h-[500px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-2xl group">
-                            <Image src="/v4/interior-living-3d.jpg" fill alt="Experience Center" className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                            <div className="absolute bottom-8 left-8 text-white">
-                                <div className="flex items-center gap-2 mb-2">
-                                    <MapPin className="w-5 h-5 text-[#e5d5b0]" />
-                                    <span className="font-bold underline">Navigate to Center</span>
-                                </div>
-                                <h4 className="text-xl font-bold">Main Market, {cityName}</h4>
-                            </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+                        {data.stats.map((stat: any, idx: number) => (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: idx * 0.1 }}
+                                viewport={{ once: true }}
+                            >
+                                <p className="text-4xl md:text-5xl font-bold text-[#eb595f] mb-2">{stat.value}</p>
+                                <p className="text-stone-500 text-sm uppercase tracking-widest font-bold">{stat.label}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* 3. Experience Center Section */}
+            <section className="py-24 bg-white overflow-hidden relative">
+                <div className="max-w-[1400px] mx-auto px-6">
+                    <div className="flex flex-col lg:flex-row items-center gap-20">
+                        <div className="w-full lg:w-1/2 relative">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8 }}
+                                className="aspect-square md:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-xl relative"
+                            >
+                                <Image src={data.experienceCenterImage} fill alt="Experience Center" className="object-cover" />
+                                <div className="absolute inset-0 bg-black/10" />
+                            </motion.div>
                         </div>
                         <div className="w-full lg:w-1/2 space-y-8">
-                            <div>
-                                <h2 className="text-2xl md:text-5xl font-serif font-bold text-[#4d3b1a] mb-6 leading-tight">
-                                    Step into our Design Experience Center in {cityName}
-                                </h2>
-                                <p className="text-stone-600 text-lg font-light leading-relaxed">
-                                    Experience luxury interior design like never before. Touch premium materials, explore modular kitchen setups, and walk through full-scale room designs to visualize your dream home.
+                            <div className="space-y-6">
+                                <motion.h2
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    className="text-4xl md:text-6xl font-bold text-[#2d2412] leading-tight"
+                                >
+                                    Visit Our Studio in <span className="text-[#eb595f]">{cityName}</span>
+                                </motion.h2>
+                                <p className="text-stone-600 text-xl font-normal leading-relaxed">
+                                    Touch, feel, and experience the finest materials from across the globe. Our experience centers are designed to help you visualize your future home with real-life room displays.
                                 </p>
                             </div>
-                            <div className="grid grid-cols-2 gap-6 pb-4">
-                                <div className="space-y-1">
-                                    <p className="text-2xl font-serif font-bold text-[#c5a059]">5,000+ sqft</p>
-                                    <p className="text-stone-400 text-sm">Experience Zone</p>
-                                </div>
-                                <div className="space-y-1">
-                                    <p className="text-2xl font-serif font-bold text-[#c5a059]">20+ Ready</p>
-                                    <p className="text-stone-400 text-sm">Room Displays</p>
-                                </div>
+
+                            <div className="space-y-6">
+                                {data.locations.map((loc: any, idx: number) => (
+                                    <motion.div
+                                        key={idx}
+                                        initial={{ opacity: 0, x: 20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: idx * 0.1 }}
+                                        className="p-6 bg-stone-50 rounded-2xl border border-stone-100 flex items-start gap-4 hover:border-[#eb595f] transition-all group"
+                                    >
+                                        <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-[#eb595f] group-hover:bg-[#eb595f] group-hover:text-white transition-all">
+                                            <MapPin className="w-6 h-6" />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xl font-bold text-[#2d2412] mb-1">{loc.name}</h4>
+                                            <p className="text-stone-500 font-normal">{loc.address}</p>
+                                        </div>
+                                    </motion.div>
+                                ))}
                             </div>
-                            <button className="px-10 py-4 bg-[#4d3b1a] text-white font-bold rounded-full hover:bg-[#c5a059] transition-all transform hover:-translate-y-1">
-                                Book a Center Visit
+                            <button className="px-10 py-5 bg-[#2d2412] text-white font-bold rounded-full hover:bg-[#eb595f] transition-all transform hover:-translate-y-1 shadow-md">
+                                Get Directions To Studio
                             </button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* 3. Services Grid */}
-            <section className="py-24 bg-white">
+            {/* 4. Services Grid */}
+            <section className="py-32 bg-white">
                 <div className="max-w-[1400px] mx-auto px-6">
-                    <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                        <h2 className="text-2xl md:text-5xl font-serif font-bold text-[#4d3b1a]">Personalized Home Interiors</h2>
-                        <p className="text-stone-500 font-light">From modular kitchens to complete home renovations, we bring your vision to life in {cityName}.</p>
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                        <div className="max-w-2xl space-y-4">
+                            <h2 className="text-4xl md:text-6xl font-bold text-[#2d2412]">Personalized Services</h2>
+                            <p className="text-stone-500 font-normal text-xl">From initial concept to final touch-up, we handle everything for your {cityName} home.</p>
+                        </div>
+                        <button className="hidden md:flex items-center gap-2 font-bold text-[#eb595f] hover:underline">
+                            View All Services <ArrowRight className="w-5 h-5" />
+                        </button>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[
-                            { title: 'Modular Kitchens', desc: 'Precision engineered for the modern home.', img: '/v4/interior-living-3d.jpg' },
-                            { title: 'Wardrobes & Storage', desc: 'Smart storage solutions for every space.', img: '/v4/interior-living-3d.jpg' },
-                            { title: 'Full Home Interiors', desc: 'End-to-end furniture and styling.', img: '/v4/interior-living-3d.jpg' }
-                        ].map((item, idx) => (
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        {data.services.map((item: any, idx: number) => (
                             <motion.div
                                 key={idx}
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                className="group cursor-pointer"
+                                transition={{ delay: idx * 0.1 }}
+                                className="group"
                             >
-                                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden mb-6 shadow-lg">
-                                    <Image src={item.img} fill alt={item.title} className="object-cover group-hover:scale-110 transition-transform duration-700" />
-                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                </div>
-                                <h3 className="text-2xl font-serif font-bold text-[#4d3b1a] mb-2">{item.title}</h3>
-                                <p className="text-stone-500 font-light text-sm mb-4">{item.desc}</p>
-                                <div className="flex items-center gap-2 text-[#c5a059] font-bold text-xs uppercase tracking-widest">
-                                    Explore Now <ChevronRight className="w-4 h-4" />
+                                <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden mb-8 shadow-lg">
+                                    <Image src={item.img} fill alt={item.title} className="object-cover group-hover:scale-110 transition-transform duration-[1.5s]" />
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all" />
+                                    <div className="absolute bottom-8 left-8 right-8 text-white">
+                                        <h3 className="text-3xl font-bold mb-2">{item.title}</h3>
+                                        <p className="text-white/90 text-sm font-normal mb-6 opacity-0 group-hover:opacity-100 transition-all duration-500">{item.desc}</p>
+                                        <div className="flex items-center gap-2 text-white font-bold text-xs uppercase tracking-widest bg-[#eb595f] w-fit px-4 py-2 rounded-full">
+                                            Learn More <ArrowRight className="w-4 h-4" />
+                                        </div>
+                                    </div>
                                 </div>
                             </motion.div>
                         ))}
@@ -196,80 +270,93 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
                 </div>
             </section>
 
-            {/* 4. Why EVOLX Studio? */}
-            <section className="py-24 bg-[#4d3b1a] text-white">
+            {/* 5. Excellence Section */}
+            <section className="py-32 bg-stone-50">
                 <div className="max-w-[1400px] mx-auto px-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                        <div className="space-y-8">
-                            <h2 className="text-2xl md:text-5xl font-serif font-bold leading-tight">
-                                Why EVOLX Studio is {cityName}&apos;s Preferred Choice?
-                            </h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                                <div className="space-y-3">
-                                    <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-[#e5d5b0]">
-                                        <Award className="w-6 h-6" />
-                                    </div>
-                                    <h4 className="font-bold text-xl">10-Year Warranty</h4>
-                                    <p className="text-stone-400 font-light text-sm">Long-term peace of mind with our quality guarantee.</p>
-                                </div>
-                                <div className="space-y-3">
-                                    <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-[#e5d5b0]">
-                                        <Clock className="w-6 h-6" />
-                                    </div>
-                                    <h4 className="font-bold text-xl">45-Day Delivery</h4>
-                                    <p className="text-stone-400 font-light text-sm">Rapid fulfillment without compromising on quality.</p>
-                                </div>
-                                <div className="space-y-3">
-                                    <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-[#e5d5b0]">
-                                        <ShieldCheck className="w-6 h-6" />
-                                    </div>
-                                    <h4 className="font-bold text-xl">250+ Quality Checks</h4>
-                                    <p className="text-stone-400 font-light text-sm">Rigorous auditing for flawless finishing.</p>
-                                </div>
-                                <div className="space-y-3">
-                                    <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-[#e5d5b0]">
-                                        <Users className="w-6 h-6" />
-                                    </div>
-                                    <h4 className="font-bold text-xl">Bespoke Designs</h4>
-                                    <p className="text-stone-400 font-light text-sm">Tailor-made to reflect your personal style.</p>
-                                </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                        <div className="space-y-12">
+                            <div className="space-y-4">
+                                <h2 className="text-4xl md:text-6xl font-bold leading-tight text-[#2d2412]">
+                                    Excellence in Every Detail
+                                </h2>
+                                <p className="text-stone-600 text-xl font-normal">Why we are the first choice for luxury interiors in {cityName}.</p>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                                {[
+                                    { icon: Award, title: '10-Year Warranty', desc: 'Comprehensive coverage for your peace of mind.' },
+                                    { icon: Clock, title: '45-Day Promise', desc: 'Swift delivery from design sign-off to installation.' },
+                                    { icon: ShieldCheck, title: '250+ Quality Checks', desc: 'Rigorous auditing at every stage of production.' },
+                                    { icon: Users, title: 'Expert Team', desc: 'Certified architects and specialized craftsmen.' }
+                                ].map((feature, idx) => (
+                                    <motion.div
+                                        key={idx}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: idx * 0.1 }}
+                                        className="space-y-4"
+                                    >
+                                        <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-[#eb595f] shadow-sm border border-stone-100">
+                                            <feature.icon className="w-7 h-7" />
+                                        </div>
+                                        <h4 className="font-bold text-xl text-[#2d2412]">{feature.title}</h4>
+                                        <p className="text-stone-500 font-normal text-sm leading-relaxed">{feature.desc}</p>
+                                    </motion.div>
+                                ))}
                             </div>
                         </div>
-                        <div className="relative h-[400px] md:h-[600px] rounded-[1.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl">
-                            <Image src="/v4/interior-living-3d.jpg" fill alt="Trust" className="object-cover" />
-                            <div className="absolute inset-0 bg-[#c5a059]/20 mix-blend-multiply" />
-                            <div className="absolute bottom-10 left-10 right-10 bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-3xl">
-                                <div className="flex items-center gap-4 mb-4">
-                                    <div className="flex gap-1 text-yellow-400">
-                                        {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-4 h-4 fill-current" />)}
-                                    </div>
-                                    <span className="text-sm font-bold tracking-widest uppercase">Excellent Reviews</span>
+
+                        <div className="relative">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl"
+                            >
+                                <Image src="/v4/interior-living-3d.jpg" fill alt="Quality Promise" className="object-cover" />
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0, x: 30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                className="absolute -bottom-12 -left-12 md:-left-20 bg-white p-10 rounded-[2rem] shadow-2xl max-w-sm hidden md:block border border-stone-100"
+                            >
+                                <div className="flex gap-1 text-yellow-500 mb-4">
+                                    {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-5 h-5 fill-current" />)}
                                 </div>
-                                <p className="text-xl font-serif italic font-light">&quot;The attention to detail and professional handling of my project in {cityName} was remarkable. Highly recommend!&quot;</p>
-                                <p className="mt-4 font-bold text-[#e5d5b0]">Rahul Sharma, {cityName} Homeowner</p>
-                            </div>
+                                <p className="text-xl italic text-stone-700 leading-relaxed mb-6 font-normal">
+                                    &quot;EVOLX Studio transformed our empty shell into a masterpiece. Their attention to detail in {cityName} is unparalleled.&quot;
+                                </p>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 bg-stone-100 rounded-full" />
+                                    <div>
+                                        <p className="font-bold text-stone-900">Vikram Malhotra</p>
+                                        <p className="text-sm text-stone-500">{cityName} Homeowner</p>
+                                    </div>
+                                </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* 5. FAQs Section */}
-            <section className="py-24 bg-stone-50">
+            {/* 6. FAQs Section */}
+            <section className="py-32 bg-white">
                 <div className="max-w-4xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <h2 className="text-2xl md:text-5xl font-serif font-bold text-[#4d3b1a] mb-4">Got Questions?</h2>
-                        <p className="text-stone-500 font-light">Everything you need to know about working with us in {cityName}.</p>
+                    <div className="text-center mb-20 space-y-4">
+                        <h2 className="text-4xl md:text-6xl font-bold text-[#2d2412]">Common Questions</h2>
+                        <p className="text-stone-500 font-normal text-lg">Planning your interior journey in {cityName}.</p>
                     </div>
                     <div className="space-y-4">
                         {faqs.map((faq, idx) => (
-                            <div key={idx} className="bg-white rounded-2xl border border-stone-100 overflow-hidden transition-all shadow-sm">
+                            <div key={idx} className="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm">
                                 <button
                                     onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                                    className="w-full px-8 py-6 flex items-center justify-between text-left group"
+                                    className="w-full px-8 py-7 flex items-center justify-between text-left group"
                                 >
-                                    <span className="text-lg font-bold text-[#4d3b1a] group-hover:text-[#c5a059] transition-colors">{faq.q}</span>
-                                    <div className={`p-2 rounded-full transition-all ${openFaq === idx ? 'bg-[#c5a059] text-white' : 'bg-stone-50 text-stone-400'}`}>
-                                        {openFaq === idx ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                                    <span className="text-xl font-bold text-[#2d2412] group-hover:text-[#eb595f] transition-all">{faq.q}</span>
+                                    <div className={`p-2 rounded-full transition-all ${openFaq === idx ? 'bg-[#eb595f] text-white rotate-180' : 'bg-stone-50 text-stone-400'}`}>
+                                        <Plus className={`w-5 h-5 ${openFaq === idx ? 'hidden' : 'block'}`} />
+                                        <Minus className={`w-5 h-5 ${openFaq === idx ? 'block' : 'hidden'}`} />
                                     </div>
                                 </button>
                                 <AnimatePresence>
@@ -278,9 +365,10 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: 'auto', opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.3 }}
                                             className="overflow-hidden"
                                         >
-                                            <div className="px-8 pb-8 pt-0 text-stone-500 leading-relaxed font-light">
+                                            <div className="px-8 pb-8 pt-0 text-stone-600 leading-relaxed text-lg font-normal border-t border-stone-50 pt-4">
                                                 {faq.a}
                                             </div>
                                         </motion.div>
@@ -292,29 +380,33 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
                 </div>
             </section>
 
-            {/* 6. CTA Banner */}
-            <section className="py-24 px-6 flex justify-center">
-                <div className="max-w-[1400px] w-full relative h-[400px] md:h-[500px] rounded-[1.5rem] md:rounded-[3rem] overflow-hidden group">
-                    <Image src="/v4/interior-living-3d.jpg" fill alt="Final CTA" className="object-cover group-hover:scale-105 transition-transform duration-1000" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#4d3b1a]/90 via-[#4d3b1a]/40 to-transparent flex items-center p-10 md:p-20">
-                        <div className="max-w-2xl text-white space-y-8">
-                            <h2 className="text-2xl sm:text-4xl md:text-6xl font-serif font-bold leading-tight">
-                                Transform your home in <span className="text-[#e5d5b0]">{cityName}</span> today.
+            {/* 7. CTA Banner */}
+            <section className="py-24 px-6 flex justify-center bg-white">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    className="max-w-[1400px] w-full relative min-h-[500px] rounded-[3rem] overflow-hidden shadow-2xl group"
+                >
+                    <Image src={data.heroImage} fill alt="Final CTA" className="object-cover opacity-90" />
+                    <div className="absolute inset-0 bg-white/60 flex items-center p-10 md:p-24 backdrop-blur-sm">
+                        <div className="max-w-2xl text-[#2d2412] space-y-10">
+                            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
+                                Ready to Elevate Your Living in <span className="text-[#eb595f]">{cityName}</span>?
                             </h2>
-                            <p className="text-stone-300 text-lg md:text-xl font-light leading-relaxed">
-                                Join our community of happy homeowners. Get your free personalized design quote and start your interior journey with EVOLX Studio.
+                            <p className="text-stone-700 text-xl font-normal leading-relaxed">
+                                Join our community of 10,000+ happy families. Get your free personalized design quote and start your journey with India&apos;s most innovative design studio.
                             </p>
-                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                <button className="px-10 py-4 bg-[#c5a059] text-white font-bold rounded-full hover:bg-white hover:text-[#c5a059] transition-all shadow-xl">
+                            <div className="flex flex-col sm:flex-row gap-6 pt-6">
+                                <button className="px-10 py-5 bg-[#eb595f] text-white font-bold rounded-full hover:bg-[#2d2412] transition-all shadow-lg scale-105">
                                     Book Free Consultation
                                 </button>
-                                <button className="px-10 py-4 border-2 border-white/20 text-white font-bold rounded-full hover:bg-white/10 transition-all backdrop-blur-sm flex items-center gap-2">
-                                    View Our Catalog <ArrowRight className="w-5 h-5" />
+                                <button className="px-10 py-5 border border-stone-400 text-[#2d2412] font-bold rounded-full hover:bg-white transition-all backdrop-blur-sm flex items-center justify-center gap-3">
+                                    Explore Catalog <ArrowRight className="w-5 h-5" />
                                 </button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </section>
         </div>
     );

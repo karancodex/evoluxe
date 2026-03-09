@@ -18,11 +18,7 @@ import MeetDesignerBanner from '@/components/MeetDesignerBanner';
 export default function V4HomePage() {
     return (
         <main
-            className="min-h-screen font-sans selection:bg-[#e5d5b0] selection:text-[#4d3b1a] bg-white text-[#4d3b1a]"
-            style={{
-                '--foreground': '#4d3b1a',
-                '--background': '#ffffff'
-            } as any}
+            className="min-h-screen selection:bg-[#eb595f] selection:text-white bg-white text-[#2d2412]"
         >
             <Hero />
             <ServicesSlider />
