@@ -5,25 +5,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const Footer = () => {
-    const getLink = (item: string) => {
-        const slug = item
-            .toString()
-            .toLowerCase()
-            .trim()
-            .replace(/\s+/g, '-')
-            .replace(/[^\w\-]+/g, '')
-            .replace(/\-\-+/g, '-')
-            .replace(/^-+/, '')
-            .replace(/-+$/, '');
-        return `/services/${slug}`;
-    };
+import { getLink } from '@/data/nav-data';
 
+const Footer = () => {
     const footerLinks = {
         company: [
             { name: "About Us", href: getLink("About Us") },
             { name: "Our Team", href: getLink("Our Team") },
-            { name: "Press & Media", href: getLink("Press & Media") },
+            // { name: "Press & Media", href: getLink("Press & Media") },
             { name: "Contact Us", href: getLink("Contact Us") },
             { name: "Privacy Policy", href: getLink("Privacy Policy") }
         ],
@@ -179,10 +168,10 @@ const Footer = () => {
 
                 {/* Bottom Section */}
                 <div className="border-t border-[#faf9f6] pt-8 flex flex-col items-center gap-4 text-xs text-stone-400 font-medium">
-                    <p>© {new Date().getFullYear()} EVOLXStudio Design Studio. All rights reserved.</p>
+                    <p>© 2026 EVOLXStudio Design Studio. All rights reserved. | Developed by RightBrain Infotech Pvt. Ltd.</p>
                     <div className="flex gap-8">
-                        <Link href="#" className="hover:text-[#c5a059] transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-[#c5a059] transition-colors">Terms of Service</Link>
+                        <Link href={getLink("Privacy Policy")} className="hover:text-[#c5a059] transition-colors">Privacy Policy</Link>
+                        <Link href={getLink("Terms & Conditions")} className="hover:text-[#c5a059] transition-colors">Terms of Service</Link>
                         <Link href="#" className="hover:text-[#c5a059] transition-colors">Cookies</Link>
                     </div>
                 </div>

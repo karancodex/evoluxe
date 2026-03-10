@@ -106,7 +106,7 @@ export const topNavLinks: NavItem[] = [
         columns: [
             {
                 title: 'Company',
-                items: ['About Us', 'Our Team', 'Careers', 'Press & Media', 'Contact Us', 'Privacy Policy']
+                items: ['About Us', 'Our Team', 'Contact Us', 'Privacy Policy']
             },
             {
                 title: 'Resources',
@@ -114,10 +114,11 @@ export const topNavLinks: NavItem[] = [
             }
         ]
     },
+    // { name: 'DCW', label: 'DCW', hasDropdown: false },
 ];
 
 export const bottomNavLinks: NavItem[] = [
-    { name: 'How it works', label: 'How it works', hasDropdown: false },
+    { name: 'How it work', label: 'How it works', hasDropdown: false },
     {
         name: 'Offerings',
         label: 'Offerings',
@@ -168,7 +169,7 @@ export const getLink = (item: string) => {
                 if (col.items.includes(item)) {
                     if (link.name === 'Design Ideas') return `/design-ideas/${slug}`;
                     if (link.name === 'Cities') return `/city/${slug}`;
-                    if (link.name === 'More') return `/company/${slug}`;
+                    if (link.name === 'More') return `/${slug}`;
                     return `/services/${slug}`;
                 }
             }
@@ -815,6 +816,11 @@ export const getPageContent = (slug: string) => {
     if (slug === 'help-center') {
         subtitle = "We're Here to Support Your Design Journey.";
         description = "Find answers to frequently asked questions, track your project status, or raise a support ticket for post-installation services.";
+    }
+
+    if (slug === 'how-it-work') {
+        subtitle = "A Streamlined, Transparent, and Luxury-First Design Journey.";
+        description = "Understand our end-to-end design and execution process. From the first consultation to the final handover, we ensure your home evolution is a structural masterpiece.";
     }
 
     if (slug === 'terms-conditions') {

@@ -79,7 +79,7 @@ const TopicPage = () => {
         'customer-stories': <CustomerStoriesContent />,
         'help-center': <HelpCenterContent />,
         'terms-conditions': <TermsConditionsContent />,
-        'how-it-works': <HowItWorksContent />,
+        'how-it-work': <HowItWorksContent />,
     };
 
     if (specialComponents[slug]) {

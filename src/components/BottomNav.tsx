@@ -37,7 +37,7 @@ const BottomNav = () => {
         {
             label: 'Contact',
             icon: MessageSquare,
-            href: '/company/contact-us',
+            href: '/contact-us',
             active: pathname.includes('contact-us')
         }
     ];
