@@ -55,7 +55,7 @@ const HelpContent = () => {
                         {popularTopics.map((item, i) => (
                             <div key={i} className="bg-stone-50 p-12 rounded-[3rem] space-y-8 hover:bg-white hover:shadow-2xl hover:scale-105 transition-all duration-500 border border-transparent hover:border-stone-100 group">
                                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-[#D28D69] group-hover:bg-[#D28D69] group-hover:text-white transition-all shadow-sm">
-                                    {React.cloneElement(item.icon as React.ReactElement, { className: "w-8 h-8" })}
+                                    {React.cloneElement(item.icon as React.ReactElement<any>, { className: "w-8 h-8" })}
                                 </div>
                                 <div className="space-y-4">
                                     <h3 className="text-2xl font-serif font-bold text-[#2d2412]">{item.title}</h3>
@@ -196,7 +196,7 @@ const HelpContent = () => {
                         ].map((item, i) => (
                             <div key={i} className="bg-white/5 p-10 rounded-[3rem] border border-white/10 hover:bg-[#D28D69] transition-all cursor-pointer group">
                                 <div className="mb-6 flex justify-center text-[#D28D69] group-hover:text-white">
-                                    {React.cloneElement(item.icon as React.ReactElement, { className: "w-12 h-12" })}
+                                    {React.cloneElement(item.icon as React.ReactElement<any>, { className: "w-12 h-12" })}
                                 </div>
                                 <h3 className="text-xl font-serif font-bold mb-4">{item.title}</h3>
                                 <p className="text-stone-400 text-sm font-light group-hover:text-white/80">Download the PDF guide for pro maintenance tips.</p>
