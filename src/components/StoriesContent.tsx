@@ -276,7 +276,7 @@ const StoriesContent = () => {
                     ].map((item, i) => (
                         <div key={i} className="space-y-4 group cursor-pointer">
                             <div className="w-24 h-24 rounded-full border-2 border-stone-100 flex items-center justify-center text-[#D28D69] group-hover:border-[#D28D69] group-hover:bg-[#D28D69] group-hover:text-white transition-all">
-                                {React.cloneElement(item.icon, { className: "w-8 h-8" })}
+                                {React.cloneElement(item.icon as React.ReactElement<any>, { className: "w-8 h-8" })}
                             </div>
                             <p className="text-[10px] font-black tracking-widest uppercase text-stone-400 group-hover:text-[#2d2412] transition-colors">{item.label}</p>
                         </div>

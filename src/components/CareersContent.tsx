@@ -40,7 +40,7 @@ const CareersContent = () => {
                     ].map((item, i) => (
                         <div key={i} className="space-y-6 p-10 bg-stone-50 rounded-[3rem] hover:bg-[#2d2412] hover:text-white transition-all duration-500 group">
                             <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-[#D28D69] group-hover:bg-[#D28D69] group-hover:text-white transition-all shadow-sm">
-                                {React.cloneElement(item.icon, { className: "w-8 h-8" })}
+                                {React.cloneElement(item.icon as React.ReactElement<any>, { className: "w-8 h-8" })}
                             </div>
                             <h3 className="text-2xl font-serif font-bold">{item.title}</h3>
                             <p className="text-stone-500 font-light group-hover:text-stone-400">{item.desc}</p>

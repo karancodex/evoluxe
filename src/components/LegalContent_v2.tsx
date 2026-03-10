@@ -86,7 +86,7 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
                         ].map((item, i) => (
                             <div key={i} className="bg-white p-10 rounded-[2.5rem] shadow-sm flex flex-col md:flex-row gap-8 items-center border border-stone-100 hover:shadow-xl transition-all">
                                 <div className="w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-[#D28D69] shrink-0">
-                                    {React.cloneElement(item.icon, { className: "w-8 h-8" })}
+                                    {React.cloneElement(item.icon as React.ReactElement<any>, { className: "w-8 h-8" })}
                                 </div>
                                 <div className="space-y-2">
                                     <h4 className="text-xl font-bold text-[#2d2412]">{item.title}</h4>

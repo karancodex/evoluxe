@@ -33,7 +33,7 @@ const ReferContent = () => {
                     ].map((item, i) => (
                         <div key={i} className="text-center space-y-6 p-12 bg-stone-50 rounded-[3rem] hover:bg-white hover:shadow-2xl transition-all group border border-transparent hover:border-stone-100">
                             <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center text-[#D28D69] mx-auto group-hover:bg-[#D28D69] group-hover:text-white transition-all shadow-sm">
-                                {React.cloneElement(item.icon, { className: "w-8 h-8" })}
+                                {React.cloneElement(item.icon as React.ReactElement<any>, { className: "w-8 h-8" })}
                             </div>
                             <h3 className="text-2xl font-serif font-bold text-[#2d2412] mt-4">{item.title}</h3>
                             <p className="text-stone-500 font-light leading-relaxed">{item.desc}</p>
@@ -123,7 +123,7 @@ const ReferContent = () => {
                     ].map((item, i) => (
                         <div key={i} className="p-8 bg-white border border-stone-100 rounded-3xl text-center space-y-4 hover:shadow-xl transition-all group cursor-pointer">
                             <div className={`w-12 h-12 ${item.color} text-white rounded-xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform`}>
-                                {React.cloneElement(item.icon, { className: "w-5 h-5" })}
+                                {React.cloneElement(item.icon as React.ReactElement<any>, { className: "w-5 h-5" })}
                             </div>
                             <p className="text-stone-400 font-bold text-[10px] uppercase tracking-widest">{item.label}</p>
                         </div>
