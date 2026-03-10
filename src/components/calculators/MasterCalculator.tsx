@@ -33,6 +33,7 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
     const [selections, setSelections] = useState<Record<string, any>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [hoveredOption, setHoveredOption] = useState<any>(null);
     const formRef = useRef<HTMLFormElement>(null);
 
     const config = useMemo(() => {
@@ -41,33 +42,35 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                 return {
                     title: 'Kitchen Price Calculator',
                     accent: '#eb595f',
-                    illustration: '/v4/kitchen_calc_illustration.png',
+                    illustration: '/assets/calculators/kitchen_straight.png',
                     icon: <ChefHat className="w-10 h-10" />,
                     steps: [
                         {
                             id: 'layout',
                             label: 'Select Kitchen Layout',
                             options: [
-                                { id: 'straight', label: 'Straight', value: 80000, img: '/v4/luxury_kitchen_2.png', desc: 'Single wall efficiency' },
-                                { id: 'lshape', label: 'L-Shape', value: 150000, img: '/v4/luxury_kitchen_1.png', desc: 'Perfect for corners' },
-                                { id: 'ushape', label: 'U-Shape', value: 220000, img: '/v4/luxury_kitchen_3.png', desc: 'Maximum workspace' },
-                                { id: 'parallel', label: 'Parallel', value: 180000, img: '/v4/hero-bg.png', desc: 'Professional workflow' },
+                                { id: 'straight', label: 'Straight', value: 80000, img: '/assets/calculators/kitchen_straight.png', desc: 'Single wall efficiency' },
+                                { id: 'lshape', label: 'L-Shape', value: 150000, img: '/assets/calculators/kitchen_l_shape.png', desc: 'Perfect for corners' },
+                                { id: 'ushape', label: 'U-Shape', value: 220000, img: '/assets/calculators/kitchen_u_shape.png', desc: 'Maximum workspace' },
+                                { id: 'parallel', label: 'Parallel', value: 180000, img: '/assets/calculators/kitchen_parallel.png', desc: 'Professional workflow' },
                             ]
                         },
                         {
                             id: 'finish',
                             label: 'External Finish',
                             options: [
-                                { id: 'laminate', label: 'Laminate', sub: 'Durable & economical', multiplier: 1, img: '/v4/luxe_banner_bg.png' },
-                                { id: 'acrylic', label: 'Acrylic', sub: 'Glossy & premium look', multiplier: 1.4, img: '/v4/luxury_kitchen_2.png' },
-                                { id: 'pu', label: 'PU Paint', sub: 'Seamless & luxurious', multiplier: 1.9, img: '/v4/luxury_kitchen_1.png' },
+                                { id: 'laminate', label: 'Laminate', sub: 'Durable & versatile matte', multiplier: 1, img: '/assets/calculators/finishes/laminate.png' },
+                                { id: 'acrylic', label: 'Acrylic', sub: 'Glossy & premium look', multiplier: 1.4, img: '/v4/luxury_kitchen_1.png' },
+                                { id: 'lacquered', label: 'Lacquered Glass', sub: 'Glossy high-end reflection', multiplier: 1.6, img: '/assets/calculators/finishes/lacquered_glass.png' },
+                                { id: 'pu', label: 'PU Paint', sub: 'Seamless & luxurious', multiplier: 1.9, img: '/v4/luxury_kitchen_3.png' },
+                                { id: 'veneer', label: 'Natural Veneer', sub: 'Authentic wood warmth', multiplier: 2.1, img: '/assets/calculators/finishes/natural_veneer.png' },
                             ]
                         },
                         {
                             id: 'hardware',
                             label: 'Hardware & Fittings',
                             options: [
-                                { id: 'basic', label: 'Standard', sub: 'Functional soft-close', multiplier: 1, img: '/v4/3d_kitchen_iso.png' },
+                                { id: 'basic', label: 'Standard', sub: 'Functional soft-close', multiplier: 1, img: '/assets/calculators/kitchen_hardware_standard.png' },
                                 { id: 'premium', label: 'Hettich/Innotech', sub: 'German engineering', multiplier: 1.25, img: '/v4/3d_kitchen_iso.png' },
                                 { id: 'luxe', label: 'Blum Tandembox', sub: 'The gold standard', multiplier: 1.5, img: '/v4/3d_kitchen_iso.png' },
                             ]
@@ -84,25 +87,25 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                 return {
                     title: 'Wardrobe Price Calculator',
                     accent: '#a88a4d',
-                    illustration: '/v4/wardrobe_calc_illustration.png',
+                    illustration: '/v4/service_wardrobe.png',
                     icon: <Wardrobe className="w-10 h-10" />,
                     steps: [
                         {
                             id: 'type',
                             label: 'Door Style',
                             options: [
-                                { id: 'swing', label: 'Swing Doors', sub: 'Classic & easy access', value: 50000, img: '/v4/service_wardrobe.png' },
-                                { id: 'sliding', label: 'Sliding Doors', sub: 'Space-saving & modern', value: 75000, img: '/v4/3d_wardrobe_iso.png' },
-                                { id: 'walkin', label: 'Walk-in Closet', sub: 'Maximum luxury', value: 150000, img: '/v4/luxury_bedroom_1.png' },
+                                { id: 'swing', label: 'Swing Doors', sub: 'Classic appeal & full access', value: 50000, img: '/assets/calculators/wardrobe_swing_doors.png' },
+                                { id: 'sliding', label: 'Sliding Doors', sub: 'Space-saving modern elegance', value: 75000, img: '/v4/3d_wardrobe_iso.png' },
+                                { id: 'walkin', label: 'Walk-in Closet', sub: 'The ultimate luxury experience', value: 150000, img: '/v4/luxury_bedroom_1.png' },
                             ]
                         },
                         {
                             id: 'finish',
                             label: 'Finish Material',
                             options: [
-                                { id: 'laminate', label: 'Laminate', sub: 'Anti-scratch matte', multiplier: 1, img: '/v4/luxe_banner_bg.png' },
-                                { id: 'lacquered', label: 'Lacquered Glass', sub: 'Reflective & elegant', multiplier: 1.6, img: '/v4/luxury_kitchen_1.png' },
-                                { id: 'veneer', label: 'Natural Veneer', sub: 'Warm wood touch', multiplier: 2.1, img: '/v4/luxury_living_2.png' },
+                                { id: 'laminate', label: 'Laminate', sub: 'Durable & versatile matte', multiplier: 1, img: '/assets/calculators/finishes/laminate.png' },
+                                { id: 'lacquered', label: 'Lacquered Glass', sub: 'Glossy high-end reflection', multiplier: 1.6, img: '/assets/calculators/finishes/lacquered_glass.png' },
+                                { id: 'veneer', label: 'Natural Veneer', sub: 'Authentic wood warmth', multiplier: 2.1, img: '/assets/calculators/finishes/natural_veneer.png' },
                             ]
                         }
                     ],
@@ -116,26 +119,26 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                 return {
                     title: 'Full Home Price Estimator',
                     accent: '#eb595f',
-                    illustration: '/v4/home_calc_illustration.png',
+                    illustration: '/v4/interior-living-3d.jpg',
                     icon: <Home className="w-10 h-10" />,
                     steps: [
                         {
                             id: 'bhk',
                             label: 'Property Type',
                             options: [
-                                { id: '1bhk', label: '1 BHK', value: 450000, img: '/v4/luxury_living_1.png' },
-                                { id: '2bhk', label: '2 BHK', value: 850000, img: '/v4/luxury_living_2.png' },
-                                { id: '3bhk', label: '3 BHK', value: 1250000, img: '/v4/luxury_living_3.png' },
-                                { id: 'villa', label: 'Villa/Large Flat', value: 2500000, img: '/v4/interior-living-3d.jpg' },
+                                { id: '1bhk', label: '1 BHK Apartment', sub: 'Compact & efficient living', value: 450000, img: '/v4/luxury_living_1.png' },
+                                { id: '2bhk', label: '2 BHK Apartment', sub: 'Balanced family comfort', value: 850000, img: '/v4/luxury_living_2.png' },
+                                { id: '3bhk', label: '3 BHK Apartment', sub: 'Spacious & premium layout', value: 1250000, img: '/v4/luxury_living_3.png' },
+                                { id: 'villa', label: 'Villa / Large Home', sub: 'Grand scale luxury design', value: 2500000, img: '/v4/interior-living-3d.jpg' },
                             ]
                         },
                         {
                             id: 'package',
                             label: 'Quality Package',
                             options: [
-                                { id: 'essential', label: 'Essential', sub: 'Best value for money', multiplier: 1, img: '/v4/luxe_banner_bg.png' },
-                                { id: 'premium', label: 'Premium', sub: 'High-end branded fittings', multiplier: 1.4, img: '/v4/luxury_kitchen_2.png' },
-                                { id: 'luxe', label: 'Luxe', sub: 'Exotic finishes & Automation', multiplier: 2.2, img: '/v4/luxury_living_1.png' },
+                                { id: 'essential', label: 'Essential', sub: 'Core design essentials', multiplier: 1, img: '/v4/gen/space_saving.png' },
+                                { id: 'premium', label: 'Premium', sub: 'Luxury finishes & fixtures', multiplier: 1.4, img: '/v4/gen/luxury_furniture.png' },
+                                { id: 'luxe', label: 'Luxe', sub: 'Bespoke design & automation', multiplier: 2.2, img: '/v4/gen/luxury_project_1.png' },
                             ]
                         },
                         {
@@ -144,7 +147,7 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                             options: [
                                 { id: 'partial_1', label: 'Living + Kitchen', sub: 'Social and culinary spaces', multiplier: 0.6, img: '/v4/luxury_living_2.png' },
                                 { id: 'partial_2', label: 'Bedrooms + Kitchen', sub: 'Private and culinary spaces', multiplier: 0.8, img: '/v4/luxury_bedroom_1.png' },
-                                { id: 'complete', label: 'Complete Home', sub: 'Every corner transformed', multiplier: 1.1, img: '/v4/interior-living-3d.jpg' },
+                                { id: 'complete', label: 'Complete Home', sub: 'Full turnkey transformation', multiplier: 1.1, img: '/v4/interior-living-3d.jpg' },
                             ]
                         }
                     ],
@@ -160,11 +163,28 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
         }
     }, [type]);
 
+    const currentIllustration = useMemo(() => {
+        if (!config) return '';
+        if (hoveredOption?.img) return hoveredOption.img;
+        if (step > config.steps.length) return config.illustration;
+
+        const currentStep = config.steps[step - 1];
+        const prevStep = step > 1 ? config.steps[step - 2] : null;
+
+        // If we have a selection for the previous step, show that.
+        if (prevStep && selections[prevStep.id]) {
+            return selections[prevStep.id].img;
+        }
+
+        return currentStep.options[0].img;
+    }, [config, step, selections, hoveredOption]);
+
     if (!config) return null;
 
     const handleSelect = (stepId: string, option: any) => {
         const newSelections = { ...selections, [stepId]: option };
         setSelections(newSelections);
+        setHoveredOption(null);
         setStep(step + 1);
     };
 
@@ -276,6 +296,8 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                                             <button
                                                 key={opt.id}
                                                 onClick={() => handleSelect(config.steps[step - 1].id, opt)}
+                                                onMouseEnter={() => setHoveredOption(opt)}
+                                                onMouseLeave={() => setHoveredOption(null)}
                                                 className="group text-left p-6 rounded-3xl border border-stone-100 hover:border-stone-900 transition-all hover:shadow-xl relative overflow-hidden"
                                             >
                                                 <div className="relative z-10 flex gap-4 items-center">
@@ -304,13 +326,13 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                                 </div>
                                 <div className="w-full md:w-[40%] aspect-[4/5] rounded-[2.5rem] overflow-hidden relative shadow-2xl hidden md:block group/ill">
                                     <Image
-                                        src={config.illustration || config.steps[step - 1].options[0].img}
+                                        src={currentIllustration}
                                         alt="Visual Context"
                                         fill
-                                        className="object-contain p-8 group-hover/ill:scale-105 transition-transform duration-[5s]"
+                                        className="object-cover p-0 group-hover/ill:scale-105 transition-transform duration-[5s]"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#faf9f6]/20 to-transparent" />
-                                    <div className="absolute bottom-8 left-8 right-8 text-[#2d2412]/60">
+                                    <div className="absolute bottom-8 left-8 right-8 text-[#2d2412]/60 bg-white/40 backdrop-blur-md p-4 rounded-2xl">
                                         <p className="text-[10px] font-bold uppercase tracking-widest mb-2 opacity-60">Architectural View</p>
                                         <p className="text-lg font-serif italic">"Designed with precision for your lifestyle."</p>
                                     </div>
@@ -348,14 +370,14 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                                             ))}
                                         </div>
 
-                                        <div className="p-10 rounded-[2.5rem] bg-[#2d2412] text-white relative overflow-hidden group">
+                                        {/* <div className="p-10 rounded-[2.5rem] bg-[#2d2412] text-white relative overflow-hidden group">
                                             <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
                                             <div className="relative z-10 text-center">
                                                 <span className="text-[10px] font-bold tracking-[0.5em] uppercase text-white/40 block mb-4">Estimated Investment</span>
                                                 <div className="text-5xl md:text-6xl font-black mb-4 tracking-tighter">₹{finalResult.toLocaleString('en-IN')}*</div>
                                                 <p className="text-[10px] text-white/30 uppercase tracking-widest">*Inclusive of Design, GST & Warranty</p>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
 
                                     {/* Capture Form */}
