@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, HelpCircle, MessageSquare, Book, ChevronRight, PhoneCall, Mail, LifeBuoy } from "lucide-react";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 const faqs = [
     {
@@ -24,6 +25,7 @@ const faqs = [
 ];
 
 const HelpCenterContent = () => {
+    const { openConsultation } = useConsultation();
     const [openIdx, setOpenIdx] = useState<number | null>(0);
 
     return (
@@ -124,7 +126,10 @@ const HelpCenterContent = () => {
                 <div className="bg-[#eb595f] rounded-[4rem] p-16 md:p-24 text-white relative overflow-hidden text-center">
                     <h2 className="text-4xl md:text-6xl font-serif font-bold mb-12">Couldn't find an answer?</h2>
                     <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
-                        <button className="px-12 py-6 bg-white text-[#eb595f] font-bold rounded-2xl flex items-center gap-4 hover:scale-105 transition-transform uppercase tracking-widest text-xs">
+                        <button
+                            onClick={openConsultation}
+                            className="px-12 py-6 bg-white text-[#eb595f] font-bold rounded-2xl flex items-center gap-4 hover:scale-105 transition-transform uppercase tracking-widest text-xs"
+                        >
                             <PhoneCall className="w-5 h-5" /> Speak to an Agent
                         </button>
                         <button className="px-12 py-6 border-2 border-white/30 text-white font-bold rounded-2xl flex items-center gap-4 hover:bg-white hover:text-[#eb595f] transition-all uppercase tracking-widest text-xs">

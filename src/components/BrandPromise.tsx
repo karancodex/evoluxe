@@ -3,8 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 const BrandPromise = () => {
+    const { openConsultation } = useConsultation();
     return (
         <section className="relative w-full h-[70vh] md:h-[85vh] min-h-[500px] md:min-h-[700px] overflow-hidden flex items-center justify-center">
             {/* Background Image with subtle zoom effect */}
@@ -67,6 +69,7 @@ const BrandPromise = () => {
 
                     <div className="pt-10">
                         <motion.button
+                            onClick={openConsultation}
                             whileHover={{ scale: 1.05, backgroundColor: "#eb595f" }}
                             whileTap={{ scale: 0.95 }}
                             className="px-12 py-4 bg-transparent border border-[#eb595f] text-[#fcebeb] font-bold rounded-sm tracking-[0.3em] uppercase text-[10px] transition-all hover:text-white shadow-[0_0_20px_rgba(235,89,95,0.3)] font-accent"

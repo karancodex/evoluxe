@@ -4,8 +4,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Twitter, Mail, Award, Users, Lightbulb, Zap } from "lucide-react";
 import Image from "next/image";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 const TeamContent = () => {
+    const { openConsultation } = useConsultation();
     const leaders = [
         {
             name: "Vikram Malhotra",
@@ -239,7 +241,10 @@ const TeamContent = () => {
                 <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
                     <h2 className="text-4xl font-serif font-bold text-[#2d2412]">Ready to meet with our experts?</h2>
                     <p className="text-stone-500">Book a session with our design team today.</p>
-                    <button className="px-12 py-5 bg-[#2d2412] text-white rounded-xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all">
+                    <button
+                        onClick={openConsultation}
+                        className="px-12 py-5 bg-[#2d2412] text-white rounded-xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all"
+                    >
                         Schedule an Appointment
                     </button>
                 </div>

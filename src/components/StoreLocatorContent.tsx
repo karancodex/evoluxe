@@ -17,6 +17,7 @@ import {
     Building2
 } from "lucide-react";
 import Image from "next/image";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 const stores = [
     {
@@ -24,7 +25,7 @@ const stores = [
         name: "Gurugram Flagship Studio",
         address: "DLF Phase 5, Golf Course Road, Gurugram, HR 122002",
         city: "Gurugram",
-        phone: "+91 9999 000 111",
+        phone: "+91 7744 80 6644",
         email: "gurugram@evolx.studio",
         hours: "10:00 AM - 08:00 PM",
         rating: 4.9,
@@ -76,6 +77,7 @@ const stores = [
 const cities = ["All Cities", "Gurugram", "Delhi", "Bengaluru", "Hyderabad"];
 
 const StoreLocatorContent = () => {
+    const { openConsultation } = useConsultation();
     const [searchQuery, setSearchQuery] = useState("");
     const [activeCity, setActiveCity] = useState("All Cities");
 
@@ -211,7 +213,10 @@ const StoreLocatorContent = () => {
                                                                 <Phone className="w-5 h-5 shrink-0" />
                                                                 <p className="text-base font-light">{store.phone}</p>
                                                             </div>
-                                                            <div className="flex items-center gap-4 text-[#2d2412]/60 hover:text-[#eb595f] cursor-pointer transition-colors">
+                                                            <div
+                                                                onClick={openConsultation}
+                                                                className="flex items-center gap-4 text-[#2d2412]/60 hover:text-[#eb595f] cursor-pointer transition-colors"
+                                                            >
                                                                 <ExternalLink className="w-5 h-5 shrink-0" />
                                                                 <p className="text-sm border-b border-current">Book Virtual Tour</p>
                                                             </div>
@@ -269,7 +274,10 @@ const StoreLocatorContent = () => {
                             Our designers will walk you through the experience center virtually.
                             Interactive 4K tours available daily.
                         </p>
-                        <button className="px-12 py-5 bg-white text-[#eb595f] font-bold rounded-full shadow-2xl hover:bg-[#2d2412] hover:text-white transition-all transform hover:-translate-y-1 uppercase tracking-[0.2em] text-xs">
+                        <button
+                            onClick={openConsultation}
+                            className="px-12 py-5 bg-white text-[#eb595f] font-bold rounded-full shadow-2xl hover:bg-[#2d2412] hover:text-white transition-all transform hover:-translate-y-1 uppercase tracking-[0.2em] text-xs"
+                        >
                             Session Inquiry
                         </button>
                     </div>

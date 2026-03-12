@@ -99,7 +99,10 @@ const DCWContent = () => {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <button className="w-full sm:w-auto px-10 py-4 bg-[#eb595f] text-white font-bold rounded-full shadow-lg hover:bg-[#2d2412] transition-all transform active:scale-95 text-xs uppercase tracking-widest">
+                                <button
+                                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                                    className="w-full sm:w-auto px-10 py-4 bg-[#eb595f] text-white font-bold rounded-full shadow-lg hover:bg-[#2d2412] transition-all transform active:scale-95 text-xs uppercase tracking-widest"
+                                >
                                     Get Instant Quote
                                 </button>
                                 <button className="w-full sm:w-auto px-10 py-4 border border-[#eb595f]/20 bg-white/50 backdrop-blur-sm text-[#eb595f] font-bold rounded-full hover:bg-[#eb595f] hover:text-white transition-all transform active:scale-95 text-xs uppercase tracking-widest">

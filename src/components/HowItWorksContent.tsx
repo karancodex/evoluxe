@@ -301,16 +301,37 @@ const HowItWorksContent = () => {
                                 <h3 className="text-2xl font-serif font-bold mb-2">Get Your Free Estimate</h3>
                                 <p className="text-white/60 text-sm italic">Start your journey to a structural masterpiece today.</p>
                             </div>
-                            <form className="space-y-6">
+                            <form
+                                onSubmit={async (e) => {
+                                    e.preventDefault();
+                                    const form = e.target as HTMLFormElement;
+                                    const formData = new FormData(form);
+                                    const data = Object.fromEntries(formData.entries());
+                                    try {
+                                        const response = await fetch("https://formsubmit.co/ajax/evolxinteriordesign@gmail.com", {
+                                            method: "POST",
+                                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                                            body: JSON.stringify(data)
+                                        });
+                                        if (response.ok) {
+                                            alert("Inquiry sent successfully!");
+                                            form.reset();
+                                        }
+                                    } catch (err) {
+                                        alert("Failed to send inquiry.");
+                                    }
+                                }}
+                                className="space-y-6"
+                            >
                                 <div className="space-y-1">
                                     <label className="text-[10px] uppercase tracking-widest text-[#eb595f] font-bold">Your Name</label>
-                                    <input type="text" className="w-full bg-white/5 border-b border-white/20 px-0 py-3 text-lg font-light focus:border-[#eb595f] outline-none transition-colors" placeholder="Karan Deshmukh" />
+                                    <input required name="Your Name" type="text" className="w-full bg-white/5 border-b border-white/20 px-0 py-3 text-lg font-light focus:border-[#eb595f] outline-none transition-colors" placeholder="Karan Deshmukh" />
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-[10px] uppercase tracking-widest text-[#eb595f] font-bold">Contact Number</label>
-                                    <input type="tel" className="w-full bg-white/5 border-b border-white/20 px-0 py-3 text-lg font-light focus:border-[#eb595f] outline-none transition-colors" placeholder="+91 99999 99999" />
+                                    <input required name="Contact Number" type="tel" className="w-full bg-white/5 border-b border-white/20 px-0 py-3 text-lg font-light focus:border-[#eb595f] outline-none transition-colors" placeholder="+91 99999 99999" />
                                 </div>
-                                <button className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-lg uppercase tracking-widest text-sm shadow-xl shadow-[#eb595f]/20 hover:bg-white hover:text-[#eb595f] transition-all">
+                                <button type="submit" className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-lg uppercase tracking-widest text-sm shadow-xl shadow-[#eb595f]/20 hover:bg-white hover:text-[#eb595f] transition-all">
                                     Start the Evolution
                                 </button>
                             </form>

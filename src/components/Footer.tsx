@@ -71,13 +71,36 @@ const Footer = () => {
                     <p className="text-[#4d3b1a]/60 mb-2 max-w-md mx-auto">
                         Subscribe to our newsletter for the latest design trends, tips, and exclusive offers.
                     </p>
-                    <form className="flex flex-col sm:flex-row gap-4 max-w-lg w-full justify-center">
+                    <form
+                        onSubmit={async (e) => {
+                            e.preventDefault();
+                            const form = e.target as HTMLFormElement;
+                            const formData = new FormData(form);
+                            const data = Object.fromEntries(formData.entries());
+                            try {
+                                const response = await fetch("https://formsubmit.co/ajax/evolxinteriordesign@gmail.com", {
+                                    method: "POST",
+                                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                                    body: JSON.stringify(data)
+                                });
+                                if (response.ok) {
+                                    alert("Subscribed successfully!");
+                                    form.reset();
+                                }
+                            } catch (err) {
+                                alert("Failed to subscribe.");
+                            }
+                        }}
+                        className="flex flex-col sm:flex-row gap-4 max-w-lg w-full justify-center"
+                    >
                         <input
+                            required
+                            name="Newsletter Email"
                             type="email"
                             placeholder="Enter your email address"
                             className="w-full sm:w-80 px-6 py-4 bg-white border border-stone-200 rounded-full focus:outline-none focus:border-[#eb595f] text-[#2d2412] placeholder-stone-400 transition-colors shadow-sm text-center sm:text-left"
                         />
-                        <button className="px-10 py-4 bg-[#eb595f] text-white font-bold rounded-full hover:bg-[#2d2412] transition-all whitespace-nowrap shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                        <button type="submit" className="px-10 py-4 bg-[#eb595f] text-white font-bold rounded-full hover:bg-[#2d2412] transition-all whitespace-nowrap shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                             Subscribe
                         </button>
                     </form>

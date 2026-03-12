@@ -1,11 +1,15 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, MessageSquare, Send } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Phone, Mail, MapPin, MessageSquare, Send, CheckCircle } from 'lucide-react';
+import { useConsultation } from './providers/ConsultationProvider';
 
 const ContactContent = () => {
+    const { openConsultation } = useConsultation();
+    const [submitted, setSubmitted] = useState(false);
+
     return (
         <div className="bg-white">
             {/* 1. HERO SECTION */}
@@ -74,46 +78,104 @@ const ContactContent = () => {
                         </div>
                     </div>
 
-                    <div className="bg-white p-6 sm:p-12 rounded-[3rem] border border-stone-100 shadow-xl">
-                        <h2 className="text-2xl md:text-3xl font-bold text-[#2d2412] mb-8">Send a Message</h2>
-                        <form className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest px-1">Full Name</label>
-                                    <input type="text" className="w-full px-6 py-4 bg-stone-50 border border-stone-100 rounded-xl outline-none focus:bg-white focus:border-[#eb595f] transition-all" placeholder="John Doe" />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest px-1">Phone Number</label>
-                                    <input type="tel" className="w-full px-6 py-4 bg-stone-50 border border-stone-100 rounded-xl outline-none focus:bg-white focus:border-[#eb595f] transition-all" placeholder="+91 XXXXX XXXXX" />
-                                </div>
-                            </div>
+                    <div className="bg-white p-6 sm:p-12 rounded-[3rem] border border-stone-100 shadow-xl overflow-hidden min-h-[500px] flex items-center justify-center">
+                        <AnimatePresence mode="wait">
+                            {!submitted ? (
+                                <motion.div
+                                    key="form"
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    className="w-full"
+                                >
+                                    <h2 className="text-2xl md:text-3xl font-bold text-[#2d2412] mb-8 font-serif">Send a Message</h2>
+                                    <form
+                                        onSubmit={async (e) => {
+                                            e.preventDefault();
+                                            const form = e.target as HTMLFormElement;
+                                            const formData = new FormData(form);
+                                            const data = Object.fromEntries(formData.entries());
+                                            try {
+                                                const response = await fetch("https://formsubmit.co/ajax/evolxinteriordesign@gmail.com", {
+                                                    method: "POST",
+                                                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                                                    body: JSON.stringify(data)
+                                                });
+                                                if (response.ok) {
+                                                    setSubmitted(true);
+                                                    form.reset();
+                                                } else {
+                                                    alert("Something went wrong.");
+                                                }
+                                            } catch (err) {
+                                                alert("Failed to send message.");
+                                            }
+                                        }}
+                                        className="space-y-6"
+                                    >
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div className="space-y-2">
+                                                <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest px-1">Full Name</label>
+                                                <input required name="Full Name" type="text" className="w-full px-6 py-4 bg-stone-50 border border-stone-100 rounded-xl outline-none focus:bg-white focus:border-[#eb595f] transition-all" placeholder="John Doe" />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest px-1">Phone Number</label>
+                                                <input required name="Phone Number" type="tel" className="w-full px-6 py-4 bg-stone-50 border border-stone-100 rounded-xl outline-none focus:bg-white focus:border-[#eb595f] transition-all" placeholder="+91 XXXXX XXXXX" />
+                                            </div>
+                                        </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest px-1">Email Address</label>
-                                    <input type="email" className="w-full px-6 py-4 bg-stone-50 border border-stone-100 rounded-xl outline-none focus:bg-white focus:border-[#eb595f] transition-all" placeholder="john@example.com" />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest px-1">Select Service</label>
-                                    <select className="w-full px-6 py-4 bg-stone-50 border border-stone-100 rounded-xl outline-none focus:bg-white focus:border-[#eb595f] transition-all appearance-none cursor-pointer">
-                                        <option>Full Home Interiors</option>
-                                        <option>Modular Kitchen</option>
-                                        <option>Wardrobe Solutions</option>
-                                        <option>Commercial Spaces</option>
-                                        <option>Other Services</option>
-                                    </select>
-                                </div>
-                            </div>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div className="space-y-2">
+                                                <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest px-1">Email Address</label>
+                                                <input required name="Email" type="email" className="w-full px-6 py-4 bg-stone-50 border border-stone-100 rounded-xl outline-none focus:bg-white focus:border-[#eb595f] transition-all" placeholder="john@example.com" />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest px-1">Select Service</label>
+                                                <select name="Service" className="w-full px-6 py-4 bg-stone-50 border border-stone-100 rounded-xl outline-none focus:bg-white focus:border-[#eb595f] transition-all appearance-none cursor-pointer">
+                                                    <option>Full Home Interiors</option>
+                                                    <option>Modular Kitchen</option>
+                                                    <option>Wardrobe Solutions</option>
+                                                    <option>Commercial Spaces</option>
+                                                    <option>Other Services</option>
+                                                </select>
+                                            </div>
+                                        </div>
 
-                            <div className="space-y-2">
-                                <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest px-1">Message</label>
-                                <textarea rows={4} className="w-full px-6 py-4 bg-stone-50 border border-stone-100 rounded-xl outline-none focus:bg-white focus:border-[#eb595f] transition-all resize-none" placeholder="Tell us more about your dream project..." />
-                            </div>
+                                        <div className="space-y-2">
+                                            <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest px-1">Message</label>
+                                            <textarea required name="Message" rows={4} className="w-full px-6 py-4 bg-stone-50 border border-stone-100 rounded-xl outline-none focus:bg-white focus:border-[#eb595f] transition-all resize-none" placeholder="Tell us more about your dream project..." />
+                                        </div>
 
-                            <button className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-xl shadow-lg hover:bg-[#2d2412] transition-all duration-300 flex items-center justify-center gap-3">
-                                Send Message <Send className="w-5 h-5" />
-                            </button>
-                        </form>
+                                        <button type="submit" className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-xl shadow-lg hover:bg-[#2d2412] transition-all duration-300 flex items-center justify-center gap-3">
+                                            Send Message <Send className="w-5 h-5" />
+                                        </button>
+                                    </form>
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key="success"
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    className="text-center space-y-8 py-12"
+                                >
+                                    <div className="w-20 h-20 bg-[#eb595f] rounded-full flex items-center justify-center mx-auto text-white shadow-2xl">
+                                        <CheckCircle className="w-10 h-10" />
+                                    </div>
+                                    <div className="space-y-4">
+                                        <h2 className="text-4xl font-serif font-bold text-[#2d2412]">Message Sent</h2>
+                                        <p className="text-stone-500 font-light max-w-xs mx-auto leading-relaxed">
+                                            Thank you for reaching out. We will contact you within the next 2 hours.
+                                        </p>
+                                    </div>
+                                    <button
+                                        onClick={() => setSubmitted(false)}
+                                        className="px-8 py-4 border-2 border-stone-100 rounded-xl text-[10px] font-black uppercase tracking-widest hover:border-[#eb595f] transition-all"
+                                    >
+                                        Send Another
+                                    </button>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
                 </div>
 
@@ -261,7 +323,10 @@ const ContactContent = () => {
                     <h2 className="text-4xl md:text-7xl font-bold text-white relative z-10">Start your journey today.</h2>
                     <p className="text-stone-400 text-lg md:text-xl font-light relative z-10">Book your first design session and let's bring your dream home to life.</p>
                     <div className="relative z-10">
-                        <button className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-white hover:text-[#2d2412] transition-all transform hover:-translate-y-1 shadow-2xl">
+                        <button
+                            onClick={openConsultation}
+                            className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-white hover:text-[#2d2412] transition-all transform hover:-translate-y-1 shadow-2xl"
+                        >
                             Book Free Consultation
                         </button>
                     </div>

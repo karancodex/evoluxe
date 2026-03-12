@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/providers/SmoothScroll";
+import { ConsultationProvider } from "@/components/providers/ConsultationProvider";
 
 export const metadata: Metadata = {
     title: "EVOLX Studio — Interior Architecture & Design",
@@ -24,10 +25,12 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <body suppressHydrationWarning>
                 <SmoothScroll>
-                    <Navbar />
-                    <main>{children}</main>
-                    <BottomNav />
-                    <Footer />
+                    <ConsultationProvider>
+                        <Navbar />
+                        <main>{children}</main>
+                        <BottomNav />
+                        <Footer />
+                    </ConsultationProvider>
                 </SmoothScroll>
             </body>
         </html>

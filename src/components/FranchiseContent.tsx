@@ -184,29 +184,50 @@ const FranchiseContent = () => {
                     </div>
 
                     <div className="lg:col-span-7 bg-white p-10 md:p-16 rounded-[2.5rem] shadow-2xl border border-stone-100">
-                        <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <form
+                            onSubmit={async (e) => {
+                                e.preventDefault();
+                                const form = e.target as HTMLFormElement;
+                                const formData = new FormData(form);
+                                const data = Object.fromEntries(formData.entries());
+                                try {
+                                    const response = await fetch("https://formsubmit.co/ajax/evolxinteriordesign@gmail.com", {
+                                        method: "POST",
+                                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                                        body: JSON.stringify(data)
+                                    });
+                                    if (response.ok) {
+                                        alert("Inquiry sent successfully!");
+                                        form.reset();
+                                    }
+                                } catch (err) {
+                                    alert("Failed to send inquiry.");
+                                }
+                            }}
+                            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                        >
                             <div className="space-y-2">
                                 <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Full Name</label>
-                                <input type="text" placeholder="John Doe" className="w-full px-0 py-4 border-b-2 border-stone-100 focus:border-[#eb595f] outline-none transition-all placeholder:text-stone-200" />
+                                <input required name="Full Name" type="text" placeholder="John Doe" className="w-full px-0 py-4 border-b-2 border-stone-100 focus:border-[#eb595f] outline-none transition-all placeholder:text-stone-200" />
                             </div>
                             <div className="space-y-2">
                                 <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Target City</label>
-                                <input type="text" placeholder="City Name" className="w-full px-0 py-4 border-b-2 border-stone-100 focus:border-[#eb595f] outline-none transition-all placeholder:text-stone-200" />
+                                <input required name="Target City" type="text" placeholder="City Name" className="w-full px-0 py-4 border-b-2 border-stone-100 focus:border-[#eb595f] outline-none transition-all placeholder:text-stone-200" />
                             </div>
                             <div className="space-y-2">
                                 <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Phone Number</label>
-                                <input type="tel" placeholder="+91 XXX XXX XXXX" className="w-full px-0 py-4 border-b-2 border-stone-100 focus:border-[#eb595f] outline-none transition-all placeholder:text-stone-200" />
+                                <input required name="Phone Number" type="tel" placeholder="+91 XXX XXX XXXX" className="w-full px-0 py-4 border-b-2 border-stone-100 focus:border-[#eb595f] outline-none transition-all placeholder:text-stone-200" />
                             </div>
                             <div className="space-y-2">
                                 <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Investment Budget</label>
-                                <select className="w-full px-0 py-4 border-b-2 border-stone-100 focus:border-[#eb595f] outline-none bg-transparent transition-all text-stone-600">
+                                <select name="Investment Budget" className="w-full px-0 py-4 border-b-2 border-stone-100 focus:border-[#eb595f] outline-none bg-transparent transition-all text-stone-600">
                                     <option>₹50L - ₹1Cr</option>
                                     <option>₹1Cr - ₹2Cr</option>
                                     <option>₹2Cr+</option>
                                 </select>
                             </div>
                             <div className="md:col-span-2 pt-6">
-                                <button className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-2xl shadow-xl hover:bg-[#2d2412] transition-all transform hover:-translate-y-1 uppercase tracking-widest">
+                                <button type="submit" className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-2xl shadow-xl hover:bg-[#2d2412] transition-all transform hover:-translate-y-1 uppercase tracking-widest">
                                     Send Franchise Inquiry
                                 </button>
                                 <p className="text-center text-stone-400 text-xs mt-6">By clicking, you agree to our Partnership Terms and Privacy Policy.</p>

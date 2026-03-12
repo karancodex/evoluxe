@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { topNavLinks, bottomNavLinks, slugify, getLink } from '@/data/nav-data';
+import { useConsultation } from './providers/ConsultationProvider';
 
 const Navbar = () => {
     // Reverting to individual state hooks to resolve HMR/React Hook order mismatch
@@ -14,6 +15,7 @@ const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [mobileNavView, setMobileNavView] = useState<'main' | string>('main');
     const [hoverTimeout, setHoverTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
+    const { openConsultation } = useConsultation();
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -222,7 +224,10 @@ const Navbar = () => {
 
                     {/* Right: Consult Button */}
                     <div>
-                        <button className="px-8 py-2.5 rounded-sm text-[11px] font-black tracking-[0.15em] uppercase transition-all bg-[#eb595f] text-white hover:bg-[#2d2412] shadow-lg hover:shadow-xl hover:-translate-y-0.5 border border-transparent hover:border-[#eb595f]/30">
+                        <button
+                            onClick={openConsultation}
+                            className="px-8 py-2.5 rounded-sm text-[11px] font-black tracking-[0.15em] uppercase transition-all bg-[#eb595f] text-white hover:bg-[#2d2412] shadow-lg hover:shadow-xl hover:-translate-y-0.5 border border-transparent hover:border-[#eb595f]/30"
+                        >
                             Consult Online Now
                         </button>
                     </div>
@@ -362,7 +367,13 @@ const Navbar = () => {
 
                             {/* Drawer Footer */}
                             <div className="p-6 bg-white border-t border-stone-100 flex flex-col gap-4">
-                                <button className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-xl shadow-lg active:scale-95 transition-all text-sm uppercase tracking-widest whitespace-nowrap">
+                                <button
+                                    onClick={() => {
+                                        setMobileMenuOpen(false);
+                                        openConsultation();
+                                    }}
+                                    className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-xl shadow-lg active:scale-95 transition-all text-sm uppercase tracking-widest whitespace-nowrap"
+                                >
                                     Consult a Designer Free
                                 </button>
                                 <div className="flex items-center justify-center gap-8 py-2">
@@ -377,6 +388,7 @@ const Navbar = () => {
                     </>
                 )}
             </AnimatePresence>
+
         </nav>
     );
 };

@@ -22,13 +22,15 @@ import {
     Send
 } from 'lucide-react';
 import Image from 'next/image';
-import emailjs from '@emailjs/browser';
+import { useConsultation } from '../providers/ConsultationProvider';
+
 
 interface CalculatorProps {
     type: 'kitchen' | 'wardrobe' | 'full-home';
 }
 
 const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
+    const { openConsultation } = useConsultation();
     const [step, setStep] = useState(1);
     const [selections, setSelections] = useState<Record<string, any>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -196,40 +198,47 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
 
     const finalResult = config.calculate(selections);
 
-    const sendEmail = (e: React.FormEvent) => {
+    const sendEmail = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Replace these with your actual EmailJS Service ID, Template ID, and Public Key
-        // For now, using placeholders as per typical integration flow
-        const templateParams = {
-            from_name: selections.contact?.name,
-            from_email: selections.contact?.email,
-            from_phone: selections.contact?.phone,
-            calculator_type: config.title,
-            estimate_amount: `₹${finalResult.toLocaleString('en-IN')}`,
-            selections_summary: Object.entries(selections)
-                .filter(([key]) => key !== 'contact')
-                .map(([key, val]: [string, any]) => `${key}: ${val.label}`)
-                .join('\n')
+        const formData: Record<string, any> = {
+            "Full Name": selections.contact?.name,
+            "Email": selections.contact?.email,
+            "PhoneNo": selections.contact?.phone,
+            "Calculator Type": config.title,
         };
 
-        // Note: In a real PRD, these keys would come from environment variables
-        // emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_PUBLIC_KEY')
-        //     .then(() => {
-        //         setIsSubmitted(true);
-        //         setIsSubmitting(false);
-        //     })
-        //     .catch(() => {
-        //         alert("Failed to send. Please try again.");
-        //         setIsSubmitting(false);
-        //     });
+        // Add all selections dynamically
+        Object.entries(selections)
+            .filter(([key]) => key !== 'contact')
+            .forEach(([key, val]: [string, any]) => {
+                // Capitalize key
+                const label = key.charAt(0).toUpperCase() + key.slice(1);
+                formData[label] = val.label;
+            });
 
-        // Mock success for demonstration
-        setTimeout(() => {
-            setIsSubmitted(true);
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/evolxinteriordesign@gmail.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                setIsSubmitted(true);
+            } else {
+                alert("Failed to send. Please try again.");
+            }
+        } catch (error) {
+            console.error("Submission error:", error);
+            alert("Failed to send. Please check your connection and try again.");
+        } finally {
             setIsSubmitting(false);
-        }, 1500);
+        }
     };
 
     const stepsCount = config.steps.length + 1; // +1 for summary/form
@@ -452,12 +461,20 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                                         <h2 className="text-4xl font-serif font-bold">Estimate <span className="italic font-medium text-green-500">Sent Successfully</span></h2>
                                         <p className="text-stone-400 max-w-lg mx-auto">Check your inbox for the detailed breakdown. Our design concierge will reach out to you within 24 hours.</p>
                                     </div>
-                                    <button
-                                        onClick={reset}
-                                        className="px-12 py-5 border-2 border-stone-100 rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-stone-100 transition-all flex items-center justify-center gap-3 mx-auto"
-                                    >
-                                        <RotateCcw className="w-4 h-4" /> New Calculation
-                                    </button>
+                                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                        <button
+                                            onClick={reset}
+                                            className="px-12 py-5 border-2 border-stone-100 rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-stone-100 transition-all flex items-center justify-center gap-3"
+                                        >
+                                            <RotateCcw className="w-4 h-4" /> New Calculation
+                                        </button>
+                                        <button
+                                            onClick={openConsultation}
+                                            className="px-12 py-5 bg-[#2d2412] text-white rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-[#eb595f] transition-all flex items-center justify-center gap-3 shadow-xl"
+                                        >
+                                            <Sparkles className="w-4 h-4" /> Consult a Designer
+                                        </button>
+                                    </div>
                                 </div>
                             )}
                         </motion.div>

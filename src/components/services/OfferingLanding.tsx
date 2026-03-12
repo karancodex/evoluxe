@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Play, CheckCircle, Star, Users, ShieldCheck, Clock, ArrowRight, Quote } from 'lucide-react';
+import { useConsultation } from '../providers/ConsultationProvider';
 
 interface OfferingLandingProps {
     title: string;
@@ -73,6 +74,7 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
     faqs
 }) => {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
+    const { openConsultation } = useConsultation();
 
     return (
         <div className="bg-white font-sans text-[#2d2412] selection:bg-[#eb595f] selection:text-white">
@@ -118,6 +120,7 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
 
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <button
+                                    onClick={openConsultation}
                                     className="w-full sm:w-auto px-8 py-4 bg-[#eb595f] text-white font-bold rounded-2xl shadow-[0_10px_30px_rgba(235,89,95,0.3)] hover:shadow-xl transition-all transform active:scale-95 text-sm uppercase tracking-widest"
                                     style={{ backgroundColor: accentColor }}
                                 >
@@ -530,20 +533,44 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
                             LIMITED TIME OFFER
                         </div>
                         <h3 className="text-3xl font-bold mb-8">Book Free Consultation</h3>
-                        <form className="space-y-6">
+                        <form
+                            onSubmit={async (e) => {
+                                e.preventDefault();
+                                const form = e.target as HTMLFormElement;
+                                const formData = new FormData(form);
+                                const data = Object.fromEntries(formData.entries());
+                                // Add offering title to the data
+                                data.Offering = title;
+
+                                try {
+                                    const response = await fetch("https://formsubmit.co/ajax/evolxinteriordesign@gmail.com", {
+                                        method: "POST",
+                                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                                        body: JSON.stringify(data)
+                                    });
+                                    if (response.ok) {
+                                        alert("Request sent successfully!");
+                                        form.reset();
+                                    }
+                                } catch (err) {
+                                    alert("Failed to send request.");
+                                }
+                            }}
+                            className="space-y-6"
+                        >
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Full Name</label>
-                                    <input type="text" placeholder="John Doe" className="w-full bg-stone-50 p-5 rounded-2xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#eb595f]/30 transition-all" />
+                                    <input required name="Full Name" type="text" placeholder="John Doe" className="w-full bg-stone-50 p-5 rounded-2xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#eb595f]/30 transition-all" />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Phone Number</label>
-                                    <input type="tel" placeholder="+91 98765 43210" className="w-full bg-stone-50 p-5 rounded-2xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#eb595f]/30 transition-all" />
+                                    <input required name="Phone Number" type="tel" placeholder="+91 98765 43210" className="w-full bg-stone-50 p-5 rounded-2xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#eb595f]/30 transition-all" />
                                 </div>
                             </div>
                             <div className="space-y-2">
                                 <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Project Type</label>
-                                <select className="w-full bg-stone-50 p-5 rounded-2xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#eb595f]/30 appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJtNiA5IDYgNiA2LTYiLz48L3N2Zz4=')] bg-[length:24px] bg-[right_20px_center] bg-no-repeat">
+                                <select name="Project Type" className="w-full bg-stone-50 p-5 rounded-2xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-[#eb595f]/30 appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJtNiA5IDYgNiA2LTYiLz48L3N2Zz4=')] bg-[length:24px] bg-[right_20px_center] bg-no-repeat">
                                     <option>Select a service</option>
                                     <option>Full Home Design</option>
                                     <option>Modular Interiors</option>

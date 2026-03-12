@@ -3,6 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import { useConsultation } from "./providers/ConsultationProvider";
+
 const stats = [
     {
         value: "10-Year",
@@ -52,6 +54,7 @@ const stats = [
 ];
 
 const StatsSection = () => {
+    const { openConsultation } = useConsultation();
     return (
         <section className="py-12 md:py-16 bg-white relative overflow-hidden">
             {/* Artistic Background Elements */}
@@ -149,7 +152,10 @@ const StatsSection = () => {
                             <p className="text-white/60 font-light text-sm sm:text-base">Join over 1,00,000+ happy families and build your dream sanctuary today.</p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <button className="px-8 py-4 bg-white text-[#eb595f] font-bold rounded-full hover:bg-[#2d2412] hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-lg text-sm">
+                            <button
+                                onClick={openConsultation}
+                                className="px-8 py-4 bg-white text-[#eb595f] font-bold rounded-full hover:bg-[#2d2412] hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-lg text-sm"
+                            >
                                 Consult a Designer
                             </button>
                             <button className="px-8 py-4 border border-white/20 text-white font-bold rounded-full hover:bg-white/10 transition-all active:scale-95 text-sm">

@@ -4,8 +4,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Play, Quote, Star, ArrowRight, CheckCircle, ExternalLink, MessageCircle } from "lucide-react";
 import Image from "next/image";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 const StoriesContent = () => {
+    const { openConsultation } = useConsultation();
     const stories = [
         {
             title: "A Modern Oasis in the Heart of Pune.",
@@ -290,7 +292,10 @@ const StoriesContent = () => {
                     <h2 className="text-4xl md:text-7xl font-serif font-bold text-[#2d2412]">Want to be our next <br /> success story?</h2>
                     <p className="text-stone-500 text-lg font-light">Let's create something beautiful together. Reach out for a free consultation.</p>
                     <div className="flex justify-center gap-6 pt-4">
-                        <button className="px-12 py-6 bg-[#2d2412] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all shadow-xl">
+                        <button
+                            onClick={openConsultation}
+                            className="px-12 py-6 bg-[#2d2412] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all shadow-xl"
+                        >
                             Start Your Project
                         </button>
                     </div>
