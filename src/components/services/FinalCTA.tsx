@@ -3,12 +3,14 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useConsultation } from '../providers/ConsultationProvider';
 
 interface FinalCTAProps {
     accentColor?: string;
 }
 
 export const FinalCTA: React.FC<FinalCTAProps> = ({ accentColor = "#eb595f" }) => {
+    const { openConsultation } = useConsultation();
     return (
         <section className="py-24 md:py-32 relative overflow-hidden text-white" style={{ backgroundColor: accentColor }}>
             {/* Background Texture Accents - Subtle */}
@@ -50,13 +52,13 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ accentColor = "#eb595f" }) =
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-                        <Link
-                            href="/services/contact-us"
+                        <button
+                            onClick={openConsultation}
                             className="px-10 py-5 bg-white font-bold rounded-full transition-all hover:bg-[#2d2412] hover:text-white shadow-2xl hover:-translate-y-2 text-sm uppercase tracking-widest"
                             style={{ color: accentColor }}
                         >
                             Book a Design Session
-                        </Link>
+                        </button>
                         <button
                             className="px-10 py-5 border-2 border-white/20 text-white font-bold rounded-full transition-all hover:bg-white/10 hover:border-white text-sm uppercase tracking-widest"
                         >

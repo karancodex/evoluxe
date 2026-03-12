@@ -2,9 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Gift, Share2, Users, Heart, ArrowRight, CheckCircle, Smartphone, Mail, Phone } from "lucide-react";
+import { Gift, Share2, Users, Heart, ArrowRight, CheckCircle, Smartphone, Mail, Phone, Sparkles } from "lucide-react";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 const ReferContent = () => {
+    const { openConsultation } = useConsultation();
     return (
         <div className="bg-white overflow-hidden">
             {/* 1. HERO SECTION */}
@@ -71,10 +73,31 @@ const ReferContent = () => {
                     <div className="bg-white p-12 rounded-[4rem] shadow-2xl relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-[#D28D69]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                         <h3 className="text-3xl font-serif font-bold text-[#2d2412] mb-8 text-center">Refer Your Inner Circle</h3>
-                        <form className="space-y-6">
-                            <input type="text" placeholder="Your Name" className="w-full px-8 py-4 bg-stone-50 border border-stone-100 rounded-2xl outline-none focus:bg-white focus:border-[#D28D69] transition-all" />
-                            <input type="tel" placeholder="Friend's Mobile Number" className="w-full px-8 py-4 bg-stone-50 border border-stone-100 rounded-2xl outline-none focus:bg-white focus:border-[#D28D69] transition-all" />
-                            <button className="w-full py-5 bg-[#2d2412] text-white font-bold rounded-xl shadow-lg hover:bg-[#D28D69] transition-all tracking-widest uppercase">
+                        <form
+                            onSubmit={async (e) => {
+                                e.preventDefault();
+                                const form = e.target as HTMLFormElement;
+                                const formData = new FormData(form);
+                                const data = Object.fromEntries(formData.entries());
+                                try {
+                                    const response = await fetch("https://formsubmit.co/ajax/evolxinteriordesign@gmail.com", {
+                                        method: "POST",
+                                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                                        body: JSON.stringify(data)
+                                    });
+                                    if (response.ok) {
+                                        alert("Referral sent successfully!");
+                                        form.reset();
+                                    }
+                                } catch (err) {
+                                    alert("Failed to send referral.");
+                                }
+                            }}
+                            className="space-y-6"
+                        >
+                            <input required name="Your Name" type="text" placeholder="Your Name" className="w-full px-8 py-4 bg-stone-50 border border-stone-100 rounded-2xl outline-none focus:bg-white focus:border-[#D28D69] transition-all" />
+                            <input required name="Friend's Mobile Number" type="tel" placeholder="Friend's Mobile Number" className="w-full px-8 py-4 bg-stone-50 border border-stone-100 rounded-2xl outline-none focus:bg-white focus:border-[#D28D69] transition-all" />
+                            <button type="submit" className="w-full py-5 bg-[#2d2412] text-white font-bold rounded-xl shadow-lg hover:bg-[#D28D69] transition-all tracking-widest uppercase">
                                 Send Invite Link
                             </button>
                         </form>
@@ -166,9 +189,17 @@ const ReferContent = () => {
                 <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
                     <h2 className="text-4xl md:text-7xl font-serif font-bold text-[#2d2412]">Start sharing <br /> the love.</h2>
                     <p className="text-stone-500 text-lg font-light">Join the EVOLX tribe and start earning rewards for spreading the word.</p>
-                    <button className="px-12 py-6 bg-[#2d2412] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all shadow-xl flex items-center gap-4 mx-auto">
-                        Copy Referral Link <ArrowRight className="w-4 h-4" />
-                    </button>
+                    <div className="flex flex-col sm:flex-row justify-center gap-6">
+                        <button className="px-12 py-6 bg-[#2d2412] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all shadow-xl flex items-center gap-4">
+                            Copy Referral Link <ArrowRight className="w-4 h-4" />
+                        </button>
+                        <button
+                            onClick={openConsultation}
+                            className="px-12 py-6 border-2 border-[#2d2412] text-[#2d2412] rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] hover:text-white transition-all transform hover:-translate-y-1 shadow-2xl flex items-center gap-4"
+                        >
+                            Consult a Designer <Sparkles className="w-4 h-4" />
+                        </button>
+                    </div>
                 </div>
             </section>
         </div>

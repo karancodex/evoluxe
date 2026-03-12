@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 const servicesList = [
     { title: "Modular Kitchen", image: "/v4/gen/luxury_kitchen.png", price: "Starts ₹1.2L*", size: "large", desc: "Italian finishes & German hardware", sub: "Bespoke Gastronomy", slug: "modular-kitchen" },
@@ -19,6 +20,7 @@ const servicesList = [
 
 const ServicesSlider = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const { openConsultation } = useConsultation();
 
     return (
         <section className="py-24 bg-white relative overflow-hidden">
@@ -166,7 +168,10 @@ const ServicesSlider = () => {
                         </p>
                     </div>
 
-                    <button className="px-12 py-5 bg-[#2d2412] text-white rounded-full font-bold text-sm hover:bg-[#eb595f] transition-all shadow-xl flex items-center gap-4">
+                    <button
+                        onClick={openConsultation}
+                        className="px-12 py-5 bg-[#2d2412] text-white rounded-full font-bold text-sm hover:bg-[#eb595f] transition-all shadow-xl flex items-center gap-4"
+                    >
                         Request a Proposal
                         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />

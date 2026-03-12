@@ -3,47 +3,54 @@
 import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Star, ChevronRight, Filter, Info, Phone, Mail, User } from 'lucide-react';
+import { Star, ChevronRight, Filter, Phone, Mail, User, Sparkles, Send, Target } from 'lucide-react';
+import { useConsultation } from './providers/ConsultationProvider';
 
 interface DesignCardProps {
     title: string;
     rating: number;
     reviews: number;
     image: string;
+    onConsult: () => void;
 }
 
-const DesignCard = ({ title, rating, reviews, image }: DesignCardProps) => (
+const DesignCard = ({ title, rating, reviews, image, onConsult }: DesignCardProps) => (
     <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-stone-100 group"
+        className="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-stone-100 group"
     >
         <div className="relative h-64 w-full overflow-hidden">
             <Image
                 src={image}
                 alt={title}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                className="object-cover group-hover:scale-110 transition-transform duration-1000"
             />
+            <div className="absolute top-4 left-4">
+                <div className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+                    <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                    <span className="text-[10px] font-black">{rating}</span>
+                </div>
+            </div>
         </div>
-        <div className="p-5 space-y-3">
-            <h3 className="font-serif text-[15px] font-bold text-[#2d2412] line-clamp-2 min-h-[40px]">
+        <div className="p-8 space-y-6">
+            <h3 className="font-serif text-xl font-bold text-[#2d2412] line-clamp-2 leading-tight">
                 {title}
             </h3>
-            <div className="flex items-center gap-1">
-                <div className="flex items-center">
-                    {[1, 2, 3, 4, 5].map((s) => (
-                        <Star key={s} className={`w-3.5 h-3.5 ${s <= Math.floor(rating) ? 'text-yellow-400 fill-yellow-400' : 'text-stone-300'}`} />
-                    ))}
-                </div>
-                <span className="text-xs text-stone-500 font-medium">{rating} Stars | {reviews}+ Reviews</span>
-            </div>
-            <div className="flex gap-2 pt-2">
-                <button className="flex-1 px-3 py-2.5 bg-[#eb595f] text-white text-[11px] font-bold uppercase tracking-wider rounded-md hover:bg-[#2d2412] transition-colors whitespace-nowrap">
+
+            <div className="flex gap-3">
+                <button
+                    onClick={onConsult}
+                    className="flex-1 px-4 py-3.5 bg-[#eb595f] text-white text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-[#2d2412] transition-colors shadow-lg shadow-[#eb595f]/20"
+                >
                     Get Free Quote
                 </button>
-                <button className="flex-1 px-3 py-2.5 border border-stone-200 text-[#2d2412] text-[11px] font-bold uppercase tracking-wider rounded-md hover:bg-stone-50 transition-colors whitespace-nowrap">
+                <button
+                    onClick={onConsult}
+                    className="flex-1 px-4 py-3.5 border border-stone-100 text-[#2d2412] text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-stone-50 transition-colors"
+                >
                     View Details
                 </button>
             </div>
@@ -59,7 +66,7 @@ interface DesignIdeasContentProps {
 }
 
 const DesignIdeasContent = ({ title, description, slug, galleryImages }: DesignIdeasContentProps) => {
-    const [formData, setFormData] = useState({ name: '', email: '', phone: '', pin: '' });
+    const { openConsultation } = useConsultation();
     const [activeFilter, setActiveFilter] = useState('All');
 
     // Mock data for designs
@@ -67,7 +74,6 @@ const DesignIdeasContent = ({ title, description, slug, galleryImages }: DesignI
         const baseTags = ['Modern', 'Contemporary', 'Luxury', 'Minimalist', 'Space-Saving'];
         const items = [];
 
-        // Use gallery images if available, otherwise fallback to placeholder
         const imagesToUse = galleryImages && galleryImages.length > 0 ? galleryImages : ['/v4/interior-living-3d.jpg'];
 
         for (let i = 0; i < 9; i++) {
@@ -91,43 +97,51 @@ const DesignIdeasContent = ({ title, description, slug, galleryImages }: DesignI
     const filters = ['All', 'Modern', 'Contemporary', 'Luxury', 'Minimalist', 'Space-Saving', 'L-Shaped', 'U-Shaped'];
 
     return (
-        <div className="bg-[#fcfcfc] min-h-screen pb-20">
+        <div className="bg-[#fcfcfc] min-h-screen pb-20 selection:bg-[#eb595f]/10">
             {/* Breadcrumbs */}
-            <div className="max-w-[1400px] mx-auto px-6 py-6 md:py-8">
-                <nav className="flex items-center text-[11px] md:text-[13px] text-stone-500 font-medium overflow-x-auto whitespace-nowrap pb-2 scrollbar-hide">
-                    <span className="hover:text-[#eb595f] cursor-pointer">Home</span>
-                    <ChevronRight className="w-3.5 h-3.5 mx-1.5 md:mx-2" />
-                    <span className="hover:text-[#eb595f] cursor-pointer">Interior Design</span>
-                    <ChevronRight className="w-3.5 h-3.5 mx-1.5 md:mx-2" />
-                    <span className="text-[#2d2412]">{title}</span>
+            <div className="max-w-[1400px] mx-auto px-6 py-8">
+                <nav className="flex items-center text-[10px] font-bold uppercase tracking-widest text-stone-400">
+                    <span className="hover:text-[#eb595f] cursor-pointer transition-colors">Home</span>
+                    <ChevronRight className="w-3 h-3 mx-2 opacity-30" />
+                    <span className="hover:text-[#eb595f] cursor-pointer transition-colors">Interior Design</span>
+                    <ChevronRight className="w-3 h-3 mx-2 opacity-30" />
+                    <span className="text-[#eb595f]">{title}</span>
                 </nav>
             </div>
 
             <div className="max-w-[1400px] mx-auto px-6">
-                <div className="flex flex-col lg:flex-row gap-8">
+                <div className="flex flex-col lg:flex-row gap-12">
 
                     {/* Left & Center: Content */}
-                    <div className="flex-1 min-w-0 space-y-10">
+                    <div className="flex-1 min-w-0 space-y-12">
                         {/* Header */}
-                        <div className="space-y-4">
-                            <h1 className="text-3xl md:text-5xl font-serif font-bold text-[#2d2412]">
-                                {title} Ideas
+                        <div className="space-y-6">
+                            <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100 rounded-full"
+                            >
+                                <Sparkles className="w-3 h-3 text-[#eb595f]" />
+                                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500">Design Inspiration</span>
+                            </motion.div>
+                            <h1 className="text-5xl md:text-7xl font-serif font-bold text-[#2d2412] leading-[0.95]">
+                                {title} <br /> <span className="italic text-[#eb595f]">Concepts.</span>
                             </h1>
-                            <p className="text-stone-600 max-w-3xl leading-relaxed">
+                            <p className="text-stone-500 text-lg font-light max-w-2xl leading-relaxed">
                                 {description || `Discover stunning ${title.toLowerCase()} ideas for your home. Browse our curated collection of premium designs tailored to your unique style and space requirements.`}
                             </p>
                         </div>
 
                         {/* Filters */}
-                        <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
-                            <div className="p-2 border border-stone-200 rounded-md bg-white">
-                                <Filter className="w-4 h-4 text-[#eb595f] fill-[#eb595f]/10" />
+                        <div className="flex items-center gap-3 overflow-x-auto pb-4 scrollbar-hide -mx-6 px-6">
+                            <div className="p-2.5 bg-white border border-stone-100 rounded-xl shadow-sm mr-2 shrink-0">
+                                <Filter className="w-4 h-4 text-[#eb595f]" />
                             </div>
                             {filters.map(filter => (
                                 <button
                                     key={filter}
                                     onClick={() => setActiveFilter(filter)}
-                                    className={`px-6 py-2 rounded-full text-[13px] font-semibold whitespace-nowrap transition-all ${activeFilter === filter ? 'bg-[#eb595f] text-white' : 'bg-white border border-stone-200 text-stone-600 hover:border-[#eb595f]'}`}
+                                    className={`px-8 py-3 rounded-2xl text-[11px] font-black uppercase tracking-widest whitespace-nowrap transition-all ${activeFilter === filter ? 'bg-[#eb595f] text-white shadow-lg shadow-[#eb595f]/20' : 'bg-white border border-stone-100 text-stone-400 hover:text-[#eb595f] hover:border-[#eb595f]'}`}
                                 >
                                     {filter}
                                 </button>
@@ -135,157 +149,90 @@ const DesignIdeasContent = ({ title, description, slug, galleryImages }: DesignI
                         </div>
 
                         {/* Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                             {filteredDesigns.map((design, idx) => (
-                                <DesignCard key={idx} {...design} rating={parseFloat(design.rating as string)} />
+                                <DesignCard
+                                    key={idx}
+                                    {...design}
+                                    rating={parseFloat(design.rating as string)}
+                                    onConsult={openConsultation}
+                                />
                             ))}
                         </div>
                     </div>
 
-                    {/* Right: Sidebar Form */}
-                    <div className="w-full lg:w-[360px] shrink-0">
-                        <div className="sticky top-28 bg-white rounded-2xl p-8 border border-stone-100 shadow-xl shadow-stone-200/40 max-h-[calc(120vh-8rem)] overflow-y-auto scrollbar-hide">
-                            <div className="text-center mb-8">
-                                <h2 className="text-2xl font-serif font-bold text-[#2d2412] mb-2">Talk to our Designers</h2>
-                                <p className="text-stone-500 text-sm">Design your dream {title.toLowerCase()} today</p>
+                    {/* Right: Sidebar Form (Replaced with Premium CTA) */}
+                    <div className="w-full lg:w-[400px] shrink-0">
+                        <div className="sticky top-32 bg-[#2d2412] rounded-[3rem] p-10 text-white relative overflow-hidden group border border-white/5">
+                            <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:opacity-10 transition-opacity">
+                                <Target className="w-48 h-48" />
                             </div>
-
-                            <form className="space-y-4">
-                                <div className="space-y-1.5">
-                                    <label className="text-[11px] font-bold text-stone-400 uppercase tracking-wider px-1">Full Name</label>
-                                    <div className="relative">
-                                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-300 fill-current" />
-                                        <input
-                                            type="text"
-                                            placeholder="John Doe"
-                                            className="w-full pl-11 pr-4 py-3.5 bg-stone-50 border border-stone-100 rounded-xl focus:ring-2 focus:ring-[#eb595f]/20 focus:border-[#eb595f] outline-none transition-all text-[14px]"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="space-y-1.5">
-                                    <label className="text-[11px] font-bold text-stone-400 uppercase tracking-wider px-1">Email Address</label>
-                                    <div className="relative">
-                                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-300 fill-current" />
-                                        <input
-                                            type="email"
-                                            placeholder="john@example.com"
-                                            className="w-full pl-11 pr-4 py-3.5 bg-stone-50 border border-stone-100 rounded-xl focus:ring-2 focus:ring-[#eb595f]/20 focus:border-[#eb595f] outline-none transition-all text-[14px]"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="space-y-1.5">
-                                    <label className="text-[11px] font-bold text-stone-400 uppercase tracking-wider px-1">Phone Number</label>
-                                    <div className="relative">
-                                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-300 fill-current" />
-                                        <input
-                                            type="tel"
-                                            placeholder="+91 00000 00000"
-                                            className="w-full pl-11 pr-4 py-3.5 bg-stone-50 border border-stone-100 rounded-xl focus:ring-2 focus:ring-[#eb595f]/20 focus:border-[#eb595f] outline-none transition-all text-[14px]"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="space-y-1.5">
-                                    <label className="text-[11px] font-bold text-stone-400 uppercase tracking-wider px-1">Pincode</label>
-                                    <input
-                                        type="text"
-                                        placeholder="560001"
-                                        className="w-full px-4 py-3.5 bg-stone-50 border border-stone-100 rounded-xl focus:ring-2 focus:ring-[#eb595f]/20 focus:border-[#eb595f] outline-none transition-all text-[14px]"
-                                    />
+                            <div className="relative z-10 space-y-8">
+                                <div className="space-y-4">
+                                    <h2 className="text-3xl font-serif font-bold leading-tight">Design your <br /> dream <span className="text-[#eb595f] italic">{title.toLowerCase()}</span></h2>
+                                    <p className="text-white/40 font-light text-sm leading-relaxed">Talk to our experts and get a customized design proposal within 24 hours.</p>
                                 </div>
 
-                                <button className="w-full py-4 bg-[#eb595f] text-white font-bold rounded-xl shadow-lg shadow-[#eb595f]/20 hover:bg-[#2d2412] transition-all duration-300 transform hover:-translate-y-0.5 mt-4">
-                                    Get Free Consultation
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl border border-white/5">
+                                        <div className="w-10 h-10 rounded-xl bg-[#eb595f]/20 flex items-center justify-center text-[#eb595f]">
+                                            <Sparkles className="w-5 h-5" />
+                                        </div>
+                                        <span className="text-xs font-bold uppercase tracking-widest">Free Consultation</span>
+                                    </div>
+                                    <div className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl border border-white/5">
+                                        <div className="w-10 h-10 rounded-xl bg-[#eb595f]/20 flex items-center justify-center text-[#eb595f]">
+                                            <Send className="w-5 h-5" />
+                                        </div>
+                                        <span className="text-xs font-bold uppercase tracking-widest">Instant Booking</span>
+                                    </div>
+                                </div>
+
+                                <button
+                                    onClick={openConsultation}
+                                    className="w-full py-5 bg-[#eb595f] text-white font-black uppercase text-[10px] tracking-widest rounded-2xl transition-all hover:bg-white hover:text-[#2d2412] shadow-2xl flex items-center justify-center gap-3"
+                                >
+                                    Initialize Design Journey
                                 </button>
-
-                                <p className="text-[11px] text-stone-400 text-center leading-relaxed px-4">
-                                    By clicking this button, you agree to our Terms & Conditions and Privacy Policy.
-                                </p>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* Bottom Form Section - Visual focus as requested */}
-            <div className="mt-20 md:mt-32 max-w-[1500px] mx-auto px-0 sm:px-6 h-[450px] md:h-[600px] overflow-hidden relative group md:rounded-[2rem]">
+            {/* Bottom Form Section (CTA Banner) */}
+            <div className="mt-20 md:mt-32 max-w-[1500px] mx-auto px-6 h-[500px] md:h-[600px] overflow-hidden relative group rounded-[4rem]">
                 <Image
                     src="/v4/interior-living-3d.jpg"
                     alt="Start journey"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-[3s]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#eb595f]/90 via-[#eb595f]/50 to-transparent flex items-center p-8 md:p-20">
-                    <div className="max-w-xl text-white space-y-8">
-                        <div>
-                            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 leading-tight">
-                                Your dream <span className="italic text-[#fcebeb]">{title.toLowerCase()}</span> is <br className="hidden sm:block" /> just a click away
-                            </h2>
-                            <p className="text-stone-300 text-lg font-light leading-relaxed">
-                                Join 50,000+ happy homeowners who transformed their spaces with EVOLX Studio. Get expert advice and personalized designs today.
-                            </p>
-                        </div>
-
-                        <div className="bg-white/10 backdrop-blur-md p-1 rounded-full flex max-w-sm sm:max-w-md border border-white/20">
-                            <input
-                                type="text"
-                                placeholder="Pincode"
-                                className="bg-transparent border-none focus:ring-0 text-white placeholder:text-stone-300 px-4 sm:px-6 flex-1 text-xs sm:text-sm min-w-0"
-                            />
-                            <button className="bg-[#eb595f] hover:bg-white hover:text-[#eb595f] text-white px-4 sm:px-8 py-2.5 sm:py-3.5 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 whitespace-nowrap">
-                                Get Started
+                <div className="absolute inset-0 bg-[#2d2412]/80 backdrop-blur-md flex items-center p-8 md:p-24 overflow-hidden">
+                    <div className="absolute top-0 right-0 p-32 opacity-10">
+                        <Sparkles className="w-96 h-96 text-[#eb595f]" />
+                    </div>
+                    <div className="max-w-2xl text-white space-y-10 relative z-10">
+                        <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold leading-[0.95] tracking-tight">
+                            Your dream <span className="italic text-[#eb595f]">{title.toLowerCase()}</span> is ready for <span className="italic">execution.</span>
+                        </h2>
+                        <p className="text-white/40 text-lg md:text-xl font-light leading-relaxed max-w-xl">
+                            Join 10,000+ elite families who transformed their spaces with Evoluxe. Get your free personalized design quote today.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-6 pt-4">
+                            <button
+                                onClick={openConsultation}
+                                className="px-10 py-5 bg-[#eb595f] text-white font-black uppercase text-[10px] tracking-widest rounded-2xl hover:bg-white hover:text-[#2d2412] transition-all shadow-2xl flex items-center justify-center gap-3"
+                            >
+                                <Send className="w-4 h-4" /> Start My Project
+                            </button>
+                            <button
+                                onClick={openConsultation}
+                                className="px-10 py-5 border-2 border-white/20 text-white font-black uppercase text-[10px] tracking-widest rounded-2xl hover:bg-white/10 transition-all backdrop-blur-sm flex items-center justify-center gap-3"
+                            >
+                                Get Price Estimate
                             </button>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* SEO Content Section */}
-            <div className="max-w-[1100px] mx-auto px-6 mt-32 space-y-12">
-                <div className="prose prose-stone prose-lg max-w-none">
-                    <h2 className="text-3xl font-serif text-[#4d3b1a] mb-8">The Ultimate Guide to {title}</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-stone-600 font-light leading-[1.8]">
-                        <div className="space-y-6">
-                            <h4 className="font-bold text-[#4d3b1a] text-xl">1. Functional Excellence</h4>
-                            <p>
-                                When thinking about {title.toLowerCase()}, priority should always be given to how the space functions. At EVOLX Studio, we combine ergonomics with aesthetics to ensure that every corner of your {title.toLowerCase()} serves a purpose while looking breathtakingly beautiful.
-                            </p>
-                        </div>
-                        <div className="space-y-6">
-                            <h4 className="font-bold text-[#4d3b1a] text-xl">2. Material Selection</h4>
-                            <p>
-                                We use only premium materials that are built to last. From high-grade plywood to imported finishes, your {title.toLowerCase()} is crafted with the same attention to detail that goes into a masterpiece. Our quality assurance ensures zero compromises.
-                            </p>
-                        </div>
-                        <div className="space-y-6">
-                            <h4 className="font-bold text-[#4d3b1a] text-xl">3. Lighting & Ambience</h4>
-                            <p>
-                                Lighting can make or break a design. Our designers specialize in creating layered lighting schemes for {title.toLowerCase()} that allow you to shift from productive focus to relaxed comfort with just a flick of a switch.
-                            </p>
-                        </div>
-                        <div className="space-y-6">
-                            <h4 className="font-bold text-[#4d3b1a] text-xl">4. Personalization</h4>
-                            <p>
-                                No two homes are the same, and your {title.toLowerCase()} shouldn't be either. We take the time to understand your lifestyle, your hobbies, and your preferences to create a space that is truly an extension of your personality.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Frequently Asked Questions mock */}
-                <div className="bg-stone-50 rounded-3xl p-12 border border-stone-100">
-                    <h3 className="text-2xl font-serif text-[#4d3b1a] mb-8 text-center">Frequently Asked Questions</h3>
-                    <div className="space-y-6">
-                        {[1, 2, 3].map(i => (
-                            <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
-                                <h4 className="font-bold text-[#2d2412] mb-2 flex justify-between items-center">
-                                    What is the average cost of {title.toLowerCase()}?
-                                    <ChevronRight className="w-4 h-4 text-[#eb595f]" />
-                                </h4>
-                                <p className="text-stone-500 text-sm leading-relaxed">
-                                    The cost varies based on the materials, size, and complexity of the design. Typically, a premium {title.toLowerCase()} starts from a budget-friendly range and can go up depending on your luxury requirements.
-                                </p>
-                            </div>
-                        ))}
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MoveRight, Star, Award, History, Scissors, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 const brands = [
     { name: "Design Studio" },
@@ -15,6 +16,7 @@ const brands = [
 ];
 
 const AboutContent = () => {
+    const { openConsultation } = useConsultation();
     return (
         <div className="bg-white overflow-hidden selection:bg-[#C5A467]/30">
 
@@ -62,7 +64,10 @@ const AboutContent = () => {
                             transition={{ delay: 0.3 }}
                             className="flex flex-wrap gap-4 pt-4"
                         >
-                            <button className="px-10 py-5 bg-[#D28D69] text-white rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-[#2d2412] transition-all transform active:scale-95 shadow-lg shadow-[#D28D69]/20">
+                            <button
+                                onClick={openConsultation}
+                                className="px-10 py-5 bg-[#D28D69] text-white rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-[#2d2412] transition-all transform active:scale-95 shadow-lg shadow-[#D28D69]/20"
+                            >
                                 Get Started
                             </button>
                             <button className="px-10 py-5 border-2 border-stone-200 text-[#2d2412] rounded-xl font-bold text-xs tracking-widest uppercase hover:border-[#D28D69] hover:text-[#D28D69] transition-all transform active:scale-95">
@@ -116,7 +121,10 @@ const AboutContent = () => {
                                 </p>
                             </div>
 
-                            <button className="group px-8 py-5 bg-[#D28D69] text-white rounded-xl font-bold text-xs tracking-[0.2em] uppercase flex items-center gap-4 hover:bg-[#2d2412] transition-all">
+                            <button
+                                onClick={openConsultation}
+                                className="group px-8 py-5 bg-[#D28D69] text-white rounded-xl font-bold text-xs tracking-[0.2em] uppercase flex items-center gap-4 hover:bg-[#2d2412] transition-all"
+                            >
                                 Discover more
                                 <MoveRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                             </button>
@@ -250,7 +258,10 @@ const AboutContent = () => {
                     <p className="text-white/80 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
                         Since 1978, our legacy has been built on master upholstery and structural excellence. Experience luxury without compromise.
                     </p>
-                    <button className="px-12 py-5 bg-[#D28D69] text-white rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-white hover:text-[#2d2412] transition-all transform active:scale-95 shadow-2xl">
+                    <button
+                        onClick={openConsultation}
+                        className="px-12 py-5 bg-[#D28D69] text-white rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-white hover:text-[#2d2412] transition-all transform active:scale-95 shadow-2xl"
+                    >
                         Discover more
                     </button>
                 </div>
@@ -316,7 +327,10 @@ const AboutContent = () => {
                         Join the thousands of families who have transformed their houses into homes of luxury and character.
                     </p>
                     <div className="flex flex-center justify-center gap-6 pt-4">
-                        <button className="px-12 py-6 bg-[#2d2412] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all transform hover:-translate-y-1 shadow-2xl">
+                        <button
+                            onClick={openConsultation}
+                            className="px-12 py-6 bg-[#2d2412] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all transform hover:-translate-y-1 shadow-2xl"
+                        >
                             Book a Consultation
                         </button>
                     </div>

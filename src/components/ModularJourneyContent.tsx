@@ -15,6 +15,7 @@ import {
     Users
 } from "lucide-react";
 import Image from "next/image";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 const steps = [
     {
@@ -74,6 +75,7 @@ const steps = [
 ];
 
 const ModularJourneyContent = () => {
+    const { openConsultation } = useConsultation();
     return (
         <div className="bg-white">
             {/* Header Section */}
@@ -202,7 +204,10 @@ const ModularJourneyContent = () => {
                     <p className="text-white/80 mb-12 text-lg md:text-xl font-light">
                         Book your design session today and take the first step towards your dream home.
                     </p>
-                    <button className="px-12 py-5 bg-white text-[#eb595f] font-bold rounded-full shadow-2xl hover:bg-[#2d2412] hover:text-white transition-all transform hover:-translate-y-1 uppercase tracking-widest text-sm">
+                    <button
+                        onClick={openConsultation}
+                        className="px-12 py-5 bg-white text-[#eb595f] font-bold rounded-full shadow-2xl hover:bg-[#2d2412] hover:text-white transition-all transform hover:-translate-y-1 uppercase tracking-widest text-sm"
+                    >
                         Start Your Journey Now
                     </button>
                 </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 const steps = [
     {
@@ -43,6 +44,7 @@ const steps = [
 ];
 
 const DesignSession = () => {
+    const { openConsultation } = useConsultation();
     const [activeStep, setActiveStep] = useState(0);
 
     return (
@@ -80,6 +82,20 @@ const DesignSession = () => {
                     >
                         Experience our proprietary design methodology that turns your vision into a structural masterpiece.
                     </motion.p>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="mt-8"
+                    >
+                        <button
+                            onClick={openConsultation}
+                            className="px-8 py-4 bg-[#eb595f] text-white font-bold rounded-full shadow-lg hover:bg-[#2d2412] transition-all transform active:scale-95 text-xs uppercase tracking-widest"
+                        >
+                            Book a Design Session
+                        </button>
+                    </motion.div>
                 </div>
 
                 <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-16 items-center">

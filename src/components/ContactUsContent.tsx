@@ -7,9 +7,31 @@ import { Mail, Phone, MapPin, Send, MessageCircle, Clock, ChevronRight, CheckCir
 const ContactUsContent = () => {
     const [submitted, setSubmitted] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setSubmitted(true);
+        const form = e.target as HTMLFormElement;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/evolxinteriordesign@gmail.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                setSubmitted(true);
+            } else {
+                alert("Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            console.error("Submission error:", error);
+            alert("Failed to send message. Please check your connection.");
+        }
     };
 
     return (
@@ -45,7 +67,7 @@ const ContactUsContent = () => {
                                 </div>
                                 <div>
                                     <p className="text-[10px] font-black uppercase tracking-widest text-white/40 mb-2">Email Us</p>
-                                    <p className="text-xl font-light">hello@evolx.studio</p>
+                                    <p className="text-xl font-light">_Info@evolxstudio.com</p>
                                 </div>
                             </div>
                             <div className="flex gap-6 items-start">
@@ -54,7 +76,7 @@ const ContactUsContent = () => {
                                 </div>
                                 <div>
                                     <p className="text-[10px] font-black uppercase tracking-widest text-white/40 mb-2">Call Us</p>
-                                    <p className="text-xl font-light">+91 9999 000 111</p>
+                                    <p className="text-xl font-light">+91 7744 80 6644</p>
                                 </div>
                             </div>
                             <div className="flex gap-6 items-start">
@@ -100,20 +122,20 @@ const ContactUsContent = () => {
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                             <div className="space-y-2">
                                                 <label className="text-[10px] font-black uppercase tracking-widest text-stone-300 px-1">Full Name</label>
-                                                <input required type="text" placeholder="John Doe" className="w-full px-6 py-4 bg-stone-50 border-2 border-transparent rounded-2xl focus:border-[#eb595f] focus:bg-white outline-none transition-all placeholder:text-stone-300 font-medium" />
+                                                <input required name="Full Name" type="text" placeholder="John Doe" className="w-full px-6 py-4 bg-stone-50 border-2 border-transparent rounded-2xl focus:border-[#eb595f] focus:bg-white outline-none transition-all placeholder:text-stone-300 font-medium" />
                                             </div>
                                             <div className="space-y-2">
                                                 <label className="text-[10px] font-black uppercase tracking-widest text-stone-300 px-1">Email Address</label>
-                                                <input required type="email" placeholder="john@example.com" className="w-full px-6 py-4 bg-stone-50 border-2 border-transparent rounded-2xl focus:border-[#eb595f] focus:bg-white outline-none transition-all placeholder:text-stone-300 font-medium" />
+                                                <input required name="Email" type="email" placeholder="john@example.com" className="w-full px-6 py-4 bg-stone-50 border-2 border-transparent rounded-2xl focus:border-[#eb595f] focus:bg-white outline-none transition-all placeholder:text-stone-300 font-medium" />
                                             </div>
                                         </div>
                                         <div className="space-y-2">
                                             <label className="text-[10px] font-black uppercase tracking-widest text-stone-300 px-1">Phone Number</label>
-                                            <input required type="tel" placeholder="+91 00000 00000" className="w-full px-6 py-4 bg-stone-50 border-2 border-transparent rounded-2xl focus:border-[#eb595f] focus:bg-white outline-none transition-all placeholder:text-stone-300 font-medium" />
+                                            <input required name="Phone Number" type="tel" placeholder="+91 00000 00000" className="w-full px-6 py-4 bg-stone-50 border-2 border-transparent rounded-2xl focus:border-[#eb595f] focus:bg-white outline-none transition-all placeholder:text-stone-300 font-medium" />
                                         </div>
                                         <div className="space-y-2">
                                             <label className="text-[10px] font-black uppercase tracking-widest text-stone-300 px-1">Message</label>
-                                            <textarea rows={5} placeholder="Tell us about your dream home..." className="w-full px-6 py-4 bg-stone-50 border-2 border-transparent rounded-2xl focus:border-[#eb595f] focus:bg-white outline-none transition-all placeholder:text-stone-300 font-medium resize-none" />
+                                            <textarea required name="Message" rows={5} placeholder="Tell us about your dream home..." className="w-full px-6 py-4 bg-stone-50 border-2 border-transparent rounded-2xl focus:border-[#eb595f] focus:bg-white outline-none transition-all placeholder:text-stone-300 font-medium resize-none" />
                                         </div>
 
                                         <button type="submit" className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-2xl hover:bg-[#2d2412] transition-all transform hover:-translate-y-1 shadow-2xl flex items-center justify-center gap-3 uppercase tracking-widest text-xs">

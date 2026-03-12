@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useConsultation } from '../providers/ConsultationProvider';
 
 interface HeroProps {
     title: string;
@@ -13,6 +14,7 @@ interface HeroProps {
 }
 
 export const HeroSection: React.FC<HeroProps> = ({ title, subtitle, image, layoutType, accentColor = "#eb595f" }) => {
+    const { openConsultation } = useConsultation();
     return (
         <section className={`relative h-[80vh] md:h-[85vh] flex items-center bg-[#faf9f6]`}>
             {/* Image Container with Overlay */}
@@ -77,6 +79,7 @@ export const HeroSection: React.FC<HeroProps> = ({ title, subtitle, image, layou
 
                         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                             <button
+                                onClick={openConsultation}
                                 className="px-10 py-5 text-white font-bold rounded-full shadow-lg transition-all transform hover:-translate-y-1 hover:shadow-xl text-sm sm:text-base"
                                 style={{ backgroundColor: accentColor }}
                             >

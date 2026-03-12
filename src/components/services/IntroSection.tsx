@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
+import { useConsultation } from '../providers/ConsultationProvider';
 
 interface IntroProps {
     title: string;
@@ -14,6 +15,7 @@ interface IntroProps {
 }
 
 export const IntroSection: React.FC<IntroProps> = ({ title, description, image, layoutType, accentColor = "#eb595f" }) => {
+    const { openConsultation } = useConsultation();
     return (
         <section className="py-24 md:py-32 bg-white relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -49,6 +51,7 @@ export const IntroSection: React.FC<IntroProps> = ({ title, description, image, 
 
                         <div className="flex flex-col sm:flex-row gap-6 pt-6">
                             <button
+                                onClick={openConsultation}
                                 className="px-10 py-5 text-white font-bold rounded-full transition-all hover:bg-[#2d2412] shadow-lg hover:-translate-y-1 text-sm uppercase tracking-wider"
                                 style={{ backgroundColor: accentColor }}
                             >

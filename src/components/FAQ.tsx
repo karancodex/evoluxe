@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 interface FAQItem {
     id?: number;
@@ -49,6 +50,7 @@ const defaultFaqs = [
 ];
 
 const FAQ = ({ items, title = "Frequently Asked Questions", subtitle = "Discover the transparency and process behind our luxury interior design services." }: FAQProps) => {
+    const { openConsultation } = useConsultation();
     const [openIndex, setOpenIndex] = useState<number | null>(0);
     const displayFaqs = items || defaultFaqs;
 
@@ -96,7 +98,10 @@ const FAQ = ({ items, title = "Frequently Asked Questions", subtitle = "Discover
                         <p className="text-stone-500 text-lg leading-relaxed mb-8">
                             Can't find the answer you're looking for?
                         </p>
-                        <button className="text-[#eb595f] font-bold underline decoration-[#eb595f]/30 underline-offset-4 hover:decoration-[#eb595f] transition-all">
+                        <button
+                            onClick={openConsultation}
+                            className="text-[#eb595f] font-bold underline decoration-[#eb595f]/30 underline-offset-4 hover:decoration-[#eb595f] transition-all"
+                        >
                             Contact Support
                         </button>
                     </div>

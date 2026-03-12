@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 const slides = [
     {
@@ -32,6 +33,7 @@ const slides = [
 ];
 
 const Hero = () => {
+    const { openConsultation } = useConsultation();
     const [current, setCurrent] = useState(0);
 
     useEffect(() => {
@@ -97,7 +99,10 @@ const Hero = () => {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <button className="w-full sm:w-auto px-8 py-4 bg-[#eb595f] text-white font-bold rounded-full shadow-lg hover:bg-[#2d2412] transition-all transform active:scale-95 text-xs uppercase tracking-widest">
+                                <button
+                                    onClick={openConsultation}
+                                    className="w-full sm:w-auto px-8 py-4 bg-[#eb595f] text-white font-bold rounded-full shadow-lg hover:bg-[#2d2412] transition-all transform active:scale-95 text-xs uppercase tracking-widest"
+                                >
                                     Start Your Journey
                                 </button>
                             </div>
