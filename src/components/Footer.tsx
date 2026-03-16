@@ -129,7 +129,7 @@ const Footer = () => {
                         <Link href="/" className="mb-4 block group">
                             <div className="relative h-16 w-56 md:h-20 md:w-80">
                                 <Image
-                                    src="/v4/evolx-studio.png"
+                                    src="/logo.png"
                                     alt="EVOLXStudio Logo"
                                     fill
                                     className="object-contain"

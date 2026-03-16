@@ -58,7 +58,7 @@ const Navbar = () => {
                     <Link href="/" className="flex items-center gap-2 relative group z-50 shrink-0">
                         <div className="relative h-12 w-48 md:h-16 md:w-64">
                             <Image
-                                src="/v4/evolx-studio.png"
+                                src="/logo.png"
                                 alt="EVOLXStudio Logo"
                                 fill
                                 className="object-contain"
