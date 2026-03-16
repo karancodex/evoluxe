@@ -114,7 +114,7 @@ export const topNavLinks: NavItem[] = [
             }
         ]
     },
-    // { name: 'DCW', label: 'DCW', hasDropdown: false },
+    { name: 'DCW', label: 'DCW', hasDropdown: false },
 ];
 
 export const bottomNavLinks: NavItem[] = [
