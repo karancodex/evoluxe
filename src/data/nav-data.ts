@@ -114,7 +114,24 @@ export const topNavLinks: NavItem[] = [
             }
         ]
     },
-    { name: 'DCW', label: 'DCW', hasDropdown: false },
+    {
+        name: 'DCW',
+        label: 'DCW',
+        hasDropdown: true,
+        columns: [
+            {
+                title: 'Sofa & Upholstery',
+                items: [
+                    'DCW Home',
+                    'Sofas',
+                    'Upholstery Services',
+                    'Our Work',
+                    'Process & Materials',
+                    'Contact / Get Quote'
+                ]
+            }
+        ]
+    },
 ];
 
 export const bottomNavLinks: NavItem[] = [
@@ -167,6 +184,16 @@ export const getLink = (item: string) => {
         if (link.columns) {
             for (const col of link.columns) {
                 if (col.items.includes(item)) {
+                    if (link.name === 'DCW') {
+                        if (item === 'DCW Home') return '/dcw';
+                        if (item === 'Sofas') return '/dcw/sofas';
+                        if (item === 'Upholstery Services') return '/dcw/upholstery';
+                        if (item === 'Our Work') return '/dcw/portfolio';
+                        if (item === 'Process & Materials') return '/dcw/process';
+                        if (item === 'About DCW') return '/dcw/about';
+                        if (item === 'Contact / Get Quote') return '/contact-us';
+                        return `/dcw/${slug}`;
+                    }
                     if (link.name === 'Design Ideas') return `/design-ideas/${slug}`;
                     if (link.name === 'Cities') return `/city/${slug}`;
                     if (link.name === 'More') return `/${slug}`;
@@ -269,9 +296,9 @@ export const getPageContent = (slug: string) => {
             heroImage: '/v4/3d_kitchen_iso.png',
             galleryImages: ['/v4/luxury_kitchen_1.png', '/v4/luxury_kitchen_2.png', '/v4/luxury_kitchen_3.png'],
             features: [
-                { title: 'Italian Hardware', desc: 'Soft-close systems from Blum and Hettich for effortless movement.', icon: '⚙️' },
-                { title: 'Quartz Countertops', desc: 'Durable, heat-resistant, and non-porous surfaces for lasting beauty.', icon: '💎' },
-                { title: 'Modular Cabinets', desc: 'Precision-engineered units that maximize every inch of your space.', icon: '📦' }
+                { title: 'Italian Hardware', desc: 'Soft-close systems from Blum and Hettich for effortless movement.', icon: 'Settings' },
+                { title: 'Quartz Countertops', desc: 'Durable, heat-resistant, and non-porous surfaces for lasting beauty.', icon: 'Gem' },
+                { title: 'Modular Cabinets', desc: 'Precision-engineered units that maximize every inch of your space.', icon: 'Package' }
             ],
             materials: [
                 { title: 'Italian Quartz', image: '/v4/luxury_kitchen_2.png', desc: 'Highest grade scratch-resistant surfaces.' },
@@ -288,15 +315,15 @@ export const getPageContent = (slug: string) => {
         },
         'modular-wardrobes': {
             layoutType: 'editorial',
-            accentColor: '#2d2412',
+            accentColor: '#eb595f',
             subtitle: "Exquisite Wardrobes: A Sanctuary for Your Sartorial Collection.",
             description: "Organize your life with our bespoke modular wardrobes. From walk-in closets to sleek sliding systems, we create storage solutions that reflect your personal style.",
             heroImage: '/v4/3d_wardrobe_iso.png',
             galleryImages: ['/v4/service_wardrobe.png', '/v4/luxury_bedroom_1.png', '/v4/interior-living-3d.jpg'],
             features: [
-                { title: 'Customized Internals', desc: 'Adjustable shelving and specialized drawers for every accessory.', icon: '👔' },
-                { title: 'Premium Glass Doors', desc: 'Elegant tinted or fluted glass options for a modern boutique feel.', icon: '🪞' },
-                { title: 'In-built Lighting', desc: 'Integrated LED strips with motion sensors for visibility and ambiance.', icon: '💡' }
+                { title: 'Customized Internals', desc: 'Adjustable shelving and specialized drawers for every accessory.', icon: 'Shirt' },
+                { title: 'Premium Glass Doors', desc: 'Elegant tinted or fluted glass options for a modern boutique feel.', icon: 'Box' },
+                { title: 'In-built Lighting', desc: 'Integrated LED strips with motion sensors for visibility and ambiance.', icon: 'Lightbulb' }
             ],
             materials: [
                 { title: 'Tinted Glass', image: '/v4/service_wardrobe.png', desc: 'Sophisticated transparency with integrated LED highlights.' },
@@ -313,15 +340,15 @@ export const getPageContent = (slug: string) => {
         },
         'customized-furniture': {
             layoutType: 'artistic',
-            accentColor: '#a88a4d',
-            subtitle: "Tailor-made Pieces that Define Your Unique Lifestyle.",
+            accentColor: '#eb595f',
+            subtitle: "Bespoke Pieces: Tailor-made designs that define your unique lifestyle.",
             description: "Why settle for standard when you can have bespoke? Our artisans craft unique furniture pieces that fit perfectly into your home's architecture.",
             heroImage: '/v4/luxury_living_2.png',
             galleryImages: ['/v4/luxury_office_1.png', '/v4/service_crockery.png', '/v4/luxury_living_3.png'],
             features: [
-                { title: 'Artisanal Craftsmanship', desc: 'Hand-finished details by master craftsmen with decades of experience.', icon: '🎨' },
-                { title: 'Exclusive Materials', desc: 'Sourced premium veneers, solid woods, and high-performance fabrics.', icon: '🪵' },
-                { title: 'Proportional Design', desc: 'Scaled specifically to your room dimensions for a perfect spatial fit.', icon: '📏' }
+                { title: 'Artisanal Craftsmanship', desc: 'Hand-finished details by master craftsmen with decades of experience.', icon: 'Palette' },
+                { title: 'Exclusive Materials', desc: 'Sourced premium veneers, solid woods, and high-performance fabrics.', icon: 'Box' },
+                { title: 'Proportional Design', desc: 'Scaled specifically to your room dimensions for a perfect spatial fit.', icon: 'Ruler' }
             ],
             materials: [
                 { title: 'Exotic Veneers', image: '/v4/luxury_living_2.png', desc: 'Natural wood grains sourced from sustainable forests globally.' },
@@ -338,15 +365,15 @@ export const getPageContent = (slug: string) => {
         },
         'electrical-work': {
             layoutType: 'isometric',
-            accentColor: '#3b82f6',
+            accentColor: '#eb595f',
             subtitle: "Smart & Safe: Advanced Electrical Systems for the Modern Home.",
             description: "The heartbeat of your home deserves precision. We provide end-to-end electrical solutions, from concealed wiring to smart home automation.",
             heroImage: '/v4/3d_electrical_iso.png',
             galleryImages: ['/v4/design-session-1.png', '/v4/luxury_office_2.png', '/v4/interior-living-3d.jpg'],
             features: [
-                { title: 'Smart Integration', desc: 'Full automation support for lighting, climate, and security systems.', icon: '📱' },
-                { title: 'Premium Switchgear', desc: 'Design-forward switches and sockets that complement your interiors.', icon: '🔌' },
-                { title: 'Safety Certified', desc: 'Fire-resistant cabling and multi-layered protection systems.', icon: '🛡️' }
+                { title: 'Smart Integration', desc: 'Full automation support for lighting, climate, and security systems.', icon: 'Smartphone' },
+                { title: 'Premium Switchgear', desc: 'Design-forward switches and sockets that complement your interiors.', icon: 'Plug' },
+                { title: 'Safety Certified', desc: 'Fire-resistant cabling and multi-layered protection systems.', icon: 'ShieldCheck' }
             ],
             materials: [
                 { title: 'Smart Touch Panels', image: '/v4/luxury_office_2.png', desc: 'Elegant glass interfaces for complete home control.' },
@@ -363,15 +390,15 @@ export const getPageContent = (slug: string) => {
         },
         'plumbing': {
             layoutType: 'editorial',
-            accentColor: '#06b6d4',
+            accentColor: '#eb595f',
             subtitle: "Seamless Flow: High-Performance Plumbing & Sanitary Engineering.",
             description: "Reliable engineering meets luxury fixtures. Our plumbing services ensure a leak-free home with superior water pressure.",
             heroImage: '/v4/luxury_bathroom_1.png',
             galleryImages: ['/v4/luxury_bathroom_2.png', '/v4/luxury_bathroom_3.png', '/v4/interior-living-3d.jpg'],
             features: [
-                { title: 'PPR-C Piping', desc: 'Corrosion-resistant and noise-dampening piping for silent operations.', icon: '💧' },
-                { title: 'Precision Installation', desc: 'Surgical accuracy in fixture placement and hidden cistern assembly.', icon: '🔧' },
-                { title: 'Water Management', desc: 'Advanced pressure pumps and grey-water recycling solutions.', icon: '🌊' }
+                { title: 'PPR-C Piping', desc: 'Corrosion-resistant and noise-dampening piping for silent operations.', icon: 'Droplets' },
+                { title: 'Precision Installation', desc: 'Surgical accuracy in fixture placement and hidden cistern assembly.', icon: 'Wrench' },
+                { title: 'Water Management', desc: 'Advanced pressure pumps and grey-water recycling solutions.', icon: 'Waves' }
             ],
             materials: [
                 { title: 'PPR-C Systems', image: '/v4/luxury_bathroom_1.png', desc: 'German-standard piping for lifelong leak protection.' },
@@ -388,15 +415,15 @@ export const getPageContent = (slug: string) => {
         },
         'false-ceiling': {
             layoutType: 'artistic',
-            accentColor: '#8b5cf6',
+            accentColor: '#eb595f',
             subtitle: "Sculpted Spaces: Architectural Lighting & False Ceiling Artistry.",
             description: "Transform your fifth wall into a masterpiece. Our false ceiling designs integrate indirect lighting and acoustic treatments.",
             heroImage: '/v4/luxury_living_1.png',
             galleryImages: ['/v4/luxury_office_2.png', '/v4/luxury_living_2.png', '/v4/interior-living-3d.jpg'],
             features: [
-                { title: 'Cove Lighting', desc: 'Soft, ambient illumination that eliminates harsh shadows and glares.', icon: '💡' },
-                { title: 'Acoustic Panels', desc: 'Integrated sound-dampening materials for a quieter environment.', icon: '🔇' },
-                { title: 'Design Complexity', desc: 'Multi-level gypsum or wooden designs tailored to your style.', icon: '📐' }
+                { title: 'Cove Lighting', desc: 'Soft, ambient illumination that eliminates harsh shadows and glares.', icon: 'Lightbulb' },
+                { title: 'Acoustic Panels', desc: 'Integrated sound-dampening materials for a quieter environment.', icon: 'VolumeX' },
+                { title: 'Design Complexity', desc: 'Multi-level gypsum or wooden designs tailored to your style.', icon: 'Layout' }
             ],
             materials: [
                 { title: 'Saint-Gobain Gypsum', image: '/v4/luxury_living_1.png', desc: 'Extra-strength ceiling boards with superior finish.' },
@@ -413,15 +440,15 @@ export const getPageContent = (slug: string) => {
         },
         'civil-work': {
             layoutType: 'editorial',
-            accentColor: '#64748b',
+            accentColor: '#eb595f',
             subtitle: "The Foundation of Luxury: Structural Integrity & Expert Solutions.",
             description: "From structural modifications to flawless finishing, our civil engineering team ensures your home's foundation is as strong as its aesthetic.",
             heroImage: '/v4/luxury_office_3.png',
             galleryImages: ['/v4/luxury_office_1.png', '/v4/luxury_bathroom_1.png', '/v4/interior-living-3d.jpg'],
             features: [
-                { title: 'Structural Expertise', desc: 'Certified engineering for wall removals and spatial redesigns.', icon: '🏗️' },
-                { title: 'Precision Masonry', desc: 'Laser-leveled walls and surfaces for a true-to-plan finish.', icon: '🧱' },
-                { title: 'Waterproofing', desc: 'Multi-stage polymer-based protection for all wet areas.', icon: '☔' }
+                { title: 'Structural Expertise', desc: 'Certified engineering for wall removals and spatial redesigns.', icon: 'Hammer' },
+                { title: 'Precision Masonry', desc: 'Laser-leveled walls and surfaces for a true-to-plan finish.', icon: 'Square' },
+                { title: 'Waterproofing', desc: 'Multi-stage polymer-based protection for all wet areas.', icon: 'CloudRain' }
             ],
             materials: [
                 { title: 'Polymer Waterproofing', image: '/v4/luxury_bathroom_1.png', desc: '5-layer protection against moisture ingress.' },
@@ -438,15 +465,15 @@ export const getPageContent = (slug: string) => {
         },
         'painting': {
             layoutType: 'artistic',
-            accentColor: '#ec4899',
+            accentColor: '#eb595f',
             subtitle: "Chromatic Perfection: High-End Finishes & Wall Coatings.",
             description: "Color your world with precision. We use premium non-toxic paints and specialized application techniques to achieve mirror-like finishes.",
             heroImage: '/v4/painting.png',
             galleryImages: ['/v4/luxury_living_1.png', '/v4/luxury_office_2.png', '/v4/interior-living-3d.jpg'],
             features: [
-                { title: 'Texture Artistry', desc: 'Specialized finishes including stucco, velvet, and metallic effects.', icon: '🖌️' },
-                { title: 'Eco-Friendly Paints', desc: 'Low-VOC, odorless paints for a healthier indoor environment.', icon: '🌿' },
-                { title: 'Precision Taping', desc: 'Razor-sharp edges and flawlessly smooth surface preparation.', icon: '📏' }
+                { title: 'Texture Artistry', desc: 'Specialized finishes including stucco, velvet, and metallic effects.', icon: 'Brush' },
+                { title: 'Eco-Friendly Paints', desc: 'Low-VOC, odorless paints for a healthier indoor environment.', icon: 'Leaf' },
+                { title: 'Precision Taping', desc: 'Razor-sharp edges and flawlessly smooth surface preparation.', icon: 'Ruler' }
             ],
             materials: [
                 { title: 'Stucco Lustro', image: '/v4/painting.png', desc: 'Italian marble-dust finishes with mirror-like shine.' },
@@ -463,15 +490,15 @@ export const getPageContent = (slug: string) => {
         },
         'floorings-wall-design': {
             layoutType: 'editorial',
-            accentColor: '#78350f',
+            accentColor: '#eb595f',
             subtitle: "Surface Elegance: Exotic Floorings & Statement Wall Treatments.",
             description: "Every step should be on luxury. From Italian marble to bespoke wall paneling, we curate surfaces that define your space.",
             heroImage: '/v4/luxury_office_2.png',
             galleryImages: ['/v4/luxury_kitchen_1.png', '/v4/luxury_office_3.png', '/v4/interior-living-3d.jpg'],
             features: [
-                { title: 'Italian Marble', desc: 'Sourced and mirror-polished to perfection for timeless opulence.', icon: '🏛️' },
-                { title: 'Hardwood & Vinyl', desc: 'Premium moisture-resistant options for warmth and durability.', icon: '🪵' },
-                { title: 'Stone Veneers', desc: 'Ultrathin natural stone panels for breathtaking feature walls.', icon: '🪨' }
+                { title: 'Italian Marble', desc: 'Sourced and mirror-polished to perfection for timeless opulence.', icon: 'Building' },
+                { title: 'Hardwood & Vinyl', desc: 'Premium moisture-resistant options for warmth and durability.', icon: 'Box' },
+                { title: 'Stone Veneers', desc: 'Ultrathin natural stone panels for breathtaking feature walls.', icon: 'Mountain' }
             ],
             materials: [
                 { title: 'Statuario Marble', image: '/v4/luxury_office_2.png', desc: 'The gold standard of luxury flooring from Carrara.' },

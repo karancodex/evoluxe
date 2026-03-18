@@ -14,6 +14,7 @@ import Testimonials from '@/components/Testimonials';
 import Partners from '@/components/Partners';
 import FAQ from '@/components/FAQ';
 import MeetDesignerBanner from '@/components/MeetDesignerBanner';
+import WhatsAppFloat from '@/components/WhatsAppFloat';
 
 export default function V4HomePage() {
     return (
@@ -32,6 +33,7 @@ export default function V4HomePage() {
             <Partners />
             <FAQ />
             <MeetDesignerBanner />
+            <WhatsAppFloat />
         </main>
     );
 }

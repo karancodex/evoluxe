@@ -47,193 +47,196 @@ const Navbar = () => {
 
 
     return (
-        <nav
-            className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 border-b ${scrolled ? 'shadow-md border-stone-200/50 backdrop-blur-md bg-white/95' : 'border-transparent bg-white'}`}
-        >
-            <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col relative">
+        <>
+            <nav
+                className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 border-b ${scrolled ? 'shadow-md border-stone-200/50 backdrop-blur-md bg-white/95' : 'border-transparent bg-white'}`}
+            >
+                <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col relative">
 
-                {/* TOP ROW */}
-                <div className="h-20 flex items-center justify-between border-b border-stone-100/20 relative z-20 bg-transparent">
-                    {/* Left: Logo */}
-                    <Link href="/" className="flex items-center gap-2 relative group z-50 shrink-0">
-                        <div className="relative h-12 w-48 md:h-16 md:w-64">
-                            <Image
-                                src="/logo.png"
-                                alt="EVOLXStudio Logo"
-                                fill
-                                className="object-contain"
-                                priority
-                            />
-                        </div>
-                    </Link>
+                    {/* TOP ROW */}
+                    <div className="h-20 flex items-center justify-between border-b border-stone-100/20 relative z-20 bg-transparent">
+                        {/* Left: Logo */}
+                        <Link href="/" className="flex items-center gap-2 relative group z-50 shrink-0">
+                            <div className="relative h-16 w-56 md:w-64">
+                                <Image
+                                    src="/logo.png"
+                                    alt="EVOLXStudio Logo"
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                />
+                            </div>
+                        </Link>
 
-                    {/* Center: Top Nav Links */}
-                    <div className="hidden xl:flex items-center justify-center absolute left-0 right-0 h-full pointer-events-none">
-                        <ul className="pointer-events-auto flex items-center space-x-8 h-full bg-transparent px-6">
-                            {topNavLinks.map((link) => (
-                                <li
-                                    key={link.name}
-                                    className="relative flex items-center h-full"
-                                    onMouseEnter={() => link.hasDropdown && handleMouseEnter(link.name)}
-                                    onMouseLeave={handleMouseLeave}
-                                >
-                                    <Link
-                                        href={getLink(link.name)}
-                                        className={`flex items-center gap-1 text-[15px] font-medium tracking-wide transition-all duration-300 ${activeMenu === link.name ? 'text-[#eb595f]' : 'text-[#2d2412] hover:text-[#eb595f]'}`}
+                        {/* Center: Top Nav Links */}
+                        <div className="hidden xl:flex items-center justify-center absolute left-0 right-0 h-full pointer-events-none">
+                            <ul className="pointer-events-auto flex items-center space-x-8 h-full bg-transparent px-6">
+                                {topNavLinks.map((link) => (
+                                    <li
+                                        key={link.name}
+                                        className="relative flex items-center h-full"
+                                        onMouseEnter={() => link.hasDropdown && handleMouseEnter(link.name)}
+                                        onMouseLeave={handleMouseLeave}
                                     >
-                                        {link.label}
-                                        {link.hasDropdown && (
-                                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeMenu === link.name ? 'rotate-180 text-[#eb595f]' : 'text-stone-400'}`} />
-                                        )}
-                                    </Link>
+                                        <Link
+                                            href={getLink(link.name)}
+                                            className={`flex items-center gap-1 text-[15px] font-medium tracking-wide transition-all duration-300 ${activeMenu === link.name ? 'text-[#eb595f]' : 'text-[#2d2412] hover:text-[#eb595f]'}`}
+                                        >
+                                            {link.label}
+                                            {link.hasDropdown && (
+                                                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeMenu === link.name ? 'rotate-180 text-[#eb595f]' : 'text-stone-400'}`} />
+                                            )}
+                                        </Link>
 
-                                    {/* DROPDOWN: Local Anchored Position */}
-                                    <AnimatePresence>
-                                        {activeMenu === link.name && link.hasDropdown && (
-                                            <motion.div
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: 10 }}
-                                                transition={{ duration: 0.2, ease: "easeOut" }}
-                                                className={`absolute top-full pt-4 z-50 ${link.isMega ? 'left-[-40px]' : 'left-0'}`}
-                                            >
-                                                {/* Invisible Bridge to prevent closing on gap hover */}
-                                                <div className="absolute top-0 left-0 right-0 h-4 bg-transparent" />
+                                        {/* DROPDOWN: Local Anchored Position */}
+                                        <AnimatePresence>
+                                            {activeMenu === link.name && link.hasDropdown && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: 10 }}
+                                                    transition={{ duration: 0.2, ease: "easeOut" }}
+                                                    className={`absolute top-full pt-4 z-50 ${link.isMega ? 'left-[-40px]' : 'left-0'}`}
+                                                >
+                                                    {/* Invisible Bridge to prevent closing on gap hover */}
+                                                    <div className="absolute top-0 left-0 right-0 h-4 bg-transparent" />
 
-                                                <div className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-xl overflow-hidden border border-stone-100 min-w-[240px] max-w-[90vw]">
-                                                    {link.columns ? (
-                                                        <div className={`flex bg-white ${link.isMega ? 'p-8 gap-12' : 'p-6 flex-col gap-4'}`}>
-                                                            {link.columns.map((col, idx) => (
-                                                                <div key={idx} className={`${link.isMega ? 'w-[200px]' : 'w-full'}`}>
-                                                                    {col.title && (
-                                                                        <h3 className="text-[13px] text-stone-400 border-b border-stone-50 pb-2 mb-3 font-bold tracking-widest uppercase">
-                                                                            {col.title}
-                                                                        </h3>
-                                                                    )}
-                                                                    <ul className="space-y-3">
-                                                                        {col.items.map((item) => (
-                                                                            <li key={item}>
-                                                                                <Link href={getLink(item)} className="block text-[14px] text-[#2d2412] hover:text-[#eb595f] hover:translate-x-1 transition-all duration-200">
-                                                                                    {item}
-                                                                                </Link>
-                                                                            </li>
-                                                                        ))}
-                                                                    </ul>
-                                                                </div>
-                                                            ))}
-                                                            {/* Mega Menu Visual Optional */}
-                                                            {link.isMega && (
-                                                                <div className="w-[200px] hidden 2xl:block bg-stone-50 rounded-lg overflow-hidden relative self-stretch">
-                                                                    <img src="/v4/interior-living-3d.jpg" className="absolute inset-0 w-full h-full object-cover opacity-80" alt="Promo" />
-                                                                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 p-4">
-                                                                        <span className="text-white text-[10px] font-bold uppercase tracking-widest">Trending Designs</span>
+                                                    <div className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-xl overflow-hidden border border-stone-100 min-w-[240px] max-w-[90vw]">
+                                                        {link.columns ? (
+                                                            <div className={`flex bg-white ${link.isMega ? 'p-8 gap-12' : 'p-6 flex-col gap-4'}`}>
+                                                                {link.columns.map((col, idx) => (
+                                                                    <div key={idx} className={`${link.isMega ? 'w-[200px]' : 'w-full'}`}>
+                                                                        {col.title && (
+                                                                            <h3 className="text-[13px] text-stone-400 border-b border-stone-50 pb-2 mb-3 font-bold tracking-widest uppercase">
+                                                                                {col.title}
+                                                                            </h3>
+                                                                        )}
+                                                                        <ul className="space-y-3">
+                                                                            {col.items.map((item) => (
+                                                                                <li key={item}>
+                                                                                    <Link href={getLink(item)} className="block text-[14px] text-[#2d2412] hover:text-[#eb595f] hover:translate-x-1 transition-all duration-200">
+                                                                                        {item}
+                                                                                    </Link>
+                                                                                </li>
+                                                                            ))}
+                                                                        </ul>
                                                                     </div>
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                    ) : (
-                                                        <div className="p-6 text-center">
-                                                            <p className="text-xs text-stone-400 font-medium tracking-wider text-center">Coming Soon</p>
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
-                                </li>
-                            ))}
-                        </ul>
+                                                                ))}
+                                                                {/* Mega Menu Visual Optional */}
+                                                                {link.isMega && (
+                                                                    <div className="w-[200px] hidden 2xl:block bg-stone-50 rounded-lg overflow-hidden relative self-stretch">
+                                                                        <img src="/v4/interior-living-3d.jpg" className="absolute inset-0 w-full h-full object-cover opacity-80" alt="Promo" />
+                                                                        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 p-4">
+                                                                            <span className="text-white text-[10px] font-bold uppercase tracking-widest">Trending Designs</span>
+                                                                        </div>
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        ) : (
+                                                            <div className="p-6 text-center">
+                                                                <p className="text-xs text-stone-400 font-medium tracking-wider text-center">Coming Soon</p>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Right: Trigger */}
+                        <div className="flex items-center gap-4 shrink-0">
+                            <button
+                                className="xl:hidden flex items-center justify-center bg-[#eb595f] text-white w-10 h-10 rounded-full shadow-md active:scale-95 transition-all"
+                                onClick={() => {
+                                    setMobileMenuOpen(true);
+                                    setMobileNavView('main');
+                                }}
+                                aria-label="Open Mobile Menu"
+                            >
+                                <Menu className="w-5 h-5" />
+                            </button>
+                        </div>
                     </div>
 
-                    {/* Right: Trigger */}
-                    <div className="flex items-center gap-4 shrink-0">
-                        <button
-                            className="xl:hidden flex items-center gap-2 bg-[#eb595f] text-white px-5 py-2.5 rounded-full shadow-md active:scale-95 transition-all"
-                            onClick={() => {
-                                setMobileMenuOpen(true);
-                                setMobileNavView('main');
-                            }}
-                        >
-                            <Menu className="w-5 h-5" />
-                            <span className="text-[11px] font-bold uppercase tracking-widest">Menu</span>
-                        </button>
-                    </div>
-                </div>
 
-
-                {/* BOTTOM ROW */}
-                <div className="h-14 flex items-center justify-between hidden xl:flex relative z-10 bg-transparent">
-                    {/* Left & Center: Bottom Nav Links */}
-                    <div className="flex-1 flex items-center">
-                        <ul className="flex items-center space-x-10 h-full">
-                            {bottomNavLinks.map((link) => (
-                                <li
-                                    key={link.name}
-                                    className="relative flex items-center h-full"
-                                    onMouseEnter={() => link.hasDropdown && handleMouseEnter(link.name)}
-                                    onMouseLeave={handleMouseLeave}
-                                >
-                                    <Link
-                                        href={getLink(link.name)}
-                                        className={`flex items-center gap-1 text-[13px] font-semibold tracking-wide uppercase transition-colors ${activeMenu === link.name ? 'text-[#eb595f]' : 'text-[#2d2412] hover:text-[#eb595f]'}`}
+                    {/* BOTTOM ROW */}
+                    <div className="h-14 flex items-center justify-between hidden xl:flex relative z-10 bg-transparent">
+                        {/* Left & Center: Bottom Nav Links */}
+                        <div className="flex-1 flex items-center">
+                            <ul className="flex items-center space-x-10 h-full">
+                                {bottomNavLinks.map((link) => (
+                                    <li
+                                        key={link.name}
+                                        className="relative flex items-center h-full"
+                                        onMouseEnter={() => link.hasDropdown && handleMouseEnter(link.name)}
+                                        onMouseLeave={handleMouseLeave}
                                     >
-                                        {link.label}
-                                        {link.hasDropdown && <ChevronDown className={`w-3.5 h-3.5 transition-transform fill-current ${activeMenu === link.name ? 'rotate-180' : ''}`} />}
-                                    </Link>
+                                        <Link
+                                            href={getLink(link.name)}
+                                            className={`flex items-center gap-1 text-[13px] font-semibold tracking-wide uppercase transition-colors ${activeMenu === link.name ? 'text-[#eb595f]' : 'text-[#2d2412] hover:text-[#eb595f]'}`}
+                                        >
+                                            {link.label}
+                                            {link.hasDropdown && <ChevronDown className={`w-3.5 h-3.5 transition-transform fill-current ${activeMenu === link.name ? 'rotate-180' : ''}`} />}
+                                        </Link>
 
-                                    {/* DROPDOWN: Local Anchored Position for Bottom Row */}
-                                    <AnimatePresence>
-                                        {activeMenu === link.name && link.hasDropdown && (
-                                            <motion.div
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: 10 }}
-                                                transition={{ duration: 0.2 }}
-                                                className="absolute top-full left-0 z-50 pt-2"
-                                            >
-                                                {/* Invisible Bridge */}
-                                                <div className="absolute top-0 left-0 right-0 h-2 bg-transparent" />
+                                        {/* DROPDOWN: Local Anchored Position for Bottom Row */}
+                                        <AnimatePresence>
+                                            {activeMenu === link.name && link.hasDropdown && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: 10 }}
+                                                    transition={{ duration: 0.2 }}
+                                                    className="absolute top-full left-0 z-50 pt-2"
+                                                >
+                                                    {/* Invisible Bridge */}
+                                                    <div className="absolute top-0 left-0 right-0 h-2 bg-transparent" />
 
-                                                <div className="bg-white shadow-[0_10px_30px_-5px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden border-t-[3px] border-[#eb595f] ring-1 ring-stone-100 min-w-[220px]">
-                                                    {link.columns ? (
-                                                        <div className="flex p-6 gap-8 bg-white flex-col">
-                                                            {link.columns.map((col, idx) => (
-                                                                <div key={idx} className="w-[180px]">
-                                                                    <h3 className="font-serif text-sm text-[#4d3b1a] border-b border-stone-100 pb-2 mb-2 font-bold">{col.title}</h3>
-                                                                    <ul className="space-y-2">
-                                                                        {col.items.map((item) => (
-                                                                            <li key={item}>
-                                                                                <Link href={getLink(item)} className="block text-[12px] text-[#4d3b1a]/70 hover:text-[#c5a059] hover:translate-x-1 transition-all">
-                                                                                    {item}
-                                                                                </Link>
-                                                                            </li>
-                                                                        ))}
-                                                                    </ul>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    ) : <div className="p-4 w-[180px] bg-white"><p className="text-xs text-gray-400 text-center">No items</p></div>}
-                                                </div>
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
-                                </li>
-                            ))}
-                        </ul>
+                                                    <div className="bg-white shadow-[0_10px_30px_-5px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden border-t-[3px] border-[#eb595f] ring-1 ring-stone-100 min-w-[220px]">
+                                                        {link.columns ? (
+                                                            <div className="flex p-6 gap-8 bg-white flex-col">
+                                                                {link.columns.map((col, idx) => (
+                                                                    <div key={idx} className="w-[180px]">
+                                                                        <h3 className="font-serif text-sm text-[#4d3b1a] border-b border-stone-100 pb-2 mb-2 font-bold">{col.title}</h3>
+                                                                        <ul className="space-y-2">
+                                                                            {col.items.map((item) => (
+                                                                                <li key={item}>
+                                                                                    <Link href={getLink(item)} className="block text-[12px] text-[#4d3b1a]/70 hover:text-[#eb595f] hover:translate-x-1 transition-all">
+                                                                                        {item}
+                                                                                    </Link>
+                                                                                </li>
+                                                                            ))}
+                                                                        </ul>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        ) : <div className="p-4 w-[180px] bg-white"><p className="text-xs text-gray-400 text-center">No items</p></div>}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Right: Consult Button */}
+                        <div>
+                            <button
+                                onClick={openConsultation}
+                                className="px-8 py-2.5 rounded-sm text-[11px] font-black tracking-[0.15em] uppercase transition-all bg-[#eb595f] text-white hover:bg-[#2d2412] shadow-lg hover:shadow-xl hover:-translate-y-0.5 border border-transparent hover:border-[#eb595f]/30"
+                            >
+                                Consult Online Now
+                            </button>
+                        </div>
                     </div>
 
-                    {/* Right: Consult Button */}
-                    <div>
-                        <button
-                            onClick={openConsultation}
-                            className="px-8 py-2.5 rounded-sm text-[11px] font-black tracking-[0.15em] uppercase transition-all bg-[#eb595f] text-white hover:bg-[#2d2412] shadow-lg hover:shadow-xl hover:-translate-y-0.5 border border-transparent hover:border-[#eb595f]/30"
-                        >
-                            Consult Online Now
-                        </button>
-                    </div>
                 </div>
+            </nav>
 
-            </div>
 
             {/* Mobile Menu Sidebar - App Style */}
             <AnimatePresence>
@@ -388,8 +391,7 @@ const Navbar = () => {
                     </>
                 )}
             </AnimatePresence>
-
-        </nav>
+        </>
     );
 };
 

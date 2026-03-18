@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import DynamicIcon from '../DynamicIcon';
 
 interface FeatureProps {
     features: { title: string; desc: string; icon?: string }[];
@@ -47,7 +48,7 @@ export const FeaturesGrid: React.FC<FeatureProps> = ({ features, layoutType, tit
                                     className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform"
                                     style={{ backgroundColor: `${accentColor}10`, color: accentColor }}
                                 >
-                                    {feature.icon || "✦"}
+                                    <DynamicIcon name={feature.icon || "Sparkles"} size={28} strokeWidth={1.5} />
                                 </div>
                                 <span className="text-[#2d2412]/10 font-serif font-bold italic text-5xl">0{i + 1}</span>
                             </div>

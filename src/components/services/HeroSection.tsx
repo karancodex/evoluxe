@@ -63,7 +63,7 @@ export const HeroSection: React.FC<HeroProps> = ({ title, subtitle, image, layou
                             {layoutType === 'isometric' ? 'Precision Engineering' : 'Architectural Excellence'}
                         </span>
 
-                        <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-[#2d2412] leading-[1.05] mb-6 tracking-tight">
+                        <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-6xl font-serif font-bold text-[#2d2412] leading-[1.05] mb-6 tracking-tight">
                             {title}<br />
                             <span
                                 className="italic font-medium"

@@ -10,7 +10,7 @@ const CommercialSpacesPage = () => {
                 title="Premium Commercial Spaces,"
                 heroSubtitle="Business Environments Redefined."
                 heroImage="/v4/luxury_office_1.png"
-                accentColor="#1e3a8a"
+                accentColor="#eb595f"
                 introTitle="Professional Excellence Inspired Success"
                 introDesc="From high-end offices to luxury retail showrooms, we design environments that reflect your brand identity and enhance professional productivity."
                 offerCards={[
@@ -27,9 +27,9 @@ const CommercialSpacesPage = () => {
                     { title: "Flexible Floorplans", image: "/v4/luxury_office_2.png", desc: "Versatile layouts that adapt to your growing business needs." }
                 ]}
                 steps={[
-                    { title: "Strategy", icon: "🏢", desc: "Defining your brand persona and team requirements." },
-                    { title: "Design Concepts", icon: "🖍️", desc: "Visualizing your commercial space with creative 3D concepts." },
-                    { title: "On-Time Completion", icon: "🕒", desc: "Meeting strict project deadlines for business continuity." }
+                    { title: "Strategy", icon: "Building", desc: "Defining your brand persona and team requirements." },
+                    { title: "Design Concepts", icon: "PenTool", desc: "Visualizing your commercial space with creative 3D concepts." },
+                    { title: "On-Time Completion", icon: "Clock", desc: "Meeting strict project deadlines for business continuity." }
                 ]}
                 journeyHighlights={[
                     {

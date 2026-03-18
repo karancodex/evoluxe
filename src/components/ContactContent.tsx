@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, MapPin, MessageSquare, Send, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageSquare, Send, CheckCircle, Factory, Cog, Handshake } from 'lucide-react';
 import { useConsultation } from './providers/ConsultationProvider';
 
 const ContactContent = () => {
@@ -187,12 +187,12 @@ const ContactContent = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
                         {[
-                            { title: "Direct Factory Pricing", desc: "No middlemen. We manufacture our own furniture to pass the savings to you.", icon: "🏭" },
-                            { title: "Precision Engineering", desc: "Every joint and finish is machine-cut for millimetric accuracy.", icon: "⚙️" },
-                            { title: "Lifetime Support", desc: "Our relationship doesn't end at handover. We're here for any service needs.", icon: "🤝" }
+                            { title: "Direct Factory Pricing", desc: "No middlemen. We manufacture our own furniture to pass the savings to you.", icon: <Factory className="w-8 h-8" /> },
+                            { title: "Precision Engineering", desc: "Every joint and finish is machine-cut for millimetric accuracy.", icon: <Cog className="w-8 h-8" /> },
+                            { title: "Lifetime Support", desc: "Our relationship doesn't end at handover. We're here for any service needs.", icon: <Handshake className="w-8 h-8" /> }
                         ].map((item, i) => (
                             <div key={i} className="space-y-4">
-                                <div className="text-5xl mb-6">{item.icon}</div>
+                                <div className="text-5xl mb-6 flex justify-center text-[#eb595f]">{item.icon}</div>
                                 <h3 className="text-2xl font-bold text-[#2d2412]">{item.title}</h3>
                                 <p className="text-stone-500 leading-relaxed font-light">{item.desc}</p>
                             </div>

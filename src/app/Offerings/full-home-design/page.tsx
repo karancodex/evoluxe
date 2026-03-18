@@ -27,9 +27,9 @@ const FullHomeDesignPage = () => {
                     { title: "Sustainable Design", image: "/v4/luxury_bathroom_1.png", desc: "Eco-friendly materials and energy-efficient layouts for a greener future." }
                 ]}
                 steps={[
-                    { title: "Consultation", icon: "🤝", desc: "Understanding your lifestyle and design preferences." },
-                    { title: "Design & 3D", icon: "🎨", desc: "Visualizing your dream home with immersive 3D renders." },
-                    { title: "Execution", icon: "🔨", desc: "Precision-led installation with a 45-day move-in guarantee." }
+                    { title: "Consultation", icon: "Handshake", desc: "Understanding your lifestyle and design preferences." },
+                    { title: "Design & 3D", icon: "Palette", desc: "Visualizing your dream home with immersive 3D renders." },
+                    { title: "Execution", icon: "Hammer", desc: "Precision-led installation with a 45-day move-in guarantee." }
                 ]}
                 journeyHighlights={[
                     {
