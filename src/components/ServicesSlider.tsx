@@ -155,11 +155,11 @@ const ServicesSlider = () => {
                 </div>
 
                 <div className="mt-20 flex flex-col md:flex-row items-center justify-between border-t border-stone-100 pt-16">
-                    <div className="flex items-center gap-6 mb-8 md:mb-0">
+                    <div className="flex items-center gap-8 mb-8 md:mb-0">
                         <div className="flex -space-x-4">
-                            {[1, 2, 3, 4].map(i => (
-                                <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-stone-100 flex items-center justify-center text-[10px] font-bold overflow-hidden shadow-sm">
-                                    <Image src={`/v4/brand/brand-1.png`} width={48} height={48} alt="Expert" className="opacity-80" />
+                            {['E', 'V', 'O', 'L', 'X'].map((letter, idx) => (
+                                <div key={idx} className="w-12 h-12 rounded-full border-4 border-white bg-[#eb595f] flex items-center justify-center text-xs font-black text-white shadow-sm uppercase">
+                                    {letter}
                                 </div>
                             ))}
                         </div>

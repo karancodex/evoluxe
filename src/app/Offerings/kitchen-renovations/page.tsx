@@ -10,7 +10,7 @@ const KitchenRenovationsPage = () => {
                 title="Luxury Kitchen Renovations,"
                 heroSubtitle="Inspiring Culinary Mastery."
                 heroImage="/v4/luxury_kitchen_1.png"
-                accentColor="#0a9396"
+                accentColor="#eb595f"
                 introTitle="Culinary Artistry Redefined"
                 introDesc="A kitchen is more than just a workspace; it's the heart of your home. At evoluxstudio, we renovate and create state-of-the-art kitchens that combine ergonomic efficiency with stunning aesthetics."
                 offerCards={[
@@ -27,9 +27,9 @@ const KitchenRenovationsPage = () => {
                     { title: "Chimney & Hob", image: "/v4/luxury_office_2.png", desc: "Seamless integration of high-performance kitchen appliances." }
                 ]}
                 steps={[
-                    { title: "Concept", icon: "🍳", desc: "Defining your cooking style and functional needs." },
-                    { title: "Visuals", icon: "🖥️", desc: "Visualizing your renovated kitchen with realistic 3D models." },
-                    { title: "Ready-to-Cook", icon: "🍱", desc: "Complete renovation delivered within 45 days." }
+                    { title: "Concept", icon: "Utensils", desc: "Defining your cooking style and functional needs." },
+                    { title: "Visuals", icon: "Monitor", desc: "Visualizing your renovated kitchen with realistic 3D models." },
+                    { title: "Ready-to-Cook", icon: "Package", desc: "Complete renovation delivered within 45 days." }
                 ]}
                 journeyHighlights={[
                     {

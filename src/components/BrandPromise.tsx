@@ -48,13 +48,16 @@ const BrandPromise = () => {
                         Introducing
                     </motion.span>
 
-                    <div className="relative pt-4 text-center">
-                        <h2 className="text-4xl sm:text-5xl md:text-8xl font-serif font-bold text-white tracking-tighter mb-0 flex items-baseline justify-center gap-1">
-                            EVOLX Studio
-                        </h2>
-
-                        {/* Elite Script signature style */}
-
+                    <div className="relative pt-4 flex items-center justify-center">
+                        <div className="relative w-48 sm:w-64 h-16 sm:h-20">
+                            <Image
+                                src="/logo.png"
+                                alt="EVOLX Studio Logo"
+                                fill
+                                className="object-contain brightness-0 invert opacity-90"
+                                priority
+                            />
+                        </div>
                     </div>
 
                     <div className="space-y-4 pt-8">

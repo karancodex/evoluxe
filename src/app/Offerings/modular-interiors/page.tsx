@@ -10,7 +10,7 @@ const ModularInteriorsPage = () => {
                 title="Smart Modular Interiors,"
                 heroSubtitle="Redefining Elegance."
                 heroImage="/v4/3d_wardrobe_iso.png"
-                accentColor="#2d2412"
+                accentColor="#eb595f"
                 introTitle="Engineering Your Perfect Space"
                 introDesc="Maximize your living space with our premium modular solutions. From sophisticated wardrobes to intelligent TV units, we bring precision-engineered furniture that fits your lifestyle perfectly."
                 offerCards={[
@@ -27,9 +27,9 @@ const ModularInteriorsPage = () => {
                     { title: "Versatile Styles", image: "/v4/luxury_bedroom_1.png", desc: "From ultra-modern to neo-classical, choose a style that matches your home." }
                 ]}
                 steps={[
-                    { title: "Consultation", icon: "📐", desc: "Detailed measurement and requirement analysis." },
-                    { title: "Customization", icon: "🛠️", desc: "Tailoring modular units to your specific space and needs." },
-                    { title: "Fast-Track Move-in", icon: "🚀", desc: "Ready for use within 45 days of design approval." }
+                    { title: "Consultation", icon: "Ruler", desc: "Detailed measurement and requirement analysis." },
+                    { title: "Customization", icon: "Wrench", desc: "Tailoring modular units to your specific space and needs." },
+                    { title: "Fast-Track Move-in", icon: "Rocket", desc: "Ready for use within 45 days of design approval." }
                 ]}
                 journeyHighlights={[
                     {

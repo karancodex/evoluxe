@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Play, CheckCircle, Star, Users, ShieldCheck, Clock, ArrowRight, Quote } from 'lucide-react';
+import DynamicIcon from '../DynamicIcon';
 import { useConsultation } from '../providers/ConsultationProvider';
 
 interface OfferingLandingProps {
@@ -247,6 +248,40 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
                             <p className="text-gray-600 text-[15px] leading-relaxed line-clamp-3">{feature.desc}</p>
                         </motion.div>
                     ))}
+                </div>
+            </section>
+
+            {/* 4.5. Process Steps Section */}
+            <section className="py-24 bg-white px-5 md:px-6">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16 md:mb-20 space-y-4">
+                        <span className="text-[9px] font-bold uppercase tracking-[0.3em]" style={{ color: accentColor }}>Process</span>
+                        <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#2d2412]">
+                            Our Simplified <span className="italic font-medium" style={{ color: accentColor }}>Workflow</span>
+                        </h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                        {steps.map((step, idx) => (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: idx * 0.1 }}
+                                viewport={{ once: true }}
+                                className="flex flex-col items-center text-center p-8 rounded-[2.5rem] bg-[#faf9f6]/30 border border-stone-100 hover:border-[#eb595f]/20 transition-all group"
+                            >
+                                <div className="w-20 h-20 rounded-2xl bg-white shadow-xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                                    {typeof step.icon === 'string' ? (
+                                        <DynamicIcon name={step.icon} className="w-10 h-10" style={{ color: accentColor }} />
+                                    ) : (
+                                        step.icon
+                                    )}
+                                </div>
+                                <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
+                                <p className="text-[#2d2412]/60 text-sm leading-relaxed max-w-[250px]">{step.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </section>
 

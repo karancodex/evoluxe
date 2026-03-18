@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import DynamicIcon from "./DynamicIcon";
 
 const EvolxStudioIntro = () => {
     return (
@@ -9,8 +10,12 @@ const EvolxStudioIntro = () => {
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div className="relative h-[300px] sm:h-[400px] w-full bg-[#faf9f6] rounded-3xl overflow-hidden flex items-center justify-center order-2 md:order-1">
                     {/* Placeholder for Evo & Luxe Characters */}
-                    <div className="text-center p-6">
-                        <span className="text-5xl sm:text-6xl mb-4 block animate-bounce">📏 & 💎</span>
+                    <div className="text-center p-6 flex flex-col items-center">
+                        <div className="flex items-center gap-4 mb-4 animate-bounce">
+                            <DynamicIcon name="Ruler" className="w-12 h-12 text-[#eb595f]" />
+                            <span className="text-4xl text-[#2d2412]/20 font-light">&</span>
+                            <DynamicIcon name="Gem" className="w-12 h-12 text-[#eb595f]" />
+                        </div>
                         <p className="text-[#eb595f] font-bold text-lg sm:text-xl uppercase tracking-widest font-serif">Precision & Elegance</p>
                     </div>
                 </div>
