@@ -37,10 +37,10 @@ const reviews = [
 
 const Testimonials = () => {
     return (
-        <section className="py-24 bg-white">
+        <section className="pt-4 md:pt-6 pb-24 bg-white">
             <div className="max-w-[1800px] mx-auto px-6">
                 {/* Standardized Header Style */}
-                <div className="text-center mb-24 px-4">
+                <div className="text-center mb-12 md:mb-16 px-4">
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}

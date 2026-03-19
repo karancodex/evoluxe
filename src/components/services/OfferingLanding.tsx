@@ -95,9 +95,9 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
                             className="object-cover object-center"
                             priority
                         />
-                        {/* Gradient Overlay for Text Readability - Matching Home style with color adapted for light bg if possible or dark if needed. 
-                            The home page uses a light gradient from left. I'll stick to that style. */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#faf9f6] via-[#faf9f6]/95 to-transparent sm:via-[#faf9f6]/60 text-left" />
+                        {/* Subtle Dark Gradient for text pop without washing image, matched to main landing page */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+                        <div className="absolute inset-0 bg-black/10" />
                     </motion.div>
                 </div>
 
@@ -108,14 +108,14 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <span className="text-[#eb595f] font-bold tracking-[0.5em] uppercase text-[10px] mb-4 block" style={{ color: accentColor }}>
+                            <span className="text-[#eb595f] font-bold tracking-[0.5em] uppercase text-[10px] mb-4 block drop-shadow-sm" style={{ color: accentColor }}>
                                 Interior Architecture & Design
                             </span>
-                            <h1 className="text-[2.4rem] xs:text-[2.8rem] sm:text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-[#2d2412] leading-[1.05] mb-6 tracking-tight">
+                            <h1 className="text-[2.4rem] xs:text-[2.8rem] sm:text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-[1.05] mb-6 tracking-tight drop-shadow-lg">
                                 {title}<br />
-                                <span className="italic font-medium" style={{ color: accentColor }}>{heroSubtitle}</span>
+                                <span className="italic font-medium drop-shadow-sm" style={{ color: accentColor }}>{heroSubtitle}</span>
                             </h1>
-                            <p className="text-sm sm:text-lg md:text-xl text-[#2d2412]/80 mb-8 leading-relaxed max-w-xl font-medium">
+                            <p className="text-sm sm:text-lg md:text-xl text-stone-200 mb-8 leading-relaxed max-w-xl font-medium drop-shadow-md">
                                 {introDesc}
                             </p>
 

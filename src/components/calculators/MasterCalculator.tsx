@@ -44,17 +44,17 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                 return {
                     title: 'Kitchen Price Calculator',
                     accent: '#eb595f',
-                    illustration: '/assets/calculators/kitchen_straight.png',
+                    illustration: '/assets/calculators/v2_kitchen_straight.png',
                     icon: <ChefHat className="w-10 h-10" />,
                     steps: [
                         {
                             id: 'layout',
                             label: 'Select Kitchen Layout',
                             options: [
-                                { id: 'straight', label: 'Straight', value: 80000, img: '/assets/calculators/kitchen_straight.png', desc: 'Single wall efficiency' },
-                                { id: 'lshape', label: 'L-Shape', value: 150000, img: '/assets/calculators/kitchen_l_shape.png', desc: 'Perfect for corners' },
-                                { id: 'ushape', label: 'U-Shape', value: 220000, img: '/assets/calculators/kitchen_u_shape.png', desc: 'Maximum workspace' },
-                                { id: 'parallel', label: 'Parallel', value: 180000, img: '/assets/calculators/kitchen_parallel.png', desc: 'Professional workflow' },
+                                { id: 'straight', label: 'Straight', value: 80000, img: '/assets/calculators/v2_kitchen_straight.png', desc: 'Single wall efficiency' },
+                                { id: 'lshape', label: 'L-Shape', value: 150000, img: '/assets/calculators/v2_kitchen_lshape.png', desc: 'Perfect for corners' },
+                                { id: 'ushape', label: 'U-Shape', value: 220000, img: '/assets/calculators/v2_kitchen_ushape.png', desc: 'Maximum workspace' },
+                                { id: 'parallel', label: 'Parallel', value: 180000, img: '/assets/calculators/v2_kitchen_parallel.png', desc: 'Professional workflow' },
                             ]
                         },
                         {
@@ -88,7 +88,7 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
             case 'wardrobe':
                 return {
                     title: 'Wardrobe Price Calculator',
-                    accent: '#a88a4d',
+                    accent: '#eb595f',
                     illustration: '/v4/service_wardrobe.png',
                     icon: <Wardrobe className="w-10 h-10" />,
                     steps: [

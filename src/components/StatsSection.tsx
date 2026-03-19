@@ -56,7 +56,7 @@ const stats = [
 const StatsSection = () => {
     const { openConsultation } = useConsultation();
     return (
-        <section className="py-12 md:py-16 bg-white relative overflow-hidden">
+        <section className="pt-6 pb-12 md:pt-10 md:pb-16 bg-white relative overflow-hidden">
             {/* Artistic Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
                 <div className="absolute top-20 left-10 w-64 h-64 bg-[#fcebeb] rounded-full blur-[100px]" />
@@ -97,7 +97,7 @@ const StatsSection = () => {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-6 pb-6 px-1 lg:grid lg:grid-cols-5 sm:grid sm:grid-cols-2">
                     {stats.map((stat, index) => (
                         <motion.div
                             key={index}
@@ -113,7 +113,7 @@ const StatsSection = () => {
                                 y: -10,
                                 transition: { duration: 0.3 }
                             }}
-                            className="bg-white p-8 rounded-[2.5rem] shadow-[0_20px_50px_rgba(77,59,26,0.05)] border border-[#faf9f6] relative group overflow-hidden"
+                            className="w-[260px] sm:w-auto shrink-0 snap-center bg-white p-8 rounded-[2.5rem] shadow-[0_20px_50px_rgba(77,59,26,0.05)] border border-[#faf9f6] relative group overflow-hidden"
                         >
                             {/* Decorative Background Blob */}
                             <div className="absolute -right-4 -top-4 w-24 h-24 bg-[#faf9f6]/50 rounded-full group-hover:bg-[#eb595f]/10 transition-colors duration-500 -z-0" />

@@ -32,8 +32,9 @@ export const HeroSection: React.FC<HeroProps> = ({ title, subtitle, image, layou
                         className="object-cover object-center opacity-40 md:opacity-100"
                         priority
                     />
-                    {/* Gradient Overlay for Text Readability - Matching Home style */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#faf9f6] via-[#faf9f6]/95 to-transparent sm:via-[#faf9f6]/60 text-left" />
+                    {/* Subtle Dark Gradient for text pop without washing image, matched to main landing page */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-black/10" />
                 </motion.div>
 
                 {/* SVG Background Pattern - Subtle */}
@@ -57,23 +58,23 @@ export const HeroSection: React.FC<HeroProps> = ({ title, subtitle, image, layou
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <span
-                            className="font-bold tracking-[0.5em] uppercase text-[10px] mb-4 block"
+                            className="font-bold tracking-[0.5em] uppercase text-[10px] mb-4 block drop-shadow-sm"
                             style={{ color: accentColor }}
                         >
                             {layoutType === 'isometric' ? 'Precision Engineering' : 'Architectural Excellence'}
                         </span>
 
-                        <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-6xl font-serif font-bold text-[#2d2412] leading-[1.05] mb-6 tracking-tight">
+                        <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-6xl font-serif font-bold text-white leading-[1.05] mb-6 tracking-tight drop-shadow-lg">
                             {title}<br />
                             <span
-                                className="italic font-medium"
+                                className="italic font-medium drop-shadow-sm"
                                 style={{ color: accentColor }}
                             >
                                 {subtitle.split(':')[0]}
                             </span>
                         </h1>
 
-                        <p className="text-base sm:text-lg md:text-xl text-[#2d2412]/80 mb-10 leading-relaxed max-w-xl font-medium">
+                        <p className="text-base sm:text-lg md:text-xl text-stone-200 mb-10 leading-relaxed max-w-xl font-medium drop-shadow-md">
                             {subtitle.includes(':') ? subtitle.split(':')[1].trim() : subtitle}
                         </p>
 
@@ -86,7 +87,7 @@ export const HeroSection: React.FC<HeroProps> = ({ title, subtitle, image, layou
                                 Get a Quote
                             </button>
                             <button
-                                className="px-10 py-5 border-2 font-bold rounded-full transition-all text-sm sm:text-base text-[#2d2412]/60 hover:text-[#2d2412] hover:border-[#2d2412]/20"
+                                className="px-10 py-5 border-2 font-bold rounded-full transition-all text-sm sm:text-base text-stone-300 hover:text-white hover:border-white/40"
                                 style={{ borderColor: `${accentColor}40` }}
                             >
                                 View Gallery

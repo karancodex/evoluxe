@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useConsultation } from "./providers/ConsultationProvider";
+import EstimateSection from "./EstimateSection";
+import BrandPromise from "./BrandPromise";
 
 const servicesList = [
     { title: "Modular Kitchen", image: "/v4/gen/luxury_kitchen.png", price: "Starts ₹1.2L*", size: "large", desc: "Italian finishes & German hardware", sub: "Bespoke Gastronomy", slug: "modular-kitchen" },
@@ -154,6 +156,13 @@ const ServicesSlider = () => {
                     ))}
                 </div>
 
+                <div className="mt-12 w-full">
+                    <EstimateSection />
+                    <div className="w-full rounded-[2.5rem] overflow-hidden">
+                        <BrandPromise />
+                    </div>
+                </div>
+
                 <div className="mt-20 flex flex-col md:flex-row items-center justify-between border-t border-stone-100 pt-16">
                     <div className="flex items-center gap-8 mb-8 md:mb-0">
                         <div className="flex -space-x-4">
@@ -170,7 +179,7 @@ const ServicesSlider = () => {
 
                     <button
                         onClick={openConsultation}
-                        className="px-12 py-5 bg-[#2d2412] text-white rounded-full font-bold text-sm hover:bg-[#eb595f] transition-all shadow-xl flex items-center gap-4"
+                        className="px-12 py-5 bg-[#eb595f] text-white rounded-full font-bold text-sm hover:bg-[#2d2412] transition-all shadow-xl flex items-center gap-4"
                     >
                         Request a Proposal
                         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">

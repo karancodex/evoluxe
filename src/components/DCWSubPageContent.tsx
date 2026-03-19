@@ -260,7 +260,7 @@ export default function DCWSubPageContent() {
 
             {/* MATERIALS SECTION (IF EXISTS) */}
             {content.materials && (
-                <section className="py-24 bg-[#2d2412] text-white overflow-hidden">
+                <section className="py-24 bg-[#eb595f] text-white overflow-hidden">
                     <div className="max-w-7xl mx-auto px-6">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                             <div>
@@ -271,8 +271,8 @@ export default function DCWSubPageContent() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     {content.materials.map((mat, idx) => (
                                         <div key={idx} className="flex items-center gap-3">
-                                            <div className="w-2 h-2 rounded-full bg-[#eb595f]" />
-                                            <span className="text-sm text-stone-300 font-light tracking-wide">{mat}</span>
+                                            <div className="w-2 h-2 rounded-full bg-white" />
+                                            <span className="text-sm text-white/80 font-light tracking-wide">{mat}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -372,7 +372,7 @@ export default function DCWSubPageContent() {
                         </div>
                     </section>
 
-                    <section className="py-24 bg-[#2d2412] text-white">
+                    <section className="py-24 bg-[#eb595f] text-white">
                         <div className="max-w-7xl mx-auto px-6">
                             <div className="text-center mb-16">
                                 <span className="text-[#eb595f] font-bold tracking-[0.4em] uppercase text-[10px] mb-4 block">Our Journey</span>
@@ -381,8 +381,8 @@ export default function DCWSubPageContent() {
                             <div className="space-y-12">
                                 {content.timeline?.map((item, idx) => (
                                     <div key={idx} className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-                                        <div className="text-4xl font-serif font-black text-[#eb595f] w-32 shrink-0">{item.year}</div>
-                                        <div className="flex-1 bg-white/5 p-8 rounded-[2rem] border border-white/10 hover:bg-white/10 transition-colors">
+                                        <div className="text-4xl font-serif font-black text-white w-32 shrink-0">{item.year}</div>
+                                        <div className="flex-1 bg-white/10 p-8 rounded-[2rem] border border-white/20 hover:bg-white/20 transition-colors">
                                             <h4 className="text-xl font-bold mb-2">{item.title}</h4>
                                             <p className="text-stone-400 text-sm leading-relaxed">{item.desc}</p>
                                         </div>
@@ -400,7 +400,7 @@ export default function DCWSubPageContent() {
                     <div className="max-w-7xl mx-auto px-6">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
                             <div className="space-y-12">
-                                <div className="bg-[#2d2412] text-white p-12 rounded-[3rem] shadow-xl">
+                                <div className="bg-[#eb595f] text-white p-12 rounded-[3rem] shadow-xl">
                                     <h2 className="text-4xl font-serif font-bold mb-8 italic text-[#eb595f]">Get in Touch</h2>
                                     <div className="space-y-8">
                                         <div className="flex items-center gap-6">
@@ -451,7 +451,7 @@ export default function DCWSubPageContent() {
                                             <option>Furniture Restoration</option>
                                         </select>
                                     </div>
-                                    <button className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-xl shadow-lg hover:bg-[#2d2412] transition-all flex items-center justify-center gap-3">
+                                    <button className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-xl shadow-lg hover:bg-stone-900 transition-all flex items-center justify-center gap-3">
                                         Submit Request <ArrowRight className="w-5 h-5" />
                                     </button>
                                 </form>

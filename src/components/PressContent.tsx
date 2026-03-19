@@ -18,7 +18,7 @@ const PressContent = () => {
             <section className="relative py-32 px-6 bg-[#faf9f6]">
                 <div className="max-w-4xl mx-auto text-center space-y-8">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-block">
-                        <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">PRESS ENQUIRIES</span>
+                        <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">PRESS ENQUIRIES</span>
                     </motion.div>
                     <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-8xl font-serif font-bold text-[#2d2412]">
                         In the <br /> <span className="text-stone-400">Spotlight.</span>
@@ -35,7 +35,7 @@ const PressContent = () => {
                     {pressMentions.map((mention, i) => (
                         <div key={i} className="p-12 bg-white border border-stone-100 rounded-[3rem] space-y-8 hover:shadow-2xl transition-all duration-500 group">
                             <div className="h-12 w-32 relative">
-                                <span className="text-xl font-serif font-bold text-stone-200 group-hover:text-[#D28D69] transition-colors">{mention.title}</span>
+                                <span className="text-xl font-serif font-bold text-stone-200 group-hover:text-[#eb595f] transition-colors">{mention.title}</span>
                             </div>
                             <div className="space-y-4">
                                 <h3 className="text-2xl font-serif font-bold text-[#2d2412] tracking-tight">{mention.desc}</h3>
@@ -43,7 +43,7 @@ const PressContent = () => {
                                     <Calendar className="w-4 h-4" /> {mention.date}
                                 </div>
                             </div>
-                            <button className="flex items-center gap-2 text-[#D28D69] font-black tracking-widest text-[10px] uppercase hover:gap-4 transition-all">
+                            <button className="flex items-center gap-2 text-[#eb595f] font-black tracking-widest text-[10px] uppercase hover:gap-4 transition-all">
                                 Read Article <ExternalLink className="w-4 h-4" />
                             </button>
                         </div>
@@ -56,7 +56,7 @@ const PressContent = () => {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <div className="space-y-12">
                         <div className="space-y-4">
-                            <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">MEDIA RESOURCES</span>
+                            <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">MEDIA RESOURCES</span>
                             <h2 className="text-4xl md:text-6xl font-serif font-bold text-white leading-tight">Brand & Press Kit.</h2>
                         </div>
                         <p className="text-stone-400 text-lg font-light leading-relaxed">
@@ -72,7 +72,7 @@ const PressContent = () => {
                                         <p className="font-bold">{item.title}</p>
                                         <p className="text-stone-500 text-xs font-bold uppercase tracking-widest group-hover:text-[#2d2412]/50">{item.size}</p>
                                     </div>
-                                    <Download className="w-5 h-5 text-[#D28D69]" />
+                                    <Download className="w-5 h-5 text-[#eb595f]" />
                                 </div>
                             ))}
                         </div>
@@ -91,7 +91,7 @@ const PressContent = () => {
                         <input
                             type="text"
                             placeholder="Find latest releases..."
-                            className="w-full px-10 py-8 bg-stone-50 border border-stone-100 rounded-3xl outline-none focus:bg-white focus:border-[#D28D69] shadow-sm transition-all"
+                            className="w-full px-10 py-8 bg-stone-50 border border-stone-100 rounded-3xl outline-none focus:bg-white focus:border-[#eb595f] shadow-sm transition-all"
                         />
                         <Search className="absolute right-8 top-1/2 -translate-y-1/2 w-6 h-6 text-stone-300" />
                     </div>
@@ -108,10 +108,10 @@ const PressContent = () => {
                     ].map((item, i) => (
                         <div key={i} className="p-10 bg-white rounded-[2.5rem] flex items-center justify-between group cursor-pointer hover:shadow-2xl transition-all border border-stone-100">
                             <div className="space-y-2">
-                                <h4 className="text-2xl font-serif font-bold text-[#2d2412] group-hover:text-[#D28D69] transition-colors">{item.title}</h4>
+                                <h4 className="text-2xl font-serif font-bold text-[#2d2412] group-hover:text-[#eb595f] transition-colors">{item.title}</h4>
                                 <p className="text-stone-400 text-xs font-bold uppercase tracking-widest">{item.date}</p>
                             </div>
-                            <ArrowRight className="w-6 h-6 text-stone-200 group-hover:text-[#D28D69] group-hover:translate-x-2 transition-all" />
+                            <ArrowRight className="w-6 h-6 text-stone-200 group-hover:text-[#eb595f] group-hover:translate-x-2 transition-all" />
                         </div>
                     ))}
                     <div className="pt-12 text-center">
@@ -133,7 +133,7 @@ const PressContent = () => {
                         { year: "2018", title: "Best Upholstery" }
                     ].map((award, i) => (
                         <div key={i} className="space-y-4">
-                            <div className="text-[#D28D69] text-5xl font-serif font-bold opacity-20">{award.year}</div>
+                            <div className="text-[#eb595f] text-5xl font-serif font-bold opacity-20">{award.year}</div>
                             <h4 className="text-xl font-bold text-[#2d2412]">{award.title}</h4>
                         </div>
                     ))}
@@ -148,7 +148,7 @@ const PressContent = () => {
                         <p className="text-stone-500 text-lg font-light leading-relaxed">
                             Flashback to the launch of our Modular Journey series where architects and designers gathered to witness the future of precision furniture.
                         </p>
-                        <button className="flex items-center gap-4 text-[#D28D69] font-black uppercase text-xs tracking-widest">
+                        <button className="flex items-center gap-4 text-[#eb595f] font-black uppercase text-xs tracking-widest">
                             Watch Event Film <Share2 className="w-4 h-4" />
                         </button>
                     </div>
@@ -161,7 +161,7 @@ const PressContent = () => {
             {/* 8. MEDIA CONTACT CARD */}
             <section className="py-32 px-6">
                 <div className="max-w-4xl mx-auto bg-stone-50 rounded-[4rem] p-12 md:p-24 text-center space-y-8 relative overflow-hidden">
-                    <Newspaper className="absolute -left-20 -bottom-20 w-80 h-80 text-[#D28D69]/5" />
+                    <Newspaper className="absolute -left-20 -bottom-20 w-80 h-80 text-[#eb595f]/5" />
                     <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412] relative z-10">Media contact.</h2>
                     <p className="text-stone-500 text-lg font-light relative z-10">For official statements, interviews, or collaborations, contact our PR team.</p>
                     <div className="relative z-10 p-8 bg-white rounded-3xl inline-block shadow-sm">
@@ -178,7 +178,7 @@ const PressContent = () => {
                     <p className="text-stone-500 text-lg font-light">Stay updated with our latest news across social platforms.</p>
                     <div className="flex justify-center gap-4 pt-4">
                         {["IG", "TW", "FB", "LI"].map((s, i) => (
-                            <div key={i} className="w-12 h-12 rounded-full border border-stone-200 flex items-center justify-center text-xs font-bold text-stone-400 hover:bg-[#D28D69] hover:text-white transition-all cursor-pointer">
+                            <div key={i} className="w-12 h-12 rounded-full border border-stone-200 flex items-center justify-center text-xs font-bold text-stone-400 hover:bg-[#eb595f] hover:text-white transition-all cursor-pointer">
                                 {s}
                             </div>
                         ))}

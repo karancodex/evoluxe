@@ -66,7 +66,7 @@ const BlogContent = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className="inline-block"
                     >
-                        <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">THE JOURNAL</span>
+                        <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">THE JOURNAL</span>
                     </motion.div>
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
@@ -80,9 +80,9 @@ const BlogContent = () => {
                         <input
                             type="text"
                             placeholder="Search articles, trends, or materials..."
-                            className="w-full px-8 py-6 bg-white rounded-2xl shadow-sm outline-none border border-stone-100 focus:border-[#D28D69] transition-all text-lg font-light"
+                            className="w-full px-8 py-6 bg-white rounded-2xl shadow-sm outline-none border border-stone-100 focus:border-[#eb595f] transition-all text-lg font-light"
                         />
-                        <button className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#2d2412] text-white rounded-xl flex items-center justify-center hover:bg-[#D28D69] transition-colors">
+                        <button className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#eb595f] text-white rounded-xl flex items-center justify-center hover:bg-[#2d2412] transition-colors">
                             <Search className="w-5 h-5" />
                         </button>
                     </div>
@@ -93,7 +93,7 @@ const BlogContent = () => {
             <section className="border-y border-stone-100 py-6 px-6 overflow-x-auto no-scrollbar">
                 <div className="max-w-7xl mx-auto flex gap-12 justify-center whitespace-nowrap">
                     {categories.map((cat, i) => (
-                        <button key={i} className="text-[10px] font-black tracking-[0.2em] uppercase text-stone-400 hover:text-[#D28D69] transition-colors">
+                        <button key={i} className="text-[10px] font-black tracking-[0.2em] uppercase text-stone-400 hover:text-[#eb595f] transition-colors">
                             {cat}
                         </button>
                     ))}
@@ -117,8 +117,8 @@ const BlogContent = () => {
                         </div>
                         <div className="lg:col-span-4 space-y-8">
                             <div className="space-y-4">
-                                <span className="text-[#D28D69] font-bold text-xs uppercase tracking-widest">{featuredPost.category}</span>
-                                <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#2d2412] leading-tight hover:text-[#D28D69] transition-colors cursor-pointer">
+                                <span className="text-[#eb595f] font-bold text-xs uppercase tracking-widest">{featuredPost.category}</span>
+                                <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#2d2412] leading-tight hover:text-[#eb595f] transition-colors cursor-pointer">
                                     {featuredPost.title}
                                 </h2>
                                 <p className="text-stone-500 font-light leading-relaxed text-lg">
@@ -129,7 +129,7 @@ const BlogContent = () => {
                                 <div className="flex items-center gap-2"><Calendar className="w-4 h-4" /> {featuredPost.date}</div>
                                 <div className="flex items-center gap-2"><User className="w-4 h-4" /> {featuredPost.author}</div>
                             </div>
-                            <button className="group flex items-center gap-4 text-[#2d2412] font-black tracking-widest text-xs uppercase border-b-2 border-transparent hover:border-[#D28D69] transition-all pb-2">
+                            <button className="group flex items-center gap-4 text-[#2d2412] font-black tracking-widest text-xs uppercase border-b-2 border-transparent hover:border-[#eb595f] transition-all pb-2">
                                 Read Full Article <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                             </button>
                         </div>
@@ -162,11 +162,11 @@ const BlogContent = () => {
                                     <div className="flex items-center gap-4 text-stone-400 text-[10px] font-black tracking-widest uppercase">
                                         <Calendar className="w-3 h-3" /> {post.date}
                                     </div>
-                                    <h3 className="text-2xl font-serif font-bold text-[#2d2412] leading-tight hover:text-[#D28D69] transition-colors cursor-pointer">
+                                    <h3 className="text-2xl font-serif font-bold text-[#2d2412] leading-tight hover:text-[#eb595f] transition-colors cursor-pointer">
                                         {post.title}
                                     </h3>
                                     <div className="flex justify-between items-center pt-4 border-t border-stone-100">
-                                        <button className="group flex items-center gap-2 text-[#D28D69] font-bold text-[10px] uppercase tracking-widest">
+                                        <button className="group flex items-center gap-2 text-[#eb595f] font-bold text-[10px] uppercase tracking-widest">
                                             Read More <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                                         </button>
                                         <div className="flex gap-4">
@@ -179,7 +179,7 @@ const BlogContent = () => {
                         ))}
                     </div>
                     <div className="mt-20 text-center">
-                        <button className="px-12 py-6 border-2 border-[#2d2412] text-[#2d2412] rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] hover:text-white transition-all">
+                        <button className="px-12 py-6 border-2 border-[#eb595f] text-[#eb595f] rounded-2xl font-bold tracking-widest uppercase hover:bg-[#eb595f] hover:text-white transition-all">
                             Load More Articles
                         </button>
                     </div>
@@ -189,21 +189,21 @@ const BlogContent = () => {
             {/* 5. NEWSLETTER SECTION */}
             <section className="py-32 px-6">
                 <div className="max-w-7xl mx-auto">
-                    <div className="bg-[#2d2412] rounded-[3rem] p-12 md:p-24 flex flex-col lg:flex-row gap-16 items-center">
+                    <div className="bg-[#eb595f] rounded-[3rem] p-12 md:p-24 flex flex-col lg:flex-row gap-16 items-center">
                         <div className="lg:w-1/2 space-y-8">
-                            <h2 className="text-4xl md:text-6xl font-serif font-bold text-white">Subscribe to <br /> the <span className="text-[#D28D69]">Studio Journal.</span></h2>
-                            <p className="text-stone-400 text-lg font-light leading-relaxed">
+                            <h2 className="text-4xl md:text-6xl font-serif font-bold text-white drop-shadow-sm">Subscribe to <br /> the <span className="italic font-medium text-white/90">Studio Journal.</span></h2>
+                            <p className="text-white/80 text-lg font-light leading-relaxed">
                                 Join our exclusive circle. Get the latest design trends, material guides, and project spotlights delivered to your inbox every month.
                             </p>
                         </div>
-                        <div className="lg:w-1/2 w-full space-y-4">
+                        <div className="lg:w-[45%] w-full space-y-4">
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <input
                                     type="email"
                                     placeholder="your@email.com"
-                                    className="flex-1 px-8 py-6 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:border-[#D28D69] transition-all"
+                                    className="flex-1 px-8 py-6 bg-white border border-white/20 rounded-2xl text-[#2d2412] placeholder-stone-400 outline-none focus:border-white shadow-sm transition-all"
                                 />
-                                <button className="px-10 py-6 bg-[#D28D69] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-white hover:text-[#2d2412] transition-all">
+                                <button className="px-10 py-6 bg-white text-[#eb595f] rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] hover:text-white transition-all shadow-lg">
                                     Subscribe
                                 </button>
                             </div>
@@ -216,7 +216,7 @@ const BlogContent = () => {
             {/* 6. INSTAGRAM FEED LINK */}
             <section className="py-24 px-6 text-center space-y-12">
                 <div className="space-y-4">
-                    <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">SOCIALS</span>
+                    <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">SOCIALS</span>
                     <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#2d2412]">Follow the evolution @evoluxe</h2>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -255,7 +255,7 @@ const BlogContent = () => {
                             </p>
                             <div className="space-y-4">
                                 {["Lighting Guide", "Upholstery Care", "Material Selection"].map((tip, i) => (
-                                    <div key={i} className="flex items-center gap-4 text-[#D28D69] font-bold text-sm tracking-widest uppercase py-4 border-b border-stone-200">
+                                    <div key={i} className="flex items-center gap-4 text-[#eb595f] font-bold text-sm tracking-widest uppercase py-4 border-b border-stone-200">
                                         <Tag className="w-4 h-4" /> {tip}
                                         <ChevronRight className="w-4 h-4 ml-auto" />
                                     </div>
@@ -285,7 +285,7 @@ const BlogContent = () => {
                 <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
                     <h2 className="text-4xl font-serif font-bold text-[#2d2412]">Wanna build your own design story?</h2>
                     <p className="text-stone-500">Book a free design consultation with our experts today.</p>
-                    <button className="px-12 py-6 bg-[#2d2412] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all">
+                    <button className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all">
                         Start Your Evolution
                     </button>
                 </div>

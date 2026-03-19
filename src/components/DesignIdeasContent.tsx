@@ -43,7 +43,7 @@ const DesignCard = ({ title, rating, reviews, image, onConsult }: DesignCardProp
             <div className="flex gap-3">
                 <button
                     onClick={onConsult}
-                    className="flex-1 px-4 py-3.5 bg-[#eb595f] text-white text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-[#2d2412] transition-colors shadow-lg shadow-[#eb595f]/20"
+                    className="flex-1 px-4 py-3.5 bg-[#eb595f] text-white text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-stone-900 transition-colors shadow-lg shadow-[#eb595f]/20"
                 >
                     Get Free Quote
                 </button>
@@ -163,7 +163,7 @@ const DesignIdeasContent = ({ title, description, slug, galleryImages }: DesignI
 
                     {/* Right: Sidebar Form (Replaced with Premium CTA) */}
                     <div className="w-full lg:w-[400px] shrink-0">
-                        <div className="sticky top-32 bg-[#2d2412] rounded-[3rem] p-10 text-white relative overflow-hidden group border border-white/5">
+                        <div className="sticky top-32 bg-[#eb595f] rounded-[3rem] p-10 text-white relative overflow-hidden group border border-white/10 shadow-[0_40px_80px_-15px_rgba(235,89,95,0.3)]">
                             <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:opacity-10 transition-opacity">
                                 <Target className="w-48 h-48" />
                             </div>
@@ -190,7 +190,7 @@ const DesignIdeasContent = ({ title, description, slug, galleryImages }: DesignI
 
                                 <button
                                     onClick={openConsultation}
-                                    className="w-full py-5 bg-[#eb595f] text-white font-black uppercase text-[10px] tracking-widest rounded-2xl transition-all hover:bg-white hover:text-[#2d2412] shadow-2xl flex items-center justify-center gap-3"
+                                    className="w-full py-5 bg-white text-[#eb595f] font-black uppercase text-[10px] tracking-widest rounded-2xl transition-all hover:bg-stone-950 hover:text-white shadow-2xl flex items-center justify-center gap-3"
                                 >
                                     Initialize Design Journey
                                 </button>
@@ -208,7 +208,7 @@ const DesignIdeasContent = ({ title, description, slug, galleryImages }: DesignI
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-[3s]"
                 />
-                <div className="absolute inset-0 bg-[#2d2412]/80 backdrop-blur-md flex items-center p-8 md:p-24 overflow-hidden">
+                <div className="absolute inset-0 bg-stone-900/80 backdrop-blur-md flex items-center p-8 md:p-24 overflow-hidden">
                     <div className="absolute top-0 right-0 p-32 opacity-10">
                         <Sparkles className="w-96 h-96 text-[#eb595f]" />
                     </div>
@@ -222,7 +222,7 @@ const DesignIdeasContent = ({ title, description, slug, galleryImages }: DesignI
                         <div className="flex flex-col sm:flex-row gap-6 pt-4">
                             <button
                                 onClick={openConsultation}
-                                className="px-10 py-5 bg-[#eb595f] text-white font-black uppercase text-[10px] tracking-widest rounded-2xl hover:bg-white hover:text-[#2d2412] transition-all shadow-2xl flex items-center justify-center gap-3"
+                                className="px-10 py-5 bg-[#eb595f] text-white font-black uppercase text-[10px] tracking-widest rounded-2xl hover:bg-white hover:text-stone-900 transition-all shadow-2xl flex items-center justify-center gap-3"
                             >
                                 <Send className="w-4 h-4" /> Start My Project
                             </button>

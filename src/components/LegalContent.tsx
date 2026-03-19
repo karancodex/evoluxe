@@ -13,12 +13,12 @@ const LegalContent = ({ title, lastUpdated = "February 21, 2026" }: { title: str
                     className="text-center mb-20"
                 >
                     <h1 className="text-5xl md:text-7xl font-serif font-bold text-[#4d3b1a] mb-6">{title}</h1>
-                    <div className="w-24 h-1.5 bg-[#c5a059] mx-auto mb-6 rounded-full" />
+                    <div className="w-24 h-1.5 bg-[#eb595f] mx-auto mb-6 rounded-full" />
                     <p className="text-stone-400 text-sm font-medium uppercase tracking-[0.2em]">Last Updated: {lastUpdated}</p>
                 </motion.div>
 
                 <div className="bg-white p-10 md:p-16 rounded-[3rem] shadow-xl shadow-stone-200/50 border border-stone-100 prose prose-stone prose-lg max-w-none">
-                    <p className="text-stone-500 leading-relaxed font-light first-letter:text-5xl first-letter:font-serif first-letter:text-[#c5a059] first-letter:mr-3 first-letter:float-left">
+                    <p className="text-stone-500 leading-relaxed font-light first-letter:text-5xl first-letter:font-serif first-letter:text-[#eb595f] first-letter:mr-3 first-letter:float-left">
                         Welcome to EVOLX Studio. Your trust is our most valuable asset. This document outlines our standard practices and the legally binding terms governing your relationship with our services, products, and experiences.
                     </p>
 
@@ -38,7 +38,7 @@ const LegalContent = ({ title, lastUpdated = "February 21, 2026" }: { title: str
                     </p>
 
                     <div className="mt-16 p-8 bg-[#faf9f6]/40 rounded-3xl border border-[#e5d5b0]/20">
-                        <h4 className="text-[#c5a059] font-bold mb-2 uppercase tracking-widest text-sm">Need Clarification?</h4>
+                        <h4 className="text-[#eb595f] font-bold mb-2 uppercase tracking-widest text-sm">Need Clarification?</h4>
                         <p className="text-stone-600 text-sm italic">If you have any questions about our {title.toLowerCase()}, please reach out to our compliance team at legal@evolxstudio.com.</p>
                     </div>
                 </div>

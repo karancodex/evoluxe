@@ -46,7 +46,7 @@ const StoriesContent = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className="inline-block"
                     >
-                        <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">OUR PORTFOLIO</span>
+                        <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">OUR PORTFOLIO</span>
                     </motion.div>
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
@@ -71,36 +71,36 @@ const StoriesContent = () => {
             {/* 2. FEATURED STORY SECTION */}
             <section className="py-32 px-6">
                 <div className="max-w-7xl mx-auto">
-                    <div className="bg-[#2d2412] rounded-[4rem] overflow-hidden relative shadow-2xl">
+                    <div className="bg-[#eb595f] rounded-[4rem] overflow-hidden relative shadow-2xl">
                         <div className="grid grid-cols-1 lg:grid-cols-2">
                             <div className="relative aspect-square lg:aspect-auto h-full">
                                 <Image
                                     src="/v4/luxury_living_3.png"
                                     alt="Featured Case Study"
                                     fill
-                                    className="object-cover opacity-80"
+                                    className="object-cover opacity-90"
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <button className="w-24 h-24 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center group hover:bg-[#D28D69] transition-all">
-                                        <Play className="w-10 h-10 text-white fill-white group-hover:scale-110 transition-transform" />
+                                    <button className="w-24 h-24 bg-white/30 backdrop-blur-xl rounded-full flex items-center justify-center group hover:bg-white transition-all shadow-xl">
+                                        <Play className="w-10 h-10 text-white fill-white group-hover:text-[#eb595f] group-hover:fill-[#eb595f] group-hover:scale-110 transition-all" />
                                     </button>
                                 </div>
                             </div>
-                            <div className="p-12 md:p-24 space-y-12 flex flex-col justify-center">
+                            <div className="p-12 md:p-24 space-y-12 flex flex-col justify-center relative z-10">
                                 <div className="space-y-4">
-                                    <span className="text-[#D28D69] font-bold text-xs uppercase tracking-widest">Featured Story</span>
-                                    <h2 className="text-4xl md:text-6xl font-serif font-bold text-white leading-tight">The Heritage Villa <br /> Transformation.</h2>
-                                    <p className="text-stone-400 text-lg font-light leading-relaxed">
+                                    <span className="text-white font-bold text-xs uppercase tracking-widest drop-shadow-sm">Featured Story</span>
+                                    <h2 className="text-4xl md:text-6xl font-serif font-bold text-white leading-tight drop-shadow-sm">The Heritage Villa <br /> Transformation.</h2>
+                                    <p className="text-white/80 text-lg font-light leading-relaxed">
                                         "Evoluxe didn't just design our house; they understood our family. The result is a home that balances our heritage with our modern lifestyle perfectly."
                                     </p>
                                 </div>
                                 <div className="flex items-center gap-6">
-                                    <div className="w-16 h-16 rounded-full bg-stone-800 border border-white/10 overflow-hidden relative">
+                                    <div className="w-16 h-16 rounded-full bg-white/20 border border-white/40 overflow-hidden relative shadow-inner">
                                         <Image src="/v4/about/upholstery.png" alt="Client" fill className="object-cover" />
                                     </div>
                                     <div>
-                                        <p className="text-white font-bold">The Singhania Family</p>
-                                        <p className="text-[#D28D69] text-xs uppercase tracking-widest font-bold">Entrepreneur</p>
+                                        <p className="text-white font-bold drop-shadow-sm">The Singhania Family</p>
+                                        <p className="text-white/80 text-xs uppercase tracking-widest font-bold">Entrepreneur</p>
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@ const StoriesContent = () => {
             <section className="py-32 px-6 bg-stone-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-20 space-y-4">
-                        <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">RECENT TRANSFORMATIONS</span>
+                        <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">RECENT TRANSFORMATIONS</span>
                         <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412]">Success delivered</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -138,11 +138,11 @@ const StoriesContent = () => {
                                     <div className="flex flex-wrap gap-4">
                                         {story.stats.map((stat, j) => (
                                             <span key={j} className="px-4 py-2 bg-stone-50 rounded-lg text-stone-400 text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
-                                                <CheckCircle className="w-3 h-3 text-[#D28D69]" /> {stat}
+                                                <CheckCircle className="w-3 h-3 text-[#eb595f]" /> {stat}
                                             </span>
                                         ))}
                                     </div>
-                                    <button className="flex items-center gap-4 text-[#D28D69] font-black text-xs uppercase tracking-widest border-b border-transparent hover:border-[#D28D69] transition-all pb-2">
+                                    <button className="flex items-center gap-4 text-[#eb595f] font-black text-xs uppercase tracking-widest border-b border-transparent hover:border-[#eb595f] transition-all pb-2">
                                         View Case Study <ArrowRight className="w-4 h-4" />
                                     </button>
                                 </div>
@@ -157,13 +157,13 @@ const StoriesContent = () => {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         <div className="space-y-8">
-                            <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">THE EVOLUTION</span>
+                            <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">THE EVOLUTION</span>
                             <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412]">The power of <br /> transformation.</h2>
                             <p className="text-stone-500 text-lg font-light leading-relaxed">
                                 We specialize in "Bare-Shell-to-Bespoke". See how our designers turn empty concrete structures into soulful sanctuaries of luxury and comfort.
                             </p>
                             <div className="pt-8">
-                                <button className="px-12 py-6 bg-[#2d2412] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all shadow-xl">
+                                <button className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all shadow-xl">
                                     Browse Full Gallery
                                 </button>
                             </div>
@@ -178,7 +178,7 @@ const StoriesContent = () => {
                             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-md px-8 py-4 rounded-full shadow-2xl flex items-center gap-6">
                                 <span className="text-[10px] font-black tracking-widest uppercase text-stone-400">Before</span>
                                 <div className="w-px h-4 bg-stone-200" />
-                                <span className="text-[10px] font-black tracking-widest uppercase text-[#D28D69]">After</span>
+                                <span className="text-[10px] font-black tracking-widest uppercase text-[#eb595f]">After</span>
                             </div>
                         </div>
                     </div>
@@ -186,13 +186,13 @@ const StoriesContent = () => {
             </section>
 
             {/* 5. CLIENT REVIEWS SLIDER */}
-            <section className="py-32 bg-[#2d2412] text-white overflow-hidden">
+            <section className="py-32 bg-[#eb595f] text-white overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="flex justify-between items-center mb-20">
-                        <h2 className="text-4xl md:text-6xl font-serif font-bold">What they say.</h2>
+                        <h2 className="text-4xl md:text-6xl font-serif font-bold drop-shadow-sm">What they say.</h2>
                         <div className="flex gap-2">
                             {[1, 2, 3, 4, 5].map((s) => (
-                                <Star key={s} className="w-5 h-5 text-[#D28D69] fill-[#D28D69]" />
+                                <Star key={s} className="w-5 h-5 text-white fill-white" />
                             ))}
                         </div>
                     </div>
@@ -202,12 +202,12 @@ const StoriesContent = () => {
                             { name: "Amit Khanna", review: "The modular kitchen is a masterpiece. Ergonomics meet aesthetics in the most beautiful way possible." },
                             { name: "Sonal Gupta", review: "From the first 3D render to the final handover, the experience was seamless. Highly professional team." }
                         ].map((rev, i) => (
-                            <div key={i} className="bg-white/5 p-12 rounded-[2.5rem] border border-white/10 space-y-8 relative group hover:bg-white/10 transition-colors">
-                                <Quote className="w-12 h-12 text-[#D28D69] opacity-20 absolute top-12 left-12" />
-                                <p className="text-xl font-light leading-relaxed text-stone-300 relative z-10">"{rev.review}"</p>
-                                <div className="pt-4 border-t border-white/10 mt-8">
+                            <div key={i} className="bg-white/10 p-12 rounded-[2.5rem] border border-white/20 space-y-8 relative group hover:bg-white/20 transition-colors shadow-lg">
+                                <Quote className="w-12 h-12 text-white opacity-20 absolute top-12 left-12" />
+                                <p className="text-xl font-medium leading-relaxed text-white relative z-10">"{rev.review}"</p>
+                                <div className="pt-4 border-t border-white/30 mt-8">
                                     <p className="font-bold text-white uppercase tracking-widest text-xs">{rev.name}</p>
-                                    <p className="text-[#D28D69] text-xs uppercase tracking-widest mt-1">Verified Client</p>
+                                    <p className="text-white/80 text-xs uppercase tracking-widest mt-1">Verified Client</p>
                                 </div>
                             </div>
                         ))}
@@ -242,7 +242,7 @@ const StoriesContent = () => {
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
                     <div className="lg:w-1/2 space-y-10 order-2 lg:order-1">
                         <div className="space-y-4">
-                            <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">CASE STUDY</span>
+                            <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">CASE STUDY</span>
                             <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412]">Urban Modernity <br /> in Flat 402.</h2>
                         </div>
                         <div className="space-y-6">
@@ -252,12 +252,12 @@ const StoriesContent = () => {
                             <ul className="space-y-4">
                                 {["Open Kitchen Design", "Hidden Storage Solutions", "Ambient Lighting Control"].map((item, i) => (
                                     <li key={i} className="flex items-center gap-4 text-[#2d2412] font-bold text-xs uppercase tracking-widest">
-                                        <CheckCircle className="w-5 h-5 text-[#D28D69]" /> {item}
+                                        <CheckCircle className="w-5 h-5 text-[#eb595f]" /> {item}
                                     </li>
                                 ))}
                             </ul>
                         </div>
-                        <button className="px-10 py-5 bg-[#D28D69] text-white rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-[#2d2412] transition-all">
+                        <button className="px-10 py-5 bg-[#eb595f] text-white rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-[#2d2412] transition-all">
                             Deep Dive into Design
                         </button>
                     </div>
@@ -277,7 +277,7 @@ const StoriesContent = () => {
                         { label: "Handover", icon: <Star /> }
                     ].map((item, i) => (
                         <div key={i} className="space-y-4 group cursor-pointer">
-                            <div className="w-24 h-24 rounded-full border-2 border-stone-100 flex items-center justify-center text-[#D28D69] group-hover:border-[#D28D69] group-hover:bg-[#D28D69] group-hover:text-white transition-all">
+                            <div className="w-24 h-24 rounded-full border-2 border-stone-100 flex items-center justify-center text-[#eb595f] group-hover:border-[#eb595f] group-hover:bg-[#eb595f] group-hover:text-white transition-all">
                                 {React.cloneElement(item.icon as React.ReactElement<any>, { className: "w-8 h-8" })}
                             </div>
                             <p className="text-[10px] font-black tracking-widest uppercase text-stone-400 group-hover:text-[#2d2412] transition-colors">{item.label}</p>
@@ -294,7 +294,7 @@ const StoriesContent = () => {
                     <div className="flex justify-center gap-6 pt-4">
                         <button
                             onClick={openConsultation}
-                            className="px-12 py-6 bg-[#2d2412] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all shadow-xl"
+                            className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all shadow-xl"
                         >
                             Start Your Project
                         </button>

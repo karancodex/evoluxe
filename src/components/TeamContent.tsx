@@ -47,7 +47,7 @@ const TeamContent = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className="inline-block"
                     >
-                        <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">MEET THE ARCHITECTS</span>
+                        <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">MEET THE ARCHITECTS</span>
                     </motion.div>
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
@@ -70,13 +70,13 @@ const TeamContent = () => {
             </section>
 
             {/* 2. STATS BAR */}
-            <section className="bg-[#2d2412] text-white py-16">
+            <section className="bg-[#eb595f] text-white py-16">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
                         {stats.map((stat, i) => (
                             <div key={i} className="text-center space-y-2">
-                                <p className="text-4xl md:text-6xl font-serif font-bold text-[#D28D69]">{stat.value}</p>
-                                <p className="text-stone-400 text-[10px] font-black tracking-widest uppercase">{stat.label}</p>
+                                <p className="text-4xl md:text-6xl font-serif font-bold text-white drop-shadow-sm">{stat.value}</p>
+                                <p className="text-white/80 text-[10px] font-black tracking-widest uppercase">{stat.label}</p>
                             </div>
                         ))}
                     </div>
@@ -88,7 +88,7 @@ const TeamContent = () => {
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
                         <div className="space-y-4">
-                            <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">LEADERSHIP</span>
+                            <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">LEADERSHIP</span>
                             <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412]">Visionary guidance</h2>
                         </div>
                         <p className="text-stone-500 max-w-md font-light text-lg">
@@ -112,17 +112,17 @@ const TeamContent = () => {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#2d2412]/80 to-transparent" />
                                     <div className="absolute bottom-8 left-8 flex gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-[#D28D69] transition-colors">
+                                        <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-[#eb595f] transition-colors">
                                             <Linkedin className="w-4 h-4 text-white" />
                                         </div>
-                                        <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-[#D28D69] transition-colors">
+                                        <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-[#eb595f] transition-colors">
                                             <Twitter className="w-4 h-4 text-white" />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="space-y-2">
                                     <h3 className="text-2xl font-serif font-bold text-[#2d2412]">{leader.name}</h3>
-                                    <p className="text-[#D28D69] font-bold text-xs uppercase tracking-widest">{leader.role}</p>
+                                    <p className="text-[#eb595f] font-bold text-xs uppercase tracking-widest">{leader.role}</p>
                                     <p className="text-stone-500 font-light leading-relaxed">{leader.bio}</p>
                                 </div>
                             </motion.div>
@@ -135,7 +135,7 @@ const TeamContent = () => {
             <section className="py-32 bg-stone-50 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-20 space-y-4">
-                        <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">THE COLLECTIVE</span>
+                        <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">THE COLLECTIVE</span>
                         <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412]">Specialized by passion</h2>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -146,7 +146,7 @@ const TeamContent = () => {
                             { title: "Material Scientists", icon: <Award /> }
                         ].map((item, i) => (
                             <div key={i} className="bg-white p-10 rounded-[2rem] text-center space-y-6 hover:shadow-xl transition-all">
-                                <div className="w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-[#D28D69] mx-auto">
+                                <div className="w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-[#eb595f] mx-auto">
                                     {item.icon}
                                 </div>
                                 <h4 className="font-serif font-bold text-[#2d2412] text-xl">{item.title}</h4>
@@ -169,13 +169,13 @@ const TeamContent = () => {
                         />
                     </div>
                     <div className="space-y-8">
-                        <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">WHERE MAGIC HAPPENS</span>
+                        <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">WHERE MAGIC HAPPENS</span>
                         <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412]">The heart of craftsmanship</h2>
                         <p className="text-stone-500 text-lg font-light leading-relaxed">
                             Our master-craftsmen don't just assemble; they create. With techniques passed down through generations, every piece of furniture is a unique expression of art.
                         </p>
                         <div className="pt-4">
-                            <button className="px-10 py-5 bg-[#2d2412] text-white rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-[#D28D69] transition-all">
+                            <button className="px-10 py-5 bg-[#eb595f] text-white rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-[#2d2412] transition-all">
                                 Watch Workshop Story
                             </button>
                         </div>
@@ -184,9 +184,9 @@ const TeamContent = () => {
             </section>
 
             {/* 6. TEAM CULTURE */}
-            <section className="py-32 bg-[#2d2412] text-white">
+            <section className="py-32 bg-[#eb595f] text-white">
                 <div className="max-w-7xl mx-auto px-6 text-center space-y-12">
-                    <h2 className="text-4xl md:text-6xl font-serif font-bold">A culture of excellence.</h2>
+                    <h2 className="text-4xl md:text-6xl font-serif font-bold drop-shadow-sm">A culture of excellence.</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         {[
                             { title: "Transparency", desc: "No hidden agendas, just honest design and clear communication." },
@@ -194,8 +194,8 @@ const TeamContent = () => {
                             { title: "Empathy", desc: "We design for people, understanding their lives and aspirations." }
                         ].map((item, i) => (
                             <div key={i} className="space-y-4">
-                                <h3 className="text-2xl font-serif text-[#D28D69]">{item.title}</h3>
-                                <p className="text-stone-400 font-light leading-relaxed">{item.desc}</p>
+                                <h3 className="text-2xl font-serif text-white font-bold">{item.title}</h3>
+                                <p className="text-white/80 font-light leading-relaxed">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -205,13 +205,13 @@ const TeamContent = () => {
             {/* 7. CAREERS CTA */}
             <section className="py-32 px-6">
                 <div className="max-w-5xl mx-auto bg-stone-50 rounded-[3rem] p-12 md:p-24 text-center space-y-8 overflow-hidden relative">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#D28D69]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-                    <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412] relative z-10">We're always looking for <span className="text-[#D28D69]">visionaries.</span></h2>
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#eb595f]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+                    <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412] relative z-10">We're always looking for <span className="text-[#eb595f]">visionaries.</span></h2>
                     <p className="text-stone-500 text-lg font-light max-w-2xl mx-auto relative z-10">
                         Think you have what it takes to define the next era of luxury home design? Explore our open positions.
                     </p>
                     <div className="relative z-10">
-                        <button className="px-12 py-6 bg-[#D28D69] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all shadow-xl">
+                        <button className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all shadow-xl">
                             Join the Studio
                         </button>
                     </div>
@@ -223,7 +223,7 @@ const TeamContent = () => {
                 <div className="max-w-4xl mx-auto text-center space-y-10">
                     <div className="flex justify-center mb-8">
                         {[1, 2, 3, 4, 5].map((s) => (
-                            <Award key={s} className="w-6 h-6 text-[#D28D69]" />
+                            <Award key={s} className="w-6 h-6 text-[#eb595f]" />
                         ))}
                     </div>
                     <p className="text-2xl md:text-4xl font-serif italic text-stone-600 leading-relaxed font-light">
@@ -243,7 +243,7 @@ const TeamContent = () => {
                     <p className="text-stone-500">Book a session with our design team today.</p>
                     <button
                         onClick={openConsultation}
-                        className="px-12 py-5 bg-[#2d2412] text-white rounded-xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all"
+                        className="px-12 py-5 bg-[#eb595f] text-white rounded-xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all"
                     >
                         Schedule an Appointment
                     </button>
