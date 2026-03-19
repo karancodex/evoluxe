@@ -19,8 +19,8 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
                         animate={{ opacity: 1, y: 0 }}
                         className="inline-block"
                     >
-                        <Shield className="w-16 h-16 text-[#D28D69] mx-auto mb-6" />
-                        <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">TRANSPARENCY & TRUST</span>
+                        <Shield className="w-16 h-16 text-[#eb595f] mx-auto mb-6" />
+                        <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">TRANSPARENCY & TRUST</span>
                     </motion.div>
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
@@ -45,7 +45,7 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
             <section className="py-12 border-y border-stone-100 px-6">
                 <div className="max-w-7xl mx-auto flex flex-wrap gap-8 justify-center">
                     {["Overview", "Data Collection", "User Rights", "Cookies", "Liabilities", "Contact"].map((nav, i) => (
-                        <button key={i} className="text-[10px] font-black tracking-widest uppercase text-stone-400 hover:text-[#D28D69] transition-colors">
+                        <button key={i} className="text-[10px] font-black tracking-widest uppercase text-stone-400 hover:text-[#eb595f] transition-colors">
                             {nav}
                         </button>
                     ))}
@@ -56,14 +56,14 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
             <section className="py-24 px-6">
                 <div className="max-w-4xl mx-auto space-y-12">
                     <div className="space-y-4">
-                        <span className="text-[#D28D69] text-[10px] font-black tracking-[.4em] uppercase">01. INTRODUCTION</span>
+                        <span className="text-[#eb595f] text-[10px] font-black tracking-[.4em] uppercase">01. INTRODUCTION</span>
                         <h2 className="text-4xl font-serif font-bold text-[#2d2412]">Our commitment to you.</h2>
                     </div>
                     <p className="text-stone-500 text-lg font-light leading-relaxed">
                         At EVOLX Studio, we are committed to protecting your privacy and ensuring a transparent relationship. This document outlines our practices regarding information provided when you interact with our design services, website, or experience centers.
                     </p>
                     <div className="bg-stone-50 p-8 rounded-3xl border border-stone-100 flex items-start gap-6">
-                        <Info className="w-8 h-8 text-[#D28D69] shrink-0" />
+                        <Info className="w-8 h-8 text-[#eb595f] shrink-0" />
                         <p className="text-sm text-stone-600 font-light leading-relaxed">
                             By using our services, you agree to the terms outlined in this {title}. We recommend reading this document carefully to understand your rights and our obligations.
                         </p>
@@ -75,7 +75,7 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
             <section className="py-24 px-6 bg-[#faf9f6]">
                 <div className="max-w-4xl mx-auto space-y-12">
                     <div className="space-y-4">
-                        <span className="text-[#D28D69] text-[10px] font-black tracking-[.4em] uppercase">02. CORE POLICIES</span>
+                        <span className="text-[#eb595f] text-[10px] font-black tracking-[.4em] uppercase">02. CORE POLICIES</span>
                         <h2 className="text-4xl font-serif font-bold text-[#2d2412]">Detailed operations.</h2>
                     </div>
                     <div className="space-y-8">
@@ -85,7 +85,7 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
                             { title: "Third-party Safety", icon: <Lock />, content: "We never sell your data. We share only essential project details with our certified logistical and structural partners." }
                         ].map((item, i) => (
                             <div key={i} className="bg-white p-10 rounded-[2.5rem] shadow-sm flex flex-col md:flex-row gap-8 items-center border border-stone-100 hover:shadow-xl transition-all">
-                                <div className="w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-[#D28D69] shrink-0">
+                                <div className="w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-[#eb595f] shrink-0">
                                     {React.cloneElement(item.icon as React.ReactElement<any>, { className: "w-8 h-8" })}
                                 </div>
                                 <div className="space-y-2">
@@ -102,7 +102,7 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
             <section className="py-24 px-6">
                 <div className="max-w-4xl mx-auto space-y-12">
                     <div className="space-y-4">
-                        <span className="text-[#D28D69] text-[10px] font-black tracking-[.4em] uppercase">03. TECHNOLOGY & IP</span>
+                        <span className="text-[#eb595f] text-[10px] font-black tracking-[.4em] uppercase">03. TECHNOLOGY & IP</span>
                         <h2 className="text-4xl font-serif font-bold text-[#2d2412]">Security measures.</h2>
                     </div>
                     <p className="text-stone-500 font-light text-lg leading-relaxed">
@@ -110,11 +110,11 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="p-8 border border-stone-100 rounded-3xl space-y-4">
-                            <h5 className="font-bold text-[#2d2412] flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#D28D69]" /> Encryption</h5>
+                            <h5 className="font-bold text-[#2d2412] flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#eb595f]" /> Encryption</h5>
                             <p className="text-sm text-stone-400 font-light">All digital project folders are encrypted and stored on secure enterprise-grade servers.</p>
                         </div>
                         <div className="p-8 border border-stone-100 rounded-3xl space-y-4">
-                            <h5 className="font-bold text-[#2d2412] flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#D28D69]" /> Access Control</h5>
+                            <h5 className="font-bold text-[#2d2412] flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#eb595f]" /> Access Control</h5>
                             <p className="text-sm text-stone-400 font-light">Strict internal access controls ensure only your project team can view specific personal data.</p>
                         </div>
                     </div>
@@ -122,11 +122,11 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
             </section>
 
             {/* 6. USER RIGHTS / OBLIGATIONS (Section 4) */}
-            <section className="py-24 px-6 bg-[#2d2412] text-white">
+            <section className="py-24 px-6 bg-[#eb595f] text-white">
                 <div className="max-w-4xl mx-auto space-y-12">
                     <div className="space-y-4">
-                        <span className="text-[#D28D69] text-[10px] font-black tracking-[.4em] uppercase text-center w-full block">04. YOUR RIGHTS</span>
-                        <h2 className="text-4xl md:text-6xl font-serif font-bold text-center">Take control of your data.</h2>
+                        <span className="text-white drop-shadow-sm text-[10px] font-black tracking-[.4em] uppercase text-center w-full block">04. YOUR RIGHTS</span>
+                        <h2 className="text-4xl md:text-6xl font-serif font-bold text-center drop-shadow-sm">Take control of your data.</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         {[
@@ -135,9 +135,9 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
                             { title: "Right to Correction", desc: "Instantly update any incorrect project details, contact info, or site addresses." },
                             { title: "Project Portability", desc: "Export your 2D and 3D design files for your own personal use and archiving." }
                         ].map((right, i) => (
-                            <div key={i} className="space-y-4 border-l border-white/10 pl-8">
-                                <h4 className="text-xl font-bold text-[#D28D69]">{right.title}</h4>
-                                <p className="text-stone-400 font-light leading-relaxed">{right.desc}</p>
+                            <div key={i} className="space-y-4 border-l border-white/30 pl-8">
+                                <h4 className="text-xl font-bold text-white drop-shadow-sm">{right.title}</h4>
+                                <p className="text-white/80 font-light leading-relaxed">{right.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -156,7 +156,7 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
                         </div>
                         <div className="space-y-6">
                             <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 flex items-center gap-6 hover:shadow-xl transition-all cursor-pointer group">
-                                <div className="w-14 h-14 bg-[#D28D69]/10 rounded-2xl flex items-center justify-center text-[#D28D69] group-hover:bg-[#D28D69] group-hover:text-white transition-all">
+                                <div className="w-14 h-14 bg-[#eb595f]/10 rounded-2xl flex items-center justify-center text-[#eb595f] group-hover:bg-[#eb595f] group-hover:text-white transition-all">
                                     <Mail className="w-6 h-6" />
                                 </div>
                                 <div className="space-y-1">
@@ -194,12 +194,12 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
                 <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
                     <h2 className="text-4xl md:text-7xl font-serif font-bold text-[#2d2412]">Your evolution, <br /> safely handled.</h2>
                     <p className="text-stone-500 text-lg font-light">Continue exploring our design world with confidence.</p>
-                    <button className="px-12 py-6 bg-[#2d2412] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all shadow-xl">
+                    <button className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all shadow-xl">
                         Back to Home
                     </button>
                     <div className="pt-12 flex justify-center gap-12 text-[10px] font-black tracking-widest uppercase text-stone-300">
-                        <button className="hover:text-[#D28D69] transition-colors">Privacy Policy</button>
-                        <button className="hover:text-[#D28D69] transition-colors">Terms of Service</button>
+                        <button className="hover:text-[#eb595f] transition-colors">Privacy Policy</button>
+                        <button className="hover:text-[#eb595f] transition-colors">Terms of Service</button>
                     </div>
                 </div>
             </section>

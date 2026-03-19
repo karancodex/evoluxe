@@ -5,8 +5,6 @@ import Hero from '@/components/Hero';
 import ServicesSlider from '@/components/ServicesSlider';
 import StatsSection from '@/components/StatsSection';
 import WhatWeOffer from '@/components/WhatWeOffer';
-import EstimateSection from '@/components/EstimateSection';
-import BrandPromise from '@/components/BrandPromise';
 import DesignSession from '@/components/DesignSession';
 import InspirationGallery from '@/components/InspirationGallery';
 import EvolxStudioIntro from '@/components/EvoLuxeIntro';
@@ -25,8 +23,6 @@ export default function V4HomePage() {
             <ServicesSlider />
             <StatsSection />
             <WhatWeOffer />
-            <EstimateSection />
-            <BrandPromise />
             <DesignSession />
             <InspirationGallery />
             <Testimonials />

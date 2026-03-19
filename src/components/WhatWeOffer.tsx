@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ChevronRight, Wrench, Wallet, ShieldCheck } from "lucide-react";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 const offerings = [
     {
@@ -56,6 +57,7 @@ const offerings = [
 ];
 
 const WhatWeOffer = () => {
+    const { openConsultation } = useConsultation();
     return (
         <section className="py-20 bg-white overflow-hidden transition-colors duration-500">
             <div className="max-w-7xl mx-auto px-5 md:px-6">
@@ -132,7 +134,10 @@ const WhatWeOffer = () => {
                                     </div>
 
                                     <div className="pt-4">
-                                        <button className="flex items-center gap-2 text-[#2d2412] group/btn hover:text-[#eb595f] transition-colors">
+                                        <button
+                                            onClick={openConsultation}
+                                            className="flex items-center gap-2 text-[#2d2412] group/btn hover:text-[#eb595f] transition-colors"
+                                        >
                                             <span className="text-[11px] font-bold tracking-[0.2em] uppercase border-b border-stone-100 group-hover:border-[#eb595f] transition-all pb-1">
                                                 Explore Details
                                             </span>

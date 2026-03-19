@@ -18,12 +18,12 @@ const brands = [
 const AboutContent = () => {
     const { openConsultation } = useConsultation();
     return (
-        <div className="bg-white overflow-hidden selection:bg-[#C5A467]/30">
+        <div className="bg-white overflow-hidden selection:bg-[#eb595f]/30">
 
             {/* --- SECTION 1: LUXURY HERO --- */}
             <section className="relative min-h-screen flex items-center pt-20">
                 <div className="absolute inset-0 z-0">
-                    <div className="absolute top-40 right-10 w-[600px] h-[600px] bg-[#C5A467]/5 rounded-full blur-[120px] pointer-events-none" />
+                    <div className="absolute top-40 right-10 w-[600px] h-[600px] bg-[#eb595f]/5 rounded-full blur-[120px] pointer-events-none" />
                     <div className="absolute bottom-40 left-10 w-[400px] h-[400px] bg-[#2d2412]/5 rounded-full blur-[100px] pointer-events-none" />
                 </div>
 
@@ -66,11 +66,11 @@ const AboutContent = () => {
                         >
                             <button
                                 onClick={openConsultation}
-                                className="px-10 py-5 bg-[#D28D69] text-white rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-[#2d2412] transition-all transform active:scale-95 shadow-lg shadow-[#D28D69]/20"
+                                className="px-10 py-5 bg-[#eb595f] text-white rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-[#2d2412] transition-all transform active:scale-95 shadow-lg shadow-[#eb595f]/20"
                             >
                                 Get Started
                             </button>
-                            <button className="px-10 py-5 border-2 border-stone-200 text-[#2d2412] rounded-xl font-bold text-xs tracking-widest uppercase hover:border-[#D28D69] hover:text-[#D28D69] transition-all transform active:scale-95">
+                            <button className="px-10 py-5 border-2 border-stone-200 text-[#2d2412] rounded-xl font-bold text-xs tracking-widest uppercase hover:border-[#eb595f] hover:text-[#eb595f] transition-all transform active:scale-95">
                                 Learn more
                             </button>
                         </motion.div>
@@ -107,11 +107,11 @@ const AboutContent = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
                         <div className="space-y-10">
                             <div className="space-y-4">
-                                <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">
+                                <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">
                                     WHO WE ARE
                                 </span>
                                 <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412] leading-tight max-w-md">
-                                    Inspire your space through <span className="text-[#D28D69]">art and design.</span>
+                                    Inspire your space through <span className="text-[#eb595f]">art and design.</span>
                                 </h2>
                             </div>
 
@@ -123,7 +123,7 @@ const AboutContent = () => {
 
                             <button
                                 onClick={openConsultation}
-                                className="group px-8 py-5 bg-[#D28D69] text-white rounded-xl font-bold text-xs tracking-[0.2em] uppercase flex items-center gap-4 hover:bg-[#2d2412] transition-all"
+                                className="group px-8 py-5 bg-[#eb595f] text-white rounded-xl font-bold text-xs tracking-[0.2em] uppercase flex items-center gap-4 hover:bg-[#2d2412] transition-all"
                             >
                                 Discover more
                                 <MoveRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
@@ -140,7 +140,7 @@ const AboutContent = () => {
                                 />
                             </div>
                             <div className="col-span-5 p-8 bg-white border border-stone-100 rounded-xl shadow-sm flex flex-col items-center justify-center text-center space-y-2">
-                                <h4 className="text-5xl font-serif font-bold text-[#D28D69]">20+</h4>
+                                <h4 className="text-5xl font-serif font-bold text-[#eb595f]">20+</h4>
                                 <p className="text-stone-400 text-[10px] font-black tracking-[0.2em] uppercase leading-tight">Years Experience</p>
                             </div>
                             <div className="col-span-7 aspect-[1/1.2] relative rounded-xl overflow-hidden">
@@ -160,17 +160,17 @@ const AboutContent = () => {
             <section className="py-32 bg-stone-50">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-20 space-y-4">
-                        <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">OUR PHILOSOPHY</span>
+                        <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">OUR PHILOSOPHY</span>
                         <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412]">Values that guide us</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
-                            { title: "Uncompromising Quality", desc: "We believe in perfection. Every material used and every joint made is inspected against the highest global standards.", icon: <Star className="w-8 h-8 text-[#D28D69]" /> },
-                            { title: "Legacy of Craft", desc: "Our techniques are a blend of ancestral wisdom passed down since 1978 and modern technological precision.", icon: <History className="w-8 h-8 text-[#D28D69]" /> },
-                            { title: "Innovation Always", desc: "We constantly push boundaries, integrating smart technology and sustainable materials into timeless designs.", icon: <Award className="w-8 h-8 text-[#D28D69]" /> }
+                            { title: "Uncompromising Quality", desc: "We believe in perfection. Every material used and every joint made is inspected against the highest global standards.", icon: <Star className="w-8 h-8 text-[#eb595f]" /> },
+                            { title: "Legacy of Craft", desc: "Our techniques are a blend of ancestral wisdom passed down since 1978 and modern technological precision.", icon: <History className="w-8 h-8 text-[#eb595f]" /> },
+                            { title: "Innovation Always", desc: "We constantly push boundaries, integrating smart technology and sustainable materials into timeless designs.", icon: <Award className="w-8 h-8 text-[#eb595f]" /> }
                         ].map((value, i) => (
                             <div key={i} className="bg-white p-12 rounded-[2.5rem] shadow-sm border border-stone-100 group hover:shadow-xl transition-all duration-500">
-                                <div className="mb-8 p-4 bg-stone-50 w-fit rounded-2xl group-hover:bg-[#D28D69]/10 transition-colors">
+                                <div className="mb-8 p-4 bg-stone-50 w-fit rounded-2xl group-hover:bg-[#eb595f]/10 transition-colors">
                                     {value.icon}
                                 </div>
                                 <h3 className="text-2xl font-serif font-bold text-[#2d2412] mb-4">{value.title}</h3>
@@ -199,13 +199,13 @@ const AboutContent = () => {
             </section>
 
             {/* --- SECTION 5: THE JOURNEY (NEW) --- */}
-            <section className="py-32 bg-[#2d2412] text-white">
+            <section className="py-32 bg-[#eb595f] text-white">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         <div className="space-y-12">
                             <div className="space-y-4">
-                                <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">OUR TIMELINE</span>
-                                <h2 className="text-4xl md:text-6xl font-serif font-bold leading-tight">A legacy built over <span className="text-[#D28D69]">decades.</span></h2>
+                                <span className="text-white font-black tracking-[0.4em] uppercase text-[10px]">OUR TIMELINE</span>
+                                <h2 className="text-4xl md:text-6xl font-serif font-bold leading-tight">A legacy built over <span className="italic font-medium text-white/90">decades.</span></h2>
                             </div>
                             <div className="space-y-8">
                                 {[
@@ -215,7 +215,7 @@ const AboutContent = () => {
                                 ].map((milestone, i) => (
                                     <div key={i} className="flex gap-8 group">
                                         <div className="flex flex-col items-center">
-                                            <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center text-[#D28D69] font-bold text-xl group-hover:bg-[#D28D69] group-hover:text-white transition-all">
+                                            <div className="w-16 h-16 rounded-full border border-white/40 flex items-center justify-center text-white font-bold text-xl group-hover:bg-white group-hover:text-[#eb595f] transition-all">
                                                 {milestone.year.slice(2)}
                                             </div>
                                             {i < 2 && <div className="w-px h-full bg-white/10 my-4" />}
@@ -228,14 +228,14 @@ const AboutContent = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden border border-white/5">
+                        <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden border border-white/20 shadow-2xl">
                             <Image
                                 src="/v4/about/upholstery.png"
                                 alt="Upholstery Mastery"
                                 fill
-                                className="object-cover opacity-80"
+                                className="object-cover opacity-90 mix-blend-overlay"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#2d2412] via-transparent to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#eb595f] via-transparent to-transparent" />
                         </div>
                     </div>
                 </div>
@@ -260,7 +260,7 @@ const AboutContent = () => {
                     </p>
                     <button
                         onClick={openConsultation}
-                        className="px-12 py-5 bg-[#D28D69] text-white rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-white hover:text-[#2d2412] transition-all transform active:scale-95 shadow-2xl"
+                        className="px-12 py-5 bg-[#eb595f] text-white rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-white hover:text-[#2d2412] transition-all transform active:scale-95 shadow-2xl"
                     >
                         Discover more
                     </button>
@@ -299,7 +299,7 @@ const AboutContent = () => {
                     </div>
                     <div className="space-y-10">
                         <div className="space-y-4">
-                            <span className="text-[#D28D69] text-[10px] font-black tracking-[0.4em] uppercase">Mastery in Detail</span>
+                            <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase">Mastery in Detail</span>
                             <h3 className="text-3xl md:text-5xl font-serif font-bold text-[#2d2412]">Bespoke Upholstery <br /> Craftsmanship</h3>
                         </div>
                         <p className="text-stone-500 text-lg leading-relaxed font-light">
@@ -307,11 +307,11 @@ const AboutContent = () => {
                         </p>
                         <div className="grid grid-cols-2 gap-8">
                             <div>
-                                <h5 className="font-bold text-[#2d2412] mb-2 flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#D28D69]" /> Premium Fabrics</h5>
+                                <h5 className="font-bold text-[#2d2412] mb-2 flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#eb595f]" /> Premium Fabrics</h5>
                                 <p className="text-stone-400 text-sm">Finest silken velvets and top-grain leathers.</p>
                             </div>
                             <div>
-                                <h5 className="font-bold text-[#2d2412] mb-2 flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#D28D69]" /> Hand Stitched</h5>
+                                <h5 className="font-bold text-[#2d2412] mb-2 flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#eb595f]" /> Hand Stitched</h5>
                                 <p className="text-stone-400 text-sm">Every seam and fold inspected twice.</p>
                             </div>
                         </div>
@@ -329,7 +329,7 @@ const AboutContent = () => {
                     <div className="flex flex-center justify-center gap-6 pt-4">
                         <button
                             onClick={openConsultation}
-                            className="px-12 py-6 bg-[#2d2412] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#D28D69] transition-all transform hover:-translate-y-1 shadow-2xl"
+                            className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all transform hover:-translate-y-1 shadow-2xl"
                         >
                             Book a Consultation
                         </button>

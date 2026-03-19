@@ -8,6 +8,7 @@ import { useConsultation } from "./providers/ConsultationProvider";
 const slides = [
     {
         id: 1,
+        tag: "Interior Architecture & Design",
         image: "/v4/luxury_living_1.png",
         fallback: "/v4/hero-bg.png",
         title: "Luxury Interiors,",
@@ -16,6 +17,16 @@ const slides = [
     },
     {
         id: 2,
+        tag: "Sofa & Upholstery Specialists Since 1978",
+        image: "/v4/dcw_hero_full.png",
+        fallback: "/v4/hero-bg.png",
+        title: "Premium Sofas & Upholstery",
+        subtitle: "Since 1978.",
+        desc: "DCW specializes in crafting custom sofas and expert upholstery solutions trusted for over four decades."
+    },
+    {
+        id: 3,
+        tag: "Interior Architecture & Design",
         image: "/v4/luxury_kitchen_1.png",
         fallback: "/v4/hero-bg.png",
         title: "Culinary Perfection,",
@@ -23,7 +34,8 @@ const slides = [
         desc: "Transform your kitchen into a masterpiece of efficiency and style. Premium materials meet world-class design."
     },
     {
-        id: 3,
+        id: 4,
+        tag: "Interior Architecture & Design",
         image: "/v4/luxury_bedroom_1.png",
         fallback: "/v4/hero-bg.png",
         title: "Serenity & Comfort,",
@@ -89,7 +101,7 @@ const Hero = () => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
                             <span className="text-[#eb595f] font-bold tracking-[0.4em] uppercase text-[10px] mb-4 block drop-shadow-sm">
-                                Interior Architecture & Design
+                                {slides[current].tag}
                             </span>
                             <h1 className="text-[2.8rem] xs:text-[3.2rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] mb-6 tracking-tight drop-shadow-lg">
                                 {slides[current].title}<br />

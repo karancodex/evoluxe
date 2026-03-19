@@ -28,36 +28,36 @@ const ContactContent = () => {
                 {/* 2. MAIN CONTACT & FORM */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
                     <div className="space-y-12">
-                        <div className="bg-[#2d2412] text-white p-6 sm:p-12 rounded-[3rem] shadow-xl relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-[#eb595f]/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-                            <h2 className="text-3xl font-bold mb-10">Get in Touch</h2>
-                            <div className="space-y-8">
+                        <div className="bg-[#eb595f] text-white p-6 sm:p-12 rounded-[3rem] shadow-xl relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+                            <h2 className="text-3xl font-bold mb-10 drop-shadow-sm">Get in Touch</h2>
+                            <div className="space-y-8 relative z-10">
                                 <div className="flex items-start gap-6 group">
-                                    <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-[#eb595f] shrink-0 group-hover:bg-[#eb595f] group-hover:text-white transition-all">
+                                    <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-white shrink-0 group-hover:bg-white group-hover:text-[#eb595f] transition-all">
                                         <Phone className="w-6 h-6" />
                                     </div>
                                     <div>
-                                        <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-1">Call Us</p>
+                                        <p className="text-[10px] font-bold text-white/80 uppercase tracking-widest mb-1">Call Us</p>
                                         <p className="text-lg md:text-xl font-bold">+91 7744 80 6644</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-6 group">
-                                    <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-[#eb595f] shrink-0 group-hover:bg-[#eb595f] group-hover:text-white transition-all">
+                                    <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-white shrink-0 group-hover:bg-white group-hover:text-[#eb595f] transition-all">
                                         <Mail className="w-6 h-6" />
                                     </div>
                                     <div>
-                                        <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-1">Email Us</p>
+                                        <p className="text-[10px] font-bold text-white/80 uppercase tracking-widest mb-1">Email Us</p>
                                         <p className="text-lg md:text-xl font-bold">Info@evolxstudio.com</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-6 group">
-                                    <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-[#eb595f] shrink-0 group-hover:bg-[#eb595f] group-hover:text-white transition-all">
+                                    <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-white shrink-0 group-hover:bg-white group-hover:text-[#eb595f] transition-all">
                                         <MapPin className="w-6 h-6" />
                                     </div>
                                     <div>
-                                        <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-1">Pune Experience Center</p>
+                                        <p className="text-[10px] font-bold text-white/80 uppercase tracking-widest mb-1">Pune Experience Center</p>
                                         <p className="text-lg md:text-xl font-bold leading-relaxed">
-                                            Shop No-4, Ram Nivas, 1034, <br />
+                                            1034, <br />
                                             New Nana Peth, Opp Padamji Police Station, <br />
                                             Pune - 411002
                                         </p>
@@ -136,6 +136,7 @@ const ContactContent = () => {
                                                     <option>Modular Kitchen</option>
                                                     <option>Wardrobe Solutions</option>
                                                     <option>Commercial Spaces</option>
+                                                    <option>DCW</option>
                                                     <option>Other Services</option>
                                                 </select>
                                             </div>
@@ -318,14 +319,14 @@ const ContactContent = () => {
                 </div>
 
                 {/* 9. FINAL CTA SECTION (NEW) */}
-                <div className="mt-40 bg-[#2d2412] rounded-[4rem] p-12 md:p-24 text-center space-y-8 overflow-hidden relative">
-                    <div className="absolute top-0 left-0 w-64 h-64 bg-[#eb595f]/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
-                    <h2 className="text-4xl md:text-7xl font-bold text-white relative z-10">Start your journey today.</h2>
-                    <p className="text-stone-400 text-lg md:text-xl font-light relative z-10">Book your first design session and let's bring your dream home to life.</p>
+                <div className="mt-40 bg-[#eb595f] rounded-[4rem] p-12 md:p-24 text-center space-y-8 overflow-hidden relative">
+                    <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
+                    <h2 className="text-4xl md:text-7xl font-bold text-white relative z-10 drop-shadow-sm">Start your journey today.</h2>
+                    <p className="text-white/80 text-lg md:text-xl font-light relative z-10">Book your first design session and let's bring your dream home to life.</p>
                     <div className="relative z-10">
                         <button
                             onClick={openConsultation}
-                            className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-white hover:text-[#2d2412] transition-all transform hover:-translate-y-1 shadow-2xl"
+                            className="px-12 py-6 bg-white text-[#eb595f] rounded-2xl font-bold tracking-widest uppercase hover:text-white hover:bg-[#2d2412] transition-all transform hover:-translate-y-1 shadow-2xl"
                         >
                             Book Free Consultation
                         </button>

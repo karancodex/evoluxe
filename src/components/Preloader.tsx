@@ -37,7 +37,7 @@ export default function Preloader() {
                             <motion.path
                                 d="M 20 20 L 80 20 L 80 80 L 20 80 L 20 20 M 35 35 L 65 35 L 65 65 L 35 65 L 35 35"
                                 fill="none"
-                                stroke="#c5a059"
+                                stroke="#eb595f"
                                 strokeWidth="0.5"
                                 initial={{ pathLength: 0 }}
                                 animate={{ pathLength: 1 }}

@@ -204,17 +204,17 @@ const HowItWorksContent = () => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="max-w-7xl mx-auto bg-[#2d2412] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden"
+                    className="max-w-7xl mx-auto bg-[#eb595f] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-[#eb595f]/20"
                 >
-                    <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-                        <Palette className="w-32 h-32 text-[#eb595f]" />
+                    <div className="absolute top-0 right-0 p-8 opacity-20 pointer-events-none">
+                        <Palette className="w-32 h-32 text-white" />
                     </div>
                     <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-                        <h3 className="text-2xl md:text-4xl font-serif text-[#fcebeb] italic leading-tight">
+                        <h3 className="text-2xl md:text-4xl font-serif text-white italic leading-tight">
                             "You are every step. Your vision is the soul of our architecture, and our mission is to make it immortal."
                         </h3>
-                        <div className="w-12 h-px bg-[#eb595f] mx-auto" />
-                        <p className="text-white/40 text-[10px] uppercase tracking-[0.5em] font-bold">The EVOLX Manifesto</p>
+                        <div className="w-12 h-px bg-white/50 mx-auto" />
+                        <p className="text-white/80 text-[10px] uppercase tracking-[0.5em] font-bold">The EVOLX Manifesto</p>
                     </div>
                 </motion.div>
             </section>
@@ -295,11 +295,11 @@ const HowItWorksContent = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="lg:w-1/2 bg-[#2d2412] p-12 md:p-20 text-white">
+                    <div className="lg:w-1/2 bg-[#eb595f] p-12 md:p-20 text-white">
                         <div className="max-w-md mx-auto space-y-8">
                             <div>
                                 <h3 className="text-2xl font-serif font-bold mb-2">Get Your Free Estimate</h3>
-                                <p className="text-white/60 text-sm italic">Start your journey to a structural masterpiece today.</p>
+                                <p className="text-white/80 text-sm italic">Start your journey to a structural masterpiece today.</p>
                             </div>
                             <form
                                 onSubmit={async (e) => {
@@ -324,14 +324,14 @@ const HowItWorksContent = () => {
                                 className="space-y-6"
                             >
                                 <div className="space-y-1">
-                                    <label className="text-[10px] uppercase tracking-widest text-[#eb595f] font-bold">Your Name</label>
-                                    <input required name="Your Name" type="text" className="w-full bg-white/5 border-b border-white/20 px-0 py-3 text-lg font-light focus:border-[#eb595f] outline-none transition-colors" placeholder="Karan Deshmukh" />
+                                    <label className="text-[10px] uppercase tracking-widest text-white font-bold">Your Name</label>
+                                    <input required name="Your Name" type="text" className="w-full bg-white/10 border-b border-white/20 px-0 py-3 text-lg font-light focus:border-white outline-none transition-colors placeholder-white/60" placeholder="Karan Deshmukh" />
                                 </div>
                                 <div className="space-y-1">
-                                    <label className="text-[10px] uppercase tracking-widest text-[#eb595f] font-bold">Contact Number</label>
-                                    <input required name="Contact Number" type="tel" className="w-full bg-white/5 border-b border-white/20 px-0 py-3 text-lg font-light focus:border-[#eb595f] outline-none transition-colors" placeholder="+91 99999 99999" />
+                                    <label className="text-[10px] uppercase tracking-widest text-white font-bold">Contact Number</label>
+                                    <input required name="Contact Number" type="tel" className="w-full bg-white/10 border-b border-white/20 px-0 py-3 text-lg font-light focus:border-white outline-none transition-colors placeholder-white/60" placeholder="+91 99999 99999" />
                                 </div>
-                                <button type="submit" className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-lg uppercase tracking-widest text-sm shadow-xl shadow-[#eb595f]/20 hover:bg-white hover:text-[#eb595f] transition-all">
+                                <button type="submit" className="w-full py-5 bg-white text-[#eb595f] font-bold rounded-lg uppercase tracking-widest text-sm shadow-xl hover:bg-[#2d2412] hover:text-white transition-all">
                                     Start the Evolution
                                 </button>
                             </form>

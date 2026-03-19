@@ -32,7 +32,7 @@ const steps = [
         title: "Site Measurement",
         desc: "Our technical team visits your home for precision measurements, ensuring every modular unit fits perfectly.",
         icon: <Ruler className="w-8 h-8" />,
-        color: "#c5a059",
+        color: "#eb595f",
         day: "Day 3-5",
         image: "/v4/interior-living-3d.jpg" // Placeholder for now
     },
@@ -50,7 +50,7 @@ const steps = [
         title: "Precision Manufacturing",
         desc: "Your designs are sent to our state-of-the-art factory where German technology ensures millimetre precision.",
         icon: <Factory className="w-8 h-8" />,
-        color: "#c5a059",
+        color: "#eb595f",
         day: "Day 15-35",
         image: "/v4/design-session-2.png" // Placeholder for now
     },
@@ -68,7 +68,7 @@ const steps = [
         title: "The Big Reveal",
         desc: "Quality checks are completed, and we hand over your beautiful new home with a comprehensive warranty.",
         icon: <PartyPopper className="w-8 h-8" />,
-        color: "#c5a059",
+        color: "#eb595f",
         day: "Day 45",
         image: "/v4/journey-step-6.png"
     }

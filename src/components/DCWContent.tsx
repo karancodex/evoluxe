@@ -22,11 +22,13 @@ import {
     MousePointer2,
     Check
 } from "lucide-react";
+import { useConsultation } from '@/components/providers/ConsultationProvider';
 
 // The Home page uses standard Tailwind serif/sans fonts. 
 // We'll use the same font classes to ensure similarity.
 
 const DCWContent = () => {
+    const { openConsultation } = useConsultation();
     const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -79,8 +81,9 @@ const DCWContent = () => {
                         className="object-cover object-center"
                         priority
                     />
-                    {/* Light Overlay to match Home Hero */}
-                    <div className="absolute inset-0 bg-white/30" />
+                    {/* Subtle Dark Gradient for text pop without washing image, matched to main landing page */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-black/10" />
                 </div>
 
                 <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
@@ -90,25 +93,25 @@ const DCWContent = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                            <span className="text-[#eb595f] font-bold tracking-[0.4em] uppercase text-[10px] mb-4 block">
+                            <span className="text-[#eb595f] font-bold tracking-[0.4em] uppercase text-[10px] mb-4 block drop-shadow-sm">
                                 Sofa & Upholstery Specialists Since 1978
                             </span>
-                            <h1 className="text-[2.8rem] xs:text-[3.2rem] sm:text-4xl md:text-5xl lg:text-7xl font-bold text-black leading-[1.05] mb-6 tracking-tight font-serif">
+                            <h1 className="text-[2.8rem] xs:text-[3.2rem] sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight font-serif drop-shadow-lg">
                                 Premium Sofas & Upholstery <br />
-                                <span className="text-[#eb595f] italic font-normal">Since 1978.</span>
+                                <span className="text-[#eb595f] italic font-normal drop-shadow-sm">Since 1978.</span>
                             </h1>
-                            <p className="text-base sm:text-lg md:text-xl text-black mb-8 leading-relaxed max-w-xl font-normal">
+                            <p className="text-base sm:text-lg md:text-xl text-stone-200 mb-8 leading-relaxed max-w-xl font-normal drop-shadow-md">
                                 DCW specializes in crafting custom sofas and expert upholstery solutions trusted for over four decades.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <button
                                     onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                                    className="w-full sm:w-auto px-10 py-4 bg-[#eb595f] text-white font-bold rounded-full shadow-lg hover:bg-[#2d2412] transition-all transform active:scale-95 text-xs uppercase tracking-widest"
+                                    className="w-full sm:w-auto px-10 py-4 bg-[#eb595f] text-white font-bold rounded-full shadow-lg hover:bg-stone-900 transition-all transform active:scale-95 text-xs uppercase tracking-widest"
                                 >
                                     Get Instant Quote
                                 </button>
-                                <button className="w-full sm:w-auto px-10 py-4 border border-[#eb595f]/20 bg-white/50 backdrop-blur-sm text-[#eb595f] font-bold rounded-full hover:bg-[#eb595f] hover:text-white transition-all transform active:scale-95 text-xs uppercase tracking-widest">
+                                <button className="w-full sm:w-auto px-10 py-4 border border-white/40 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-[#eb595f] hover:border-[#eb595f] transition-all transform active:scale-95 text-xs uppercase tracking-widest">
                                     View Workshop
                                 </button>
                             </div>
@@ -231,21 +234,41 @@ const DCWContent = () => {
                                 <p className="text-[#2d2412]/60 text-lg md:text-xl font-light leading-relaxed mb-10">
                                     For more than four decades, DCW has been the hallmark of premium sofa manufacturing and upholstery. We don't just build furniture; we create icons of comfort.
                                 </p>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    {[
-                                        { title: "Honest Service", desc: "Trusted for quality across Pune." },
-                                        { title: "Premium Foams", desc: "32D to 40D density options." },
-                                        { title: "Global Fabrics", desc: "Italian, Turkish & Indian velvet." },
-                                        { title: "Free Consultation", desc: "Expert advice at your doorstep." }
-                                    ].map((item, idx) => (
-                                        <div key={idx} className="flex gap-4 items-center">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-[#eb595f]" />
-                                            <span className="text-[#2d2412] font-medium text-sm">{item.title}</span>
-                                        </div>
-                                    ))}
-                                </div>
                             </motion.div>
                         </div>
+                    </div>
+
+                    {/* 4 Services as Cards Below */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 relative z-10">
+                        {[
+                            { title: "Honest Service", desc: "Trusted for quality across Pune.", icon: ShieldCheck },
+                            { title: "Premium Foams", desc: "32D to 40D density options.", icon: Layers },
+                            { title: "Global Fabrics", desc: "Italian, Turkish & Indian velvet.", icon: Star },
+                            { title: "Free Consultation", desc: "Expert advice at your doorstep.", icon: MessageCircle }
+                        ].map((item, idx) => {
+                            const Icon = item.icon;
+                            return (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: idx * 0.1 }}
+                                    viewport={{ once: true }}
+                                    className="group flex flex-col items-center text-center p-8 rounded-[2rem] bg-white border border-stone-100 hover:border-[#eb595f]/20 shadow-[0_10px_40px_-20px_rgba(0,0,0,0.08)] hover:shadow-xl transition-all duration-500 relative overflow-hidden"
+                                >
+                                    <div className="absolute top-0 right-0 w-24 h-24 bg-[#eb595f]/5 rounded-bl-[3rem] -z-10 group-hover:scale-[2] transition-transform duration-700 pointer-events-none" />
+                                    <div className="w-16 h-16 rounded-2xl bg-[#eb595f]/5 flex items-center justify-center mb-6 group-hover:bg-[#eb595f] group-hover:-translate-y-2 transition-all duration-500 relative z-10">
+                                        <Icon className="w-7 h-7 text-[#eb595f] group-hover:text-white transition-colors duration-500" />
+                                    </div>
+                                    <h3 className="text-xl font-serif font-bold text-[#2d2412] mb-3 group-hover:text-[#eb595f] transition-colors relative z-10">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-[#2d2412]/60 text-sm font-medium leading-relaxed relative z-10">
+                                        {item.desc}
+                                    </p>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -286,7 +309,7 @@ const DCWContent = () => {
                                             </span>
                                         ))}
                                     </div>
-                                    <button className="flex items-center gap-4 text-[#eb595f] font-bold group-hover:translate-x-2 transition-transform uppercase tracking-widest text-xs">
+                                    <button onClick={openConsultation} className="flex items-center gap-4 text-[#eb595f] font-bold group-hover:translate-x-2 transition-transform uppercase tracking-widest text-xs">
                                         Learn More <ArrowRight className="w-5 h-5" />
                                     </button>
                                 </div>
@@ -519,7 +542,7 @@ const DCWContent = () => {
                                             <option>Others</option>
                                         </select>
                                         <textarea rows={4} className="w-full px-8 py-5 bg-[#faf9f6] rounded-[2rem] outline-none focus:ring-2 focus:ring-[#eb595f]/20 transition-all text-sm resize-none" placeholder="How can we help you?"></textarea>
-                                        <button className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-full hover:bg-[#2d2412] transition-all transform active:scale-95 shadow-lg text-xs uppercase tracking-widest">
+                                        <button className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-full hover:bg-stone-900 transition-all transform active:scale-95 shadow-lg text-xs uppercase tracking-widest">
                                             Send Request
                                         </button>
                                     </motion.form>

@@ -164,7 +164,7 @@ const Footer = () => {
                         {/* Business Details */}
                         <div className="text-[#4d3b1a]/70 text-sm space-y-2 mt-4">
                             <p className="font-bold text-[#eb595f] uppercase tracking-widest text-[10px] mb-2">Visit Us</p>
-                            <p>Shop No-4, Ram Nivas, 1034, New Nana Peth,</p>
+                            <p>1034, New Nana Peth,</p>
                             <p>Opp Padamji Police Station, Pune - 411002</p>
                             <div className="pt-4 space-y-1">
                                 <p><span className="font-bold">Email:</span> Info@evolxstudio.com</p>
@@ -193,9 +193,9 @@ const Footer = () => {
                 <div className="border-t border-[#faf9f6] pt-8 flex flex-col items-center gap-4 text-xs text-stone-400 font-medium">
                     <p>© 2026 EVOLXStudio Design Studio. All rights reserved. | Developed by RightBrain Infotech Pvt. Ltd.</p>
                     <div className="flex gap-8">
-                        <Link href={getLink("Privacy Policy")} className="hover:text-[#c5a059] transition-colors">Privacy Policy</Link>
-                        <Link href={getLink("Terms & Conditions")} className="hover:text-[#c5a059] transition-colors">Terms of Service</Link>
-                        <Link href="#" className="hover:text-[#c5a059] transition-colors">Cookies</Link>
+                        <Link href={getLink("Privacy Policy")} className="hover:text-[#eb595f] transition-colors">Privacy Policy</Link>
+                        <Link href={getLink("Terms & Conditions")} className="hover:text-[#eb595f] transition-colors">Terms of Service</Link>
+                        <Link href="#" className="hover:text-[#eb595f] transition-colors">Cookies</Link>
                     </div>
                 </div>
             </div>

@@ -56,14 +56,15 @@ const Navbar = () => {
                     {/* TOP ROW */}
                     <div className="h-20 flex items-center justify-between border-b border-stone-100/20 relative z-20 bg-transparent">
                         {/* Left: Logo */}
-                        <Link href="/" className="flex items-center gap-2 relative group z-50 shrink-0">
-                            <div className="relative h-16 w-56 md:w-64">
+                        <Link href="/" className="flex items-center gap-2 relative group z-50 shrink-0 rounded-lg focus:outline-none">
+                            <div className="relative h-16 w-60 md:h-20 md:w-[270px] transition-all duration-300 ease-out group-hover:scale-[1.05] group-hover:-translate-y-0.5 group-hover:drop-shadow-xl active:scale-95">
                                 <Image
                                     src="/logo.png"
                                     alt="EVOLXStudio Logo"
                                     fill
-                                    className="object-contain"
+                                    className="object-contain brightness-105 contrast-105 transition-all duration-300"
                                     priority
+                                    quality={100}
                                 />
                             </div>
                         </Link>
@@ -227,7 +228,7 @@ const Navbar = () => {
                         <div>
                             <button
                                 onClick={openConsultation}
-                                className="px-8 py-2.5 rounded-sm text-[11px] font-black tracking-[0.15em] uppercase transition-all bg-[#eb595f] text-white hover:bg-[#2d2412] shadow-lg hover:shadow-xl hover:-translate-y-0.5 border border-transparent hover:border-[#eb595f]/30"
+                                className="px-6 py-2 rounded-full text-[10px] font-black tracking-[0.15em] uppercase transition-all bg-[#eb595f] text-white hover:bg-[#2d2412] shadow-md hover:shadow-lg hover:-translate-y-0.5 border border-transparent hover:border-[#eb595f]/30"
                             >
                                 Consult Online Now
                             </button>

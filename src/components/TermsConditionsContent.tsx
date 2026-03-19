@@ -8,11 +8,11 @@ const TermsConditionsContent = () => {
     return (
         <div className="bg-white min-h-screen">
             {/* Simple Header */}
-            <section className="py-24 bg-[#2d2412] text-white">
+            <section className="py-24 bg-[#eb595f] text-white">
                 <div className="max-w-4xl mx-auto px-6">
-                    <span className="text-[#eb595f] text-[10px] font-black tracking-[0.4em] uppercase mb-4 block">EVOLX STUDIO</span>
-                    <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6">Terms & Conditions</h1>
-                    <p className="text-white/40 font-medium">Agreement Version: 4.2 | Last Revision: Jan 2024</p>
+                    <span className="text-white text-[10px] font-black tracking-[0.4em] uppercase mb-4 block drop-shadow-sm">EVOLX STUDIO</span>
+                    <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 drop-shadow-sm">Terms & Conditions</h1>
+                    <p className="text-white/80 font-medium">Agreement Version: 4.2 | Last Revision: Jan 2024</p>
                 </div>
             </section>
 
@@ -77,11 +77,11 @@ const TermsConditionsContent = () => {
                         </section>
                     </div>
 
-                    <div className="p-12 bg-[#2d2412] rounded-[3rem] text-white space-y-8 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#eb595f]/10 rounded-full blur-[100px]" />
-                        <div className="flex gap-6 items-center">
-                            <Gavel className="w-8 h-8 text-[#eb595f]" />
-                            <h3 className="text-2xl font-serif font-bold">Governing Law</h3>
+                    <div className="p-12 bg-[#eb595f] rounded-[3rem] text-white space-y-8 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[100px]" />
+                        <div className="flex gap-6 items-center relative z-10">
+                            <Gavel className="w-8 h-8 text-white" />
+                            <h3 className="text-2xl font-serif font-bold drop-shadow-sm">Governing Law</h3>
                         </div>
                         <p className="text-white/60 font-light leading-relaxed text-lg">
                             This agreement and any dispute or claim arising out of it shall be governed by and

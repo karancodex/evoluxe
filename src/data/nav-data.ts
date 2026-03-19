@@ -174,10 +174,12 @@ export const getLink = (item: string) => {
     // 1. Check Top Nav Links
     for (const link of topNavLinks) {
         if (link.name === item) {
-            if (link.name === 'Design Ideas') return `/design-ideas`;
-            if (link.name === 'Services') return `/services`;
-            if (link.name === 'Cities') return `/city`;
+            if (link.name === 'Design Ideas') return `/design-ideas/modular-kitchen-designs`;
+            if (link.name === 'Services') return `/services/modular-kitchen`;
+            if (link.name === 'Cities') return `/city/pune`;
             if (link.name === 'Projects') return `/projects`;
+            if (link.name === 'More') return `/${slugify('About Us')}`;
+            if (link.name === 'DCW') return `/dcw`;
             return `/${slugify(link.name)}`;
         }
 
@@ -206,8 +208,8 @@ export const getLink = (item: string) => {
     // 2. Check Bottom Nav Links
     for (const link of bottomNavLinks) {
         if (link.name === item) {
-            if (link.name === 'Offerings') return `/Offerings`;
-            if (link.name === 'Price Calculators') return `/calculators`;
+            if (link.name === 'Offerings') return `/Offerings/full-home-design`;
+            if (link.name === 'Price Calculators') return `/calculators/kitchen-price-calculator`;
             return `/${slugify(link.name)}`;
         }
 

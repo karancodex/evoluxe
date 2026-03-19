@@ -30,7 +30,7 @@ const MeetDesignerBanner = () => {
                     transition={{ duration: 0.8 }}
                     className="text-4xl sm:text-6xl md:text-8xl font-serif font-light text-white mb-8 md:mb-12 leading-[1.1] drop-shadow-2xl px-2"
                 >
-                    Your <span className="italic font-medium text-[#c5a059]">dream home</span> is <br className="hidden sm:block" /> just a click away
+                    Your <span className="italic font-medium text-[#eb595f]">dream home</span> is <br className="hidden sm:block" /> just a click away
                 </motion.h2>
 
                 <motion.button

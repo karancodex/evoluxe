@@ -28,7 +28,7 @@ const ArticleCard = ({ title, category, image, date = "Oct 24, 2024", variant = 
             className="object-cover transition-transform duration-1000 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-6 sm:p-10 flex flex-col justify-end translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#c5a059] mb-3 block">{category}</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#eb595f] mb-3 block">{category}</span>
             <h3 className={`font-serif font-bold text-white leading-tight mb-4 ${variant === 'large' ? 'text-3xl sm:text-5xl' : 'text-xl sm:text-2xl'}`}>
                 {title}
             </h3>
@@ -72,7 +72,7 @@ const MagazineContent = ({
                             animate={{ opacity: 1, x: 0 }}
                             className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100 rounded-full mb-6"
                         >
-                            <Sparkles className="w-3 h-3 text-[#c5a059]" />
+                            <Sparkles className="w-3 h-3 text-[#eb595f]" />
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500">
                                 {slug === 'news' ? 'Press & Media' : 'Design Editorial'}
                             </span>
@@ -84,8 +84,8 @@ const MagazineContent = ({
                             className="text-5xl md:text-8xl font-serif font-bold text-[#2d2412] leading-[0.9]"
                         >
                             {titleParts[0]} <br />
-                            {titleParts[1] ? <span className="italic text-[#c5a059]">{titleParts[1]}.</span> : null}
-                            {!titleParts[1] && title.endsWith('.') && <span className="italic text-[#c5a059]">.</span>}
+                            {titleParts[1] ? <span className="italic text-[#eb595f]">{titleParts[1]}.</span> : null}
+                            {!titleParts[1] && title.endsWith('.') && <span className="italic text-[#eb595f]">.</span>}
                         </motion.h1>
                     </div>
                     <motion.p
@@ -163,7 +163,7 @@ const MagazineContent = ({
 
             {/* Newsletter Section */}
             <section className="py-24 bg-stone-50 overflow-hidden relative">
-                <div className="absolute top-[-20%] right-[-10%] w-[60%] aspect-square bg-[#c5a059] rounded-full blur-[200px] opacity-[0.03]" />
+                <div className="absolute top-[-20%] right-[-10%] w-[60%] aspect-square bg-[#eb595f] rounded-full blur-[200px] opacity-[0.03]" />
 
                 <div className="max-w-[1600px] mx-auto px-6 sm:px-12 flex flex-col md:flex-row items-center justify-between gap-12">
                     <div className="max-w-xl text-center md:text-left">
@@ -178,9 +178,9 @@ const MagazineContent = ({
                             <input
                                 type="email"
                                 placeholder="Email Address"
-                                className="flex-1 px-8 py-5 bg-white border-2 border-transparent rounded-2xl focus:border-[#c5a059] outline-none transition-all shadow-sm"
+                                className="flex-1 px-8 py-5 bg-white border-2 border-transparent rounded-2xl focus:border-[#eb595f] outline-none transition-all shadow-sm"
                             />
-                            <button className="px-8 py-5 bg-[#2d2412] text-white font-bold rounded-2xl hover:bg-[#c5a059] transition-all transform active:scale-95 shadow-lg">
+                            <button className="px-8 py-5 bg-[#2d2412] text-white font-bold rounded-2xl hover:bg-[#eb595f] transition-all transform active:scale-95 shadow-lg">
                                 <ChevronRight className="w-6 h-6" />
                             </button>
                         </form>

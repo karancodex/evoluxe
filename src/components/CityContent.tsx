@@ -114,7 +114,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
                         >
                             <button
                                 onClick={openConsultation}
-                                className="px-10 py-5 bg-[#eb595f] text-white font-black text-xs uppercase tracking-widest rounded-2xl transition-all duration-300 shadow-2xl hover:bg-[#2d2412] transform hover:-translate-y-1 flex items-center gap-3"
+                                className="px-10 py-5 bg-[#eb595f] text-white font-black text-xs uppercase tracking-widest rounded-2xl transition-all duration-300 shadow-2xl hover:bg-stone-900 transform hover:-translate-y-1 flex items-center gap-3"
                             >
                                 <Sparkles className="w-4 h-4" /> Start Design Journey
                             </button>
@@ -133,7 +133,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
                             initial={{ opacity: 0, scale: 0.95, x: 50 }}
                             animate={{ opacity: 1, scale: 1, x: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="bg-[#2d2412] rounded-[3rem] p-12 text-white w-full max-w-[440px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-white/5 relative overflow-hidden group"
+                            className="bg-[#eb595f] rounded-[3rem] p-12 text-white w-full max-w-[440px] shadow-[0_50px_100px_-20px_rgba(235,89,95,0.3)] border border-white/10 relative overflow-hidden group"
                         >
                             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                                 <Sparkles className="w-32 h-32" />
@@ -159,7 +159,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
                                 </div>
                                 <button
                                     onClick={openConsultation}
-                                    className="w-full py-5 bg-white text-[#2d2412] font-black uppercase text-[10px] tracking-widest rounded-2xl transition-all hover:bg-[#eb595f] hover:text-white shadow-xl flex items-center justify-center gap-3"
+                                    className="w-full py-5 bg-white text-[#eb595f] font-black uppercase text-[10px] tracking-widest rounded-2xl transition-all hover:bg-stone-900 hover:text-white shadow-xl flex items-center justify-center gap-3"
                                 >
                                     <Send className="w-4 h-4" /> Book Now
                                 </button>
@@ -366,7 +366,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
                     className="max-w-[1400px] w-full relative min-h-[600px] rounded-[4rem] overflow-hidden shadow-[0_60px_120px_-20px_rgba(0,0,0,0.2)] group"
                 >
                     <Image src={data.heroImage} fill alt="Final CTA" className="object-cover scale-110 group-hover:scale-100 transition-transform duration-[2s]" />
-                    <div className="absolute inset-0 bg-[#2d2412]/80 backdrop-blur-md flex items-center p-8 md:p-24 overflow-hidden">
+                    <div className="absolute inset-0 bg-stone-900/80 backdrop-blur-md flex items-center p-8 md:p-24 overflow-hidden">
                         <div className="absolute top-0 right-0 p-32 opacity-10">
                             <Sparkles className="w-96 h-96 text-[#eb595f]" />
                         </div>
@@ -380,7 +380,7 @@ const CityContent = ({ cityName, slug }: CityContentProps) => {
                             <div className="flex flex-col sm:flex-row gap-6 pt-6">
                                 <button
                                     onClick={openConsultation}
-                                    className="px-12 py-6 bg-[#eb595f] text-white font-black uppercase text-xs tracking-widest rounded-3xl hover:bg-white hover:text-[#2d2412] transition-all shadow-2xl flex items-center justify-center gap-4"
+                                    className="px-12 py-6 bg-[#eb595f] text-white font-black uppercase text-xs tracking-widest rounded-3xl hover:bg-white hover:text-stone-900 transition-all shadow-2xl flex items-center justify-center gap-4"
                                 >
                                     <Send className="w-5 h-5" /> Initialize Design Now
                                 </button>

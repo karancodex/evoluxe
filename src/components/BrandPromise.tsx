@@ -48,14 +48,15 @@ const BrandPromise = () => {
                         Introducing
                     </motion.span>
 
-                    <div className="relative pt-4 flex items-center justify-center">
-                        <div className="relative w-48 sm:w-64 h-16 sm:h-20">
+                    <div className="relative pt-4 flex items-center justify-center group cursor-default">
+                        <div className="relative w-56 sm:w-72 h-20 sm:h-24 transition-all duration-700 ease-out group-hover:scale-[1.05] group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.6)] drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                             <Image
                                 src="/logo.png"
                                 alt="EVOLX Studio Logo"
                                 fill
-                                className="object-contain brightness-0 invert opacity-90"
+                                className="object-contain brightness-0 invert opacity-100 transition-all duration-500"
                                 priority
+                                quality={100}
                             />
                         </div>
                     </div>
@@ -84,7 +85,7 @@ const BrandPromise = () => {
 
                 {/* Decorative Elements */}
                 {/* <div className="absolute bottom-20 flex flex-col items-center gap-4">
-                    <div className="w-[1px] h-20 bg-gradient-to-t from-[#c5a059] to-transparent" />
+                    <div className="w-[1px] h-20 bg-gradient-to-t from-[#eb595f] to-transparent" />
                     <span
                         className="text-[10px] text-[#faf9f6]/40 uppercase tracking-[0.3em]"
                         style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}

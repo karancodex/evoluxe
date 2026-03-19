@@ -19,7 +19,7 @@ const logos = [...rawLogos, ...rawLogos, ...rawLogos, ...rawLogos];
 
 const Partners = () => {
     return (
-        <section className="py-12 md:py-16 bg-white border-t border-[#faf9f6] overflow-hidden">
+        <section className="pt-6 pb-12 md:pt-10 md:pb-16 bg-white border-t border-[#faf9f6] overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Standardized Header Style */}
                 <div className="text-center mb-12 md:mb-16 px-4">
