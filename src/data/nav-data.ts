@@ -208,7 +208,7 @@ export const getLink = (item: string) => {
     // 2. Check Bottom Nav Links
     for (const link of bottomNavLinks) {
         if (link.name === item) {
-            if (link.name === 'Offerings') return `/Offerings/full-home-design`;
+            if (link.name === 'Offerings') return `/offerings/full-home-design`;
             if (link.name === 'Price Calculators') return `/calculators/kitchen-price-calculator`;
             return `/${slugify(link.name)}`;
         }
@@ -216,7 +216,7 @@ export const getLink = (item: string) => {
         if (link.columns) {
             for (const col of link.columns) {
                 if (col.items.includes(item)) {
-                    if (link.name === 'Offerings') return `/Offerings/${slug}`;
+                    if (link.name === 'Offerings') return `/offerings/${slug}`;
                     if (link.name === 'Price Calculators') return `/calculators/${slug}`;
                     return `/services/${slug}`;
                 }

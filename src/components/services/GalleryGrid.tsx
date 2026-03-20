@@ -11,7 +11,7 @@ interface GalleryProps {
 
 export const GalleryGrid: React.FC<GalleryProps> = ({ images, accentColor = "#eb595f" }) => {
     return (
-        <section className="py-24 md:py-32 bg-[#faf9f6]/30 overflow-hidden relative">
+        <section className="pt-12 md:pt-16 pb-24 md:pb-32 bg-[#faf9f6]/30 overflow-hidden relative">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header Style */}
                 <div className="text-center mb-16 md:mb-24 px-4">

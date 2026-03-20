@@ -68,7 +68,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={onClose}
-                        className="absolute inset-0 bg-[#2d2412]/80 backdrop-blur-md"
+                        className="absolute inset-0 bg-stone-900/80 backdrop-blur-md"
                     />
 
                     {/* Modal Content */}
@@ -79,8 +79,8 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                         transition={{ type: "spring", damping: 25, stiffness: 200 }}
                         className="relative bg-white w-full sm:max-w-4xl lg:max-w-5xl h-screen sm:h-auto sm:max-h-[90vh] sm:rounded-[2.5rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border-none sm:border border-stone-100 flex flex-col md:flex-row"
                     >
-                        {/* Left Side: Visual/Info (Hidden on small mobile if height is an issue, but we'll stack it) */}
-                        <div className="hidden md:flex md:w-2/5 bg-[#2d2412] text-white p-8 lg:p-12 flex-col justify-between relative overflow-hidden">
+                        {/* Left Side: Visual/Info */}
+                        <div className="hidden md:flex md:w-2/5 bg-[#eb595f] text-white p-8 lg:p-12 flex-col justify-between relative overflow-hidden">
                             <div className="absolute inset-0 opacity-20">
                                 <Image
                                     src="/v4/interior-living-3d.jpg"
@@ -88,7 +88,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                                     fill
                                     className="object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#2d2412] via-[#2d2412]/90 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#eb595f] via-[#eb595f]/90 to-transparent" />
                             </div>
 
                             <div className="relative z-10">
@@ -96,33 +96,33 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.2 }}
-                                    className="w-12 h-1 bg-[#eb595f] mb-8"
+                                    className="w-12 h-1 bg-white mb-8"
                                 />
-                                <h2 className="text-3xl lg:text-5xl font-serif font-bold leading-tight mb-6">
-                                    Crafting <br /> <span className="text-[#eb595f] italic">Homes</span> <br /> of Tomorrow
+                                <h2 className="text-3xl lg:text-5xl font-serif font-bold leading-tight mb-6 text-white">
+                                    Crafting <br /> <span className="text-white/80 italic">Homes</span> <br /> of Tomorrow
                                 </h2>
-                                <p className="text-white/60 font-light text-sm lg:text-base leading-relaxed max-w-xs">
+                                <p className="text-white/80 font-light text-sm lg:text-base leading-relaxed max-w-xs">
                                     Join our elite design circle and transform your space into a masterpiece of architectural precision.
                                 </p>
                             </div>
 
                             <div className="relative z-10 space-y-4">
                                 <div className="flex items-center gap-4 group cursor-pointer transition-all hover:translate-x-1">
-                                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-[#eb595f] group-hover:border-[#eb595f] transition-all">
+                                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 group-hover:bg-white group-hover:text-[#eb595f] transition-all">
                                         <Phone className="w-4 h-4" />
                                     </div>
-                                    <span className="text-xs font-bold tracking-widest uppercase">+91 7744 80 6644</span>
+                                    <span className="text-xs font-bold tracking-widest uppercase text-white">91 7744 80 6644</span>
                                 </div>
                                 <div className="flex items-center gap-4 group cursor-pointer transition-all hover:translate-x-1">
-                                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-[#eb595f] group-hover:border-[#eb595f] transition-all">
+                                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 group-hover:bg-white group-hover:text-[#eb595f] transition-all">
                                         <Mail className="w-4 h-4" />
                                     </div>
-                                    <span className="text-xs font-bold tracking-widest uppercase text-white/70">_Info@evolxstudio.com</span>
+                                    <span className="text-xs font-bold tracking-widest uppercase text-white/90">_Info@evolxstudio.com</span>
                                 </div>
                             </div>
 
                             {/* Decorative element */}
-                            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#eb595f] rounded-full blur-[80px] opacity-20" />
+                            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-white rounded-full blur-[80px] opacity-10" />
                         </div>
 
                         {/* Right Side: Form */}
@@ -204,7 +204,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                                             <button
                                                 type="submit"
                                                 disabled={isSubmitting}
-                                                className="w-full py-5 bg-[#2d2412] text-white font-bold rounded-2xl hover:bg-[#eb595f] transition-all transform hover:-translate-y-1 shadow-2xl flex items-center justify-center gap-3 uppercase tracking-widest text-[10px] sm:text-xs disabled:opacity-50 disabled:cursor-not-allowed group"
+                                                className="w-full py-5 bg-[#eb595f] text-white font-bold rounded-2xl hover:bg-stone-900 transition-all transform hover:-translate-y-1 shadow-2xl flex items-center justify-center gap-3 uppercase tracking-widest text-[10px] sm:text-xs disabled:opacity-50 disabled:cursor-not-allowed group"
                                             >
                                                 {isSubmitting ? (
                                                     <span className="flex items-center gap-3">
@@ -272,7 +272,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                                                     setSubmitted(false);
                                                     onClose();
                                                 }}
-                                                className="w-full sm:w-auto px-12 py-5 bg-[#2d2412] text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-[#eb595f] transition-all shadow-xl"
+                                                className="w-full sm:w-auto px-12 py-5 bg-[#eb595f] text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-stone-950 transition-all shadow-xl"
                                             >
                                                 Done & Close
                                             </button>

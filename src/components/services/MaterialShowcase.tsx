@@ -18,7 +18,7 @@ interface MaterialShowcaseProps {
 
 export const MaterialShowcase: React.FC<MaterialShowcaseProps> = ({ materials, layoutType, accentColor = "#eb595f" }) => {
     return (
-        <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+        <section className="pt-12 md:pt-16 pb-24 md:pb-32 bg-white relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header Style */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">

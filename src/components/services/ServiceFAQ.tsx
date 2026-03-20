@@ -20,7 +20,7 @@ export const ServiceFAQ: React.FC<ServiceFAQProps> = ({ faqs, title, accentColor
     if (!faqs || faqs.length === 0) return null;
 
     return (
-        <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+        <section className="pt-12 md:pt-16 pb-24 md:pb-32 bg-white relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24">
                     {/* Left Column: Header */}

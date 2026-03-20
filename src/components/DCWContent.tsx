@@ -234,41 +234,39 @@ const DCWContent = () => {
                                 <p className="text-[#2d2412]/60 text-lg md:text-xl font-light leading-relaxed mb-10">
                                     For more than four decades, DCW has been the hallmark of premium sofa manufacturing and upholstery. We don't just build furniture; we create icons of comfort.
                                 </p>
+
+                                {/* 4 Services in front of image — moved and styled as grid */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10 w-full">
+                                    {[
+                                        { title: "Honest Service", desc: "Trusted for quality across Pune." },
+                                        { title: "Premium Foams", desc: "32D to 40D density options." },
+                                        { title: "Global Fabrics", desc: "Italian, Turkish & Indian velvet." },
+                                        { title: "Free Consultation", desc: "Expert advice at your doorstep." }
+                                    ].map((item, idx) => (
+                                        <motion.div
+                                            key={idx}
+                                            initial={{ opacity: 0, y: 30 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: idx * 0.1 }}
+                                            viewport={{ once: true }}
+                                            className="flex items-center gap-5 p-7 bg-white rounded-3xl border border-stone-100 shadow-[0_15px_45px_-15px_rgba(0,0,0,0.06)] hover:shadow-2xl transition-all duration-500"
+                                        >
+                                            <div className="w-12 h-12 bg-[#fcebeb] rounded-full flex items-center justify-center text-[#eb595f] shrink-0">
+                                                <CheckCircle className="w-7 h-7" />
+                                            </div>
+                                            <div className="space-y-1">
+                                                <h3 className="text-base font-bold text-[#2d2412]">
+                                                    {item.title}
+                                                </h3>
+                                                <p className="text-stone-400 font-light text-[11px] leading-relaxed">
+                                                    {item.desc}
+                                                </p>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
                             </motion.div>
                         </div>
-                    </div>
-
-                    {/* 4 Services as Cards Below */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 relative z-10">
-                        {[
-                            { title: "Honest Service", desc: "Trusted for quality across Pune.", icon: ShieldCheck },
-                            { title: "Premium Foams", desc: "32D to 40D density options.", icon: Layers },
-                            { title: "Global Fabrics", desc: "Italian, Turkish & Indian velvet.", icon: Star },
-                            { title: "Free Consultation", desc: "Expert advice at your doorstep.", icon: MessageCircle }
-                        ].map((item, idx) => {
-                            const Icon = item.icon;
-                            return (
-                                <motion.div
-                                    key={idx}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: idx * 0.1 }}
-                                    viewport={{ once: true }}
-                                    className="group flex flex-col items-center text-center p-8 rounded-[2rem] bg-white border border-stone-100 hover:border-[#eb595f]/20 shadow-[0_10px_40px_-20px_rgba(0,0,0,0.08)] hover:shadow-xl transition-all duration-500 relative overflow-hidden"
-                                >
-                                    <div className="absolute top-0 right-0 w-24 h-24 bg-[#eb595f]/5 rounded-bl-[3rem] -z-10 group-hover:scale-[2] transition-transform duration-700 pointer-events-none" />
-                                    <div className="w-16 h-16 rounded-2xl bg-[#eb595f]/5 flex items-center justify-center mb-6 group-hover:bg-[#eb595f] group-hover:-translate-y-2 transition-all duration-500 relative z-10">
-                                        <Icon className="w-7 h-7 text-[#eb595f] group-hover:text-white transition-colors duration-500" />
-                                    </div>
-                                    <h3 className="text-xl font-serif font-bold text-[#2d2412] mb-3 group-hover:text-[#eb595f] transition-colors relative z-10">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-[#2d2412]/60 text-sm font-medium leading-relaxed relative z-10">
-                                        {item.desc}
-                                    </p>
-                                </motion.div>
-                            );
-                        })}
                     </div>
                 </div>
             </section>

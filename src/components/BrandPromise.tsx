@@ -49,7 +49,7 @@ const BrandPromise = () => {
                     </motion.span>
 
                     <div className="relative pt-4 flex items-center justify-center group cursor-default">
-                        <div className="relative w-56 sm:w-72 h-20 sm:h-24 transition-all duration-700 ease-out group-hover:scale-[1.05] group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.6)] drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
+                        <div className="relative w-72 sm:w-[500px] h-24 sm:h-32 transition-all duration-700 ease-out group-hover:scale-[1.05] group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.6)] drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                             <Image
                                 src="/logo.png"
                                 alt="EVOLX Studio Logo"

@@ -4,10 +4,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Play, Quote, Star, ArrowRight, CheckCircle, ExternalLink, MessageCircle } from "lucide-react";
 import Image from "next/image";
-import { useConsultation } from "./providers/ConsultationProvider";
+
 
 const StoriesContent = () => {
-    const { openConsultation } = useConsultation();
+
     const stories = [
         {
             title: "A Modern Oasis in the Heart of Pune.",
@@ -162,11 +162,7 @@ const StoriesContent = () => {
                             <p className="text-stone-500 text-lg font-light leading-relaxed">
                                 We specialize in "Bare-Shell-to-Bespoke". See how our designers turn empty concrete structures into soulful sanctuaries of luxury and comfort.
                             </p>
-                            <div className="pt-8">
-                                <button className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all shadow-xl">
-                                    Browse Full Gallery
-                                </button>
-                            </div>
+
                         </div>
                         <div className="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl">
                             <Image src="/v4/luxury_living_1.png" alt="After" fill className="object-cover" />
@@ -257,9 +253,7 @@ const StoriesContent = () => {
                                 ))}
                             </ul>
                         </div>
-                        <button className="px-10 py-5 bg-[#eb595f] text-white rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-[#2d2412] transition-all">
-                            Deep Dive into Design
-                        </button>
+
                     </div>
                     <div className="lg:w-1/2 relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl order-1 lg:order-2">
                         <Image src="/v4/3d_kitchen_iso.png" alt="Modern Apartment" fill className="object-cover" />
@@ -291,14 +285,7 @@ const StoriesContent = () => {
                 <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
                     <h2 className="text-4xl md:text-7xl font-serif font-bold text-[#2d2412]">Want to be our next <br /> success story?</h2>
                     <p className="text-stone-500 text-lg font-light">Let's create something beautiful together. Reach out for a free consultation.</p>
-                    <div className="flex justify-center gap-6 pt-4">
-                        <button
-                            onClick={openConsultation}
-                            className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all shadow-xl"
-                        >
-                            Start Your Project
-                        </button>
-                    </div>
+
                 </div>
             </section>
         </div>
