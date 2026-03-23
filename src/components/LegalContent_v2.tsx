@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Shield, Lock, Eye, FileText, Scale, Info, CheckCircle, Mail, Phone, ChevronRight, Settings } from "lucide-react";
 
 interface LegalContentProps {
@@ -155,24 +156,24 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
                             </p>
                         </div>
                         <div className="space-y-6">
-                            <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 flex items-center gap-6 hover:shadow-xl transition-all cursor-pointer group">
+                            <a href="mailto:Info@evolxstudio.com" className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 flex items-center gap-6 hover:shadow-xl transition-all group">
                                 <div className="w-14 h-14 bg-[#eb595f]/10 rounded-2xl flex items-center justify-center text-[#eb595f] group-hover:bg-[#eb595f] group-hover:text-white transition-all">
                                     <Mail className="w-6 h-6" />
                                 </div>
                                 <div className="space-y-1">
                                     <p className="text-xs font-bold text-stone-400 uppercase tracking-widest">Email Our Team</p>
-                                    <p className="text-lg font-bold text-[#2d2412]">legal@evolxstudio.com</p>
+                                    <p className="text-lg font-bold text-[#2d2412] group-hover:text-[#eb595f] transition-colors">Info@evolxstudio.com</p>
                                 </div>
-                            </div>
-                            <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 flex items-center gap-6 hover:shadow-xl transition-all cursor-pointer group">
+                            </a>
+                            <a href="tel:+917744806644" className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 flex items-center gap-6 hover:shadow-xl transition-all group">
                                 <div className="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all">
                                     <Phone className="w-6 h-6" />
                                 </div>
                                 <div className="space-y-1">
                                     <p className="text-xs font-bold text-stone-400 uppercase tracking-widest">Call Compliance Desk</p>
-                                    <p className="text-lg font-bold text-[#2d2412]">+91 7744 80 6644</p>
+                                    <p className="text-lg font-bold text-[#2d2412] group-hover:text-[#eb595f] transition-colors">+91 7744 80 6644</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -194,9 +195,9 @@ const LegalContentV2 = ({ title }: LegalContentProps) => {
                 <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
                     <h2 className="text-4xl md:text-7xl font-serif font-bold text-[#2d2412]">Your evolution, <br /> safely handled.</h2>
                     <p className="text-stone-500 text-lg font-light">Continue exploring our design world with confidence.</p>
-                    <button className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all shadow-xl">
+                    <Link href="/" className="inline-block px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all shadow-xl">
                         Back to Home
-                    </button>
+                    </Link>
                     <div className="pt-12 flex justify-center gap-12 text-[10px] font-black tracking-widest uppercase text-stone-300">
                         <button className="hover:text-[#eb595f] transition-colors">Privacy Policy</button>
                         <button className="hover:text-[#eb595f] transition-colors">Terms of Service</button>

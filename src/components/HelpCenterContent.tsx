@@ -45,7 +45,7 @@ const HelpCenterContent = () => {
                         <p className="text-stone-500 text-xl font-light">Search our knowledge base or browse frequently asked questions.</p>
                     </div>
                     <div className="relative max-w-2xl mx-auto">
-                        <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-stone-300 w-6 h-6" />
+                        <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-[#eb595f] w-6 h-6" />
                         <input
                             type="text"
                             placeholder="What are you looking for?"

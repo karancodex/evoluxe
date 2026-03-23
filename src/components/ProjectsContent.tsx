@@ -349,20 +349,20 @@ const ProjectsContent = () => {
                                     <motion.div
                                         initial={{ opacity: 0, y: 30 }}
                                         whileInView={{ opacity: 1, y: 0 }}
-                                        className="col-span-1 md:col-span-2 lg:col-span-3 h-[500px] md:h-auto md:aspect-video lg:aspect-auto lg:h-[450px] bg-[#2d2412] rounded-[3.5rem] overflow-hidden relative group"
+                                        className="col-span-1 md:col-span-2 lg:col-span-3 h-[500px] md:h-auto md:aspect-video lg:aspect-auto lg:h-[450px] bg-[#eb595f] rounded-[3.5rem] overflow-hidden relative group"
                                     >
                                         <div className="absolute inset-0">
-                                            <Image src="/v4/interior-living-3d.jpg" fill alt="CTA" className="object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-1000" />
-                                            <div className="absolute inset-0 bg-gradient-to-r from-[#2d2412] via-[#2d2412]/80 to-transparent" />
+                                            <Image src="/v4/interior-living-3d.jpg" fill alt="CTA" className="object-cover opacity-60 group-hover:scale-105 transition-all duration-1000" />
+                                            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
                                         </div>
                                         <div className="relative z-10 h-full p-12 md:p-24 flex flex-col justify-center items-start space-y-10 max-w-4xl">
                                             <div className="space-y-4">
-                                                <motion.div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#eb595f]/10 rounded-full border border-[#eb595f]/20">
-                                                    <Sparkles className="w-3 h-3 text-[#eb595f]" />
-                                                    <span className="text-[10px] font-black uppercase text-[#eb595f] tracking-widest">Get Inspired</span>
+                                                <motion.div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/20 backdrop-blur-md rounded-full border border-white/30">
+                                                    <Sparkles className="w-3 h-3 text-white" />
+                                                    <span className="text-[10px] font-black uppercase text-white tracking-widest">Get Inspired</span>
                                                 </motion.div>
                                                 <h2 className="text-4xl md:text-6xl font-serif font-bold text-white leading-tight">
-                                                    Want your home to look like <br /> a <span className="text-[#eb595f] italic">Masterpiece?</span>
+                                                    Want your home to look like <br /> a <span className="italic">Masterpiece?</span>
                                                 </h2>
                                             </div>
                                             <div className="flex flex-col sm:flex-row gap-6">
@@ -406,7 +406,7 @@ const ProjectsContent = () => {
                     <div className="relative z-10 flex flex-wrap justify-center gap-6">
                         <button
                             onClick={openConsultation}
-                            className="px-14 py-6 bg-[#2d2412] text-white font-black uppercase text-xs tracking-widest rounded-[2rem] hover:bg-white hover:text-[#2d2412] transition-all shadow-2xl"
+                            className="px-14 py-6 bg-white text-[#eb595f] font-black uppercase text-xs tracking-widest rounded-[2rem] hover:bg-stone-900 hover:text-white transition-all shadow-2xl"
                         >
                             Book Free Site Visit
                         </button>

@@ -19,8 +19,8 @@ const BottomNav = () => {
         {
             label: 'Offerings',
             icon: Grid,
-            href: '/Offerings/modular-interiors',
-            active: pathname.includes('/Offerings')
+            href: '/offerings/modular-interiors',
+            active: pathname.includes('/offerings')
         },
         {
             label: 'Price',

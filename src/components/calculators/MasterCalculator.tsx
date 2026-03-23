@@ -52,7 +52,7 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
                             label: 'Select Kitchen Layout',
                             options: [
                                 { id: 'straight', label: 'Straight', value: 80000, img: '/assets/calculators/v2_kitchen_straight.png', desc: 'Single wall efficiency' },
-                                { id: 'lshape', label: 'L-Shape', value: 150000, img: '/assets/calculators/v2_kitchen_lshape.png', desc: 'Perfect for corners' },
+                                { id: 'lshape', label: 'L-Shape', value: 150000, img: '/v4/v5-kitchen-l-shape.png', desc: 'Perfect for corners' },
                                 { id: 'ushape', label: 'U-Shape', value: 220000, img: '/assets/calculators/v2_kitchen_ushape.png', desc: 'Maximum workspace' },
                                 { id: 'parallel', label: 'Parallel', value: 180000, img: '/assets/calculators/v2_kitchen_parallel.png', desc: 'Professional workflow' },
                             ]
@@ -485,21 +485,21 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
             {/* Educational Section */}
             <div className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
                 <div className="space-y-6">
-                    <div className="w-16 h-16 rounded-2xl bg-stone-50 flex items-center justify-center mx-auto text-stone-900 border border-stone-100 shadow-sm">
+                    <div className="w-16 h-16 rounded-2xl bg-[#fcebeb] flex items-center justify-center mx-auto text-[#eb595f] border border-[#eb595f]/10 shadow-sm">
                         <ClipboardList className="w-8 h-8" />
                     </div>
                     <h3 className="text-xl font-bold">Transparent Pricing</h3>
                     <p className="text-stone-400 text-sm leading-relaxed">No hidden costs. Every quote includes design fees, logistics, and taxes.</p>
                 </div>
                 <div className="space-y-6">
-                    <div className="w-16 h-16 rounded-2xl bg-stone-50 flex items-center justify-center mx-auto text-stone-900 border border-stone-100 shadow-sm">
+                    <div className="w-16 h-16 rounded-2xl bg-[#fcebeb] flex items-center justify-center mx-auto text-[#eb595f] border border-[#eb595f]/10 shadow-sm">
                         <ShieldCheck className="w-8 h-8" />
                     </div>
                     <h3 className="text-xl font-bold">10 Year Warranty</h3>
                     <p className="text-stone-400 text-sm leading-relaxed">Our estimates aren't just for products, but for a decade of peace of mind.</p>
                 </div>
                 <div className="space-y-6">
-                    <div className="w-16 h-16 rounded-2xl bg-stone-50 flex items-center justify-center mx-auto text-stone-900 border border-stone-100 shadow-sm">
+                    <div className="w-16 h-16 rounded-2xl bg-[#fcebeb] flex items-center justify-center mx-auto text-[#eb595f] border border-[#eb595f]/10 shadow-sm">
                         <Send className="w-8 h-8" />
                     </div>
                     <h3 className="text-xl font-bold">Direct from Factory</h3>

@@ -4,8 +4,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, User, Tag, ChevronRight, Search, Heart, Share2 } from "lucide-react";
 import Image from "next/image";
+import { useConsultation } from "./providers/ConsultationProvider";
 
 const BlogContent = () => {
+    const { openConsultation } = useConsultation();
     const featuredPost = {
         title: "The Renaissance of Minimalism: 2024 Interior Trends.",
         excerpt: "Discover how the new year is bringing a softer, more human approach to minimalist design, blending warmth with clean lines.",
@@ -285,7 +287,7 @@ const BlogContent = () => {
                 <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
                     <h2 className="text-4xl font-serif font-bold text-[#2d2412]">Wanna build your own design story?</h2>
                     <p className="text-stone-500">Book a free design consultation with our experts today.</p>
-                    <button className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all">
+                    <button onClick={openConsultation} className="px-12 py-6 bg-[#eb595f] text-white rounded-2xl font-bold tracking-widest uppercase hover:bg-[#2d2412] transition-all cursor-pointer">
                         Start Your Evolution
                     </button>
                 </div>

@@ -12,7 +12,7 @@ interface ProcessProps {
 
 export const ProcessHelix: React.FC<ProcessProps> = ({ variant = 'standard', accentColor = "#eb595f" }) => {
     return (
-        <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+        <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-white relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header Style */}
                 <div className="text-center mb-16 md:mb-24 px-4">
@@ -38,9 +38,9 @@ export const ProcessHelix: React.FC<ProcessProps> = ({ variant = 'standard', acc
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
                     {[
                         { title: "Consultation", day: "Day 01-02", icon: <Sparkles className="w-6 h-6" />, color: accentColor, desc: "Direct dialogue with our master designers to translate your vision into form." },
-                        { title: "Design Selection", day: "Day 07-14", icon: <PenTool className="w-6 h-6" />, color: "#2d2412", desc: "Refining every millimeter and material choice with 3D precision mapping." },
-                        { title: "Precision Mfgr.", day: "Day 15-35", icon: <Hammer className="w-6 h-6" />, color: "#4d3b1a", desc: "German-engineered fabrication with robotic accuracy in our facility." },
-                        { title: "Final Handover", day: "Day 36-45", icon: <CheckCircle className="w-6 h-6" />, color: "#2d2412", desc: "White-glove installation and strict quality audit for a flawless reveal." }
+                        { title: "Design Selection", day: "Day 07-14", icon: <PenTool className="w-6 h-6" />, color: accentColor, desc: "Refining every millimeter and material choice with 3D precision mapping." },
+                        { title: "Precision Mfgr.", day: "Day 15-35", icon: <Hammer className="w-6 h-6" />, color: accentColor, desc: "German-engineered fabrication with robotic accuracy in our facility." },
+                        { title: "Final Handover", day: "Day 36-45", icon: <CheckCircle className="w-6 h-6" />, color: accentColor, desc: "White-glove installation and strict quality audit for a flawless reveal." }
                     ].map((step, i) => (
                         <motion.div
                             key={i}

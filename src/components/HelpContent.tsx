@@ -35,7 +35,7 @@ const HelpContent = () => {
                             placeholder="Search for topics like 'Warranty', 'Pricing', or 'Timeline'..."
                             className="w-full px-10 py-8 bg-white border border-white/20 rounded-3xl outline-none focus:bg-white text-[#2d2412] placeholder-stone-400 transition-all text-xl font-light shadow-xl"
                         />
-                        <button className="absolute right-6 top-1/2 -translate-y-1/2 w-16 h-16 bg-[#2d2412] text-white rounded-2xl flex items-center justify-center hover:bg-[#eb595f] transition-all shadow-md">
+                        <button className="absolute right-6 top-1/2 -translate-y-1/2 w-16 h-16 bg-[#eb595f] text-white rounded-2xl flex items-center justify-center hover:bg-[#2d2412] transition-all shadow-md">
                             <Search className="w-6 h-6" />
                         </button>
                     </div>
@@ -71,7 +71,7 @@ const HelpContent = () => {
             </section>
 
             {/* 3. INSTALLATION TRACKER INFOGRAPHIC */}
-            <section className="py-32 px-6 bg-stone-50">
+            <section className="pt-12 pb-32 px-6 bg-stone-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         <div className="space-y-12">
@@ -162,7 +162,7 @@ const HelpContent = () => {
             </section>
 
             {/* 5. POPULAR FAQS SECTION */}
-            <section className="py-32 px-6">
+            <section className="pt-12 pb-32 px-6">
                 <div className="max-w-4xl mx-auto space-y-16">
                     <div className="text-center space-y-4">
                         <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2d2412]">Common Questions.</h2>
@@ -209,20 +209,20 @@ const HelpContent = () => {
             {/* 7. CONTACT CHANNELS BAR */}
             <section className="py-24 px-6">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="p-10 bg-white border border-stone-100 rounded-[3rem] text-center space-y-4 hover:shadow-2xl transition-all group">
+                    <a href="tel:+917744806644" className="p-10 bg-white border border-stone-100 rounded-[3rem] text-center space-y-4 hover:shadow-2xl transition-all group block">
                         <div className="w-16 h-16 bg-[#eb595f]/10 rounded-2xl flex items-center justify-center text-[#eb595f] mx-auto group-hover:bg-[#eb595f] group-hover:text-white transition-all">
                             <Phone className="w-6 h-6" />
                         </div>
                         <h4 className="font-bold text-[#2d2412]">Call Concierge</h4>
                         <p className="text-stone-400 text-sm font-light">+91 7744 80 6644</p>
-                    </div>
-                    <div className="p-10 bg-white border border-stone-100 rounded-[3rem] text-center space-y-4 hover:shadow-2xl transition-all group">
+                    </a>
+                    <a href="https://wa.me/917744806644" target="_blank" rel="noopener noreferrer" className="p-10 bg-white border border-stone-100 rounded-[3rem] text-center space-y-4 hover:shadow-2xl transition-all group block">
                         <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500 mx-auto group-hover:bg-blue-500 group-hover:text-white transition-all">
                             <MessageCircle className="w-6 h-6" />
                         </div>
                         <h4 className="font-bold text-[#2d2412]">WhatsApp Support</h4>
                         <p className="text-stone-400 text-sm font-light">Available 10 AM - 7 PM</p>
-                    </div>
+                    </a>
                     <div className="p-10 bg-white border border-stone-100 rounded-[3rem] text-center space-y-4 hover:shadow-2xl transition-all group">
                         <div className="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-500 mx-auto group-hover:bg-purple-500 group-hover:text-white transition-all">
                             <FileText className="w-6 h-6" />
@@ -243,7 +243,7 @@ const HelpContent = () => {
                             placeholder="Try searching again..."
                             className="w-full px-8 py-5 bg-white border border-stone-100 rounded-2xl shadow-sm outline-none focus:border-[#eb595f] transition-all"
                         />
-                        <Search className="absolute right-6 top-1/2 -translate-y-1/2 w-5 h-5 text-stone-300" />
+                        <Search className="absolute right-6 top-1/2 -translate-y-1/2 w-5 h-5 text-[#eb595f]" />
                     </div>
                 </div>
             </section>

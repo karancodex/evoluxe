@@ -517,7 +517,7 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
             </section>
 
             {/* 11. Final CTA Form - High Conversion Layout */}
-            <section className="py-32 bg-[#1a1a1a] text-white overflow-hidden relative">
+            <section className="py-32 text-white overflow-hidden relative" style={{ backgroundColor: accentColor }}>
                 <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] rotate-12 border-y-[100px] border-white" />
                 </div>
@@ -531,7 +531,7 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
                         >
                             <h2 className="text-5xl md:text-7xl font-serif font-bold text-white leading-tight mb-10">
                                 Your dream interiors <br />
-                                <span className="italic font-medium" style={{ color: accentColor }}>is just a click away</span>
+                                <span className="italic font-medium text-white">is just a click away</span>
                             </h2>
                             <p className="text-2xl text-white/60 mb-12 leading-relaxed">Join 2000+ happy homeowners who transformed their living spaces with evoluxstudio.</p>
 

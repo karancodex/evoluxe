@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useConsultation } from "./providers/ConsultationProvider";
+import { useRouter } from "next/navigation";
 
 const slides = [
     {
@@ -22,7 +23,8 @@ const slides = [
         fallback: "/v4/hero-bg.png",
         title: "Premium Sofas & Upholstery",
         subtitle: "Since 1978.",
-        desc: "DCW specializes in crafting custom sofas and expert upholstery solutions trusted for over four decades."
+        desc: "DCW specializes in crafting custom sofas and expert upholstery solutions trusted for over four decades.",
+        link: "/dcw"
     },
     {
         id: 3,
@@ -46,6 +48,7 @@ const slides = [
 
 const Hero = () => {
     const { openConsultation } = useConsultation();
+    const router = useRouter();
     const [current, setCurrent] = useState(0);
 
     useEffect(() => {
@@ -56,7 +59,12 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative w-full h-screen md:h-[85vh] lg:h-[90vh] flex items-center bg-white transition-colors duration-500">
+        <section
+            className={`relative w-full h-screen md:h-[85vh] lg:h-[90vh] flex items-center bg-white transition-colors duration-500 ${slides[current].link ? 'cursor-pointer' : ''}`}
+            onClick={() => {
+                if (slides[current].link) router.push(slides[current].link);
+            }}
+        >
             {/* Image Container with Overflow Hidden to prevent slide overflow */}
             <div className="absolute inset-0 overflow-hidden z-0">
                 <AnimatePresence mode="wait">
@@ -113,7 +121,10 @@ const Hero = () => {
 
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <button
-                                    onClick={openConsultation}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        openConsultation();
+                                    }}
                                     className="w-full sm:w-auto px-8 py-4 bg-[#eb595f] text-white font-bold rounded-full shadow-lg hover:bg-[#2d2412] transition-all transform active:scale-95 text-xs uppercase tracking-widest"
                                 >
                                     Start Your Journey
@@ -125,7 +136,10 @@ const Hero = () => {
             </div>
 
             {/* Feature Bar - Clean White Style */}
-            <div className="absolute bottom-0 left-0 right-0 z-30 px-4 transform translate-y-1/2">
+            <div
+                onClick={(e) => e.stopPropagation()}
+                className="absolute bottom-0 left-0 right-0 z-30 px-4 transform translate-y-1/2"
+            >
                 <div className="max-w-6xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -189,7 +203,10 @@ const Hero = () => {
             </div>
 
             {/* Slide Indicators */}
-            <div className="absolute bottom-12 translate-y-1 md:bottom-20 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
+            <div
+                onClick={(e) => e.stopPropagation()}
+                className="absolute bottom-12 translate-y-1 md:bottom-20 left-1/2 transform -translate-x-1/2 z-20 flex gap-3"
+            >
                 {slides.map((_, idx) => (
                     <button
                         key={idx}
