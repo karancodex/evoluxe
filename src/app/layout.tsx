@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import dynamic from 'next/dynamic';
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import BottomNav from "@/components/BottomNav";
-import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import { ConsultationProvider } from "@/components/providers/ConsultationProvider";
 
+const Footer = dynamic(() => import('@/components/Footer'));
+const BottomNav = dynamic(() => import('@/components/BottomNav'));
+
 export const metadata: Metadata = {
-    title: "EVOLX Studio — Interior Architecture & Design",
+    title: "EVOLXSTUDIO Interior Architecture & Design",
     description: "High-end interior architecture and architectural studio offering bespoke luxury residential and premium commercial spatial design experiences.",
     icons: {
         icon: "/v4/favicon.png",

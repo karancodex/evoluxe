@@ -191,7 +191,7 @@ const Footer = () => {
 
                 {/* Bottom Section */}
                 <div className="border-t border-[#faf9f6] pt-8 flex flex-col items-center gap-4 text-xs text-stone-400 font-medium">
-                    <p>© 2026 EVOLXStudio Design Studio. All rights reserved. | Developed by RightBrain Infotech Pvt. Ltd.</p>
+                    <p>© 2026 EVOLXStudio Design Studio. All rights reserved. | Developed by RightBrain Infotech Pvt. Ltd. | Marketed by DUMOSH.</p>
                     <div className="flex gap-8">
                         <Link href={getLink("Privacy Policy")} className="hover:text-[#eb595f] transition-colors">Privacy Policy</Link>
                         <Link href={getLink("Terms & Conditions")} className="hover:text-[#eb595f] transition-colors">Terms of Service</Link>

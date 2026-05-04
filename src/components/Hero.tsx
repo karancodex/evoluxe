@@ -82,6 +82,8 @@ const Hero = () => {
                                     src={slide.image}
                                     alt={slide.title}
                                     fill
+                                    sizes="100vw"
+                                    quality={90}
                                     className="object-cover object-center"
                                     onError={(e) => {
                                         const target = e.target as HTMLImageElement;
