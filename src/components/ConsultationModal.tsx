@@ -34,7 +34,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
         const data = Object.fromEntries(formData.entries());
 
         try {
-            const response = await fetch("https://formsubmit.co/ajax/evolxinteriordesign@gmail.com", {
+            const response = await fetch("https://formsubmit.co/ajax/info@evolxstudio.com", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

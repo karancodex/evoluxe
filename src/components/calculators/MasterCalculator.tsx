@@ -219,7 +219,7 @@ const MasterCalculator: React.FC<CalculatorProps> = ({ type }) => {
             });
 
         try {
-            const response = await fetch("https://formsubmit.co/ajax/evolxinteriordesign@gmail.com", {
+            const response = await fetch("https://formsubmit.co/ajax/info@evolxstudio.com", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

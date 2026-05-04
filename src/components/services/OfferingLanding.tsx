@@ -578,7 +578,7 @@ const OfferingLanding: React.FC<OfferingLandingProps> = ({
                                 data.Offering = title;
 
                                 try {
-                                    const response = await fetch("https://formsubmit.co/ajax/evolxinteriordesign@gmail.com", {
+                                    const response = await fetch("https://formsubmit.co/ajax/info@evolxstudio.com", {
                                         method: "POST",
                                         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                                         body: JSON.stringify(data)
